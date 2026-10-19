@@ -260,8 +260,26 @@
   /* ---------------- 題目內容擷取 ---------------- */
   function textOf(node) { return node ? (node.textContent || "").replace(/\s+/g, " ").trim() : ""; }
 
+  /* 找出解析區塊所屬的題目容器。
+     作答頁：.qcard 與 .explain 是「兄弟」，不是父子。
+     成績／錯題頁：.explain 在 .reviewq 裡面。 */
+  function scopeOf(explainEl) {
+    var rv = explainEl.closest(".reviewq");
+    if (rv) return rv;
+
+    var prev = explainEl.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("qcard")) return prev;
+
+    var par = explainEl.parentElement;
+    if (par) {
+      var qc = par.querySelector(".qcard");
+      if (qc) return qc;
+    }
+    return par;
+  }
+
   function readQuestion(explainEl) {
-    var box = explainEl.closest(".qcard, .reviewq, .panel");
+    var box = scopeOf(explainEl);
     if (!box) return null;
 
     var passage = box.querySelector(".passage");
