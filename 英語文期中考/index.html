@@ -922,6 +922,65 @@
     return h;
   }
 
+  /* ---------------- 答題音效 ----------------
+     以 Web Audio 即時合成，不依賴任何音檔，所以離線、
+     用 file:// 直接開、或架在 GitHub Pages 上都能出聲。
+
+       good → 答對：上升琶音 C5–E5–G5–C6，尾音帶高音點綴
+       bad  → 答錯：兩聲下降的低音提示
+       tick → 考試模式：單一中性確認音
+
+     考試模式刻意不播 good／bad：答案要到交卷才揭曉，
+     在作答當下洩漏對錯會毀掉考試模式的防弊用途。         */
+  var SFX = (function () {
+    var ctx = null;
+
+    function ac() {
+      if (!ctx) {
+        var C = window.AudioContext || window.webkitAudioContext;
+        if (!C) return null;
+        try { ctx = new C(); } catch (e) { return null; }
+      }
+      // 瀏覽器自動播放政策：suspended 時必須在使用者手勢後 resume
+      if (ctx.state === "suspended") { try { ctx.resume(); } catch (e) { } }
+      return ctx;
+    }
+
+    function tone(c, freq, start, dur, type, peak) {
+      var t = c.currentTime + start;
+      var o = c.createOscillator();
+      var g = c.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(freq, t);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(peak, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g);
+      g.connect(c.destination);
+      o.start(t);
+      o.stop(t + dur + 0.03);
+    }
+
+    return {
+      good: function () {
+        var c = ac(); if (!c) return;
+        tone(c, 523.25, 0.00, 0.28, "triangle", 0.30);
+        tone(c, 659.25, 0.07, 0.28, "triangle", 0.28);
+        tone(c, 783.99, 0.14, 0.34, "triangle", 0.26);
+        tone(c, 1046.50, 0.22, 0.46, "sine", 0.24);
+      },
+      bad: function () {
+        var c = ac(); if (!c) return;
+        tone(c, 311.13, 0.00, 0.20, "square", 0.16);
+        tone(c, 233.08, 0.13, 0.40, "square", 0.15);
+      },
+      tick: function () {
+        var c = ac(); if (!c) return;
+        tone(c, 880.00, 0.00, 0.09, "sine", 0.12);
+      }
+    };
+  })();
+
   function pick(oi) {
     var p = cur(); if (!p) return;
     var immediate = S.mode === "immediate";
@@ -933,8 +992,10 @@
 
     if (immediate) {
       S.locked[S.idx] = true;
-      if (oi !== q.a) markWrong(q);
-      else unmarkWrong(q);
+      if (oi !== q.a) { markWrong(q); SFX.bad(); }
+      else { unmarkWrong(q); SFX.good(); }
+    } else {
+      SFX.tick();
     }
     renderExam();
   }
