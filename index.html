@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>四年級期中考｜每日 50 題</title>
+<title>四年級期中考／期末考｜每日 50 題</title>
 <style>
   :root{
     --bg:#eef2f8; --card:#fff; --ink:#1f2933; --ink2:#52606d; --ink3:#8b96a5;
@@ -113,8 +113,8 @@
 
 <header class="hero">
   <div class="wrap">
-    <span class="kicker">2026 年 11 月 期中考</span>
-    <h1>四年級期中考｜每日 50 題</h1>
+    <span class="kicker">2026 年 11 月 期中考／期末考</span>
+    <h1>四年級期中考／期末考｜每日 50 題</h1>
     <p>選一個科目，再選想測驗的日期，直接開始。</p>
     <div class="meta" id="meta"></div>
     <div class="quick" id="quick"></div>
@@ -147,35 +147,35 @@
 
   var SUBJECTS = [
     {
-      id: "chi", dir: "國語文期中考", name: "國語文期中考", short: "國語文", badge: "國",
+      id: "chi", dir: "國語文期中考", name: "國語文期中考／期末考", short: "國語文", badge: "國",
       color: "#8a4b8c", prefix: "chi-day-", store: "midterm-2026-11-chi-daily",
       summary: "康軒版四上第 1～6 課：水陸小高手、放學後、我的籃球夢、永遠的馬偕、假如給我三天光明、攀登生命的高峰，以及閱讀階梯一〈種樹的人〉。",
       points: ["多音字", "形近字", "同音字", "字音", "輕聲", "部首", "閱讀理解", "課文理解"],
       extra: "出題用字 100% 來自課本"
     },
     {
-      id: "math", dir: "數學期中考", name: "數學期中考", short: "數學", badge: "數",
+      id: "math", dir: "數學期中考", name: "數學期中考／期末考", short: "數學", badge: "數",
       color: "#0e7490", prefix: "math-day-", store: "midterm-2026-11-math-daily",
       summary: "因材網四年級 10 個單元、58 個子題：從一億以內的數、乘除法、角度與三角形，到小數、分數與統計圖。",
       points: ["一億以內的數", "整數乘法", "角度", "整數除法", "公里", "三角形", "小數", "整數四則", "分數", "統計圖"],
       extra: "每卷 2 個素養題組"
     },
     {
-      id: "eng", dir: "英語文期中考", name: "英語文期中考", short: "英語文", badge: "英",
+      id: "eng", dir: "英語文期中考", name: "英語文期中考／期末考", short: "英語文", badge: "英",
       color: "#7a5c9e", prefix: "eng-day-", store: "midterm-2026-11-eng-daily",
       summary: "5 個單元：聽、讀、學習方法與策略、文化理解、邏輯思考判斷與創造力；從語音規則到教室與日常生活句型。",
       points: ["教室用語", "日常生活用語", "簡易句型", "語音規則", "字彙", "閱讀理解", "文化理解"],
       extra: "英文可點擊聽發音（en-US Mark）｜語速可調，預設 0.7"
     },
     {
-      id: "sci", dir: "自然期中考", name: "自然期中考", short: "自然", badge: "自",
+      id: "sci", dir: "自然期中考", name: "自然期中考／期末考", short: "自然", badge: "自",
       color: "#2f8f5b", prefix: "sci-day-", store: "midterm-2026-11-sci-daily",
       summary: "四上 4 個單元：地表的靜與動、水生生物與環境、有趣的聲光現象、好玩的電路。",
       points: ["風與流水", "地震與防災", "水生生物", "聲音", "光", "電路"],
       extra: "每卷 2 個素養題組"
     },
     {
-      id: "soc", dir: "社會期中考", name: "社會期中考", short: "社會", badge: "社",
+      id: "soc", dir: "社會期中考", name: "社會期中考／期末考", short: "社會", badge: "社",
       color: "#1f7a8c", prefix: "soc-day-", store: "midterm-2026-11-soc-daily",
       summary: "ADL 四年級 33 個子題：從家鄉的自然環境、地形氣候、節慶禮俗，到個人與群體、變遷與因果、價值的選擇。",
       points: ["家鄉環境", "地形氣候", "節慶禮俗", "個人與群體", "人與環境", "權力與人權", "生產與消費", "科技與社會", "全球關連", "變遷與因果"],
