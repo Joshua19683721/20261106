@@ -594,7 +594,13 @@
       var ex = explains[i];
       if (ex.getAttribute("data-qv") === "1") {
         var b0 = ex.querySelector(".qv-btn");
-        if (b0) b0.textContent = verifyButtonLabel();
+        if (b0) {
+          var lb = verifyButtonLabel();
+          /* 只有真的不同才寫入。textContent 即使設成相同字串，
+             也會替換文字節點而觸發 MutationObserver，
+             造成「觀察→改字→觀察」的無限迴圈把頁面卡死。 */
+          if (b0.textContent !== lb) b0.textContent = lb;
+        }
         continue;
       }
 
@@ -638,12 +644,18 @@
     syncVerifyButtons();
 
     var target = document.getElementById("app") || document.body;
+    var suppress = false;
     var obs = new MutationObserver(function () {
       /* 直接同步處理：背景分頁不會觸發 requestAnimationFrame，
          用 rAF 去抖會讓按鈕永遠不出現。
-         已處理過的 .explain 有 data-qv 標記，重複掃描是 no-op，
-         不會造成無限迴圈。 */
-      syncVerifyButtons();
+         自己改 DOM 時先上鎖，避免「觀察→改 DOM→觀察」的迴圈。 */
+      if (suppress) return;
+      suppress = true;
+      try {
+        syncVerifyButtons();
+      } finally {
+        suppress = false;
+      }
     });
     obs.observe(target, { childList: true, subtree: true });
   }
