@@ -315,6 +315,17 @@
     .timer,.progress{font-size:12px;padding:3px 7px}
     .nav .btn{flex:1;justify-content:center}
   }
+  /* ---------- 字重加粗（內文 600／UI 與題幹 700／標題 800） ----------
+     以追加規則覆蓋原有字重，不改動上面任何宣告，方便整體回退。
+     長文（短文、逐題解析）刻意留在 600：整段粗體會讓密集中文
+     失去筆畫間隙，反而更難讀。 */
+  body{font-weight:600}
+  h1,h2,h3,h4{font-weight:800}
+  .stem,.qcard .stem{font-weight:700}
+  button,.btn,.opt,.tag,.qno,.mt,.k,.pill,.day,.go,.open,.mode .mt{font-weight:700}
+  input,select,textarea{font-weight:700}
+  .passage,.exbox,.csum,.pt,.extra,.note,.md,.sub,.subj-sub,.note-line,.cnt{font-weight:600}
+  b,strong{font-weight:800}
 </style>
 </head>
 <body>
