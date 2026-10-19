@@ -392,12 +392,12 @@
       max_tokens: 2500,
       stream: true
     };
-    /* gpt-oss 預設會先產生 reasoning，佔用 token 額度；
-       關掉回傳、降低推理量，避免正文被吃光或延遲過久。
+    /* gpt-oss 預設會先產生 reasoning，佔用 token 額度；降低推理量，
+       避免正文被吃光或延遲過久。串流只讀 delta.content，
+       不需要 include_reasoning，少一個參數就少一種被 400 拒絕的可能。
        qwen3.8 預設 reasoning 為 none，不用傳。 */
     if (/^openai\/gpt-oss/.test(model)) {
       payload.reasoning_effort = "low";
-      payload.include_reasoning = false;
     }
 
     return fetch(ENDPOINT, {
