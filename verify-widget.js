@@ -620,14 +620,12 @@
     syncVerifyButtons();
 
     var target = document.getElementById("app") || document.body;
-    var pending = false;
     var obs = new MutationObserver(function () {
-      if (pending) return;
-      pending = true;
-      requestAnimationFrame(function () {
-        pending = false;
-        syncVerifyButtons();
-      });
+      /* 直接同步處理：背景分頁不會觸發 requestAnimationFrame，
+         用 rAF 去抖會讓按鈕永遠不出現。
+         已處理過的 .explain 有 data-qv 標記，重複掃描是 no-op，
+         不會造成無限迴圈。 */
+      syncVerifyButtons();
     });
     obs.observe(target, { childList: true, subtree: true });
   }
