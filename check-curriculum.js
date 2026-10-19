@@ -90,7 +90,45 @@ function checkChinese() {
   } else {
     ok("全部漢字皆為課內字");
   }
+
+  checkChineseConsistency();
   console.log("");
+}
+
+/* 答案一致性：同一題幹＋同一組選項（或同一篇短文）不應出現兩個正解 */
+function checkChineseConsistency() {
+  const files = poolFiles(path.join(ROOT, "國語文期中考", "_dev", "pool"));
+  const byKey = new Map();
+
+  const add = (key, it) => {
+    if (!byKey.has(key)) byKey.set(key, []);
+    byKey.get(key).push(String((it.o || [])[it.a]));
+  };
+
+  files.forEach(f => {
+    let mod;
+    try { mod = readModule(f); } catch (e) { return; }
+    if (!Array.isArray(mod)) return;
+    if (mod.length && mod[0] && Array.isArray(mod[0].qs)) {
+      // 素養題：同一篇短文內的同一題幹才算同一題
+      mod.forEach(g => {
+        const ctx = String(g.p || "").trim().slice(0, 80);
+        (g.qs || []).forEach(it => add("P:" + ctx + "|Q:" + it.q, it));
+      });
+    } else {
+      // 單題：題幹與選項完全相同才算同一題
+      mod.forEach(it => {
+        const sig = (it.o || []).map(String).slice().sort().join("¦");
+        add("Q:" + it.q + "|O:" + sig, it);
+      });
+    }
+  });
+
+  let conflicts = 0;
+  byKey.forEach(arr => { if (new Set(arr).size > 1) conflicts++; });
+
+  if (conflicts) fail("有 " + conflicts + " 組題目同題幹同選項卻答案不同");
+  else ok("答案一致性：無矛盾");
 }
 
 /* ---------------- 社會 ---------------- */
