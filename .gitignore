@@ -1,0 +1,15 @@
+# OpenCode 本機工具狀態
+.opencode/
+
+# 影像中間產物 / 暫存資料
+tmp_crop/
+_work/
+_sub/
+crops/
+frames_v1/
+frames_v2/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/

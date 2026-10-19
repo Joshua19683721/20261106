@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>四年級期中考｜每日 50 題</title>
+<style>
+  :root{
+    --bg:#eef2f8; --card:#fff; --ink:#1f2933; --ink2:#52606d; --ink3:#8b96a5;
+    --line:#e2e8f2; --brand:#2f6fed; --ok:#1f7a4c;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 18px}
+
+  /* ---------- 頁首 ---------- */
+  header.hero{
+    background:linear-gradient(135deg,#243b6b 0%,#2f6fed 55%,#5b8dfa 100%);
+    color:#fff;padding:38px 0 30px;margin-bottom:24px;
+  }
+  .kicker{display:inline-block;font-size:12px;letter-spacing:.14em;opacity:.82;margin-bottom:6px}
+  h1{margin:0 0 8px;font-size:30px;line-height:1.25;font-weight:800;letter-spacing:.01em}
+  .hero p{margin:0;opacity:.9;font-size:15px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .meta span{
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);
+    padding:5px 11px;border-radius:999px;font-size:13px;
+  }
+  .quick{
+    margin-top:18px;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:12px 14px;
+  }
+  .quick-t{font-size:13px;font-weight:700;opacity:.95;margin-bottom:9px}
+  .quick-row{display:flex;flex-wrap:wrap;gap:8px}
+  .pill{
+    display:inline-flex;align-items:center;gap:7px;background:#fff;color:#1f2933;
+    border-radius:10px;padding:8px 13px;font-size:14px;font-weight:700;
+    border:2px solid transparent;transition:.15s;
+  }
+  .pill:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.18)}
+  .pill i{
+    width:22px;height:22px;border-radius:7px;background:var(--c);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-style:normal;font-size:12px;font-weight:800;
+  }
+
+  /* ---------- 科目卡片 ---------- */
+  .card{
+    position:relative;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;margin-bottom:18px;
+    box-shadow:0 1px 2px rgba(31,41,51,.04);
+  }
+  .card .stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c)}
+  .card-main{padding:18px 20px 18px 24px}
+  .chead{display:flex;align-items:flex-start;gap:12px}
+  .badge{
+    width:42px;height:42px;border-radius:12px;background:var(--c);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;font-weight:800;flex:0 0 auto;
+  }
+  .ctitle{flex:1;min-width:0}
+  .ctitle h2{margin:0;font-size:19px;line-height:1.3;font-weight:800}
+  .csub{margin-top:3px;font-size:12.5px;color:var(--ink3)}
+  .csub b{color:var(--ink2)}
+  .open{
+    flex:0 0 auto;font-size:13px;color:var(--brand);font-weight:700;
+    border:1px solid #cfe0ff;background:#f3f8ff;padding:7px 11px;border-radius:9px;white-space:nowrap;
+  }
+  .open:hover{background:#e8f1ff}
+  .csum{margin:13px 0 10px;font-size:14px;color:var(--ink2);line-height:1.75}
+
+  .points{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .pt{font-size:12px;background:#f4f7fc;border:1px solid var(--line);color:var(--ink2);padding:3px 9px;border-radius:7px}
+
+  .daylabel{font-size:12.5px;color:var(--ink3);margin-bottom:7px}
+  .days{display:flex;flex-wrap:wrap;gap:7px}
+  .day{
+    position:relative;min-width:60px;text-align:center;padding:7px 8px;
+    border:1px solid var(--line);border-radius:9px;background:#fff;
+    font-size:13px;font-weight:700;color:var(--ink2);transition:.14s;
+  }
+  .day:hover{border-color:var(--c);color:var(--c);background:#f8fbff}
+  .day.done{background:#effaf3;border-color:#b9e3c9;color:#1f7a4c}
+  .day.done::after{content:"";position:absolute;top:5px;right:5px;width:6px;height:6px;border-radius:50%;background:#2f9e63}
+  .day.today{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+
+  .cfoot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+  .extra{font-size:12.5px;color:var(--ink3);flex:1;min-width:200px}
+  .go{font-size:13px;font-weight:700;background:var(--c);color:#fff;padding:8px 14px;border-radius:9px}
+  .go:hover{filter:brightness(1.07)}
+
+  /* ---------- 說明 ---------- */
+  .tips{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:26px}
+  .tips h3{margin:0 0 10px;font-size:15px}
+  .tips ul{margin:0;padding-left:20px;color:var(--ink2);font-size:13.5px;line-height:1.9}
+  footer{padding:0 0 34px;text-align:center;color:var(--ink3);font-size:12px}
+
+  @media (max-width:560px){
+    h1{font-size:24px}
+    .card-main{padding:16px 14px 16px 18px}
+    .open{display:none}
+    .day{min-width:54px;font-size:12.5px;padding:6px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">2026 年 11 月 期中考</span>
+    <h1>四年級期中考｜每日 50 題</h1>
+    <p>選一個科目，再選想測驗的日期，直接開始。</p>
+    <div class="meta" id="meta"></div>
+    <div class="quick" id="quick"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="subjects"></div>
+
+  <section class="tips">
+    <h3>使用說明</h3>
+    <ul>
+      <li>點卡片上的<b>日期</b>，直接開始那一天的試卷；點右上角「本科首頁」可看該科所有試卷與成績。</li>
+      <li>每張試卷 50 題：40 題選擇 ＋ 10 題素養題組，作答後可看正解與每個選項的解析。</li>
+      <li>日期上的小綠點表示那一天已經練習過，滑過去可以看到最佳分數。</li>
+      <li>練習紀錄存在這台裝置的瀏覽器，換裝置或清除瀏覽資料就不會保留。</li>
+      <li>英語文可以點英文單字聽發音，語速可在該科首頁調整。</li>
+    </ul>
+  </section>
+</main>
+
+<footer>共 5 科 ｜ 95 張試卷 ｜ 4,750 題 ｜ 10/19 – 11/6</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var NDAYS = 19;
+  var WD = ["日", "一", "二", "三", "四", "五", "六"];
+
+  var SUBJECTS = [
+    {
+      id: "chi", dir: "國語文期中考", name: "國語文期中考", short: "國語文", badge: "國",
+      color: "#8a4b8c", prefix: "chi-day-", store: "midterm-2026-11-chi-daily",
+      summary: "康軒版四上第 1～6 課：水陸小高手、放學後、我的籃球夢、永遠的馬偕、假如給我三天光明、攀登生命的高峰，以及閱讀階梯一〈種樹的人〉。",
+      points: ["多音字", "形近字", "同音字", "字音", "輕聲", "部首", "閱讀理解", "課文理解"],
+      extra: "出題用字 100% 來自課本"
+    },
+    {
+      id: "math", dir: "數學期中考", name: "數學期中考", short: "數學", badge: "數",
+      color: "#0e7490", prefix: "math-day-", store: "midterm-2026-11-math-daily",
+      summary: "因材網四年級 10 個單元、58 個子題：從一億以內的數、乘除法、角度與三角形，到小數、分數與統計圖。",
+      points: ["一億以內的數", "整數乘法", "角度", "整數除法", "公里", "三角形", "小數", "整數四則", "分數", "統計圖"],
+      extra: "每卷 2 個素養題組"
+    },
+    {
+      id: "eng", dir: "英語文期中考", name: "英語文期中考", short: "英語文", badge: "英",
+      color: "#7a5c9e", prefix: "eng-day-", store: "midterm-2026-11-eng-daily",
+      summary: "5 個單元：聽、讀、學習方法與策略、文化理解、邏輯思考判斷與創造力；從語音規則到教室與日常生活句型。",
+      points: ["教室用語", "日常生活用語", "簡易句型", "語音規則", "字彙", "閱讀理解", "文化理解"],
+      extra: "英文可點擊聽發音（en-US Mark）｜語速可調，預設 0.7"
+    },
+    {
+      id: "sci", dir: "自然期中考", name: "自然期中考", short: "自然", badge: "自",
+      color: "#2f8f5b", prefix: "sci-day-", store: "midterm-2026-11-sci-daily",
+      summary: "四上 4 個單元：地表的靜與動、水生生物與環境、有趣的聲光現象、好玩的電路。",
+      points: ["風與流水", "地震與防災", "水生生物", "聲音", "光", "電路"],
+      extra: "每卷 2 個素養題組"
+    },
+    {
+      id: "soc", dir: "社會期中考", name: "社會期中考", short: "社會", badge: "社",
+      color: "#1f7a8c", prefix: "soc-day-", store: "midterm-2026-11-soc-daily",
+      summary: "ADL 四年級 33 個子題：從家鄉的自然環境、地形氣候、節慶禮俗，到個人與群體、變遷與因果、價值的選擇。",
+      points: ["家鄉環境", "地形氣候", "節慶禮俗", "個人與群體", "人與環境", "權力與人權", "生產與消費", "科技與社會", "全球關連", "變遷與因果"],
+      extra: "每卷 33 個子題全涵蓋 ＋ 2 個素養題組"
+    }
+  ];
+
+  function pad2(n) { return (n < 10 ? "0" : "") + n; }
+  function dayDate(i) { return new Date(2026, 9, 19 + i); }
+  function dayLabel(i) { var d = dayDate(i); return (d.getMonth() + 1) + "/" + d.getDate(); }
+  function keyOf(s, i) { return s.prefix + pad2(i + 1); }
+
+  function readStore(k) {
+    try { return JSON.parse(localStorage.getItem(k) || "{}") || {}; } catch (e) { return {}; }
+  }
+
+  function todayIndex() {
+    var n = new Date();
+    var a = new Date(n.getFullYear(), n.getMonth(), n.getDate()).getTime();
+    var b = new Date(2026, 9, 19).getTime();
+    var d = Math.round((a - b) / 86400000);
+    return (d >= 0 && d < NDAYS) ? d : -1;
+  }
+
+  var ti = todayIndex();
+
+  document.getElementById("meta").innerHTML =
+    "<span>5 個科目</span><span>95 張試卷</span><span>4,750 題</span><span>10/19 – 11/6</span>";
+
+  /* ---------- 今天的快速開始 ---------- */
+  (function () {
+    var box = document.getElementById("quick");
+    var useDay = ti >= 0 ? ti : 0;
+    var title = ti >= 0
+      ? "今天 " + dayLabel(ti) + "（週" + WD[dayDate(ti).getDay()] + "）快速開始"
+      : "今天不在測驗期間，先從 " + dayLabel(0) + " 開始";
+    var pills = SUBJECTS.map(function (s) {
+      return '<a class="pill" style="--c:' + s.color + '" href="./' + s.dir + '/index.html#' + keyOf(s, useDay) + '">' +
+        "<i>" + s.badge + "</i>" + s.short + "</a>";
+    }).join("");
+    box.innerHTML = '<div class="quick-t">' + title + '</div><div class="quick-row">' + pills + "</div>";
+  })();
+
+  /* ---------- 科目卡片 ---------- */
+  (function () {
+    var html = "";
+    SUBJECTS.forEach(function (s) {
+      var store = readStore(s.store);
+      var rec = store.rec || {};
+      var done = 0;
+      for (var i = 0; i < NDAYS; i++) if (rec[keyOf(s, i)]) done++;
+
+      var pts = s.points.map(function (p) { return '<span class="pt">' + p + "</span>"; }).join("");
+
+      var days = "";
+      for (var j = 0; j < NDAYS; j++) {
+        var k = keyOf(s, j);
+        var r = rec[k];
+        var cls = "day" + (r ? " done" : "") + (j === ti ? " today" : "");
+        var tip = dayLabel(j) + "（週" + WD[dayDate(j).getDay()] + "）";
+        if (r) tip += "｜最佳 " + r.best + " 分｜練習 " + r.n + " 次";
+        days += '<a class="' + cls + '" href="./' + s.dir + '/index.html#' + k + '" title="' + tip + '">' + dayLabel(j) + "</a>";
+      }
+
+      var todayBtn = ti >= 0
+        ? '<a class="go" href="./' + s.dir + '/index.html#' + keyOf(s, ti) + '">今天 ' + dayLabel(ti) + " →</a>"
+        : "";
+
+      html += '<article class="card" style="--c:' + s.color + '">' +
+        '<div class="stripe"></div>' +
+        '<div class="card-main">' +
+          '<div class="chead">' +
+            '<div class="badge">' + s.badge + "</div>" +
+            '<div class="ctitle"><h2>' + s.name + "</h2>" +
+              '<div class="csub">19 卷 ｜ 每卷 50 題 ｜ 50 分鐘 ｜ 已練習 <b>' + done + "</b>/19</div></div>" +
+            '<a class="open" href="./' + s.dir + '/index.html">本科首頁 →</a>' +
+          "</div>" +
+          '<p class="csum">' + s.summary + "</p>" +
+          '<div class="points">' + pts + "</div>" +
+          '<div class="daylabel">選擇日期，直接開始那一天的試卷</div>' +
+          '<div class="days">' + days + "</div>" +
+          '<div class="cfoot"><span class="extra">' + s.extra + "</span>" + todayBtn + "</div>" +
+        "</div></article>";
+    });
+    document.getElementById("subjects").innerHTML = html;
+  })();
+})();
+</script>
+</body>
+</html>
