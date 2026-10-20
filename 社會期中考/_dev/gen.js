@@ -5,10 +5,10 @@
    ------------------------------------------------------------
    規則
    1. 每張試卷 50 題 = 40 題選擇 ＋ 10 題素養題組（2 組 × 5 題）。
-   2. 33 個子題每個子題在每張試卷至少出現 1 題，另補 7 題，來源輪替。
+   2. 15 個小節每個小節在每張試卷至少出現 1 題，另補 25 題，來源輪替。
    3. 同一張試卷內不出現重複題目；不同試卷以不同變體輪替。
    4. 選項以決定性亂數重排，並使正解平均分布在 A/B/C/D。
-   5. 素養題組共 20 組，每張取 2 組（連續配對，循環使用）。
+   5. 素養題組共 12 組，每張取 2 組（連續配對，循環使用）。
    ============================================================ */
 "use strict";
 
@@ -84,21 +84,27 @@ SELECT.forEach((it) => { (byU[it.u] = byU[it.u] || []).push(it); });
 
 /* ---------------- 正解字母分布 ---------------- */
 function lettersFor(n, seed) {
-  const base = [];
   const counts = [Math.ceil(n / 4), Math.ceil(n / 4), Math.floor(n / 4), Math.floor(n / 4)];
-  for (let li = 0; li < 4; li++) for (let c = 0; c < counts[li]; c++) base.push(li);
-  while (base.length > n) base.pop();
-  while (base.length < n) base.push(3);
-  const rnd = rng(seed);
-  shuffle(base, rnd);
-  for (let i = 2; i < n; i++) {
-    if (base[i] === base[i - 1] && base[i] === base[i - 2]) {
-      for (let j = i + 1; j < n; j++) {
-        if (base[j] !== base[i]) { const t = base[i]; base[i] = base[j]; base[j] = t; break; }
-      }
+  for (let attempt = 0; attempt < 500; attempt++) {
+    const rnd = rng(seed + attempt * 104729);
+    const left = counts.slice();
+    const out = [];
+    let ok = true;
+    while (out.length < n) {
+      const avail = [0, 1, 2, 3].filter((l) =>
+        left[l] > 0 &&
+        !(out.length >= 2 && out[out.length - 1] === l && out[out.length - 2] === l)
+      );
+      if (!avail.length) { ok = false; break; }
+      const l = avail[Math.floor(rnd() * avail.length)];
+      out.push(l);
+      left[l]--;
     }
+    if (ok) return out;
   }
-  return base;
+  const fallback = [];
+  for (let i = 0; i < n; i++) fallback.push(i % 4);
+  return fallback;
 }
 
 /* ---------------- 選項重排 ---------------- */
@@ -117,17 +123,29 @@ function reorder(item, target, rnd) {
 /* ---------------- 出卷 ---------------- */
 function pickSelect(d) {
   const picked = [];
+  const used = new Set();
+
+  // 15 個小節各取 1 題，確保每卷 15/15 全涵蓋
   UNITS.forEach((u, k) => {
     const arr = byU[u];
-    picked.push(arr[(d + k) % arr.length]);
+    const it = arr[(d + k) % arr.length];
+    picked.push(it);
+    used.add(it);
   });
-  for (let t = 0; t < 7; t++) {
-    const k = (d * 7 + t * 5) % UNITS.length;
-    const u = UNITS[k];
-    const arr = byU[u];
-    const core = (d + k) % arr.length;
-    const want = (d + k + 2) % arr.length;
-    picked.push(arr[want === core ? (core + 1) % arr.length : want]);
+
+  // 再補 25 題：依單元輪流，避免同一張試卷出現重複題目
+  let t = 0;
+  while (picked.length < 40) {
+    const k = (d * 5 + t) % UNITS.length;
+    const arr = byU[UNITS[k]];
+    let found = null;
+    for (let s = 0; s < arr.length; s++) {
+      const it = arr[(d + k + 1 + s) % arr.length];
+      if (!used.has(it)) { found = it; break; }
+    }
+    if (found) { picked.push(found); used.add(found); }
+    t++;
+    if (t > 1000) break;
   }
   return picked;
 }
@@ -183,16 +201,15 @@ function renderDay(d, qs) {
   const wd = WD[day.getDay()];
   const short = mm + "/" + dd;
 
-  const note = "第 " + (d + 1) + " 天（" + short + "，週" + wd + "）｜範圍：全 33 個子題（每個子題至少 1 題）＋2 個素養題組｜40 選擇＋10 素養";
+  const note = "第 " + (d + 1) + " 天（" + short + "，週" + wd + "）｜範圍：全 15 個小節（每個小節至少 1 題）＋2 個素養題組｜40 選擇＋10 素養";
 
   const head =
     "/* ============================================================\n" +
     "   2026年11月 社會期中考／期末考｜" + short + " 社會期中考／期末考\n" +
     "   日期：2026-" + pad2(mm) + "-" + pad2(dd) + "（週" + wd + "）\n" +
     "   命題依據：十二年國教課綱（108課綱）社會領域第二學習階段（四年級）\n" +
-    "   範圍：家鄉的自然環境／家鄉的地形與氣候／家鄉的節慶與禮俗／\n" +
-    "         互動與關聯（個人與群體、人與環境、權力與人權、生產與消費、科技與社會、全球關連）／\n" +
-    "         差異與多元／變遷與因果（環境、歷史、社會的變遷）／選擇與責任\n" +
+    "   範圍：家鄉的自然環境／家鄉的傳統住屋與器物／家鄉的傳統信仰與老街／\n" +
+    "         家鄉的作息、節慶與節日／主題探究與實作（共 15 個小節）\n" +
     "   題型：50 題（40 選擇 ＋ 10 素養題組）｜四選一單選\n" +
     "   本題庫為自編練習題，非官方試題。\n" +
     "   ============================================================ */\n" +

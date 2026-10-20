@@ -16,6 +16,11 @@ const UNITS = meta.units.map((x) => x.u);
 const CODE = {};
 meta.units.forEach((x) => { CODE[x.u] = x.code; });
 
+const SELECT_POOL = ["sel-a.js", "sel-b.js", "sel-c.js", "sel-d.js"]
+  .reduce((a, f) => a.concat(require(path.join(__dirname, "pool", f))), []);
+const PASSAGE_POOL = ["pas-a.js", "pas-b.js"]
+  .reduce((a, f) => a.concat(require(path.join(__dirname, "pool", f))), []);
+
 let bad = 0;
 function fail(msg) { bad++; console.log("  ✗ " + msg); }
 
@@ -27,6 +32,7 @@ let totalQ = 0;
 const unitCount = {};
 UNITS.forEach((u) => { unitCount[u] = 0; });
 const letterTotal = [0, 0, 0, 0];
+let covBad = 0;
 
 P.forEach((p, pi) => {
   const n = p.q.length;
@@ -36,6 +42,12 @@ P.forEach((p, pi) => {
   const pas = p.q.filter((q) => q.p);
   if (sel.length !== 40) fail(p.key + " 選擇題 " + sel.length + "（預期 40）");
   if (pas.length !== 10) fail(p.key + " 素養題 " + pas.length + "（預期 10）");
+
+  const gotUnits = new Set(sel.map((q) => q.u));
+  const missingUnits = UNITS.filter((u) => !gotUnits.has(u));
+  const unknownUnits = [...gotUnits].filter((u) => UNITS.indexOf(u) < 0);
+  if (missingUnits.length) { covBad++; fail(p.key + " 未涵蓋小節：" + missingUnits.join("、")); }
+  if (unknownUnits.length) fail(p.key + " 出現未列出的小節：" + unknownUnits.join("、"));
 
   const seen = {};
   const wantG = {};
@@ -70,9 +82,11 @@ Object.keys(unitCount).forEach((u) => {
 });
 
 console.log("總題數：" + totalQ + "（預期 950）");
+console.log("每卷小節涵蓋：" + (P.length - covBad) + " / " + P.length + "（" + UNITS.length + " 小節）");
 console.log("不重複題幹：" + Object.keys(allStems).length);
 console.log("答案分布 A/B/C/D：" + letterTotal.join(" / "));
-const distinctSelect = 198, distinctPas = 100;
+const distinctSelect = SELECT_POOL.length;
+const distinctPas = PASSAGE_POOL.reduce((a, g) => a + g.qs.length, 0);
 console.log("選擇題庫 " + distinctSelect + " 題｜素養題庫 " + distinctPas + " 題");
 
 // 每張試卷的正解字母分布

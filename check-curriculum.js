@@ -174,6 +174,27 @@ function checkSocial() {
   if (selBad.length) fail("未掛碼選擇題：" + selBad.slice(0, 10).join("、"));
   if (pasBad.length) fail("未掛碼素養題組：" + pasBad.join("、"));
   if (!selBad.length && !pasBad.length) ok("每一題都對應到課綱碼");
+
+  // 每張試卷是否涵蓋全部小節
+  const papersDir = path.join(ROOT, "社會期中考", "papers");
+  const papers = [];
+  if (fs.existsSync(papersDir)) {
+    fs.readdirSync(papersDir).filter(f => /^day-\d\d\.js$/.test(f)).sort().forEach(f => {
+      const sandbox = { window: {} };
+      vm.createContext(sandbox);
+      vm.runInContext(fs.readFileSync(path.join(papersDir, f), "utf8"), sandbox, { filename: f });
+      ((sandbox.window.EXAM && sandbox.window.EXAM.papers) || []).forEach(p => papers.push(p));
+    });
+  }
+  let covBad = 0;
+  papers.forEach(p => {
+    const got = new Set(p.q.filter(q => !q.p).map(q => q.u));
+    const miss = U.units.filter(x => !got.has(x.u)).map(x => x.u);
+    if (miss.length) { covBad++; fail(p.key + " 未涵蓋小節：" + miss.join("、")); }
+  });
+  console.log("  試卷數          ：" + papers.length);
+  console.log("  每卷小節涵蓋    ：" + (papers.length - covBad) + " / " + papers.length + "（" + U.units.length + " 小節）");
+  if (papers.length && !covBad) ok("每張試卷都涵蓋全部 " + U.units.length + " 個小節");
   console.log("");
 }
 
