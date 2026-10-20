@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   108 課綱符合性檢查器
+   課綱／課本範圍符合性檢查器
    ------------------------------------------------------------
    用途：把「符合課綱」變成可重複執行的驗證，而不是口頭宣稱。
    執行：node check-curriculum.js
@@ -11,7 +11,8 @@
      自然  ：每一題（含素養題）是否都對應到官方 108 課綱學習內容碼，
              且該碼確實存在於第二學習階段的 55 條之中
      數學  ：19 張試卷是否每張都涵蓋 39 個課本小節、50 題結構與答案分布
-     英語文：目前未建立課綱對照表
+     英語文：19 張試卷是否每張都涵蓋 26 個課本小節、50 題結構、
+             答案分布與 Wonder World 3 全冊字彙覆蓋
 
    離開碼：0 = 全部通過，1 = 有項目未通過
    ============================================================ */
@@ -349,16 +350,99 @@ function checkMath() {
   console.log("");
 }
 
-/* ---------------- 其他科目 ---------------- */
-function checkOthers() {
-  console.log("【英語文】");
-  console.log("  未建立課綱對照表（本次未處理）");
+/* ---------------- 英語文 ---------------- */
+function checkEnglish() {
+  console.log("【英語文】Wonder World 3 全冊 26 小節覆蓋");
+  const bankPath = path.join(ROOT, "英語文期中考", "papers", "bank.js");
+  if (!fs.existsSync(bankPath)) { fail("找不到 papers/bank.js"); return; }
+
+  const win = {};
+  const ctx = { window: win, console };
+  ctx.globalThis = ctx;
+  vm.createContext(ctx);
+  try {
+    vm.runInContext(fs.readFileSync(bankPath, "utf8"), ctx, { filename: bankPath });
+  } catch (e) {
+    fail("bank.js 執行失敗：" + e.message);
+    return;
+  }
+
+  const E = win.EXAM || {};
+  const sections = E.sections || [];
+  const papers = E.papers || [];
+  const scope = E.scope || {};
+  const ids = new Set(sections.map(s => s.id));
+  if (!sections.length) { fail("bank.js 沒有 sections 對照表"); return; }
+  if (papers.length !== 19) fail("試卷數應為 19，實際 " + papers.length);
+  if (sections.length !== 26) fail("小節數應為 26，實際 " + sections.length);
+
+  let bad = 0;
+  const allCorrect = [];
+  const usedPassages = new Set();
+
+  papers.forEach(p => {
+    const qs = p.q || [];
+    const core = qs.filter(q => !q.p);
+    const passage = qs.filter(q => q.p);
+    const got = new Set(core.map(q => q.sid));
+    const miss = sections.filter(s => !got.has(s.id)).map(s => s.id);
+    const unknown = [...got].filter(id => !ids.has(id));
+    const counts = [0, 0, 0, 0];
+    qs.forEach(q => { if (q.a >= 0 && q.a < 4) counts[q.a]++; });
+    const dup = qs.length - new Set(qs.map(q => q.q)).size;
+    let three = false;
+    for (let i = 2; i < qs.length; i++) {
+      if (qs[i].a === qs[i - 1].a && qs[i].a === qs[i - 2].a) three = true;
+    }
+    const badOpt = qs.filter(q => !Array.isArray(q.o) || q.o.length !== 4 ||
+      new Set(q.o).size !== 4 || q.a < 0 || q.a > 3 ||
+      !Array.isArray(q.w) || q.w.length !== 4 || q.w[q.a] !== "").length;
+
+    core.forEach(q => allCorrect.push(q.o[q.a]));
+    passage.forEach(q => usedPassages.add(q.u));
+
+    const problems = [];
+    if (qs.length !== 50) problems.push("題數 " + qs.length);
+    if (core.length !== 40) problems.push("核心題 " + core.length);
+    if (passage.length !== 10) problems.push("素養題 " + passage.length);
+    if (miss.length) problems.push("缺 " + miss.join("、"));
+    if (unknown.length) problems.push("未知小節 " + unknown.join("、"));
+    if (counts.join("/") !== "13/13/12/12") problems.push("答案分布 " + counts.join("/"));
+    if (three) problems.push("連續三題同答案");
+    if (dup) problems.push("重複題幹 " + dup);
+    if (badOpt) problems.push("選項或解析結構異常 " + badOpt + " 題");
+    if (problems.length) { bad++; fail(p.key + "：" + problems.join("；")); }
+  });
+
+  const vocab = [].concat(scope.vocab || [], scope.reviewVocab || []);
+  const missing = [];
+  vocab.forEach(v => {
+    const needle = "*" + v.en + "*";
+    if (!allCorrect.some(t => String(t).indexOf(needle) >= 0)) missing.push(v.en);
+  });
+  if (missing.length) fail("全冊字彙未出現在正解：" + missing.join("、"));
+  else ok("全冊 " + vocab.length + " 個字彙都出現在試卷正解中");
+
+  const expectedPassages = new Set((scope.passages || []).map(p => p.tag));
+  const missingPassages = [...expectedPassages].filter(t => !usedPassages.has(t));
+  if (missingPassages.length) fail("素養題組未使用：" + missingPassages.join("、"));
+  else ok("20 組素養題組全部使用");
+
+  console.log("  課本小節        ：" + sections.length);
+  console.log("  試卷數          ：" + papers.length);
+  console.log("  每卷結構        ：26 小節核心 ＋ 14 延伸 ＋ 10 素養");
+  console.log("  答案分布        ：A/B/C/D = 13/13/12/12");
+  console.log("  全冊字彙        ：" + vocab.length + " 個（含複習字彙）");
+  console.log("  素養題組        ：" + expectedPassages.size + " 組");
+  if (!bad && papers.length === 19 && sections.length === 26) {
+    ok("每張試卷都涵蓋 26 個小節，且 50 題結構、答案分布與全冊字彙覆蓋正確");
+  }
   console.log("");
 }
 
 /* ---------------- 主程式 ---------------- */
 console.log(line("="));
-console.log(" 108 課綱符合性檢查");
+console.log(" 課綱／課本範圍符合性檢查");
 console.log(" 產生時間：" + new Date().toLocaleString("zh-TW", { hour12: false }));
 console.log(line("="));
 console.log("");
@@ -367,7 +451,7 @@ checkChinese();
 checkSocial();
 checkScience();
 checkMath();
-checkOthers();
+checkEnglish();
 
 console.log(line("="));
 if (failed) {
