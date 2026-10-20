@@ -218,6 +218,24 @@ function checkScience() {
 
   // 素養題：從產出的試卷取得（每題帶 p 與 u）
   const papers = (win.EXAM && win.EXAM.papers) || [];
+
+  // 每張試卷是否涵蓋課本全部小節（26/26）
+  const sectionIds = new Set((N.sections || []).map(s => s.id));
+  let secBad = 0;
+  papers.forEach(p => {
+    const got = new Set((p.q || []).filter(q => q.sid).map(q => q.sid));
+    const unknown = [...got].filter(id => !sectionIds.has(id));
+    if (got.size !== sectionIds.size || unknown.length) {
+      secBad++;
+      console.log("  ✗ " + p.key + " 小節 " + got.size + "/" + sectionIds.size +
+        (unknown.length ? "（未知：" + unknown.join("、") + "）" : ""));
+    }
+  });
+  if (sectionIds.size && !secBad) {
+    ok("每張試卷都涵蓋全部 " + sectionIds.size + " 個小節");
+  } else if (!sectionIds.size) {
+    fail("units.js 沒有 sections 對照表");
+  }
   const pasGroups = new Map();
   papers.forEach(p => (p.q || []).forEach(it => {
     if (!it.p) return;
@@ -240,6 +258,7 @@ function checkScience() {
   console.log("  選擇題          ：" + selOk + " / " + SELECT.length + "（" + pct(selOk, SELECT.length) + "）");
   console.log("  素養題          ：" + pasOk + " / " + pasTotal + "（" + pct(pasOk, pasTotal) + "）");
   console.log("  試卷數          ：" + papers.length);
+  console.log("  每卷小節涵蓋    ：" + (sectionIds.size ? (papers.length - secBad) + " / " + papers.length + "（" + sectionIds.size + " 小節）" : "—"));
 
   if (selBad.length) fail("未對應子題的選擇題：" + [...new Set(selBad)].slice(0, 10).join("、"));
   if (pasBad.length) fail("未對應課綱碼的素養題組：" + pasBad.join("、"));
