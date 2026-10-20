@@ -423,6 +423,70 @@ function checkEnglish() {
   if (missing.length) fail("全冊字彙未出現在正解：" + missing.join("、"));
   else ok("全冊 " + vocab.length + " 個字彙都出現在試卷正解中");
 
+  // 「音標→單字」題：正解字音必須一致，且四個選項只能有一個符合該音標。
+  const wordKK = new Map();
+  function addKK(word, kk) {
+    word = String(word == null ? "" : word).trim();
+    kk = String(kk == null ? "" : kk).trim();
+    if (!word || !kk) return;
+    if (wordKK.has(word) && wordKK.get(word) !== kk) {
+      fail("同一個字出現不同音標：" + word + " " + wordKK.get(word) + " / " + kk);
+    } else if (!wordKK.has(word)) {
+      wordKK.set(word, kk);
+    }
+  }
+  function scanKK(text) {
+    const re = /\*([^*\n]+)\*\s*`([^`\n]+)`/g;
+    const str = String(text == null ? "" : text);
+    let m;
+    while ((m = re.exec(str)) !== null) addKK(m[1], m[2]);
+  }
+  (scope.vocab || []).forEach(v => addKK(v.en, v.kk));
+  (scope.reviewVocab || []).forEach(v => addKK(v.en, v.kk));
+  papers.forEach(p => p.q.forEach(q => {
+    scanKK(q.q);
+    scanKK(q.e);
+    (q.w || []).forEach(scanKK);
+    (q.o || []).forEach(scanKK);
+  }));
+
+  let kkBad = 0;
+  let kkCount = 0;
+  papers.forEach(p => p.q.forEach((q, i) => {
+    if (!/音標/.test(q.q)) return;
+    kkCount++;
+    const m = q.q.match(/`([^`\n]+)`/);
+    if (!m) {
+      kkBad++;
+      fail(p.key + " 第 " + (i + 1) + " 題：音標題沒有反引號音標");
+      return;
+    }
+    const kk = m[1];
+    const correct = String(q.o[q.a] || "").replace(/\*/g, "").trim();
+    const options = q.o.map(o => String(o).replace(/\*/g, "").trim());
+    const hits = options.filter(w => wordKK.get(w) === kk);
+    const issues = [];
+    if (wordKK.get(correct) !== kk) {
+      issues.push("正解 " + correct + " 的音標是 " + (wordKK.get(correct) || "未收錄") + "，題幹是 " + kk);
+    }
+    if (hits.length !== 1) {
+      issues.push("符合題幹音標的選項有 " + hits.length + " 個：" + hits.join("、"));
+    } else if (hits[0] !== correct) {
+      issues.push("符合題幹音標的是 " + hits[0] + "，不是正解 " + correct);
+    }
+    if (String(q.e).indexOf(kk) < 0) issues.push("解析沒有包含題幹音標 " + kk);
+    if (issues.length) {
+      kkBad++;
+      fail(p.key + " 第 " + (i + 1) + " 題音標：" + issues.join("；"));
+    }
+  }));
+  if (wordKK.get("Pete") !== "[pit]") {
+    kkBad++;
+    fail("Pete 的 KK 音標應為 [pit]，實際 " + (wordKK.get("Pete") || "未收錄"));
+  }
+  if (kkBad) fail("音標題共有 " + kkBad + " 個問題");
+  else ok("「音標→單字」" + kkCount + " 題全部正解與音標一致，選項無同音混淆");
+
   const expectedPassages = new Set((scope.passages || []).map(p => p.tag));
   const missingPassages = [...expectedPassages].filter(t => !usedPassages.has(t));
   if (missingPassages.length) fail("素養題組未使用：" + missingPassages.join("、"));
@@ -434,7 +498,7 @@ function checkEnglish() {
   console.log("  答案分布        ：A/B/C/D = 13/13/12/12");
   console.log("  全冊字彙        ：" + vocab.length + " 個（含複習字彙）");
   console.log("  素養題組        ：" + expectedPassages.size + " 組");
-  if (!bad && papers.length === 19 && sections.length === 26) {
+  if (!bad && !kkBad && papers.length === 19 && sections.length === 26) {
     ok("每張試卷都涵蓋 26 個小節，且 50 題結構、答案分布與全冊字彙覆蓋正確");
   }
   console.log("");

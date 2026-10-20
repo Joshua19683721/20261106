@@ -124,7 +124,12 @@
     margin-right:3px;font-weight:400;transform:translateY(-1px);
   }
   .say:hover .spk,.say.on .spk{opacity:1}
-  .ph{color:#7b8794;font-size:.92em;white-space:nowrap}
+  .ph{
+    color:#5f6b76;
+    font-family:"Segoe UI","Helvetica Neue",Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+    font-size:1em;font-weight:600;letter-spacing:.015em;
+    font-variant-ligatures:none;white-space:nowrap;
+  }
   .tag .say,.ai-u .say{background:none}
   .tag .say .sw,.ai-u .say .sw{border-bottom:0;color:inherit;font-weight:inherit}
   .tag .say .spk,.ai-u .say .spk{display:none}
@@ -374,7 +379,7 @@
 <div id="app"></div>
 <div id="toast" style="position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#1f2933;color:#fff;font-size:13.5px;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:99"></div>
 
-<script src="papers/bank.js"></script>
+<script src="papers/bank.js?v=20261020-kk"></script>
 
 <script>
 (function () {
@@ -412,7 +417,7 @@
 
   /* 題庫標記：
      *英文*  → 可點擊發音（en-US TTS）
-     `音標` → 以淺灰小字顯示 KK 音標
+     `音標` → 以清楚可辨的 KK 音標字型顯示
      其餘   → 一般文字（中文） */
   function rich(s) {
     if (s == null) return "";
@@ -631,6 +636,7 @@
     html += '<div class="panel"><h2>命題範圍（Wonder World 3 全冊）</h2>';
     html += '<div class="phonote">Get Ready：數字 16–20、a_e 發音｜Unit 1：天氣、e_e／ee、The Big Wind｜Unit 2：時間與數字、i_e、Going Back Home｜Unit 3：文具、o_e、Be Honest｜Unit 4：位置、u_e、Earthquake Drill｜Culture &amp; Festivals：Halloween｜Task：緊急天氣｜Review 1：-teen／-ty｜Review 2：音節｜Classroom English &amp; Characters｜Picture Dictionary／Around the World／Word Hunt｜Vocabulary Review：家庭、動物、職業、能力。</div>';
     html += '<div class="phonote">每卷 50 題：26 個課本小節各 1 題核心＋14 題延伸選擇＋2 組素養題組（每組 5 題）。所有英文單字、片語與句子都可點擊聽 en-US 發音。</div>';
+    html += '<div class="phonote"><b>KK 音標小提醒：</b><span class="ph">[i]</span> 是長母音 /i/，<span class="ph">[ɪ]</span> 是短母音 /ɪ/；<b>Pete</b> 是 <span class="ph">[pit]</span>，<b>pit</b>（坑）才是 <span class="ph">[pɪt]</span>。音標中的 <b>i</b> 有一點，<b>ɪ</b> 沒有點，作答時請看清楚。</div>';
     html += '</div>';
 
     /* 發音設定 */
