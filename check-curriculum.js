@@ -504,6 +504,105 @@ function checkEnglish() {
   console.log("");
 }
 
+/* ---------------- 健康與體育 ---------------- */
+function checkHealth() {
+  console.log("【健康與體育】課本範圍覆蓋（康軒 4 上｜6 單元 17 課）");
+  const devDir = path.join(ROOT, "健康與體育期中考", "_dev");
+  const unitsPath = path.join(devDir, "units.js");
+  if (!fs.existsSync(unitsPath)) { fail("找不到 健康與體育/_dev/units.js"); return; }
+
+  const U = readModule(unitsPath);
+  const names = U.units.map(u => u.u);
+  const pageOf = new Map(U.units.map(u => [u.u, u.page]));
+  const unitOf = new Map(U.units.map(u => [u.u, u.unit]));
+  const codeSet = new Set();
+  U.units.forEach(u => (u.codes || []).forEach(c => codeSet.add(c)));
+
+  if (U.units.length !== 17) fail("小節數不是 17（" + U.units.length + "）");
+  if (new Set(names).size !== names.length) fail("小節名稱有重複");
+  U.units.forEach(u => {
+    if (!u.page) fail("小節「" + u.u + "」缺少課本頁碼");
+    if (!u.codes || !u.codes.length) fail("小節「" + u.u + "」缺少對應學習重點");
+  });
+
+  // 題庫與小節的對應
+  let selTotal = 0, selOk = 0;
+  const selBad = [];
+  ["sel-a.js", "sel-b.js", "sel-c.js", "sel-d.js"].forEach(f => {
+    const p = path.join(devDir, "pool", f);
+    if (!fs.existsSync(p)) return;
+    readModule(p).forEach(it => {
+      selTotal++;
+      if (names.indexOf(it.u) >= 0) selOk++;
+      else selBad.push(it.u + "（" + path.basename(f) + "）");
+    });
+  });
+
+  let pasTotal = 0, pasOk = 0;
+  const pasBad = [];
+  const groups = [];
+  ["pas-a.js", "pas-b.js"].forEach(f => {
+    const p = path.join(devDir, "pool", f);
+    if (!fs.existsSync(p)) return;
+    readModule(p).forEach(g => {
+      const n = (g.qs || []).length;
+      pasTotal += n;
+      groups.push(g);
+      const owner = names.find(x => unitOf.get(x) === g.unit && pageOf.get(x) === g.page);
+      if (owner) pasOk += n;
+      else pasBad.push(g.tag + "（" + path.basename(f) + "）");
+    });
+  });
+
+  console.log("  對照表小節      ：" + U.units.length + "（含 " + codeSet.size + " 個學習重點）");
+  console.log("  選擇題          ：" + selOk + " / " + selTotal + "（" + pct(selOk, selTotal) + "）");
+  console.log("  素養題          ：" + pasOk + " / " + pasTotal + "（" + pct(pasOk, pasTotal) + "）");
+  if (selBad.length) fail("未對應小節的選擇題：" + selBad.slice(0, 10).join("、"));
+  if (pasBad.length) fail("未對應小節的素養題組：" + pasBad.join("、"));
+  if (!selBad.length && !pasBad.length) ok("每一題都對應到課本小節與頁碼");
+
+  // 試卷結構與小節涵蓋
+  const papersDir = path.join(ROOT, "健康與體育期中考", "papers");
+  const papers = [];
+  if (fs.existsSync(papersDir)) {
+    fs.readdirSync(papersDir).filter(f => /^day-\d\d\.js$/.test(f)).sort().forEach(f => {
+      const sandbox = { window: {} };
+      vm.createContext(sandbox);
+      vm.runInContext(fs.readFileSync(path.join(papersDir, f), "utf8"), sandbox, { filename: f });
+      ((sandbox.window.EXAM && sandbox.window.EXAM.papers) || []).forEach(p => papers.push(p));
+    });
+  }
+
+  let covBad = 0, structBad = 0;
+  const usedGroups = new Set();
+  const letterTotal = [0, 0, 0, 0];
+  papers.forEach(p => {
+    const sel = p.q.filter(q => !q.p);
+    const pas = p.q.filter(q => q.p);
+    if (p.q.length !== 50) { structBad++; fail(p.key + " 題數 " + p.q.length + "（預期 50）"); }
+    if (sel.length !== 40) { structBad++; fail(p.key + " 選擇題 " + sel.length + "（預期 40）"); }
+    if (pas.length !== 10) { structBad++; fail(p.key + " 素養題 " + pas.length + "（預期 10）"); }
+    const got = new Set(sel.map(q => q.u));
+    const miss = names.filter(x => !got.has(x));
+    if (miss.length) { covBad++; fail(p.key + " 未涵蓋小節：" + miss.join("、")); }
+    const gset = new Set(pas.map(q => q.u));
+    if (gset.size !== 2) { structBad++; fail(p.key + " 素養題組數 " + gset.size + "（預期 2）"); }
+    gset.forEach(g => usedGroups.add(g));
+    p.q.forEach(q => letterTotal[q.a]++);
+  });
+
+  console.log("  試卷數          ：" + papers.length);
+  console.log("  每卷小節涵蓋    ：" + (papers.length - covBad) + " / " + papers.length + "（" + names.length + " 小節）");
+  console.log("  每卷結構        ：17 小節核心 ＋ 23 延伸 ＋ 10 素養");
+  console.log("  答案分布        ：A/B/C/D = " + letterTotal.join("/"));
+  console.log("  使用到的素養題組：" + usedGroups.size + " / " + groups.length);
+  if (usedGroups.size !== groups.length) fail("有素養題組完全沒有被使用到");
+  if (papers.length === 19 && !covBad && !structBad) {
+    ok("每張試卷都涵蓋全部 17 個小節，且 50 題結構與答案分布正確");
+  }
+  console.log("");
+}
+
 /* ---------------- 主程式 ---------------- */
 console.log(line("="));
 console.log(" 課綱／課本範圍符合性檢查");
@@ -516,6 +615,7 @@ checkSocial();
 checkScience();
 checkMath();
 checkEnglish();
+checkHealth();
 
 console.log(line("="));
 if (failed) {
