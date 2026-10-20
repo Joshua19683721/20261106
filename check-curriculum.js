@@ -10,7 +10,8 @@
      社會  ：每一題（含素養題）是否都對應到 units.js 的課綱碼
      自然  ：每一題（含素養題）是否都對應到官方 108 課綱學習內容碼，
              且該碼確實存在於第二學習階段的 55 條之中
-     數學／英語文：目前未建立課綱對照表
+     數學  ：19 張試卷是否每張都涵蓋 39 個課本小節、50 題結構與答案分布
+     英語文：目前未建立課綱對照表
 
    離開碼：0 = 全部通過，1 = 有項目未通過
    ============================================================ */
@@ -290,9 +291,67 @@ function checkScience() {
   console.log("");
 }
 
+/* ---------------- 數學 ---------------- */
+function checkMath() {
+  console.log("【數學】39 小節覆蓋與試卷結構");
+  const bankPath = path.join(ROOT, "數學期中考", "papers", "bank.js");
+  if (!fs.existsSync(bankPath)) { fail("找不到 papers/bank.js"); return; }
+
+  const win = {};
+  const ctx = { window: win, console };
+  ctx.globalThis = ctx;
+  vm.createContext(ctx);
+  try {
+    vm.runInContext(fs.readFileSync(bankPath, "utf8"), ctx, { filename: bankPath });
+  } catch (e) {
+    fail("bank.js 執行失敗：" + e.message);
+    return;
+  }
+
+  const sections = (win.EXAM && win.EXAM.sections) || [];
+  const papers = (win.EXAM && win.EXAM.papers) || [];
+  if (!sections.length) { fail("bank.js 沒有 sections 對照表"); return; }
+  if (papers.length !== 19) fail("試卷數應為 19，實際 " + papers.length);
+
+  const names = sections.map(s => s.u);
+  const nameSet = new Set(names);
+  let bad = 0;
+
+  papers.forEach(p => {
+    const qs = p.q || [];
+    const core = qs.filter(q => !q.p);
+    const passage = qs.filter(q => q.p);
+    const got = new Set(core.map(q => q.u));
+    const miss = names.filter(n => !got.has(n));
+    const extra = [...got].filter(n => n !== "統整應用" && !nameSet.has(n));
+    const counts = [0, 0, 0, 0];
+    qs.forEach(q => { if (q.a >= 0 && q.a < 4) counts[q.a]++; });
+    const dup = qs.length - new Set(qs.map(q => q.q)).size;
+
+    const problems = [];
+    if (qs.length !== 50) problems.push("題數 " + qs.length);
+    if (core.length !== 40) problems.push("核心題 " + core.length);
+    if (passage.length !== 10) problems.push("素養題 " + passage.length);
+    if (miss.length) problems.push("缺 " + miss.join("、"));
+    if (extra.length) problems.push("未知小節 " + extra.join("、"));
+    if (counts.join("/") !== "13/13/12/12") problems.push("答案分布 " + counts.join("/"));
+    if (dup) problems.push("重複題幹 " + dup);
+    if (problems.length) { bad++; fail(p.key + "：" + problems.join("；")); }
+  });
+
+  console.log("  小節數          ：" + sections.length);
+  console.log("  試卷數          ：" + papers.length);
+  console.log("  每卷結構        ：39 小節核心 ＋ 1 統整 ＋ 10 素養");
+  console.log("  答案分布        ：A/B/C/D = 13/13/12/12");
+  if (!bad && papers.length === 19 && sections.length === 39) {
+    ok("每張試卷都涵蓋 39 個小節，且 50 題結構與答案分布正確");
+  }
+  console.log("");
+}
+
 /* ---------------- 其他科目 ---------------- */
 function checkOthers() {
-  console.log("【數學】【英語文】");
+  console.log("【英語文】");
   console.log("  未建立課綱對照表（本次未處理）");
   console.log("");
 }
@@ -307,6 +366,7 @@ console.log("");
 checkChinese();
 checkSocial();
 checkScience();
+checkMath();
 checkOthers();
 
 console.log(line("="));
