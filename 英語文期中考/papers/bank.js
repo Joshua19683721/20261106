@@ -3187,16 +3187,16 @@ var SELECT = [
     "o": [
       "*pet* `[pɛt]`",
       "*Pete* `[pit]`",
-      "*Eve* `[iv]`",
-      "*theme* `[θim]`"
+      "*theme* `[θim]`",
+      "*sea* `[si]`"
     ],
     "a": 0,
     "e": "*pet* 含有短母音 /ɛ/。",
     "w": [
       "",
       "*Pete* 是長母音 /i/（e_e、ee）。",
-      "*Eve* 是長母音 /i/（e_e、ee）。",
-      "*theme* 是長母音 /i/（e_e、ee）。"
+      "*theme* 是長母音 /i/（e_e、ee）。",
+      "*sea* 是長母音 /i/（e_e、ee）。"
     ]
   },
   {
@@ -3206,16 +3206,16 @@ var SELECT = [
     "q": "Unit 1 發音：音標 `[pit]` 對應的單字是哪一個？",
     "o": [
       "*Pete*",
-      "*Eve*",
       "*theme*",
+      "*sea*",
       "*pet*"
     ],
     "a": 0,
     "e": "`[pit]` 是 *Pete* `[pit]`（皮特）。 `[pit]` 的 i 是長母音 /i/；`[pɪt]` 才是短母音 /ɪ/（pit，坑）。",
     "w": [
       "",
-      "這是 *Eve* `[iv]`（伊芙）。",
       "這是 *theme* `[θim]`（主題）。",
+      "這是 *sea* `[si]`（海）。",
       "這是 *pet* `[pɛt]`（寵物），是短母音 /ɛ/。"
     ]
   },
@@ -3265,13 +3265,13 @@ var SELECT = [
     "d": "中",
     "q": "Unit 1 發音：哪一個單字和 *Pete* 有相同的母音發音？",
     "o": [
-      "*Eve* `[iv]`",
+      "*theme* `[θim]`",
       "*pet* `[pɛt]`",
       "*Ted* `[tɛd]`",
       "*them* `[ðɛm]`"
     ],
     "a": 0,
-    "e": "*Pete* 和 *Eve* 都有長母音 /i/（e_e、ee）。",
+    "e": "*Pete* 和 *theme* 都有長母音 /i/（e_e、ee）。",
     "w": [
       "",
       "*pet* 是短母音 /ɛ/。",
@@ -3287,16 +3287,16 @@ var SELECT = [
     "o": [
       "*pet* `[pɛt]`",
       "*Pete* `[pit]`",
-      "*Eve* `[iv]`",
-      "*theme* `[θim]`"
+      "*theme* `[θim]`",
+      "*sea* `[si]`"
     ],
     "a": 0,
     "e": "*pet* 是短母音 /ɛ/，沒有長母音 /i/（e_e、ee）。",
     "w": [
       "",
       "*Pete* 有長母音 /i/（e_e、ee）。",
-      "*Eve* 有長母音 /i/（e_e、ee）。",
-      "*theme* 有長母音 /i/（e_e、ee）。"
+      "*theme* 有長母音 /i/（e_e、ee）。",
+      "*sea* 有長母音 /i/（e_e、ee）。"
     ]
   },
   {
@@ -3307,7 +3307,7 @@ var SELECT = [
     "o": [
       "皮特",
       "寵物",
-      "伊芙",
+      "主題",
       "泰德"
     ],
     "a": 0,
@@ -3315,7 +3315,7 @@ var SELECT = [
     "w": [
       "",
       "*pet* 是「寵物」。",
-      "*Eve* 是「伊芙」。",
+      "*theme* 是「主題」。",
       "*Ted* 是「泰德」。"
     ]
   },
@@ -8178,6 +8178,26 @@ var SELECT = [
       "*fire* 是火災。",
       "*mudslide* 是土石流。"
     ]
+  },
+  {
+    "sid": "u1-phonics",
+    "u": "Unit 1・Phonics e_e / ee",
+    "d": "難",
+    "q": "Unit 1 發音：下列哪一個單字的母音字母是 i，讀長母音 /i/，和 *Pete* 的母音相同？",
+    "o": [
+      "*Eve* `[iv]`",
+      "*pet* `[pɛt]`",
+      "*theme* `[θim]`",
+      "*sea* `[si]`"
+    ],
+    "a": 0,
+    "e": "*Eve* 的母音字母是 i，讀長母音 /i/，和 *Pete* 的母音一樣；*Pete*、*theme*、*sea* 則是 e_e 的拼法，母音字母是 e。",
+    "w": [
+      "",
+      "*pet* 是短母音 /ɛ/，和 *Pete* 不同。",
+      "*theme* 的母音字母是 e，屬於 e_e 的拼法。",
+      "*sea* 的母音字母是 e，屬於 e_e 的拼法。"
+    ]
   }
 ];
 
@@ -10910,9 +10930,9 @@ var SCOPE = {
       "short": "短母音 /ɛ/",
       "words": [
         "Pete",
-        "Eve",
         "theme",
         "sea",
+        "Eve",
         "pet",
         "Ted",
         "them",

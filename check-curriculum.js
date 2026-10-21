@@ -603,6 +603,246 @@ function checkHealth() {
   console.log("");
 }
 
+/* ============================================================
+   英語文｜拼音題（音標／長短母音）深度核對
+   1. 題幹音標 → 選項只有一個符合，且必須是正解
+   2. 「含有／沒有長母音、短母音」：正解必須唯一符合題意
+   3. 「相同母音」、「短母音 → 長母音」配對：正解必須唯一
+   4. 選項自帶的音標標示必須正確（抓「標示錯誤」）
+   5. 解析裡的拼法標示（e_e／a_e／i_e／o_e／u_e）必須符合單字拼法
+   ============================================================ */
+
+/* 拼音封閉詞庫：KK 音標、長短、母音符號、拼法型態、中文 */
+const PHONICS_REF = {
+  cap:  { kk: "[kæp]",  v: "short", s: "æ",  pat: "a",   zh: "帽子" },
+  hat:  { kk: "[hæt]",  v: "short", s: "æ",  pat: "a",   zh: "帽子" },
+  mat:  { kk: "[mæt]",  v: "short", s: "æ",  pat: "a",   zh: "墊子" },
+  tap:  { kk: "[tæp]",  v: "short", s: "æ",  pat: "a",   zh: "輕拍" },
+  cape: { kk: "[kep]",  v: "long",  s: "e",  pat: "a_e", zh: "披風" },
+  tape: { kk: "[tep]",  v: "long",  s: "e",  pat: "a_e", zh: "膠帶" },
+  mate: { kk: "[met]",  v: "long",  s: "e",  pat: "a_e", zh: "夥伴" },
+  cake: { kk: "[kek]",  v: "long",  s: "e",  pat: "a_e", zh: "蛋糕" },
+  Pete: { kk: "[pit]",  v: "long",  s: "i",  pat: "e_e", zh: "皮特" },
+  theme:{ kk: "[θim]",  v: "long",  s: "i",  pat: "e_e", zh: "主題" },
+  sea:  { kk: "[si]",   v: "long",  s: "i",  pat: "e_e", zh: "海" },
+  Eve:  { kk: "[iv]",   v: "long",  s: "i",  pat: "i",   zh: "伊芙" },
+  pet:  { kk: "[pɛt]",  v: "short", s: "ɛ",  pat: "e",   zh: "寵物" },
+  Ted:  { kk: "[tɛd]",  v: "short", s: "ɛ",  pat: "e",   zh: "泰德" },
+  them: { kk: "[ðɛm]",  v: "short", s: "ɛ",  pat: "e",   zh: "他們" },
+  less: { kk: "[lɛs]",  v: "short", s: "ɛ",  pat: "e",   zh: "較少的" },
+  kite: { kk: "[kaɪt]", v: "long",  s: "aɪ", pat: "i_e", zh: "風箏" },
+  pine: { kk: "[paɪn]", v: "long",  s: "aɪ", pat: "i_e", zh: "松樹" },
+  wine: { kk: "[waɪn]", v: "long",  s: "aɪ", pat: "i_e", zh: "酒" },
+  kit:  { kk: "[kɪt]",  v: "short", s: "ɪ",  pat: "i",   zh: "工具包" },
+  pin:  { kk: "[pɪn]",  v: "short", s: "ɪ",  pat: "i",   zh: "別針" },
+  win:  { kk: "[wɪn]",  v: "short", s: "ɪ",  pat: "i",   zh: "贏" },
+  hope: { kk: "[hop]",  v: "long",  s: "o",  pat: "o_e", zh: "希望" },
+  robe: { kk: "[rob]",  v: "long",  s: "o",  pat: "o_e", zh: "長袍" },
+  code: { kk: "[kod]",  v: "long",  s: "o",  pat: "o_e", zh: "密碼" },
+  note: { kk: "[not]",  v: "long",  s: "o",  pat: "o_e", zh: "紙條" },
+  hop:  { kk: "[hɑp]",  v: "short", s: "ɑ",  pat: "o",   zh: "跳" },
+  rob:  { kk: "[rɑb]",  v: "short", s: "ɑ",  pat: "o",   zh: "搶劫" },
+  cod:  { kk: "[kɑd]",  v: "short", s: "ɑ",  pat: "o",   zh: "鱈魚" },
+  not:  { kk: "[nɑt]",  v: "short", s: "ɑ",  pat: "o",   zh: "不" },
+  cute: { kk: "[kjut]", v: "long",  s: "u",  pat: "u_e", zh: "可愛的" },
+  cube: { kk: "[kjub]", v: "long",  s: "u",  pat: "u_e", zh: "立方體" },
+  tube: { kk: "[tub]",  v: "long",  s: "u",  pat: "u_e", zh: "管子" },
+  duke: { kk: "[duk]",  v: "long",  s: "u",  pat: "u_e", zh: "公爵" },
+  cut:  { kk: "[kʌt]",  v: "short", s: "ʌ",  pat: "u",   zh: "切" },
+  cub:  { kk: "[kʌb]",  v: "short", s: "ʌ",  pat: "u",   zh: "幼獸" },
+  tub:  { kk: "[tʌb]",  v: "short", s: "ʌ",  pat: "u",   zh: "浴缸" },
+  duck: { kk: "[dʌk]",  v: "short", s: "ʌ",  pat: "u",   zh: "鴨子" }
+};
+
+/* 拼法型態 → 符合的單字（用於檢查解析裡的「（e_e、ee）」標示） */
+const PAT_WORDS = {
+  e_e: ["Pete", "theme", "sea", "less"],
+  a_e: ["cape", "tape", "mate", "cake"],
+  i_e: ["kite", "pine", "wine", "time"],
+  o_e: ["hope", "robe", "code", "note"],
+  u_e: ["cute", "cube", "tube", "duke", "use"]
+};
+
+function checkEnglishPhonics() {
+  console.log("【英語文】拼音題（音標／長短母音）深度核對");
+  const bankPath = path.join(ROOT, "英語文期中考", "papers", "bank.js");
+  if (!fs.existsSync(bankPath)) { fail("找不到 papers/bank.js"); return; }
+
+  const win = {};
+  const ctx = { window: win, console };
+  ctx.globalThis = ctx;
+  vm.createContext(ctx);
+  try {
+    vm.runInContext(fs.readFileSync(bankPath, "utf8"), ctx, { filename: bankPath });
+  } catch (e) {
+    fail("bank.js 執行失敗：" + e.message);
+    return;
+  }
+  const E = win.EXAM || {};
+  const papers = E.papers || [];
+  const scope = E.scope || {};
+
+  /* 單字 → 音標 對照表：全冊字彙 ＋ 拼音詞庫 */
+  const kkOf = new Map();
+  (scope.vocab || []).forEach(v => kkOf.set(v.en, v.kk));
+  (scope.reviewVocab || []).forEach(v => kkOf.set(v.en, v.kk));
+  Object.keys(PHONICS_REF).forEach(w => kkOf.set(w, PHONICS_REF[w].kk));
+
+  const optText = (o) => String(o == null ? "" : o).replace(/`[^`]*`/g, "").replace(/\*/g, "").trim();
+  const optWordKK = (o) => {
+    const m = String(o).match(/\*([^*\n]+)\*/);
+    const k = String(o).match(/`([^`\n]+)`/);
+    return { word: m ? m[1].trim() : null, kk: k ? k[1].trim() : null };
+  };
+
+  let checked = { kk2w: 0, vowel: 0, same: 0, pair: 0, zh: 0, optLabel: 0 };
+  let bad = 0;
+  const seen = new Set();
+  function report(msg) {
+    if (seen.has(msg)) return;
+    seen.add(msg);
+    bad++;
+    fail(msg);
+  }
+
+  papers.forEach((paper) => {
+    paper.q.forEach((q, i) => {
+      const stem = String(q.q == null ? "" : q.q);
+      const label = paper.key + " 第 " + (i + 1) + " 題：" + stem.replace(/\*/g, "").replace(/`/g, "");
+      const opts = (q.o || []).map(optText);
+      const correct = opts[q.a];
+
+      /* (4) 選項自帶的音標標示 */
+      (q.o || []).forEach((o) => {
+        const w = optWordKK(o);
+        if (!w.word || !w.kk) return;
+        checked.optLabel++;
+        if (PHONICS_REF[w.word]) {
+          if (PHONICS_REF[w.word].kk !== w.kk) {
+            report(label + " 選項「" + w.word + "」標示 " + w.kk + "，正確應為 " + PHONICS_REF[w.word].kk);
+          }
+        } else if (kkOf.has(w.word) && kkOf.get(w.word) !== w.kk) {
+          report(label + " 選項「" + w.word + "」標示 " + w.kk + "，對照表為 " + kkOf.get(w.word));
+        }
+      });
+
+      /* (1) 音標 → 單字 */
+      if (/音標/.test(stem)) {
+        const m = stem.match(/`([^`\n]+)`/);
+        if (!m) { report(label + " 音標題沒有反引號音標"); return; }
+        checked.kk2w++;
+        const kk = m[1];
+        const hit = opts.filter(w => kkOf.get(w) === kk);
+        if (hit.length !== 1) {
+          report(label + " 符合音標 " + kk + " 的選項有 " + hit.length + " 個：" + hit.join("、"));
+        } else if (hit[0] !== correct) {
+          report(label + " 符合音標的是「" + hit[0] + "」，正解卻是「" + correct + "」");
+        }
+        return;
+      }
+
+      /* (2) 含有／沒有長母音、短母音 */
+      if (/(含有|沒有)[^？]{0,8}母音/.test(stem)) {
+        checked.vowel++;
+        const neg = /「沒有」|沒有長母音|沒有短母音/.test(stem);
+        const isLong = /長母音/.test(stem);
+        let sym = null;
+        const ms = stem.match(/\/([^\/]+)\//);
+        if (ms) sym = ms[1];
+        if (/u_e/.test(stem)) sym = "u";
+        if (!sym) { report(label + " 判讀不到母音符號"); return; }
+
+        let should;
+        if (neg) {
+          should = opts.filter(w => PHONICS_REF[w] && !(PHONICS_REF[w].v === "long" && PHONICS_REF[w].s === sym));
+        } else if (isLong) {
+          should = opts.filter(w => PHONICS_REF[w] && PHONICS_REF[w].s === sym && PHONICS_REF[w].v === "long");
+        } else {
+          should = opts.filter(w => PHONICS_REF[w] && PHONICS_REF[w].s === sym && PHONICS_REF[w].v === "short");
+        }
+        if (should.length !== 1) {
+          report(label + " 符合題意的選項有 " + should.length + " 個：" + should.join("、"));
+        } else if (should[0] !== correct) {
+          report(label + " 應為「" + should[0] + "」，正解卻是「" + correct + "」");
+        }
+        return;
+      }
+
+      /* (3a) 相同的母音 */
+      if (/相同的母音/.test(stem)) {
+        checked.same++;
+        const m = stem.match(/\*([^*\n]+)\*/);
+        const w = m ? m[1].trim() : null;
+        if (!PHONICS_REF[w]) { report(label + " 拼音詞庫找不到單字「" + w + "」"); return; }
+        const hit = opts.filter(o => PHONICS_REF[o] && PHONICS_REF[o].s === PHONICS_REF[w].s);
+        if (hit.length !== 1) report(label + " 母音相同的選項有 " + hit.length + " 個：" + hit.join("、"));
+        else if (hit[0] !== correct) report(label + " 母音相同的是「" + hit[0] + "」，正解卻是「" + correct + "」");
+        return;
+      }
+
+      /* (3b) 短母音 → 長母音 配對 */
+      if (/短母音 → 長母音/.test(stem)) {
+        checked.pair++;
+        const ok = opts.filter(o => {
+          const mm = String(o).match(/^(.+?)\s*→\s*(.+)$/);
+          if (!mm) return false;
+          const a = mm[1].trim(), b = mm[2].trim();
+          return PHONICS_REF[a] && PHONICS_REF[b] &&
+            PHONICS_REF[a].v === "short" && PHONICS_REF[b].v === "long" &&
+            PHONICS_REF[a].s !== PHONICS_REF[b].s;
+        });
+        if (ok.length !== 1) report(label + " 正確配對有 " + ok.length + " 組：" + ok.join("、"));
+        else if (ok[0] !== correct) report(label + " 正確配對是「" + ok[0] + "」，正解卻是「" + correct + "」");
+        return;
+      }
+
+      /* (3c) 拼音字的中文意思 */
+      if (/的中文意思是什麼/.test(stem)) {
+        const m = stem.match(/\*([^*\n]+)\*/);
+        const w = m ? m[1].trim() : null;
+        if (!PHONICS_REF[w]) return;
+        checked.zh++;
+        if (correct !== PHONICS_REF[w].zh) {
+          report(label + " 正解是「" + correct + "」，應為「" + PHONICS_REF[w].zh + "」");
+        }
+        return;
+      }
+    });
+  });
+
+  /* (5) 解析中的拼法標示（單一預編譯正則，一次掃過） */
+  const PAT_RE = /\*?([A-Za-z][A-Za-z'\-]*)\*?\s*(?:是|有)?\s*(?:長母音|短母音)\s*\/[^\/]+\/\s*（(e_e|a_e|i_e|o_e|u_e)[^）]*）/g;
+  let patChecked = 0;
+  papers.forEach((paper) => {
+    paper.q.forEach((q, i) => {
+      const texts = [q.e].concat(q.o || []).concat(q.w || []);
+      for (let ti = 0; ti < texts.length; ti++) {
+        const str = String(texts[ti] == null ? "" : texts[ti]);
+        PAT_RE.lastIndex = 0;
+        let m;
+        while ((m = PAT_RE.exec(str)) !== null) {
+          patChecked++;
+          const w = m[1];
+          const pat = m[2];
+          if (PAT_WORDS[pat].indexOf(w) < 0) {
+            report(paper.key + " 第 " + (i + 1) + " 題：把「" + w + "」標成（" + pat + "），但它的拼法不是 " + pat);
+          }
+        }
+      }
+    });
+  });
+
+  console.log("  音標→單字題      ：" + checked.kk2w);
+  console.log("  長短母音題       ：" + checked.vowel);
+  console.log("  相同母音題       ：" + checked.same);
+  console.log("  長短配對題       ：" + checked.pair);
+  console.log("  拼音中文題       ：" + checked.zh);
+  console.log("  選項音標標示     ：" + checked.optLabel);
+  console.log("  拼法標示檢查     ：" + patChecked);
+  if (!bad) ok("所有音標／拼音題的正解唯一、選項音標標示正確、拼法標示無誤");
+  console.log("");
+}
+
 /* ---------------- 主程式 ---------------- */
 console.log(line("="));
 console.log(" 課綱／課本範圍符合性檢查");
@@ -615,6 +855,7 @@ checkSocial();
 checkScience();
 checkMath();
 checkEnglish();
+checkEnglishPhonics();
 checkHealth();
 
 console.log(line("="));

@@ -48,7 +48,13 @@
     "2. 如果系統標示的正確答案其實有誤，請直接說「系統答案有誤」，並指出正確應該是哪一個。",
     "3. 如果題目本身敘述不清、有兩個選項都說得通、或超出國小四年級範圍，請明確指出，不要硬給答案。",
     "4. 用繁體中文、台灣用語。語氣像老師對四年級學生說明，清楚但不幼稚。",
-    "5. 不要重複貼出題目全文，直接回答重點。"
+    "5. 不要重複貼出題目全文，直接回答重點。",
+    "6. 請固定用下列小節標題開頭、每個小節一段，方便系統用顏色標示：",
+    "   1. 結論：系統答案是否正確？（正確／有誤／題目有瑕疵）",
+    "   2. 學生選項：為什麼學生選的那個對或不對",
+    "   3. 正確答案：為什麼正確答案是那一個",
+    "   4. 觀念補充：用四年級聽得懂的話說明這個概念",
+    "   5. 題目瑕疵：若題目或選項有問題要具體指出，沒有就寫「無」"
   ].join("\n");
 
   /* ---------------- 小工具 ---------------- */
@@ -74,12 +80,109 @@
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  /* 把模型輸出的純文字做最小格式化（先轉義，再做標記，避免注入） */
-  function fmtModelText(s) {
+  /* ---------------- AI 輸出排版：分區 + 顏色 ----------------
+     模型固定用五個小節回答（結論／學生選項／正確答案／觀念補充／題目瑕疵），
+     這裡把每個小節做成不同顏色的卡片，並對「正確／錯誤／注意／重點」等
+     關鍵字加色，讓四年級學生一眼看出重點、也更容易複習記憶。 */
+  var AI_SECTIONS = [
+    { key: "verdict", label: "結論", ic: "✔" },
+    { key: "pick", label: "學生選項", ic: "✎" },
+    { key: "right", label: "正確答案", ic: "✔" },
+    { key: "idea", label: "觀念補充", ic: "💡" },
+    { key: "issue", label: "題目瑕疵", ic: "⚠" },
+    { key: "more", label: "其他補充", ic: "📌" }
+  ];
+  var SEC_RE = /^\s*(?:\d{1,2}\s*[.、)）]|[①②③④⑤]|\(\d{1,2}\))?\s*(結論|學生選擇|學生選項|正確答案|觀念補充|題目瑕疵|其他補充|建議|補充)\s*[:：]\s*(.*)$/;
+  var HL_RE = /(系統答案有誤|答案有誤|有誤|錯誤|不正確|答錯|正確|注意|小心|不可以|不可|不要|危險|避免|重點|應該|必須|一定要|建議)/g;
+
+  function hlClass(tok) {
+    if (/有誤|錯誤|不正確|答錯/.test(tok)) return "qv-hl-bad";
+    if (/正確/.test(tok)) return "qv-hl-ok";
+    if (/注意|小心|不可以|不可|不要|危險|避免/.test(tok)) return "qv-hl-warn";
+    return "qv-hl-info";
+  }
+  function fmtLine(s) {
     var t = esc(s);
     t = t.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
-    t = t.replace(/\n/g, "<br>");
-    return t;
+    return t.replace(HL_RE, function (m) {
+      return '<span class="' + hlClass(m) + '">' + m + "</span>";
+    });
+  }
+  function sectionOf(label) {
+    for (var i = 0; i < AI_SECTIONS.length; i++) {
+      var s = AI_SECTIONS[i];
+      if (label === s.label) return s;
+      if (label === "學生選擇" && s.key === "pick") return s;
+      if ((label === "建議" || label === "補充") && s.key === "more") return s;
+    }
+    return null;
+  }
+  function sectionTone(sec, text) {
+    if (sec.key === "verdict") {
+      if (/有誤|錯誤|不正確|答錯|不對/.test(text)) return "bad";
+      if (/瑕疵|有問題|不完整|不清楚/.test(text)) return "warn";
+      if (/正確/.test(text)) return "ok";
+      return "info";
+    }
+    if (sec.key === "right") return "ok";
+    if (sec.key === "pick") return "pick";
+    if (sec.key === "idea") return "info";
+    if (sec.key === "issue") {
+      if (/^\s*(無|沒有|沒問題|無誤)/.test(text) || /沒有問題/.test(text)) return "ok";
+      return "warn";
+    }
+    return "info";
+  }
+  function verdictPill(text) {
+    if (/有誤|錯誤|不正確|答錯/.test(text)) return "答案有誤";
+    if (/瑕疵|有問題|不完整|不清楚/.test(text)) return "題目有瑕疵";
+    if (/正確/.test(text)) return "答案正確";
+    return "";
+  }
+  /* 把模型輸出的純文字做最小格式化（先轉義，再做標記，避免注入） */
+  function fmtModelText(s) {
+    var raw = String(s == null ? "" : s);
+    var lines = raw.split(/\r?\n/);
+    var groups = [];
+    var lead = [];
+    var cur = null;
+    function push() { if (cur) { groups.push(cur); cur = null; } }
+
+    for (var i = 0; i < lines.length; i++) {
+      var ln = lines[i];
+      var m = ln.match(SEC_RE);
+      var sec = m ? sectionOf(m[1]) : null;
+      if (sec) {
+        push();
+        cur = { sec: sec, lines: [m[2]] };
+      } else if (cur) {
+        cur.lines.push(ln);
+      } else {
+        lead.push(ln);
+      }
+    }
+    push();
+
+    var html = "";
+    var leadText = lead.join("\n").trim();
+    if (leadText) {
+      html += '<div class="qv-lead">' + fmtLine(leadText).replace(/\n/g, "<br>") + "</div>";
+    }
+    groups.forEach(function (g) {
+      var text = g.lines.join("\n").trim();
+      var tone = sectionTone(g.sec, text);
+      var pill = g.sec.key === "verdict" ? verdictPill(text) : "";
+      html += '<div class="qv-sec qv-sec--' + tone + '">' +
+        '<div class="qv-sec-h"><span class="qv-sec-ic">' + g.sec.ic + "</span>" +
+        '<span class="qv-sec-lb">' + esc(g.sec.label) + "</span>" +
+        (pill ? '<span class="qv-pill">' + esc(pill) + "</span>" : "") + "</div>" +
+        '<div class="qv-sec-b">' + fmtLine(text).replace(/\n/g, "<br>") + "</div></div>";
+    });
+    if (!groups.length) {
+      html = '<div class="qv-sec qv-sec--info"><div class="qv-sec-b">' +
+        fmtLine(raw).replace(/\n/g, "<br>") + "</div></div>";
+    }
+    return html;
   }
 
   function el(tag, cls, html) {
@@ -93,7 +196,7 @@
   function injectCSS() {
     if (document.getElementById("qv-style")) return;
     var css = [
-      ".qv-gear{position:fixed;right:16px;bottom:16px;z-index:9998;display:flex;align-items:center;gap:6px;",
+      ".qv-gear{position:fixed;left:16px;bottom:16px;z-index:9998;display:flex;align-items:center;gap:6px;",
       "  font:700 13px/1 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;",
       "  color:#fff;background:#2f6fed;border:0;border-radius:999px;padding:11px 16px;cursor:pointer;",
       "  box-shadow:0 6px 20px rgba(47,111,237,.35);transition:transform .15s,box-shadow .15s}",
@@ -153,11 +256,41 @@
       "@keyframes qvspin{to{transform:rotate(360deg)}}",
       ".qv-err{color:#c0392b;font-weight:700}",
       ".qv-pre{white-space:pre-wrap;word-break:break-word;font-size:14px;line-height:1.8}",
+      /* ---- AI 答題框：分區配色 + 關鍵字標色 ---- */
+      ".qv-legend{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 12px;padding:8px 11px;background:#f7f9fd;",
+      "  border:1px solid #e3e9f2;border-radius:10px;font-size:12px;color:#52606d;font-weight:700}",
+      ".qv-legend span{display:inline-flex;align-items:center;gap:5px}",
+      ".qv-legend i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:0 0 auto}",
+      ".qv-lg-ok i{background:#1f8a4c}.qv-lg-bad i{background:#c0392b}.qv-lg-warn i{background:#d98a00}",
+      ".qv-lg-info i{background:#2f6fed}.qv-lg-pick i{background:#b4457a}",
+      ".qv-out{font-size:14px;line-height:1.85;word-break:break-word}",
+      ".qv-lead{font-size:13.5px;color:#52606d;line-height:1.8;margin:0 0 10px;padding:8px 10px;background:#f7f9fd;border-radius:9px}",
+      ".qv-sec{border:1px solid #e3e9f2;border-left-width:4px;border-radius:11px;margin:0 0 10px;overflow:hidden;background:#fff}",
+      ".qv-sec-h{display:flex;align-items:center;gap:7px;padding:6px 10px;font-size:12.5px;font-weight:800;",
+      "  background:#f4f7fd;color:#3a5fa8;border-bottom:1px solid #e3e9f2}",
+      ".qv-sec-ic{font-size:13px;line-height:1}",
+      ".qv-sec-lb{letter-spacing:.02em}",
+      ".qv-sec-b{padding:9px 11px;font-size:14px;line-height:1.85}",
+      ".qv-sec--ok{border-color:#cde9d9;border-left-color:#1f8a4c}",
+      ".qv-sec--ok .qv-sec-h{background:#eaf7ee;color:#12833f;border-bottom-color:#cde9d9}",
+      ".qv-sec--bad{border-color:#f6d7d4;border-left-color:#c0392b}",
+      ".qv-sec--bad .qv-sec-h{background:#fdeeed;color:#c0392b;border-bottom-color:#f6d7d4}",
+      ".qv-sec--warn{border-color:#f8e6bd;border-left-color:#d98a00}",
+      ".qv-sec--warn .qv-sec-h{background:#fff7e6;color:#a86a00;border-bottom-color:#f8e6bd}",
+      ".qv-sec--info{border-color:#dbe6ff;border-left-color:#2f6fed}",
+      ".qv-sec--info .qv-sec-h{background:#eef3ff;color:#2f6fed;border-bottom-color:#dbe6ff}",
+      ".qv-sec--pick{border-color:#f3d5e4;border-left-color:#b4457a}",
+      ".qv-sec--pick .qv-sec-h{background:#fdf0f6;color:#a73a6b;border-bottom-color:#f3d5e4}",
+      ".qv-pill{margin-left:auto;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;background:#fff;border:1px solid currentColor}",
+      ".qv-hl-ok{color:#12833f;font-weight:800}",
+      ".qv-hl-bad{color:#c0392b;font-weight:800}",
+      ".qv-hl-warn{color:#a86a00;font-weight:800}",
+      ".qv-hl-info{color:#2f6fed;font-weight:800}",
       ".qv-badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;",
       "  background:#eef3ff;color:#2f6fed;margin-right:6px}",
       ".qv-kicker{font-size:11.5px;font-weight:800;color:#9aa5b1;letter-spacing:.08em;margin-bottom:8px}",
       "@media (max-width:600px){",
-      "  .qv-gear{right:12px;bottom:12px;padding:10px 13px;font-size:12.5px}",
+      "  .qv-gear{left:12px;bottom:12px;padding:10px 13px;font-size:12.5px}",
       "}"
     ].join("");
     var st = document.createElement("style");
@@ -539,7 +672,16 @@
       '<span class="qv-spin"></span><span>正在呼叫 ' + esc(model) + " …</span>");
     ui.body.appendChild(status);
 
-    var out = el("div", "qv-pre");
+    var legend = el("div", "qv-legend");
+    legend.innerHTML =
+      '<span><i class="qv-lg-ok"></i>正確</span>' +
+      '<span><i class="qv-lg-bad"></i>錯誤／有誤</span>' +
+      '<span><i class="qv-lg-warn"></i>注意／瑕疵</span>' +
+      '<span><i class="qv-lg-info"></i>重點補充</span>' +
+      '<span><i class="qv-lg-pick"></i>學生選項</span>';
+    ui.body.appendChild(legend);
+
+    var out = el("div", "qv-out");
     out.style.display = "none";
     ui.body.appendChild(out);
 
