@@ -57,6 +57,7 @@ alter table public.done_questions  enable row level security;
 drop policy if exists "qc submissions read"   on public.submissions;
 drop policy if exists "qc submissions insert" on public.submissions;
 drop policy if exists "qc submissions update" on public.submissions;
+drop policy if exists "qc submissions delete" on public.submissions;
 drop policy if exists "qc done read"          on public.done_questions;
 drop policy if exists "qc done insert"        on public.done_questions;
 drop policy if exists "qc done delete"        on public.done_questions;
@@ -64,6 +65,8 @@ drop policy if exists "qc done delete"        on public.done_questions;
 create policy "qc submissions read"   on public.submissions for select to anon using (true);
 create policy "qc submissions insert" on public.submissions for insert to anon with check (true);
 create policy "qc submissions update" on public.submissions for update to anon using (true) with check (true);
+-- delete 只給設定精靈清掉自己寫入的測試列用
+create policy "qc submissions delete" on public.submissions for delete to anon using (true);
 
 create policy "qc done read"   on public.done_questions for select to anon using (true);
 create policy "qc done insert" on public.done_questions for insert to anon with check (true);

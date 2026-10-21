@@ -638,8 +638,10 @@
   /* ---------------- 資料載入與輪詢 ---------------- */
   function loadRows() {
     return QCORE.listSubmissions({ limit: 60 }).then(function (rows) {
-      var fresh = (rows || []).filter(function (r) { return !A.known[r.id]; });
-      A.rows = rows || [];
+      /* 設定精靈寫入的測試列不要出現在兒子的成績清單裡 */
+      rows = (rows || []).filter(function (r) { return r.subject !== "__setup_test__"; });
+      var fresh = rows.filter(function (r) { return !A.known[r.id]; });
+      A.rows = rows;
       A.rows.forEach(function (r) { A.known[r.id] = 1; });
 
       if (!A.firstLoad && fresh.length) {
