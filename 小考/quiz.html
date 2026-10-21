@@ -13,13 +13,15 @@
     --ok:#1f8a54; --warn:#c77700; --bad:#c0392b;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;height:100%}
+  html,body{margin:0;padding:0}
   body{
     background:var(--bg);color:var(--ink);
     font:400 16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
     -webkit-text-size-adjust:100%;
     display:flex;flex-direction:column;min-height:100dvh;
   }
+  /* 讓「載入中／作答／交卷」三種畫面都能把底部按鈕推到視窗最下方 */
+  #view{display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
 
   /* ---------- 頂列 ---------- */
   .bar{
@@ -113,13 +115,13 @@
   .sheet-wrap{position:fixed;inset:0;z-index:40;display:none}
   .sheet-wrap.on{display:block}
   .sheet-bg{position:absolute;inset:0;background:rgba(15,23,42,.38)}
-  .sheet{
+  .sheet-wrap .sheet{
     position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0;
     padding:18px 18px calc(18px + env(safe-area-inset-bottom));max-height:70vh;overflow:auto;
     box-shadow:0 -12px 40px rgba(15,23,42,.2);
   }
-  .sheet h3{margin:0 0 4px;font-size:16px;font-weight:800}
-  .sheet p{margin:0 0 14px;font-size:12.5px;color:var(--ink3)}
+  .sheet-wrap .sheet h3{margin:0 0 4px;font-size:16px;font-weight:800}
+  .sheet-wrap .sheet p{margin:0 0 14px;font-size:12.5px;color:var(--ink3)}
   .nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:7px}
   .num{
     appearance:none;border:1.5px solid #dbe3ef;background:#fff;border-radius:9px;cursor:pointer;
