@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eng-phonics-ae-title eng-phonics-ae-desc" id="eng-phonics-ae-root">
+  <title id="eng-phonics-ae-title">a_e 的母音怎麼變</title>
+  <desc id="eng-phonics-ae-desc">母音組合 a_e 念長母音 /e/，單獨的 a 念短母音 /æ/。</desc>
+  <defs>
+      <style>#eng-phonics-ae-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #eng-phonics-ae-root { font-family: var(--sans); color: var(--ink); }
+      #eng-phonics-ae-root .diagram-container { width:100%;overflow-x:auto }
+      #eng-phonics-ae-root text { font-family:var(--sans) }
+      #eng-phonics-ae-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #eng-phonics-ae-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #eng-phonics-ae-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #eng-phonics-ae-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #eng-phonics-ae-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #eng-phonics-ae-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #eng-phonics-ae-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #eng-phonics-ae-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #eng-phonics-ae-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #eng-phonics-ae-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #eng-phonics-ae-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #eng-phonics-ae-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #eng-phonics-ae-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #eng-phonics-ae-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #eng-phonics-ae-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #eng-phonics-ae-root .dash { stroke-dasharray:5 4 }</style><marker id="eng-phonics-ae-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="eng-phonics-ae-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">英語文・Get Ready Phonics</text>
+<text x="32" y="58" class="h">a_e 的母音怎麼變</text>
+  <rect x="56" y="104" width="176" height="72" rx="6" fill="#f6f8fc"/>
+<rect x="56" y="104" width="176" height="72" rx="6" class="n"/>
+<text x="144" y="132" class="ts" text-anchor="middle">a + e</text>
+<line x1="244" y1="140" x2="320" y2="140" class="lm" marker-end="url(#eng-phonics-ae-arrow)"/>
+<rect x="332" y="104" width="152" height="72" rx="6" fill="#f6f8fc"/>
+<rect x="332" y="104" width="152" height="72" rx="6" class="na"/>
+<text x="408" y="132" class="ts" text-anchor="middle">/e/</text>
+<text x="244" y="112" class="s" text-anchor="middle">母音字母</text>
+<text x="408" y="96" class="a" text-anchor="middle">長母音</text>
+<rect x="56" y="208" width="176" height="72" rx="6" fill="#f6f8fc"/>
+<rect x="56" y="208" width="176" height="72" rx="6" class="ns"/>
+<text x="144" y="236" class="ts" text-anchor="middle">a</text>
+<line x1="244" y1="244" x2="320" y2="244" class="lm" marker-end="url(#eng-phonics-ae-arrow)"/>
+<rect x="332" y="208" width="152" height="72" rx="6" fill="#f6f8fc"/>
+<rect x="332" y="208" width="152" height="72" rx="6" class="ns"/>
+<text x="408" y="236" class="ts" text-anchor="middle">/æ/</text>
+<text x="244" y="216" class="s" text-anchor="middle">母音字母</text>
+<text x="408" y="200" class="s" text-anchor="middle">短母音</text>
+<text x="56" y="320" class="sb" text-anchor="start">規則：母音字母後面加一個不發音的 e，</text>
+<text x="56" y="342" class="sb" text-anchor="start">母音字母就會念自己的名字，變成長母音。</text>
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="soc-hill-tea-title soc-hill-tea-desc" id="soc-hill-tea-root">
+  <title id="soc-hill-tea-title">山坡上的階梯茶園</title>
+  <desc id="soc-hill-tea-desc">丘陵坡地沿等高線做成階梯種植茶樹的剖面示意。</desc>
+  <defs>
+      <style>#soc-hill-tea-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #soc-hill-tea-root { font-family: var(--sans); color: var(--ink); }
+      #soc-hill-tea-root .diagram-container { width:100%;overflow-x:auto }
+      #soc-hill-tea-root text { font-family:var(--sans) }
+      #soc-hill-tea-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #soc-hill-tea-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #soc-hill-tea-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #soc-hill-tea-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #soc-hill-tea-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #soc-hill-tea-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #soc-hill-tea-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #soc-hill-tea-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #soc-hill-tea-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #soc-hill-tea-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #soc-hill-tea-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #soc-hill-tea-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #soc-hill-tea-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #soc-hill-tea-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #soc-hill-tea-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #soc-hill-tea-root .dash { stroke-dasharray:5 4 }</style><marker id="soc-hill-tea-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="soc-hill-tea-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">社會・丘陵的茶園</text>
+<text x="32" y="58" class="h">山坡上的階梯茶園</text>
+  <line x1="48" y1="300" x2="592" y2="300" class="lm"/>
+<path d="M 48 300 L 168 232 L 288 164 L 408 108 L 528 72" class="ln"/>
+<line x1="112" y1="232" x2="168" y2="232" class="ln"/>
+<line x1="112" y1="258" x2="168" y2="258" class="la dash"/>
+<circle cx="128" cy="226" r="7" class="na"/>
+<circle cx="146" cy="226" r="7" class="na"/>
+<circle cx="164" cy="226" r="7" class="na"/>
+<line x1="232" y1="164" x2="288" y2="164" class="ln"/>
+<line x1="232" y1="190" x2="288" y2="190" class="la dash"/>
+<circle cx="248" cy="158" r="7" class="na"/>
+<circle cx="266" cy="158" r="7" class="na"/>
+<circle cx="284" cy="158" r="7" class="na"/>
+<line x1="352" y1="108" x2="408" y2="108" class="ln"/>
+<line x1="352" y1="134" x2="408" y2="134" class="la dash"/>
+<circle cx="368" cy="102" r="7" class="na"/>
+<circle cx="386" cy="102" r="7" class="na"/>
+<circle cx="404" cy="102" r="7" class="na"/>
+<line x1="472" y1="72" x2="528" y2="72" class="ln"/>
+<line x1="472" y1="98" x2="528" y2="98" class="la dash"/>
+<circle cx="488" cy="66" r="7" class="na"/>
+<circle cx="506" cy="66" r="7" class="na"/>
+<circle cx="524" cy="66" r="7" class="na"/>
+<text x="200" y="344" class="s" text-anchor="middle">階梯茶園：沿著等高線一階一階種茶</text>
+<text x="88" y="196" class="ts" text-anchor="start">丘陵</text>
+<text x="88" y="220" class="s" text-anchor="start">坡度較緩</text>
+<text x="556" y="132" class="s" text-anchor="start">山頂</text>
+<text x="64" y="372" class="s" text-anchor="start">一階一階的茶樹排成階梯，方便耕作也減少土壤流失。</text>
+</svg>

@@ -373,6 +373,11 @@
   input,select,textarea{font-weight:700}
   .passage,.exbox,.csum,.pt,.extra,.note,.md,.sub,.subj-sub,.note-line,.cnt{font-weight:600}
   b,strong{font-weight:800}
+  /* 題目附圖（Diagram Design 產出的 SVG） */
+  .qfig{margin:0 0 12px;padding:0}
+  .qfig img{display:block;width:100%;max-width:560px;height:auto;background:#f6f8fc;
+    border:1px solid #e3e9f2;border-radius:10px}
+  .qfig figcaption{font-size:12.5px;color:#7b8794;margin-top:6px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -419,9 +424,23 @@
      *英文*  → 可點擊發音（en-US TTS）
      `音標` → 以清楚可辨的 KK 音標字型顯示
      其餘   → 一般文字（中文） */
+  /* 題目附圖：[[fig:檔名|圖說]] → <figure class="qfig">…</figure> */
+  function figHTML(s) {
+    var str = String(s == null ? "" : s);
+    var out = "";
+    str.replace(/\[\[fig:([a-z0-9\-]+)(?:\|([^\]]*))?\]\]/gi, function (_, slug, cap) {
+      out += '<figure class="qfig"><img src="img/' + esc(slug) + '.svg" alt="' + esc(cap || "") + '">' +
+        (cap ? '<figcaption>' + esc(cap) + '</figcaption>' : '') + "</figure>";
+      return "";
+    });
+    return out;
+  }
+  function stripFig(s) { return String(s == null ? "" : s).replace(/\[\[fig:[^\]]*\]\]/gi, ""); }
   function rich(s) {
     if (s == null) return "";
     var str = String(s);
+    var fig = figHTML(str);
+    str = stripFig(str);
     var re = /(\*[^*\n]+\*|`[^`\n]+`)/g;
     var out = "", last = 0, m;
     while ((m = re.exec(str)) !== null) {
@@ -436,9 +455,10 @@
       last = m.index + tok.length;
     }
     out += esc(str.slice(last));
-    return out;
+    return fig + out;
   }
   function richNl(s) { return rich(s).replace(/\n/g, "<br>"); }
+  function richNoFig(s) { return rich(stripFig(s)); }
   function enParts(s) {
     var out = [], str = String(s == null ? "" : s);
     var re = /\*([^*\n]+)\*/g, m;
@@ -902,7 +922,7 @@
     h += '<div class="ai-h"><span class="ai-n">' + (i + 1) + '</span>';
     h += '<span class="ai-u">' + rich(q.u) + '</span>';
     h += '<span class="ai-st' + stc + '">' + st + '</span></div>';
-    h += '<div class="ai-q">' + richNl(q.q) + '</div>';
+    h += '<div class="ai-q">' + richNoFig(q.q) + '</div>';
     h += '<div class="ai-o">';
     for (var k = 0; k < nopt(q); k++) {
       var c = "";

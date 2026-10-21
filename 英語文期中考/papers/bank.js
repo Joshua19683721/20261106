@@ -3003,7 +3003,7 @@ var SELECT = [
     "sid": "gr-a-e",
     "u": "Get Ready・Phonics a_e",
     "d": "易",
-    "q": "Get Ready 發音：下列哪一個單字含有長母音 /e/（a_e）？",
+    "q": "Get Ready 發音：[[fig:eng-phonics-ae|a_e 的母音規則]] 下列哪一個單字含有長母音 /e/（a_e）？",
     "o": [
       "*cape* `[kep]`",
       "*cap* `[kæp]`",
@@ -4583,7 +4583,7 @@ var SELECT = [
     "sid": "u2-sent",
     "u": "Unit 2・Time Sentences",
     "d": "易",
-    "q": "Unit 2 句型：*It's four fifty.* `[ɪts fɔr ˋfɪfti]` 的中文意思最接近哪一句？",
+    "q": "Unit 2 句型：[[fig:eng-clock|It's four fifty. 的時鐘]] *It's four fifty.* `[ɪts fɔr ˋfɪfti]` 的中文意思最接近哪一句？",
     "o": [
       "現在四點五十分。",
       "現在幾點？",

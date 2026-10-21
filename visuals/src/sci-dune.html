@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>沙丘是怎麼形成的</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif;
+  }
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);padding:24px}
+  .frame{max-width:720px;margin:0 auto}
+  .eyebrow{font:500 12px var(--sans);color:var(--muted);margin-bottom:6px}
+  h1{font:400 22px var(--serif);color:var(--ink);margin-bottom:12px}
+  .diagram-container{width:100%;overflow-x:auto}
+  svg{width:100%;min-width:640px;display:block}
+  svg text{font-family:var(--sans)}
+  .h{font:400 22px var(--serif);fill:var(--ink)}
+  .e{font:500 12px var(--sans);fill:var(--muted)}
+  .t{font:600 16px var(--sans);fill:var(--ink)}
+  .ts{font:600 15px var(--sans);fill:var(--ink)}
+  .s{font:500 13px var(--sans);fill:var(--soft)}
+  .sb{font:500 13px var(--sans);fill:var(--ink)}
+  .a{font:600 15px var(--sans);fill:var(--accent)}
+  .big{font:400 44px var(--serif);fill:var(--ink)}
+  .mid{font:400 34px var(--serif);fill:var(--ink)}
+  .n{fill:#ffffff;stroke:var(--ink);stroke-width:1}
+  .na{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2}
+  .ns{fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1}
+  .ln{stroke:var(--ink);stroke-width:1.2;fill:none}
+  .lm{stroke:var(--muted);stroke-width:1;fill:none}
+  .la{stroke:var(--accent);stroke-width:1.4;fill:none}
+  .dash{stroke-dasharray:5 4}
+</style>
+</head>
+<body>
+<div class="frame">
+<p class="eyebrow">自然・風與地表</p>
+<h1>沙丘是怎麼形成的</h1>
+<div class="diagram-container">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sci-dune-title sci-dune-desc">
+  <title id="sci-dune-title">沙丘是怎麼形成的</title>
+  <desc id="sci-dune-desc">風把砂粒吹起搬運，在背風坡堆積成沙丘的剖面示意。</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">自然・風與地表</text>
+<text x="32" y="58" class="h">沙丘是怎麼形成的</text>
+  <line x1="60" y1="300" x2="580" y2="300" class="lm"/>
+<path d="M 150 300 C 230 292, 268 236, 330 168 C 356 196, 386 258, 424 300" class="ln"/>
+<path d="M 150 300 C 230 292, 268 236, 330 168" class="la dash"/>
+<circle cx="196" cy="288" r="3" class="la" fill="none"/>
+<circle cx="232" cy="276" r="3" class="la" fill="none"/>
+<circle cx="266" cy="250" r="3" class="la" fill="none"/>
+<circle cx="296" cy="214" r="3" class="la" fill="none"/>
+<line x1="64" y1="120" x2="132" y2="120" class="lm" marker-end="url(#arrow)"/>
+<rect x="38" y="90" width="52" height="18" fill="#f6f8fc"/>
+<text x="98" y="103" class="s" text-anchor="middle">風</text>
+<text x="196" y="116" class="s" text-anchor="start">風把砂粒吹起、搬運</text>
+<text x="214" y="336" class="s" text-anchor="middle">迎風坡（坡緩）</text>
+<text x="400" y="336" class="s" text-anchor="middle">背風坡（坡陡）</text>
+<text x="470" y="200" class="ts" text-anchor="start">沙丘</text>
+<text x="470" y="224" class="s" text-anchor="start">砂粒堆積處</text>
+<text x="64" y="372" class="s" text-anchor="start">風持續吹，砂粒被搬運到別處堆積，沙丘就會慢慢移動位置。</text>
+</svg>
+</div>
+</div>
+</body>
+</html>

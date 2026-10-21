@@ -326,6 +326,11 @@
   input,select,textarea{font-weight:700}
   .passage,.exbox,.csum,.pt,.extra,.note,.md,.sub,.subj-sub,.note-line,.cnt{font-weight:600}
   b,strong{font-weight:800}
+  /* 題目附圖（Diagram Design 產出的 SVG） */
+  .qfig{margin:0 0 12px;padding:0}
+  .qfig img{display:block;width:100%;max-width:560px;height:auto;background:#f6f8fc;
+    border:1px solid #e3e9f2;border-radius:10px}
+  .qfig figcaption{font-size:12.5px;color:#7b8794;margin-top:6px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -383,7 +388,23 @@
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
-  function nl2br(s) { return esc(s).replace(/\n/g, "<br>"); }
+  /* 題目附圖：[[fig:檔名|圖說]] → <figure class="qfig">…</figure> */
+  function figHTML(s) {
+    var str = String(s == null ? "" : s);
+    var out = "";
+    str.replace(/\[\[fig:([a-z0-9\-]+)(?:\|([^\]]*))?\]\]/gi, function (_, slug, cap) {
+      out += '<figure class="qfig"><img src="img/' + esc(slug) + '.svg" alt="' + esc(cap || "") + '">' +
+        (cap ? '<figcaption>' + esc(cap) + '</figcaption>' : '') + "</figure>";
+      return "";
+    });
+    return out;
+  }
+  function stripFig(s) { return String(s == null ? "" : s).replace(/\[\[fig:[^\]]*\]\]/gi, ""); }
+  function nl2br(s) {
+    var str = String(s == null ? "" : s);
+    return figHTML(str) + esc(stripFig(str)).replace(/\n/g, "<br>");
+  }
+  function nl2brNoFig(s) { return esc(stripFig(s)).replace(/\n/g, "<br>"); }
   function letter(i) { return "ABCDE".charAt(i); }
   function nopt(q) { return (q && q.o && q.o.length) || 4; }
 
@@ -743,7 +764,7 @@
     h += '<div class="ai-h"><span class="ai-n">' + (i + 1) + '</span>';
     h += '<span class="ai-u">' + esc(q.u) + '</span>';
     h += '<span class="ai-st' + stc + '">' + st + '</span></div>';
-    h += '<div class="ai-q">' + nl2br(q.q) + '</div>';
+    h += '<div class="ai-q">' + nl2brNoFig(q.q) + '</div>';
     h += '<div class="ai-o">';
     for (var k = 0; k < nopt(q); k++) {
       var c = "";

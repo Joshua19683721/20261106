@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="soc-terrain-title soc-terrain-desc" id="soc-terrain-root">
+  <title id="soc-terrain-title">臺灣常見的五種地形</title>
+  <desc id="soc-terrain-desc">山地、丘陵、台地、平原、盆地五種地形的剖面小圖。</desc>
+  <defs>
+      <style>#soc-terrain-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #soc-terrain-root { font-family: var(--sans); color: var(--ink); }
+      #soc-terrain-root .diagram-container { width:100%;overflow-x:auto }
+      #soc-terrain-root text { font-family:var(--sans) }
+      #soc-terrain-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #soc-terrain-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #soc-terrain-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #soc-terrain-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #soc-terrain-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #soc-terrain-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #soc-terrain-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #soc-terrain-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #soc-terrain-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #soc-terrain-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #soc-terrain-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #soc-terrain-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #soc-terrain-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #soc-terrain-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #soc-terrain-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #soc-terrain-root .dash { stroke-dasharray:5 4 }</style><marker id="soc-terrain-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="soc-terrain-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">社會・家鄉的地形</text>
+<text x="32" y="58" class="h">臺灣常見的五種地形</text>
+  <rect x="28" y="92" width="104" height="176" rx="6" fill="#f6f8fc"/>
+<rect x="28" y="92" width="104" height="176" rx="6" class="n"/>
+<g transform="translate(34 224)"><path d="M 12 132 L 34 52 L 52 92 L 70 34 L 92 132" class="ln"/></g>
+<text x="80" y="252" class="ts" text-anchor="middle">山地</text>
+<rect x="148" y="92" width="104" height="176" rx="6" fill="#f6f8fc"/>
+<rect x="148" y="92" width="104" height="176" rx="6" class="n"/>
+<g transform="translate(154 224)"><path d="M 12 132 C 28 86, 44 86, 52 112 C 62 84, 78 86, 92 132" class="ln"/></g>
+<text x="200" y="252" class="ts" text-anchor="middle">丘陵</text>
+<rect x="268" y="92" width="104" height="176" rx="6" fill="#f6f8fc"/>
+<rect x="268" y="92" width="104" height="176" rx="6" class="n"/>
+<g transform="translate(274 224)"><path d="M 12 132 L 26 132 L 34 60 L 74 60 L 84 132 L 92 132" class="ln"/></g>
+<text x="320" y="252" class="ts" text-anchor="middle">台地</text>
+<rect x="388" y="92" width="104" height="176" rx="6" fill="#f6f8fc"/>
+<rect x="388" y="92" width="104" height="176" rx="6" class="n"/>
+<g transform="translate(394 224)"><path d="M 12 132 L 92 132" class="ln"/></g>
+<text x="440" y="252" class="ts" text-anchor="middle">平原</text>
+<rect x="508" y="92" width="104" height="176" rx="6" fill="#f6f8fc"/>
+<rect x="508" y="92" width="104" height="176" rx="6" class="n"/>
+<g transform="translate(514 224)"><path d="M 12 132 L 26 48 L 40 104 L 64 104 L 78 48 L 92 132" class="ln"/></g>
+<text x="560" y="252" class="ts" text-anchor="middle">盆地</text>
+<text x="28" y="304" class="s" text-anchor="start">由左而右：山勢高低與起伏不同，就分成不同的地形。</text>
+<text x="28" y="336" class="s" text-anchor="start">台地＝頂部平坦、邊緣較陡；盆地＝四周較高、中間低平。</text>
+</svg>

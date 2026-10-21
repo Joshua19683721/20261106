@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hp-burn-title hp-burn-desc" id="hp-burn-root">
+  <title id="hp-burn-title">灼燙傷急救：沖、脫、蓋、送</title>
+  <desc id="hp-burn-desc">灼燙傷急救四個步驟依序排列，並提醒不可塗牙膏或戳破水泡。</desc>
+  <defs>
+      <style>#hp-burn-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #hp-burn-root { font-family: var(--sans); color: var(--ink); }
+      #hp-burn-root .diagram-container { width:100%;overflow-x:auto }
+      #hp-burn-root text { font-family:var(--sans) }
+      #hp-burn-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #hp-burn-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #hp-burn-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #hp-burn-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #hp-burn-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #hp-burn-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #hp-burn-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #hp-burn-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #hp-burn-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #hp-burn-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #hp-burn-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #hp-burn-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #hp-burn-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #hp-burn-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #hp-burn-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #hp-burn-root .dash { stroke-dasharray:5 4 }</style><marker id="hp-burn-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="hp-burn-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">健康與體育・小心灼燙傷</text>
+<text x="32" y="58" class="h">灼燙傷急救：沖、脫、蓋、送</text>
+  <rect x="20" y="116" width="130" height="108" rx="6" fill="#f6f8fc"/>
+<rect x="20" y="116" width="130" height="108" rx="6" class="n"/>
+<text x="36" y="148" class="a" text-anchor="start">①</text>
+<text x="72" y="148" class="ts" text-anchor="start">沖</text>
+<text x="36" y="178" class="s" text-anchor="start">用流動的冷水</text>
+<text x="36" y="198" class="s" text-anchor="start">沖 10～15 分鐘</text>
+<line x1="152" y1="170" x2="168" y2="170" class="lm" marker-end="url(#hp-burn-arrow)"/>
+<rect x="170" y="116" width="130" height="108" rx="6" fill="#f6f8fc"/>
+<rect x="170" y="116" width="130" height="108" rx="6" class="n"/>
+<text x="186" y="148" class="a" text-anchor="start">②</text>
+<text x="222" y="148" class="ts" text-anchor="start">脫</text>
+<text x="186" y="178" class="s" text-anchor="start">小心脫下衣物</text>
+<text x="186" y="198" class="s" text-anchor="start">黏住不要硬撕</text>
+<line x1="302" y1="170" x2="318" y2="170" class="lm" marker-end="url(#hp-burn-arrow)"/>
+<rect x="320" y="116" width="130" height="108" rx="6" fill="#f6f8fc"/>
+<rect x="320" y="116" width="130" height="108" rx="6" class="n"/>
+<text x="336" y="148" class="a" text-anchor="start">③</text>
+<text x="372" y="148" class="ts" text-anchor="start">蓋</text>
+<text x="336" y="178" class="s" text-anchor="start">用乾淨的布</text>
+<text x="336" y="198" class="s" text-anchor="start">或紗布覆蓋傷口</text>
+<line x1="452" y1="170" x2="468" y2="170" class="lm" marker-end="url(#hp-burn-arrow)"/>
+<rect x="470" y="116" width="130" height="108" rx="6" fill="#f6f8fc"/>
+<rect x="470" y="116" width="130" height="108" rx="6" class="n"/>
+<text x="486" y="148" class="a" text-anchor="start">④</text>
+<text x="522" y="148" class="ts" text-anchor="start">送</text>
+<text x="486" y="178" class="s" text-anchor="start">送醫治療</text>
+<text x="486" y="198" class="s" text-anchor="start">並告知受傷原因</text>
+<text x="20" y="268" class="sb" text-anchor="start">順序：沖 → 脫 → 蓋 → 送，一步一步做，傷口才不會更嚴重。</text>
+<text x="20" y="316" class="s" text-anchor="start">不要塗牙膏、醬油或撒鹽巴，也不要自己戳破水泡。</text>
+<text x="20" y="344" class="s" text-anchor="start">燙傷後先用流動冷水沖洗，是最重要的第一步。</text>
+</svg>
