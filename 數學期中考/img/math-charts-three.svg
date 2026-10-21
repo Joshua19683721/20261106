@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-charts-three-title math-charts-three-desc" id="math-charts-three-root">
+  <title id="math-charts-three-title">長條圖與折線圖</title>
+  <desc id="math-charts-three-desc">左邊長條圖、右邊折線圖的小型對照。</desc>
+  <defs>
+      <style>#math-charts-three-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-charts-three-root { font-family: var(--sans); color: var(--ink); }
+      #math-charts-three-root .diagram-container { width:100%;overflow-x:auto }
+      #math-charts-three-root text { font-family:var(--sans) }
+      #math-charts-three-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-charts-three-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-charts-three-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-charts-three-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-charts-three-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-charts-three-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-charts-three-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-charts-three-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-charts-three-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-charts-three-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-charts-three-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-charts-three-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-charts-three-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-charts-three-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-charts-three-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-charts-three-root .dash { stroke-dasharray:5 4 }</style><marker id="math-charts-three-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-charts-three-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・10-1 報讀生活中的統計圖</text>
+<text x="32" y="58" class="h">長條圖與折線圖</text>
+  <line x1="110" y1="270" x2="110" y2="20" class="ln"/>
+<line x1="110" y1="270" x2="560" y2="270" class="ln"/>
+<line x1="110" y1="270" x2="560" y2="270" class="lm dash"/>
+<text x="98" y="275" class="s" text-anchor="end">0</text>
+<line x1="110" y1="207" x2="560" y2="207" class="lm dash"/>
+<text x="98" y="212" class="s" text-anchor="end">4</text>
+<line x1="110" y1="145" x2="560" y2="145" class="lm dash"/>
+<text x="98" y="150" class="s" text-anchor="end">8</text>
+<line x1="110" y1="82" x2="560" y2="82" class="lm dash"/>
+<text x="98" y="87" class="s" text-anchor="end">12</text>
+<line x1="110" y1="20" x2="560" y2="20" class="lm dash"/>
+<text x="98" y="25" class="s" text-anchor="end">16</text>
+<rect x="150" y="82" width="22" height="187" rx="6" class="n"/>
+<rect x="150" y="82" width="22" height="187" rx="6" class="na"/>
+<text x="161" y="296" class="ts" text-anchor="middle">籃球</text>
+<rect x="204" y="145" width="22" height="125" rx="6" class="n"/>
+<rect x="204" y="145" width="22" height="125" rx="6" class="na"/>
+<text x="215" y="296" class="ts" text-anchor="middle">躲避球</text>
+<rect x="258" y="176" width="22" height="93" rx="6" class="n"/>
+<rect x="258" y="176" width="22" height="93" rx="6" class="na"/>
+<text x="269" y="296" class="ts" text-anchor="middle">羽球</text>
+<text x="70" y="12" class="s" text-anchor="end">人</text>
+<line x1="360" y1="270" x2="360" y2="100" class="ln"/>
+<line x1="360" y1="270" x2="560" y2="270" class="ln"/>
+<line x1="400" y1="165" x2="446" y2="144" class="la" stroke-width="2.4"/>
+<line x1="446" y1="144" x2="493" y2="154" class="la" stroke-width="2.4"/>
+<line x1="493" y1="154" x2="540" y2="134" class="la" stroke-width="2.4"/>
+<circle cx="400" cy="165" r="7" class="na" fill="#ffffff"/>
+<text x="400" y="296" class="s" text-anchor="middle">一</text>
+<circle cx="446" cy="144" r="7" class="na" fill="#ffffff"/>
+<text x="446" y="296" class="s" text-anchor="middle">二</text>
+<circle cx="493" cy="154" r="7" class="na" fill="#ffffff"/>
+<text x="493" y="296" class="s" text-anchor="middle">三</text>
+<circle cx="540" cy="134" r="7" class="na" fill="#ffffff"/>
+<text x="540" y="296" class="s" text-anchor="middle">四</text>
+<text x="348" y="92" class="s" text-anchor="end">度</text>
+<text x="120" y="320" class="ts" text-anchor="middle">長條圖</text>
+<text x="460" y="320" class="ts" text-anchor="middle">折線圖</text>
+<text x="60" y="360" class="sb" text-anchor="start">不��的統計圖，看的是不同的資訊。</text>
+</svg>

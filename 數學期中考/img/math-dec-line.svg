@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-dec-line-title math-dec-line-desc" id="math-dec-line-root">
+  <title id="math-dec-line-title">小數的大小比較</title>
+  <desc id="math-dec-line-desc">0 到 1 的數線，標出 0.04、0.4、0.44 的位置。</desc>
+  <defs>
+      <style>#math-dec-line-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-dec-line-root { font-family: var(--sans); color: var(--ink); }
+      #math-dec-line-root .diagram-container { width:100%;overflow-x:auto }
+      #math-dec-line-root text { font-family:var(--sans) }
+      #math-dec-line-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-dec-line-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-dec-line-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-dec-line-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-dec-line-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-dec-line-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-dec-line-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-dec-line-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-dec-line-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-dec-line-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-dec-line-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-dec-line-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-dec-line-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-dec-line-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-dec-line-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-dec-line-root .dash { stroke-dasharray:5 4 }</style><marker id="math-dec-line-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-dec-line-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・7-2 小數的大小比較</text>
+<text x="32" y="58" class="h">小數的大小比較</text>
+  <line x1="90" y1="230" x2="560" y2="230" class="ln"/>
+<line x1="90" y1="222" x2="90" y2="238" class="lm"/>
+<text x="90" y="260" class="s" text-anchor="middle">0</text>
+<line x1="137" y1="222" x2="137" y2="238" class="lm"/>
+<text x="137" y="260" class="s" text-anchor="middle">0.1</text>
+<line x1="184" y1="222" x2="184" y2="238" class="lm"/>
+<text x="184" y="260" class="s" text-anchor="middle">0.2</text>
+<line x1="231" y1="222" x2="231" y2="238" class="lm"/>
+<text x="231" y="260" class="s" text-anchor="middle">0.3</text>
+<line x1="278" y1="222" x2="278" y2="238" class="lm"/>
+<text x="278" y="260" class="s" text-anchor="middle">0.4</text>
+<line x1="325" y1="222" x2="325" y2="238" class="lm"/>
+<text x="325" y="260" class="s" text-anchor="middle">0.5</text>
+<line x1="372" y1="222" x2="372" y2="238" class="lm"/>
+<text x="372" y="260" class="s" text-anchor="middle">0.6</text>
+<line x1="419" y1="222" x2="419" y2="238" class="lm"/>
+<text x="419" y="260" class="s" text-anchor="middle">0.7</text>
+<line x1="466" y1="222" x2="466" y2="238" class="lm"/>
+<text x="466" y="260" class="s" text-anchor="middle">0.8</text>
+<line x1="513" y1="222" x2="513" y2="238" class="lm"/>
+<text x="513" y="260" class="s" text-anchor="middle">0.9</text>
+<line x1="560" y1="222" x2="560" y2="238" class="lm"/>
+<text x="560" y="260" class="s" text-anchor="middle">1</text>
+<circle cx="108" cy="230" r="8" class="na" fill="#1f51c9"/>
+<text x="108" y="210" class="a" text-anchor="middle">0.04</text>
+<circle cx="278" cy="230" r="8" class="ns" fill="#ffffff"/>
+<text x="278" y="210" class="s" text-anchor="middle">0.4</text>
+<circle cx="296" cy="230" r="8" class="ns" fill="#ffffff"/>
+<text x="296" y="210" class="s" text-anchor="middle">0.44</text>
+<text x="60" y="330" class="sb" text-anchor="start">位數越多，每一位代表的大小就越小。</text>
+</svg>

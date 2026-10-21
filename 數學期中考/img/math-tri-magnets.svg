@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-tri-magnets-title math-tri-magnets-desc" id="math-tri-magnets-root">
+  <title id="math-tri-magnets-title">三塊三角形磁磚</title>
+  <desc id="math-tri-magnets-desc">甲、乙、丙三塊形狀不同的三角形磁磚。</desc>
+  <defs>
+      <style>#math-tri-magnets-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-tri-magnets-root { font-family: var(--sans); color: var(--ink); }
+      #math-tri-magnets-root .diagram-container { width:100%;overflow-x:auto }
+      #math-tri-magnets-root text { font-family:var(--sans) }
+      #math-tri-magnets-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-tri-magnets-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-tri-magnets-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-tri-magnets-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-tri-magnets-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-tri-magnets-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-tri-magnets-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-tri-magnets-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-tri-magnets-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-tri-magnets-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-tri-magnets-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-tri-magnets-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-tri-magnets-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-tri-magnets-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-tri-magnets-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-tri-magnets-root .dash { stroke-dasharray:5 4 }</style><marker id="math-tri-magnets-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-tri-magnets-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・素養題組・三角形</text>
+<text x="32" y="58" class="h">三塊三角形磁磚</text>
+  <path d="M 160 200 L 220 90 L 280 200 Z" class="ln"/>
+<text x="220" y="228" class="ts" text-anchor="middle">甲磁磚</text>
+<text x="220" y="252" class="s" text-anchor="middle">邊長？</text>
+<path d="M 300 200 L 360 90 L 420 200 Z" class="ln"/>
+<text x="360" y="228" class="ts" text-anchor="middle">乙磁磚</text>
+<text x="360" y="252" class="s" text-anchor="middle">邊長？</text>
+<path d="M 440 200 L 500 90 L 560 200 Z" class="ln"/>
+<text x="500" y="228" class="ts" text-anchor="middle">丙磁磚</text>
+<text x="500" y="252" class="s" text-anchor="middle">邊長？</text>
+<text x="60" y="320" class="sb" text-anchor="start">三塊磁磚形狀不同，角度和邊長也不一樣。</text>
+</svg>

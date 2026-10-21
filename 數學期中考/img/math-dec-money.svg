@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-dec-money-title math-dec-money-desc" id="math-dec-money-root">
+  <title id="math-dec-money-title">小數的容量加减</title>
+  <desc id="math-dec-money-desc">果汁 2.35 公升與牛奶 1.8 公升的容量示意。</desc>
+  <defs>
+      <style>#math-dec-money-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-dec-money-root { font-family: var(--sans); color: var(--ink); }
+      #math-dec-money-root .diagram-container { width:100%;overflow-x:auto }
+      #math-dec-money-root text { font-family:var(--sans) }
+      #math-dec-money-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-dec-money-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-dec-money-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-dec-money-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-dec-money-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-dec-money-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-dec-money-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-dec-money-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-dec-money-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-dec-money-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-dec-money-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-dec-money-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-dec-money-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-dec-money-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-dec-money-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-dec-money-root .dash { stroke-dasharray:5 4 }</style><marker id="math-dec-money-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-dec-money-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・素養題組・小數</text>
+<text x="32" y="58" class="h">小數的容量加减</text>
+  <rect x="120" y="150" width="160" height="110" rx="6" class="n"/>
+<text x="200" y="200" class="ts" text-anchor="middle">果汁</text>
+<text x="200" y="232" class="a" text-anchor="middle">2.35 L</text>
+<rect x="360" y="150" width="160" height="110" rx="6" class="n"/>
+<text x="440" y="200" class="ts" text-anchor="middle">牛奶</text>
+<text x="440" y="232" class="a" text-anchor="middle">1.8 L</text>
+<line x1="290" y1="205" x2="350" y2="205" class="la" marker-end="url(#math-dec-money-arrow-accent)"/>
+<text x="60" y="320" class="sb" text-anchor="start">小數相加時，要對齊小數點再算。</text>
+</svg>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-flow-mix-title math-flow-mix-desc" id="math-flow-mix-root">
+  <title id="math-flow-mix-title">乘除混合運算的順序</title>
+  <desc id="math-flow-mix-desc">乘除混合運算的三步流程圖。</desc>
+  <defs>
+      <style>#math-flow-mix-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-flow-mix-root { font-family: var(--sans); color: var(--ink); }
+      #math-flow-mix-root .diagram-container { width:100%;overflow-x:auto }
+      #math-flow-mix-root text { font-family:var(--sans) }
+      #math-flow-mix-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-flow-mix-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-flow-mix-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-flow-mix-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-flow-mix-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-flow-mix-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-flow-mix-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-flow-mix-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-flow-mix-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-flow-mix-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-flow-mix-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-flow-mix-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-flow-mix-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-flow-mix-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-flow-mix-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-flow-mix-root .dash { stroke-dasharray:5 4 }</style><marker id="math-flow-mix-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-flow-mix-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・8-2 乘除混合運算</text>
+<text x="32" y="58" class="h">乘除混合運算的順序</text>
+  <rect x="90" y="130" width="200" height="56" rx="6" class="n"/>
+<text x="190" y="164" class="ts" text-anchor="middle">先算前面的乘法</text>
+<line x1="190" y1="186" x2="190" y2="210" class="la" marker-end="url(#math-flow-mix-arrow-accent)"/>
+<rect x="90" y="216" width="200" height="56" rx="6" class="n"/>
+<text x="190" y="250" class="ts" text-anchor="middle">再算後面的除法</text>
+<line x1="190" y1="272" x2="190" y2="296" class="la" marker-end="url(#math-flow-mix-arrow-accent)"/>
+<rect x="90" y="302" width="200" height="56" rx="6" class="n"/>
+<text x="190" y="336" class="ts" text-anchor="middle">最後把答案寫出來</text>
+<text x="60" y="330" class="sb" text-anchor="start">有乘有除時，先乘後除。</text>
+</svg>

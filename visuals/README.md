@@ -68,6 +68,37 @@ python visuals/build_figures.py
 | 健康與體育 | `hp-swim-strokes` | 打水遊戲 | 扶牆／浮板／蹬牆／蹬地四種前進方式 |
 | 健康與體育 | `hp-fire-escape` | 素養・火場應變（短文） | 教室平面圖與逃生三不要 |
 
+## 數學：每一道題都有圖
+
+數學是六科裡圖最多的一科：**950 題全都有附圖**（760 題選擇 ＋ 190 題素養），
+共用到 **56 張** 圖。做法是寫了一套參數化製圖套件 `visuals/math_kit.py`
+（位值表、數線、面積模型、除法直式、分數條、流程圖、三角形組、量角器、時鐘、長條圖、折線圖…），
+再由 `visuals/math_figures.py` 為 39 個小節、10 個素養題組、19 題統整應用各配一張圖。
+
+| 小節 | 附圖 | 小節 | 附圖 |
+| --- | --- | --- | --- |
+| 1-1 十萬以內的數 | `math-kv-place` 位值表 | 1-2 一億以內的數 | `math-kv-million` 八位位值表 |
+| 1-3 比較大小 | `math-compare` 數字卡比較 | 1-4 大數的加減 | `math-add-sub` 兩張位值表 |
+| 2-1 乘一位數 | `math-area-2x1` 面積模型 | 2-2／2-3 乘兩位數 | `math-area-3x2`／`math-area-carry` 拆位面積模型 |
+| 3-1 量角器 | `math-protractor` 量角器與角 | 3-2 畫角 | `math-protractor-steps` 三步驟 |
+| 3-3 旋轉角 | `math-rotation` 旋轉示意 | 3-4 角的合成 | `math-angle-sum` 兩角合成平角 |
+| 4-1～4-4 除法 | `math-div-3by1`／`2by2`／`3by2`／`4by2` 除法直式 | 5-1／5-2 公里換算 | `math-km-ruler` 公尺尺規 |
+| 5-3 公里加減 | `math-km-line` 公里數線 | 6-1 三角形 | `math-triangle-perimeter` 三邊標示 |
+| 6-2 以邊分類 | `math-tri-side` 三種三角形 | 6-3 以角分類 | `math-tri-angle` 三種三角形 |
+| 6-4 繪製三角形 | `math-tri-draw` 作圖步驟 | 6-5 全等圖形 | `math-congruent` 疊合示意 |
+| 7-1 二位小數 | `math-frac-bar` 100 格 | 7-2 小數比較 | `math-dec-line` 小數數線 |
+| 7-3 小數加減 | `math-dec-table` 小數位值表 | 8-1 兩步驟 | `math-flow-muldiv` 流程圖 |
+| 8-2 乘除混合 | `math-flow-mix` 流程圖 | 8-3 乘法分配 | `math-distribute-mul` 拆開示意 |
+| 8-4 除法分配 | `math-distribute-div` 括號示意 | 8-5 有括號 | `math-flow-paren` 流程圖 |
+| 9-1 三種分數 | `math-frac-three` 分數條 | 9-2 互換 | `math-mixed-fraction` 帶分數拆解 |
+| 9-3 同分母加減 | `math-frac-same` 分數條 | 9-4 分數乘整數 | `math-frac-times` 4 個 5/12 |
+| 10-1 統計圖 | `math-charts-three` 長條＋折線 | 10-2 長條圖 | `math-bar-chart` 長條圖 |
+| 10-3 折線圖 | `math-line-chart` 折線圖 | 10-4 複雜統計圖 | `math-stacked-bar` 堆疊長條 |
+
+素養題組 10 組：人口長條圖、分組乘法、分裝除法、三塊磁磚、小數容量、四則運算順序、
+分數比較、量角器、公里尺規、長條圖。統整應用 19 題用 10 張情境圖
+（買東西、大數相減、平均分、兩段距離、角的比較、轉幾點、三角形內角、小數、分數、統計圖）。
+
 ## 選圖原則
 
 1. **圖要是題目材料，不是答案提示**：例如「音標 `[kep]` 對應哪個單字」不附例字圖，

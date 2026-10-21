@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-story-route-title math-story-route-desc" id="math-story-route-root">
+  <title id="math-story-route-title">情境：兩段距離相加</title>
+  <desc id="math-story-route-desc">甲到乙、乙到丙的路線示意。</desc>
+  <defs>
+      <style>#math-story-route-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-story-route-root { font-family: var(--sans); color: var(--ink); }
+      #math-story-route-root .diagram-container { width:100%;overflow-x:auto }
+      #math-story-route-root text { font-family:var(--sans) }
+      #math-story-route-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-story-route-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-story-route-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-story-route-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-story-route-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-story-route-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-story-route-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-story-route-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-story-route-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-story-route-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-story-route-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-story-route-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-story-route-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-story-route-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-story-route-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-story-route-root .dash { stroke-dasharray:5 4 }</style><marker id="math-story-route-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-story-route-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・統整應用</text>
+<text x="32" y="58" class="h">情境：兩段距離相加</text>
+  <line x1="90" y1="200" x2="140" y2="200" class="la" marker-end="url(#math-story-route-arrow-accent)"/>
+<text x="240" y="136" class="ts" text-anchor="start">從甲地到丙地</text>
+<text x="240" y="170" class="s" text-anchor="start">甲 → 乙：3 公里 500 公尺</text>
+<text x="240" y="196" class="s" text-anchor="start">乙 → 丙：2 公里 800 公尺</text>
+<text x="60" y="330" class="sb" text-anchor="start">把兩段距離加起來，就是全程。</text>
+</svg>

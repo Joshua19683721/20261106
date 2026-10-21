@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-story-fraction-title math-story-fraction-desc" id="math-story-fraction-root">
+  <title id="math-story-fraction-title">情境：分數的加與乘</title>
+  <desc id="math-story-fraction-desc">分數條與兩種分數題型的說明卡。</desc>
+  <defs>
+      <style>#math-story-fraction-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-story-fraction-root { font-family: var(--sans); color: var(--ink); }
+      #math-story-fraction-root .diagram-container { width:100%;overflow-x:auto }
+      #math-story-fraction-root text { font-family:var(--sans) }
+      #math-story-fraction-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-story-fraction-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-story-fraction-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-story-fraction-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-story-fraction-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-story-fraction-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-story-fraction-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-story-fraction-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-story-fraction-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-story-fraction-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-story-fraction-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-story-fraction-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-story-fraction-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-story-fraction-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-story-fraction-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-story-fraction-root .dash { stroke-dasharray:5 4 }</style><marker id="math-story-fraction-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-story-fraction-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・統整應用</text>
+<text x="32" y="58" class="h">情境：分數的加與乘</text>
+  <rect x="90" y="130" width="120" height="40" rx="4" class="n"/>
+<text x="240" y="136" class="ts" text-anchor="start">分數的加法與乘法</text>
+<text x="240" y="170" class="s" text-anchor="start">3/8 杯 ＋ 5/8 杯</text>
+<text x="240" y="196" class="s" text-anchor="start">1/6 杯 × 5 杯</text>
+<text x="60" y="330" class="sb" text-anchor="start">分母相同直接加分子；乘整數就是幾個加起來。</text>
+</svg>

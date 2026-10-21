@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-km-line-title math-km-line-desc" id="math-km-line-root">
+  <title id="math-km-line-title">公里數線</title>
+  <desc id="math-km-line-desc">0 到 10 公里的數線，標出 3 公里與 8 公里。</desc>
+  <defs>
+      <style>#math-km-line-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-km-line-root { font-family: var(--sans); color: var(--ink); }
+      #math-km-line-root .diagram-container { width:100%;overflow-x:auto }
+      #math-km-line-root text { font-family:var(--sans) }
+      #math-km-line-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-km-line-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-km-line-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-km-line-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-km-line-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-km-line-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-km-line-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-km-line-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-km-line-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-km-line-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-km-line-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-km-line-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-km-line-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-km-line-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-km-line-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-km-line-root .dash { stroke-dasharray:5 4 }</style><marker id="math-km-line-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-km-line-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・5-3 公里和公尺的加減計算</text>
+<text x="32" y="58" class="h">公里數線</text>
+  <line x1="70" y1="230" x2="570" y2="230" class="ln"/>
+<line x1="70" y1="222" x2="70" y2="238" class="lm"/>
+<text x="70" y="260" class="s" text-anchor="middle">0 公里</text>
+<line x1="120" y1="222" x2="120" y2="238" class="lm"/>
+<text x="120" y="260" class="s" text-anchor="middle">1 公里</text>
+<line x1="170" y1="222" x2="170" y2="238" class="lm"/>
+<text x="170" y="260" class="s" text-anchor="middle">2 公里</text>
+<line x1="220" y1="222" x2="220" y2="238" class="lm"/>
+<text x="220" y="260" class="s" text-anchor="middle">3 公里</text>
+<line x1="270" y1="222" x2="270" y2="238" class="lm"/>
+<text x="270" y="260" class="s" text-anchor="middle">4 公里</text>
+<line x1="320" y1="222" x2="320" y2="238" class="lm"/>
+<text x="320" y="260" class="s" text-anchor="middle">5 公里</text>
+<line x1="370" y1="222" x2="370" y2="238" class="lm"/>
+<text x="370" y="260" class="s" text-anchor="middle">6 公里</text>
+<line x1="420" y1="222" x2="420" y2="238" class="lm"/>
+<text x="420" y="260" class="s" text-anchor="middle">7 公里</text>
+<line x1="470" y1="222" x2="470" y2="238" class="lm"/>
+<text x="470" y="260" class="s" text-anchor="middle">8 公里</text>
+<line x1="520" y1="222" x2="520" y2="238" class="lm"/>
+<text x="520" y="260" class="s" text-anchor="middle">9 公里</text>
+<line x1="570" y1="222" x2="570" y2="238" class="lm"/>
+<text x="570" y="260" class="s" text-anchor="middle">10 公里</text>
+<circle cx="470" cy="230" r="8" class="na" fill="#1f51c9"/>
+<text x="470" y="210" class="a" text-anchor="middle">8 公里</text>
+<circle cx="220" cy="230" r="8" class="ns" fill="#ffffff"/>
+<text x="220" y="210" class="s" text-anchor="middle">3 公里</text>
+<text x="60" y="330" class="sb" text-anchor="start">先找出起點和終點，再看中間走了幾公里。</text>
+</svg>

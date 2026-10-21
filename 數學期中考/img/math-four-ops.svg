@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-four-ops-title math-four-ops-desc" id="math-four-ops-root">
+  <title id="math-four-ops-title">四則運算的順序</title>
+  <desc id="math-four-ops-desc">先括號、再乘除、最後加減的順序圖。</desc>
+  <defs>
+      <style>#math-four-ops-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-four-ops-root { font-family: var(--sans); color: var(--ink); }
+      #math-four-ops-root .diagram-container { width:100%;overflow-x:auto }
+      #math-four-ops-root text { font-family:var(--sans) }
+      #math-four-ops-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-four-ops-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-four-ops-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-four-ops-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-four-ops-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-four-ops-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-four-ops-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-four-ops-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-four-ops-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-four-ops-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-four-ops-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-four-ops-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-four-ops-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-four-ops-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-four-ops-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-four-ops-root .dash { stroke-dasharray:5 4 }</style><marker id="math-four-ops-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-four-ops-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・素養題組・整數四則計算</text>
+<text x="32" y="58" class="h">四則運算的順序</text>
+  <rect x="90" y="130" width="200" height="70" rx="6" class="n"/>
+<text x="190" y="180" class="ts" text-anchor="middle">先算括號</text>
+<rect x="90" y="230" width="200" height="70" rx="6" class="n"/>
+<text x="190" y="280" class="ts" text-anchor="middle">再算乘除</text>
+<rect x="90" y="330" width="200" height="70" rx="6" class="n"/>
+<text x="190" y="380" class="ts" text-anchor="middle">最後算加減</text>
+<line x1="290" y1="165" x2="380" y2="165" class="la" marker-end="url(#math-four-ops-arrow-accent)"/>
+<line x1="290" y1="265" x2="380" y2="265" class="la" marker-end="url(#math-four-ops-arrow-accent)"/>
+<text x="410" y="175" class="sb" text-anchor="start">括號 → 乘除 → 加減</text>
+<text x="410" y="285" class="s" text-anchor="start">一步一步來，</text>
+<text x="410" y="307" class="s" text-anchor="start">就不會算錯。</text>
+</svg>

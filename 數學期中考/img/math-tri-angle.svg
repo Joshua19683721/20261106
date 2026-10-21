@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-tri-angle-title math-tri-angle-desc" id="math-tri-angle-root">
+  <title id="math-tri-angle-title">以角分類的三角形</title>
+  <desc id="math-tri-angle-desc">直角三角形、銳角三角形與鈍角三角形。</desc>
+  <defs>
+      <style>#math-tri-angle-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-tri-angle-root { font-family: var(--sans); color: var(--ink); }
+      #math-tri-angle-root .diagram-container { width:100%;overflow-x:auto }
+      #math-tri-angle-root text { font-family:var(--sans) }
+      #math-tri-angle-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-tri-angle-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-tri-angle-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-tri-angle-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-tri-angle-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-tri-angle-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-tri-angle-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-tri-angle-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-tri-angle-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-tri-angle-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-tri-angle-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-tri-angle-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-tri-angle-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-tri-angle-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-tri-angle-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-tri-angle-root .dash { stroke-dasharray:5 4 }</style><marker id="math-tri-angle-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-tri-angle-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・6-3 以角分類三角形</text>
+<text x="32" y="58" class="h">以角分類的三角形</text>
+  <path d="M 70 260 L 150 260 L 150 158 Z" class="ln"/>
+<text x="110" y="288" class="s" text-anchor="middle">有一個角是 90 度</text>
+<path d="M 70 260 L 150 260 L 110 176 Z" class="ln"/>
+<text x="110" y="288" class="s" text-anchor="middle">三個角都小於 90 度</text>
+<path d="M 70 260 L 150 260 L 86 156 Z" class="ln"/>
+<text x="110" y="288" class="s" text-anchor="middle">有一個角大於 90 度</text>
+<text x="60" y="330" class="sb" text-anchor="start">看最大的角是什麼角，就能分出三種三角形。</text>
+</svg>

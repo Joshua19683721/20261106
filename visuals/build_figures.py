@@ -914,6 +914,16 @@ FIGURES = [
 ]
 
 
+# --- 數學全科附圖（visuals/math_figures.py）：39 小節 ＋ 10 素養題組 ＋ 10 情境 ---
+try:
+    import sys as _sys
+    _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from math_figures import MATH_FIGS
+    FIGURES = FIGURES + [(m[0], m[1], m[2], m[3], (lambda _b: (lambda: _b))(m[5]), m[4]) for m in MATH_FIGS]
+except Exception as _e:  # pragma: no cover
+    print("math_figures 未載入：", _e)
+
+
 def main():
     if not os.path.isdir(SRC):
         os.makedirs(SRC)

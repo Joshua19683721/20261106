@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-mul-arrays-title math-mul-arrays-desc" id="math-mul-arrays-root">
+  <title id="math-mul-arrays-title">乘法情境：3 組每組 12 個</title>
+  <desc id="math-mul-arrays-desc">3 列 4 欄的方格模型，共 3 組。</desc>
+  <defs>
+      <style>#math-mul-arrays-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-mul-arrays-root { font-family: var(--sans); color: var(--ink); }
+      #math-mul-arrays-root .diagram-container { width:100%;overflow-x:auto }
+      #math-mul-arrays-root text { font-family:var(--sans) }
+      #math-mul-arrays-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-mul-arrays-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-mul-arrays-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-mul-arrays-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-mul-arrays-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-mul-arrays-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-mul-arrays-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-mul-arrays-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-mul-arrays-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-mul-arrays-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-mul-arrays-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-mul-arrays-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-mul-arrays-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-mul-arrays-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-mul-arrays-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-mul-arrays-root .dash { stroke-dasharray:5 4 }</style><marker id="math-mul-arrays-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-mul-arrays-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・素養題組・整數的乘法</text>
+<text x="32" y="58" class="h">乘法情境：3 組每組 12 個</text>
+  <rect x="150" y="140" width="23" height="23" rx="2" class="ns"/>
+<rect x="176" y="140" width="23" height="23" rx="2" class="ns"/>
+<rect x="202" y="140" width="23" height="23" rx="2" class="ns"/>
+<rect x="228" y="140" width="23" height="23" rx="2" class="ns"/>
+<rect x="150" y="166" width="23" height="23" rx="2" class="ns"/>
+<rect x="176" y="166" width="23" height="23" rx="2" class="ns"/>
+<rect x="202" y="166" width="23" height="23" rx="2" class="ns"/>
+<rect x="228" y="166" width="23" height="23" rx="2" class="ns"/>
+<rect x="150" y="192" width="23" height="23" rx="2" class="ns"/>
+<rect x="176" y="192" width="23" height="23" rx="2" class="ns"/>
+<rect x="202" y="192" width="23" height="23" rx="2" class="ns"/>
+<rect x="228" y="192" width="23" height="23" rx="2" class="ns"/>
+<rect x="144" y="134" width="104" height="78" rx="4" class="n" fill="none" opacity="0"/>
+<text x="202" y="246" class="s" text-anchor="middle">每組 12 個</text>
+<text x="136" y="179" class="s" text-anchor="end">3 組</text>
+<text x="90" y="300" class="sb" text-anchor="start">3 組，每組 12 個</text>
+<text x="90" y="324" class="s" text-anchor="start">一共有幾個？</text>
+</svg>

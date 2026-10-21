@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-frac-compare-title math-frac-compare-desc" id="math-frac-compare-root">
+  <title id="math-frac-compare-title">分數的大小比較</title>
+  <desc id="math-frac-compare-desc">1/4 與 3/4 的分數條。</desc>
+  <defs>
+      <style>#math-frac-compare-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-frac-compare-root { font-family: var(--sans); color: var(--ink); }
+      #math-frac-compare-root .diagram-container { width:100%;overflow-x:auto }
+      #math-frac-compare-root text { font-family:var(--sans) }
+      #math-frac-compare-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-frac-compare-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-frac-compare-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-frac-compare-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-frac-compare-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-frac-compare-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-frac-compare-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-frac-compare-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-frac-compare-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-frac-compare-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-frac-compare-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-frac-compare-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-frac-compare-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-frac-compare-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-frac-compare-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-frac-compare-root .dash { stroke-dasharray:5 4 }</style><marker id="math-frac-compare-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-frac-compare-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・素養題組・分數</text>
+<text x="32" y="58" class="h">分數的大小比較</text>
+  <rect x="90" y="130" width="200" height="54" rx="4" class="n"/>
+<line x1="140" y1="130" x2="140" y2="184" class="lm"/>
+<line x1="190" y1="130" x2="190" y2="184" class="lm"/>
+<line x1="240" y1="130" x2="240" y2="184" class="lm"/>
+<rect x="91" y="131" width="47" height="51" rx="3" class="na"/>
+<text x="190" y="214" class="sb" text-anchor="middle">1/4</text>
+<rect x="340" y="130" width="200" height="54" rx="4" class="n"/>
+<line x1="390" y1="130" x2="390" y2="184" class="lm"/>
+<line x1="440" y1="130" x2="440" y2="184" class="lm"/>
+<line x1="490" y1="130" x2="490" y2="184" class="lm"/>
+<rect x="341" y="131" width="47" height="51" rx="3" class="na"/>
+<rect x="391" y="131" width="47" height="51" rx="3" class="na"/>
+<rect x="441" y="131" width="47" height="51" rx="3" class="na"/>
+<text x="440" y="214" class="sb" text-anchor="middle">3/4</text>
+<text x="200" y="220" class="s" text-anchor="middle">分母相同</text>
+<text x="450" y="220" class="s" text-anchor="middle">分子愈大愈大</text>
+<text x="60" y="300" class="sb" text-anchor="start">同樣分成 4 份，取的份數越多，分數就越大。</text>
+</svg>

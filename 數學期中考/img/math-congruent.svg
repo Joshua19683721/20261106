@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-congruent-title math-congruent-desc" id="math-congruent-root">
+  <title id="math-congruent-title">全等三角形</title>
+  <desc id="math-congruent-desc">兩個可以完全重合的三角形與虛線對應邊。</desc>
+  <defs>
+      <style>#math-congruent-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-congruent-root { font-family: var(--sans); color: var(--ink); }
+      #math-congruent-root .diagram-container { width:100%;overflow-x:auto }
+      #math-congruent-root text { font-family:var(--sans) }
+      #math-congruent-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-congruent-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-congruent-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-congruent-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-congruent-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-congruent-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-congruent-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-congruent-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-congruent-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-congruent-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-congruent-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-congruent-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-congruent-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-congruent-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-congruent-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-congruent-root .dash { stroke-dasharray:5 4 }</style><marker id="math-congruent-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-congruent-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・6-5 全等圖形與全等三角形</text>
+<text x="32" y="58" class="h">全等三角形</text>
+  <path d="M 120 250 L 200 130 L 280 250 Z" class="ln"/>
+<path d="M 380 250 L 460 130 L 540 250 Z" class="la" stroke-dasharray="5,4"/>
+<line x1="200" y1="130" x2="460" y2="130" class="lm dash"/>
+<line x1="280" y1="250" x2="540" y2="250" class="lm dash"/>
+<text x="200" y="288" class="ts" text-anchor="middle">三角形甲</text>
+<text x="460" y="288" class="ts" text-anchor="middle">三角形乙（與甲疊合後完全重合）</text>
+<text x="60" y="340" class="sb" text-anchor="start">完全重合、邊長和角度都一樣，就是全等。</text>
+</svg>
