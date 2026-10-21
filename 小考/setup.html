@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>小考系統｜設定精靈</title>
+<style>
+  :root{
+    --ink:#1f2933; --ink2:#52606d; --ink3:#7b8794;
+    --line:#e3e9f2; --bg:#f4f6fa; --card:#fff;
+    --brand:#2f6fed; --brand2:#1e56c8;
+    --ok:#1f8a54; --warn:#c77700; --bad:#c0392b;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font:400 15.5px/1.75 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:780px;margin:0 auto;padding:26px 18px 60px}
+  .eyebrow{display:inline-block;font:700 12px/1 "Noto Sans TC",sans-serif;letter-spacing:.12em;color:var(--brand);background:#e9f0ff;border-radius:999px;padding:6px 11px;margin-bottom:12px}
+  h1{font-size:26px;margin:0 0 8px;font-weight:800}
+  .lead{color:var(--ink2);font-size:14.5px;margin:0 0 8px}
+
+  .step{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:20px;margin:16px 0;box-shadow:0 1px 2px rgba(16,24,40,.04);
+  }
+  .step-h{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+  .n{
+    flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:var(--brand);color:#fff;
+    display:flex;align-items:center;justify-content:center;font:800 14px/1 "Noto Sans TC",sans-serif;
+  }
+  .step-h h2{margin:0;font-size:17px;font-weight:800;line-height:1.4}
+  .step-h .s{font-size:12.5px;color:var(--ink3);font-weight:600}
+  .step p{margin:8px 0;font-size:14.5px;color:var(--ink2)}
+  .step p b{color:var(--ink)}
+  .step ol,.step ul{margin:8px 0;padding-left:22px;font-size:14.5px;color:var(--ink2)}
+  .step li{margin:5px 0}
+
+  code{
+    background:#eef2f8;border-radius:5px;padding:1px 5px;
+    font:600 13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#33414f;
+  }
+  .codebox{
+    position:relative;background:#1f2933;color:#e6edf3;border-radius:11px;
+    padding:14px 14px;margin:10px 0;overflow:auto;max-height:320px;
+    font:500 12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;
+  }
+  .copy{
+    position:absolute;top:8px;right:8px;appearance:none;border:0;cursor:pointer;
+    background:rgba(255,255,255,.14);color:#fff;border-radius:7px;padding:6px 10px;
+    font:700 11.5px/1 "Noto Sans TC",sans-serif;
+  }
+  .copy:hover{background:rgba(255,255,255,.24)}
+
+  .field{margin:12px 0}
+  .field label{display:block;font:700 12.5px/1.5 "Noto Sans TC",sans-serif;color:var(--ink2);margin-bottom:5px}
+  .field input{
+    width:100%;padding:11px 12px;border:1.5px solid #d6dfec;border-radius:10px;
+    font:600 13.5px/1.5 ui-monospace,Menlo,monospace;color:var(--ink);background:#fff;
+  }
+  .field input:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px rgba(47,111,237,.14)}
+  .field .hint{font-size:11.5px;color:var(--ink3);margin-top:5px}
+
+  .btn{
+    appearance:none;border:0;cursor:pointer;border-radius:10px;
+    font:700 13.5px/1 "Noto Sans TC",sans-serif;padding:12px 15px;
+  }
+  .btn.primary{background:var(--brand);color:#fff}
+  .btn.primary:hover{background:var(--brand2)}
+  .btn.ghost{background:#fff;border:1.5px solid #dbe3ef;color:var(--ink2)}
+  .btn.ghost:hover{background:#f4f7fd}
+  .btn.green{background:#e8f6ee;color:#1c6b43;border:1.5px solid #bfe5cf}
+  .btn:disabled{opacity:.5;cursor:default}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+  .res{margin-top:12px;font-size:13.5px;border-radius:10px;padding:12px 14px;display:none;line-height:1.6}
+  .res.on{display:block}
+  .res.ok{background:#eef8f2;border:1px solid #bfe5cf;color:#1c6b43}
+  .res.bad{background:#fdecec;border:1px solid #f5c6c6;color:#8f2626}
+  .res.wait{background:#fff8e8;border:1px solid #f0dcb0;color:#7a5a12}
+
+  .note{background:#f7f9fc;border:1px solid #e6ecf5;border-radius:11px;padding:12px 14px;font-size:13.5px;color:var(--ink2);margin:12px 0}
+  a{color:var(--brand)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">小考系統 ・ 一次性設定</div>
+  <h1>設定精靈</h1>
+  <p class="lead">做完這五步，兒子的連結就能用了。全部免費、不用信用卡。<br>
+     設定好之後，把最後產生的 <code>config.js</code> 貼回 GitHub，六科就同時生效。</p>
+
+  <!-- 1 -->
+  <section class="step">
+    <div class="step-h"><div class="n">1</div><div><h2>建立 Supabase 專案</h2><div class="s">免費方案即可，閒置 7 天會暫停，登入後按 Restore 就好</div></div></div>
+    <ol>
+      <li>開 <a href="https://supabase.com/dashboard" target="_blank" rel="noopener">supabase.com/dashboard</a>，用 GitHub 或 Google 帳號登入。</li>
+      <li>按 <b>New project</b>：名稱隨意（例如 <code>home-quiz</code>）、資料庫密碼自行設定並記下來。</li>
+      <li>Region 選 <b>Southeast Asia (Singapore)</b> 或 <b>Northeast Asia (Tokyo)</b>，延遲較低。</li>
+      <li>等 1～2 分鐘建立完成。</li>
+    </ol>
+  </section>
+
+  <!-- 2 -->
+  <section class="step">
+    <div class="step-h"><div class="n">2</div><div><h2>建立資料表</h2><div class="s">貼一段 SQL，一次就好</div></div></div>
+    <p>左側選 <b>SQL Editor</b> → <b>New query</b> → 把下面整段貼上 → 按 <b>Run</b>。</p>
+    <div class="codebox" id="sqlBox"><button class="copy" id="copySql" type="button">複製</button><span id="sqlText">載入中…</span></div>
+    <div class="res" id="sqlRes"></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="step">
+    <div class="step-h"><div class="n">3</div><div><h2>取得兩個值</h2><div class="s">Project URL 與 anon public key</div></div></div>
+    <ol>
+      <li>左側 <b>Project Settings</b>（齒輪）→ <b>API</b>。</li>
+      <li>複製 <b>Project URL</b>，長得像 <code>https://abcdefgh.supabase.co</code>。</li>
+      <li>複製 <b>anon public</b> 那把 key，長得像 <code>eyJhbGci…</code> 或 <code>sb_publishable_…</code>。</li>
+    </ol>
+    <div class="note">這兩把是設計給瀏覽器公開使用的，不算機密；真正保護資料的是第 2 步建立的 RLS 規則。</div>
+  </section>
+
+  <!-- 4 -->
+  <section class="step">
+    <div class="step-h"><div class="n">4</div><div><h2>建立推播頻道（ntfy）</h2><div class="s">免註冊，像廣播電台：訂閱同一個頻道就收得到</div></div></div>
+    <ol>
+      <li>下面按「隨機產生」，得到一組只有你們知道的頻道名稱。</li>
+      <li>你的手機安裝 <b>ntfy</b> App，按 <b>Subscribe to topic</b>，輸入這組名稱。</li>
+      <li>你的電腦也可以開 <code>https://ntfy.sh/你的頻道名稱</code>，按 <b>Subscribe</b>（允許通知）。</li>
+      <li>兒子的裝置<b>不用</b>安裝，他交卷時會自動發送。</li>
+    </ol>
+    <div class="field">
+      <label>ntfy 頻道名稱</label>
+      <div class="row">
+        <input id="topic" type="text" placeholder="home-quiz-xxxxxxxx" style="flex:1;min-width:220px">
+        <button class="btn ghost" id="genTopic" type="button">隨機產生</button>
+      </div>
+      <div class="hint">只用英數字與減號。不要用姓名、電話或生日。</div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="step">
+    <div class="step-h"><div class="n">5</div><div><h2>貼上並測試</h2><div class="s">三個值都通了，就完成</div></div></div>
+
+    <div class="field">
+      <label>Supabase Project URL</label>
+      <input id="sbUrl" type="text" placeholder="https://xxxxxxxx.supabase.co" autocomplete="off">
+    </div>
+    <div class="field">
+      <label>Supabase anon public key</label>
+      <input id="sbKey" type="text" placeholder="eyJhbGci… 或 sb_publishable_…" autocomplete="off">
+    </div>
+
+    <div class="row" style="margin-top:16px">
+      <button class="btn primary" id="testSb" type="button">① 測試資料庫</button>
+      <button class="btn primary" id="testNtfy" type="button">② 測試推播</button>
+    </div>
+    <div class="res" id="testRes"></div>
+
+    <div id="genWrap" style="display:none;margin-top:22px">
+      <p><b>③ 把下面這段貼回 GitHub 的 <code>小考/config.js</code></b>（整份覆蓋）：</p>
+      <div class="codebox" id="cfgBox"><button class="copy" id="copyCfg" type="button">複製</button><span id="cfgText"></span></div>
+      <div class="row">
+        <button class="btn green" id="download" type="button">下載 config.js</button>
+        <a class="btn ghost" href="index.html" style="text-decoration:none;display:inline-block">回到小考首頁</a>
+      </div>
+      <div class="note">
+        GitHub 網頁修改法：repo → <code>小考/config.js</code> → 右上鉛筆 → 全選刪除 → 貼上 → <b>Commit changes</b>。
+        等 1 分鐘 Pages 重新部署，兒子的連結就生效了。
+      </div>
+    </div>
+  </section>
+
+  <p style="text-align:center;font-size:12.5px;color:#7b8794;margin-top:24px">
+    <a href="index.html">小考首頁</a> ・ <a href="admin.html">管理頁</a> ・ <a href="README.md">說明文件</a>
+  </p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  function res(el, type, html) {
+    el.className = "res on " + type;
+    el.innerHTML = html;
+  }
+
+  /* ---------- SQL ---------- */
+  fetch("supabase.sql", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (t) {
+      window.__SQL = t;
+      $("sqlText").textContent = t;
+    })
+    .catch(function () {
+      $("sqlText").textContent = "無法自動載入，請直接開 supabase.sql 複製內容。";
+      $("sqlRes").className = "res on bad";
+      $("sqlRes").textContent = "請手動開啟 小考/supabase.sql。";
+    });
+
+  $("copySql").onclick = function () {
+    if (!window.__SQL) return;
+    copy(window.__SQL, this);
+  };
+
+  function copy(text, btn) {
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = "已複製";
+      setTimeout(function () { btn.textContent = old; }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+    } else {
+      fallback(text, done);
+    }
+  }
+  function fallback(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { }
+    document.body.removeChild(ta);
+  }
+
+  /* ---------- 頻道名稱 ---------- */
+  function randomTopic() {
+    var chars = "abcdefghijkmnpqrstuvwxyz23456789";
+    var s = "";
+    for (var i = 0; i < 8; i++) s += chars.charAt(Math.floor(Math.random() * chars.length));
+    return "home-quiz-" + s;
+  }
+  $("topic").value = randomTopic();
+  $("genTopic").onclick = function () { $("topic").value = randomTopic(); checkReady(); };
+
+  /* ---------- 測試 ---------- */
+  var okSb = false, okNtfy = false;
+
+  function baseUrl() {
+    return ($("sbUrl").value || "").trim().replace(/\/+$/, "");
+  }
+  function anonKey() {
+    return ($("sbKey").value || "").trim();
+  }
+
+  $("testSb").onclick = function () {
+    var url = baseUrl(), key = anonKey();
+    var el = $("testRes");
+    if (!url || !key) { res(el, "bad", "請先填入 Project URL 與 anon key。"); return; }
+
+    res(el, "wait", "正在連線 Supabase…");
+    fetch(url + "/rest/v1/submissions?select=id&limit=1", {
+      headers: { "apikey": key, "Authorization": "Bearer " + key }
+    }).then(function (r) {
+      if (r.ok) {
+        okSb = true;
+        return r.json().then(function (rows) {
+          res(el, "ok", "✅ 資料庫連線成功。<br>目前有 " + (rows ? rows.length : 0) + " 筆（上限 1 筆顯示）。");
+          checkReady();
+        });
+      }
+      return r.text().then(function (t) {
+        if (r.status === 404 || /relation .* does not exist/i.test(t)) {
+          res(el, "bad", "連上了，但找不到 <code>submissions</code> 資料表。<br>請先做完第 2 步的 SQL。");
+        } else if (r.status === 401) {
+          res(el, "bad", "anon key 不正確（401）。請重新複製 <b>anon public</b> 那把。");
+        } else {
+          res(el, "bad", "失敗（" + r.status + "）：<br>" + escapeHtml(t.slice(0, 300)));
+        }
+      });
+    }).catch(function (e) {
+      res(el, "bad", "連不上：<code>" + escapeHtml(baseUrl()) + "</code><br>" + escapeHtml(e.message) +
+        "<br><br>請確認網址是 <code>https://xxx.supabase.co</code>（不要多結尾斜線）。");
+    });
+  };
+
+  $("testNtfy").onclick = function () {
+    var topic = ($("topic").value || "").trim();
+    var el = $("testRes");
+    if (!/^[A-Za-z0-9_-]{1,64}$/.test(topic)) {
+      res(el, "bad", "頻道名稱只能用英文字母、數字、減號與底線。");
+      return;
+    }
+    res(el, "wait", "正在發送測試推播…");
+    fetch("https://ntfy.sh/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        topic: topic,
+        title: "小考系統設定測試",
+        message: "如果你看到這則通知，代表推播設定成功。",
+        priority: 4,
+        tags: ["white_check_mark"]
+      })
+    }).then(function (r) {
+      if (r.ok) {
+        okNtfy = true;
+        res(el, "ok", "✅ 已送出。請看你的手機 ntfy App 或電腦的 ntfy 網頁是否收到通知。");
+        checkReady();
+      } else {
+        res(el, "bad", "ntfy 回應 " + r.status + "，請稍後再試。");
+      }
+    }).catch(function (e) {
+      res(el, "bad", "推播送出失敗：" + escapeHtml(e.message));
+    });
+  };
+
+  function checkReady() {
+    if (okSb && okNtfy) {
+      $("genWrap").style.display = "block";
+      renderConfig();
+    }
+  }
+
+  /* ---------- 產生 config.js ---------- */
+  function renderConfig() {
+    var topic = ($("topic").value || "").trim();
+    var cfg =
+      "window.QCFG = {\n" +
+      "  SUPABASE_URL: " + JSON.stringify(baseUrl()) + ",\n" +
+      "  SUPABASE_ANON_KEY: " + JSON.stringify(anonKey()) + ",\n" +
+      "  NTFY_TOPIC: " + JSON.stringify(topic) + ",\n" +
+      "  ADMIN_PASSCODE: \"2026\",\n" +
+      "  STUDENT_NAME: \"兒子\",\n" +
+      "  SECONDS_PER_QUESTION: 45,\n" +
+      "  SHOW_SCORE_TO_STUDENT: false\n" +
+      "};\n";
+    window.__CFG = cfg;
+    $("cfgText").textContent = cfg;
+    $("cfgBox").scrollTop = 0;
+  }
+
+  $("copyCfg").onclick = function () {
+    if (window.__CFG) copy(window.__CFG, this);
+  };
+
+  $("download").onclick = function () {
+    if (!window.__CFG) return;
+    var blob = new Blob([window.__CFG], { type: "text/javascript;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "config.js";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  };
+
+  function escapeHtml(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  ["sbUrl", "sbKey", "topic"].forEach(function (id) {
+    $(id).addEventListener("input", function () {
+      if (window.__CFG) renderConfig();
+    });
+  });
+})();
+</script>
+</body>
+</html>

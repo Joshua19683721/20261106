@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1f2933">
+<title>小考管理頁｜交卷紀錄與錯題檢討</title>
+<style>
+  :root{
+    --ink:#1f2933; --ink2:#52606d; --ink3:#7b8794;
+    --line:#e3e9f2; --bg:#f4f6fa; --card:#fff;
+    --brand:#2f6fed; --brand2:#1e56c8;
+    --ok:#1f8a54; --warn:#c77700; --bad:#c0392b;
+    --done:#5b6b7f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);
+    font:400 15.5px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  a{color:var(--brand)}
+
+  /* ---------- 頂列 ---------- */
+  header.top{
+    position:sticky;top:0;z-index:30;background:rgba(244,246,250,.94);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top);
+  }
+  .top-in{max-width:1040px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;gap:12px}
+  .logo{width:34px;height:34px;border-radius:10px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:0 0 auto}
+  .top h1{font-size:16.5px;margin:0;font-weight:800;line-height:1.25}
+  .top .sub{font-size:12px;color:var(--ink3);font-weight:600}
+  .top .sp{flex:1}
+  .status{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink3);font-weight:700}
+  .sdot{width:8px;height:8px;border-radius:50%;background:#c9d3e0}
+  .sdot.on{background:#22a06b;box-shadow:0 0 0 3px rgba(34,160,107,.15)}
+  .sdot.off{background:#d64545;box-shadow:0 0 0 3px rgba(214,69,69,.14)}
+
+  .tabs{max-width:1040px;margin:0 auto;padding:0 18px;display:flex;gap:4px}
+  .tab{
+    appearance:none;border:0;background:transparent;cursor:pointer;
+    font:700 13.5px/1 "Noto Sans TC",sans-serif;color:var(--ink3);
+    padding:11px 13px;border-bottom:2.5px solid transparent;margin-bottom:-1px;
+  }
+  .tab:hover{color:var(--ink2)}
+  .tab.on{color:var(--brand);border-bottom-color:var(--brand)}
+  .tab .n{display:inline-block;min-width:18px;padding:0 5px;margin-left:5px;border-radius:999px;background:#e5ebf5;color:var(--ink2);font-size:11px;line-height:18px}
+  .tab.on .n{background:#e0eaff;color:var(--brand2)}
+
+  main{max-width:1040px;margin:0 auto;padding:18px}
+
+  /* ---------- 清單 ---------- */
+  .sec-title{font-size:12.5px;font-weight:800;color:var(--ink3);letter-spacing:.1em;margin:22px 0 10px}
+  .list{display:grid;gap:10px}
+  .row{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;display:flex;align-items:center;gap:14px;
+    box-shadow:0 1px 2px rgba(16,24,40,.04);
+  }
+  .row.new{border-color:#b9cdf0;box-shadow:0 0 0 3px rgba(47,111,237,.08)}
+  .row .dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+  .row .main{flex:1;min-width:0}
+  .row .l1{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+  .row .subj{font-weight:800;font-size:15.5px}
+  .row .when{font-size:12px;color:var(--ink3);font-weight:600}
+  .row .l2{font-size:12.5px;color:var(--ink2);font-weight:600}
+  .score{
+    font:800 15px/1 ui-monospace,Menlo,monospace;padding:7px 10px;border-radius:9px;
+    background:#eef8f2;color:#1c6b43;white-space:nowrap;
+  }
+  .score.mid{background:#fff6e6;color:#8a5c00}
+  .score.low{background:#fdeceb;color:#a5342a}
+  .pill{font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px;background:#eef2f8;color:var(--ink2)}
+  .pill.todo{background:#fff2e0;color:#8a5c00}
+  .pill.done{background:#e8f6ee;color:#1c6b43}
+  .go{
+    appearance:none;border:0;background:#eef3ff;color:var(--brand2);cursor:pointer;
+    font:700 13px/1 "Noto Sans TC",sans-serif;padding:10px 13px;border-radius:10px;
+  }
+  .go:hover{background:#e0eaff}
+
+  .empty{
+    background:var(--card);border:1px dashed #cfd8e6;border-radius:14px;
+    padding:34px 18px;text-align:center;color:var(--ink3);font-size:14px;
+  }
+  .empty .big{font-size:30px;margin-bottom:8px}
+
+  /* ---------- 詳情 ---------- */
+  .back{
+    appearance:none;border:0;background:transparent;cursor:pointer;color:var(--ink2);
+    font:700 13.5px/1 "Noto Sans TC",sans-serif;padding:8px 0;margin-bottom:8px;
+  }
+  .back:hover{color:var(--brand)}
+  .dhead{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;
+  }
+  .dhead .l1{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .dhead h2{margin:0;font-size:20px;font-weight:800}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+  @media(max-width:560px){ .stats{grid-template-columns:repeat(2,1fr)} }
+  .stat{background:#f7f9fc;border-radius:11px;padding:10px 12px}
+  .stat .k{font-size:11.5px;color:var(--ink3);font-weight:700;margin-bottom:2px}
+  .stat .v{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+  .stat .v.ok{color:var(--ok)} .stat .v.bad{color:var(--bad)} .stat .v.warn{color:var(--warn)}
+
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 16px}
+  .btn{
+    appearance:none;border:0;cursor:pointer;border-radius:10px;
+    font:700 13.5px/1 "Noto Sans TC",sans-serif;padding:11px 14px;
+    transition:background .12s,opacity .12s;
+  }
+  .btn.primary{background:var(--brand);color:#fff}
+  .btn.primary:hover{background:var(--brand2)}
+  .btn.ghost{background:#fff;border:1.5px solid #dbe3ef;color:var(--ink2)}
+  .btn.ghost:hover{background:#f4f7fd}
+  .btn.green{background:#e8f6ee;color:#1c6b43;border:1.5px solid #bfe5cf}
+  .btn.green:hover{background:#dcf2e5}
+  .btn.small{padding:8px 11px;font-size:12.5px}
+  .btn:disabled{opacity:.45;cursor:default}
+
+  .q{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px;margin-bottom:12px;
+  }
+  .q.isdone{border-color:#bfe5cf;background:#fbfefc}
+  .qhead{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+  .qn{font:800 12.5px/1 "Noto Sans TC",sans-serif;color:#fff;background:var(--ink);border-radius:999px;padding:6px 10px}
+  .qn.ok{background:var(--ok)} .qn.bad{background:var(--bad)}
+  .tag{font:700 11.5px/1 "Noto Sans TC",sans-serif;color:var(--ink2);background:#eef2f8;border-radius:999px;padding:6px 9px}
+  .tag.unit{background:#eef3ff;color:#2a5bb8}
+  .tag.paper{background:#f3eefb;color:#6b4a9e}
+  .tag.done{background:#e8f6ee;color:#1c6b43}
+
+  .passage{
+    background:#f7f9fc;border:1px solid #e6ecf5;border-left:4px solid #b9cdf0;border-radius:10px;
+    padding:12px 14px;margin:0 0 13px;font-size:14.5px;line-height:1.85;color:#33414f;
+  }
+  .stem{font-size:16.5px;line-height:1.75;font-weight:700;margin:0 0 13px}
+  .qfig{margin:4px 0 12px;text-align:center}
+  .qfig img{max-width:100%;height:auto;max-height:260px;border-radius:8px}
+  .qfig figcaption{font-size:12px;color:#7b8794;margin-top:4px}
+  .ph{font-family:"Times New Roman",Times,serif;font-weight:700;letter-spacing:.02em}
+  .en{font-weight:800}
+
+  .opts{display:grid;gap:7px;margin-bottom:14px}
+  .opt{
+    display:flex;gap:10px;align-items:flex-start;
+    border:1.5px solid #e2e8f0;border-radius:11px;padding:11px 13px;
+    font-size:15px;line-height:1.6;background:#fff;
+  }
+  .opt .k{
+    flex:0 0 auto;width:25px;height:25px;border-radius:7px;background:#eef2f8;color:var(--ink2);
+    display:flex;align-items:center;justify-content:center;font:800 12.5px/1 "Noto Sans TC",sans-serif;margin-top:1px;
+  }
+  .opt.correct{border-color:#79c79a;background:#f0fbf5}
+  .opt.correct .k{background:var(--ok);color:#fff}
+  .opt.wrong{border-color:#e8a19a;background:#fdf3f2}
+  .opt.wrong .k{background:var(--bad);color:#fff}
+  .opt .mk{display:block;font-size:11.5px;font-weight:800;margin-top:2px}
+  .opt.correct .mk{color:var(--ok)}
+  .opt.wrong .mk{color:var(--bad)}
+
+  .exp{background:#f7f9fc;border-radius:11px;padding:12px 14px;margin-bottom:9px;font-size:14.5px;line-height:1.8}
+  .exp .t{font-weight:800;font-size:12.5px;color:var(--ink2);margin-bottom:4px;letter-spacing:.02em}
+  .exp.good{background:#f2fbf6;border-left:3px solid var(--ok)}
+  .exp.bad{background:#fdf4f3;border-left:3px solid var(--bad)}
+  .qfoot{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
+
+  /* ---------- 工具列 / 提示 ---------- */
+  .notice{
+    background:#fff8e8;border:1px solid #f0dcb0;border-radius:12px;padding:12px 14px;
+    font-size:13.5px;color:#7a5a12;line-height:1.65;margin-bottom:16px;
+  }
+  .err-box{background:#fdecec;border:1px solid #f5c6c6;color:#8f2626;border-radius:12px;padding:14px;font-size:14px;margin-bottom:16px}
+  .ok-box{background:#eef8f2;border:1px solid #bfe5cf;color:#1c6b43;border-radius:12px;padding:14px;font-size:14px;margin-bottom:16px}
+
+  #toast{
+    position:fixed;left:50%;transform:translateX(-50%) translateY(20px);
+    bottom:calc(20px + env(safe-area-inset-bottom));z-index:80;
+    background:var(--ink);color:#fff;border-radius:12px;padding:12px 16px;
+    font-size:13.5px;font-weight:700;box-shadow:0 10px 30px rgba(15,23,42,.3);
+    opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:90vw;
+  }
+  #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* ---------- 登入 ---------- */
+  .gate{max-width:420px;margin:12vh auto;padding:0 20px}
+  .gate .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:0 10px 40px rgba(16,24,40,.08)}
+  .gate h1{font-size:21px;margin:0 0 6px;font-weight:800}
+  .gate p{color:var(--ink2);font-size:13.5px;margin:0 0 18px}
+  .gate input{
+    width:100%;padding:13px 14px;border:1.5px solid #d6dfec;border-radius:11px;
+    font:700 17px/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;text-align:center;
+  }
+  .gate input:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px rgba(47,111,237,.14)}
+  .gate .btn{width:100%;margin-top:12px}
+  .gate .hint{font-size:12px;color:var(--ink3);margin-top:14px;text-align:center}
+
+  @media(max-width:640px){
+    .top-in{padding:10px 14px}
+    .top h1{font-size:15px}
+    main{padding:14px}
+    .row{flex-wrap:wrap}
+    .row .go{margin-left:auto}
+    .q{padding:15px}
+    .stem{font-size:15.5px}
+  }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+<div id="toast"></div>
+
+<script src="config.js"></script>
+<script src="core.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var app = document.getElementById("app");
+  var toastEl = document.getElementById("toast");
+
+  var A = {
+    unlocked: false,
+    rows: [],
+    known: {},
+    firstLoad: true,
+    poll: null,
+    detail: null,
+    doneSet: {},
+    showAll: false,
+    tab: "todo"
+  };
+
+  /* ---------------- 共用小工具 ---------------- */
+  function toast(msg, ms) {
+    toastEl.textContent = msg;
+    toastEl.className = "on";
+    clearTimeout(toastEl._t);
+    toastEl._t = setTimeout(function () { toastEl.className = ""; }, ms || 3200);
+  }
+
+  var AC = null;
+  function beep() {
+    try {
+      var C = window.AudioContext || window.webkitAudioContext;
+      if (!C) return;
+      if (!AC) AC = new C();
+      if (AC.state === "suspended") AC.resume();
+      [880, 1174.66, 1567.98].forEach(function (f, i) {
+        var o = AC.createOscillator(), g = AC.createGain();
+        o.type = "sine"; o.frequency.value = f;
+        var t = AC.currentTime + i * 0.11;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(0.18, t + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.26);
+        o.connect(g); g.connect(AC.destination);
+        o.start(t); o.stop(t + 0.3);
+      });
+    } catch (e) { }
+  }
+
+  function subjOf(id) { return QCORE.getSubject(id) || { short: id, color: "#888", badge: "?" }; }
+
+  function scoreClass(c, t) {
+    var r = t ? c / t : 0;
+    return r >= 0.9 ? "" : r >= 0.7 ? " mid" : " low";
+  }
+
+  /* ---------------- 入口：登入或清單 ---------------- */
+  function render() {
+    if (!QCORE.configured()) {
+      app.innerHTML =
+        '<div class="gate"><div class="card">' +
+          '<h1>還沒設定後端</h1>' +
+          '<p>這個管理頁需要 Supabase 才能讀取交卷紀錄。</p>' +
+          '<a class="btn primary" href="setup.html" style="display:block;text-align:center;text-decoration:none;padding:12px">前往設定</a>' +
+        '</div></div>';
+      return;
+    }
+
+    if (!A.unlocked) { renderGate(); return; }
+
+    var hash = (location.hash || "").replace(/^#/, "");
+    if (hash.indexOf("s=") === 0) { renderDetail(hash.slice(2)); return; }
+    renderList();
+  }
+
+  function renderGate() {
+    app.innerHTML =
+      '<div class="gate"><div class="card">' +
+        '<h1>小考管理頁</h1>' +
+        '<p>輸入密碼。這裡有兒子的交卷紀錄與錯題詳解。</p>' +
+        '<input id="pw" type="password" inputmode="numeric" autocomplete="off" placeholder="••••">' +
+        '<button class="btn primary" id="go" type="button">進入</button>' +
+        '<div class="hint">密碼可以在 <code>小考/config.js</code> 的 <code>ADMIN_PASSCODE</code> 修改。</div>' +
+      '</div></div>';
+
+    var pw = document.getElementById("pw");
+    var go = function () {
+      if (pw.value === String(QCORE.cfg().ADMIN_PASSCODE || "2026")) {
+        A.unlocked = true;
+        try { sessionStorage.setItem("qc_admin_ok", "1"); } catch (e) { }
+        askNotifyPermission();
+        startPolling();
+        render();
+      } else {
+        pw.value = "";
+        toast("密碼不對");
+        pw.focus();
+      }
+    };
+    document.getElementById("go").onclick = go;
+    pw.addEventListener("keydown", function (e) { if (e.key === "Enter") go(); });
+    pw.focus();
+  }
+
+  function askNotifyPermission() {
+    try {
+      if ("Notification" in window && Notification.permission === "default") {
+        Notification.requestPermission();
+      }
+    } catch (e) { }
+  }
+
+  /* ---------------- 清單 ---------------- */
+  function renderList() {
+    var todo = A.rows.filter(function (r) { return !r.reviewed; });
+    var doneAll = A.rows.filter(function (r) { return r.reviewed; });
+    var list = A.tab === "todo" ? todo : A.tab === "done" ? doneAll : A.rows;
+
+    var html =
+      '<header class="top"><div class="top-in">' +
+        '<div class="logo">考</div>' +
+        '<div><h1>小考管理頁</h1><div class="sub">' + QCORE.esc(QCORE.cfg().STUDENT_NAME || "兒子") + '的交卷紀錄</div></div>' +
+        '<div class="sp"></div>' +
+        '<div class="status"><span class="sdot on" id="sdot"></span><span id="stxt">已連線</span></div>' +
+      '</div>' +
+      '<div class="tabs">' +
+        tabBtn("todo", "待檢討", todo.length) +
+        tabBtn("all", "全部", A.rows.length) +
+        tabBtn("done", "已檢討", doneAll.length) +
+        tabBtn("bank", "已標記題目", "") +
+      '</div></header>';
+
+    html += '<main>';
+
+    if (A.tab === "bank") {
+      html += '<div id="bankBox"><div class="empty">載入中…</div></div>';
+    } else if (!list.length) {
+      html += '<div class="empty"><div class="big">🎉</div>' +
+        (A.tab === "todo" ? "目前沒有待檢討的考卷。" : "這裡還沒有紀錄。") + '</div>';
+    } else {
+      html += '<div class="sec-title">' + (A.tab === "todo" ? "等待你一起看" : "全部紀錄") + '</div><div class="list">';
+      list.forEach(function (r) {
+        var s = subjOf(r.subject);
+        var isNew = !r.reviewed;
+        html += '<div class="row' + (isNew ? " new" : "") + '" data-id="' + QCORE.esc(r.id) + '">' +
+          '<span class="dot" style="background:' + s.color + '"></span>' +
+          '<div class="main">' +
+            '<div class="l1"><span class="subj">' + QCORE.esc(s.short) + '</span>' +
+              '<span class="when">' + QCORE.esc(QCORE.fmtDateTime(r.created_at)) + '</span>' +
+              (r.reviewed ? '<span class="pill done">已檢討</span>' : '<span class="pill todo">待檢討</span>') +
+            '</div>' +
+            '<div class="l2">' + r.total + ' 題 ・ 用時 ' + QCORE.fmtClock(r.elapsed_sec) +
+              ' ・ 錯 ' + (r.total - r.correct) + ' 題</div>' +
+          '</div>' +
+          '<div class="score' + scoreClass(r.correct, r.total) + '">' + r.correct + '/' + r.total + '</div>' +
+          '<button class="go" type="button" data-open="' + QCORE.esc(r.id) + '">檢討</button>' +
+        '</div>';
+      });
+      html += '</div>';
+    }
+    html += '</main>';
+
+    app.innerHTML = html;
+
+    app.querySelectorAll("[data-open]").forEach(function (b) {
+      b.onclick = function () { location.hash = "s=" + b.getAttribute("data-open"); };
+    });
+    app.querySelectorAll(".tab").forEach(function (b) {
+      b.onclick = function () { A.tab = b.getAttribute("data-tab"); render(); };
+    });
+
+    if (A.tab === "bank") renderBank();
+  }
+
+  function tabBtn(id, label, n) {
+    return '<button class="tab' + (A.tab === id ? " on" : "") + '" type="button" data-tab="' + id + '">' +
+      label + (n === "" ? "" : '<span class="n">' + n + '</span>') + '</button>';
+  }
+
+  /* ---------------- 已標記題目 ---------------- */
+  function renderBank() {
+    QCORE.listDone().then(function (rows) {
+      var box = document.getElementById("bankBox");
+      if (!box) return;
+      if (!rows || !rows.length) {
+        box.innerHTML = '<div class="empty"><div class="big">📚</div>還沒有標記任何題目。<br>檢討完一份考卷後，把題目標記起來，下次就不會再抽到。</div>';
+        return;
+      }
+      var html = '<div class="sec-title">已標記 ' + rows.length + ' 題（下次出卷會跳過）</div><div class="list">';
+      rows.forEach(function (r) {
+        var s = subjOf(r.subject);
+        html += '<div class="row">' +
+          '<span class="dot" style="background:' + s.color + '"></span>' +
+          '<div class="main">' +
+            '<div class="l1"><span class="subj">' + QCORE.esc(s.short) + '</span>' +
+              (r.unit ? '<span class="tag unit">' + QCORE.esc(r.unit) + '</span>' : '') +
+              '<span class="when">' + QCORE.esc(QCORE.fmtDateTime(r.created_at)) + '</span>' +
+            '</div>' +
+            '<div class="l2">' + QCORE.esc(QCORE.plain(r.label || r.id)) + '</div>' +
+          '</div>' +
+          '<button class="go" type="button" data-unmark="' + QCORE.esc(r.id) + '">取消</button>' +
+        '</div>';
+      });
+      html += '</div>';
+      box.innerHTML = html;
+      box.querySelectorAll("[data-unmark]").forEach(function (b) {
+        b.onclick = function () {
+          var id = b.getAttribute("data-unmark");
+          if (!confirm("取消標記後，這題會再出現在下次小考。確定嗎？")) return;
+          QCORE.removeDone(id).then(function () {
+            toast("已取消標記");
+            renderBank();
+            loadRows();
+          }).catch(function (e) { toast("取消失敗：" + e.message); });
+        };
+      });
+    }).catch(function (e) {
+      var box = document.getElementById("bankBox");
+      if (box) box.innerHTML = '<div class="err-box">讀取失敗：' + QCORE.esc(e.message) + '</div>';
+    });
+  }
+
+  /* ---------------- 詳情 ---------------- */
+  function renderDetail(id) {
+    app.innerHTML =
+      '<header class="top"><div class="top-in">' +
+        '<div class="logo">考</div>' +
+        '<div><h1>檢討</h1><div class="sub">載入中…</div></div>' +
+      '</div></header>' +
+      '<main><div class="empty">載入中…</div></main>';
+
+    Promise.all([
+      QCORE.getSubmission(id),
+      QCORE.listDone()
+    ]).then(function (r) {
+      var sub = r[0];
+      var doneRows = r[1] || [];
+      if (!sub) throw new Error("找不到這份考卷。");
+
+      A.detail = sub;
+      A.doneSet = {};
+      doneRows.forEach(function (d) { A.doneSet[d.id] = 1; });
+      A.showAll = false;
+      paintDetail();
+    }).catch(function (e) {
+      app.innerHTML =
+        '<header class="top"><div class="top-in"><div class="logo">考</div><div><h1>檢討</h1></div></div></header>' +
+        '<main><div class="err-box">' + QCORE.esc(e.message) + '</div>' +
+        '<button class="btn ghost" onclick="location.hash=\'\'">回列表</button></main>';
+    });
+  }
+
+  function paintDetail() {
+    var sub = A.detail;
+    var s = subjOf(sub.subject);
+    var items = sub.items || [];
+    var wrong = items.filter(function (it) { return it.picked !== it.a; });
+    var pending = wrong.filter(function (it) { return !A.doneSet[it.id]; });
+    var shown = A.showAll ? items : wrong;
+
+    var html =
+      '<header class="top"><div class="top-in">' +
+        '<div class="logo">考</div>' +
+        '<div><h1>' + QCORE.esc(s.short) + ' ・ ' + items.length + ' 題</h1>' +
+          '<div class="sub">' + QCORE.esc(QCORE.fmtDateTime(sub.created_at)) + '</div></div>' +
+        '<div class="sp"></div>' +
+        '<div class="status"><span class="sdot on"></span><span>已連線</span></div>' +
+      '</div></header>' +
+      '<main>' +
+        '<button class="back" id="back" type="button">← 回列表</button>' +
+        '<div class="dhead">' +
+          '<div class="l1">' +
+            '<span class="dot" style="width:11px;height:11px;border-radius:50%;background:' + s.color + '"></span>' +
+            '<h2>' + QCORE.esc(s.short) + '</h2>' +
+            (sub.reviewed ? '<span class="pill done">已檢討</span>' : '<span class="pill todo">待檢討</span>') +
+          '</div>' +
+          '<div class="stats">' +
+            '<div class="stat"><div class="k">答對</div><div class="v ' + (sub.correct === items.length ? "ok" : "") + '">' + sub.correct + ' / ' + items.length + '</div></div>' +
+            '<div class="stat"><div class="k">正確率</div><div class="v">' + (items.length ? Math.round(sub.correct / items.length * 100) : 0) + '%</div></div>' +
+            '<div class="stat"><div class="k">用時</div><div class="v">' + QCORE.fmtClock(sub.elapsed_sec) + '</div></div>' +
+            '<div class="stat"><div class="k">待標記</div><div class="v ' + (pending.length ? "warn" : "ok") + '">' + pending.length + ' 題</div></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="toolbar">' +
+          '<button class="btn ghost" id="toggleAll" type="button">' + (A.showAll ? "只看錯題" : "看全部題目") + '</button>' +
+          '<button class="btn green" id="markAll" type="button"' + (pending.length ? "" : " disabled") + '>把這 ' + pending.length + ' 題標記已檢討</button>' +
+          '<button class="btn primary" id="finish" type="button">這份檢討完成</button>' +
+        '</div>';
+
+    if (!wrong.length) {
+      html += '<div class="ok-box">這份全部答對，沒有錯題。可以直接按「這份檢討完成」。</div>';
+    }
+
+    shown.forEach(function (it) {
+      html += qCard(it, items.indexOf(it));
+    });
+
+    html += '</main>';
+    app.innerHTML = html;
+
+    document.getElementById("back").onclick = function () { location.hash = ""; };
+    document.getElementById("toggleAll").onclick = function () { A.showAll = !A.showAll; paintDetail(); };
+    document.getElementById("markAll").onclick = markAllWrong;
+    document.getElementById("finish").onclick = finishReview;
+
+    app.querySelectorAll("[data-mark]").forEach(function (b) {
+      b.onclick = function () { markOne(b.getAttribute("data-mark")); };
+    });
+    app.querySelectorAll("[data-unmark2]").forEach(function (b) {
+      b.onclick = function () { unmarkOne(b.getAttribute("data-unmark2")); };
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function qCard(it, n) {
+    var letters = "ABCDEFG";
+    var ok = it.picked === it.a;
+    var isDone = !!A.doneSet[it.id];
+    var subj = QCORE.getSubject(A.detail.subject);
+    var dir = (subj && subj.dir) || "";
+
+    var h = '<section class="q' + (isDone ? " isdone" : "") + '">';
+
+    h += '<div class="qhead">' +
+      '<span class="qn ' + (ok ? "ok" : "bad") + '">第 ' + (n + 1) + ' 題・' + (ok ? "答對" : "答錯") + '</span>' +
+      (it.u ? '<span class="tag unit">' + QCORE.esc(it.u) + '</span>' : '') +
+      (it.d ? '<span class="tag">難度 ' + QCORE.esc(it.d) + '</span>' : '') +
+      (it.paper ? '<span class="tag paper">題庫卷 ' + QCORE.esc(it.paper) + '</span>' : '') +
+      (isDone ? '<span class="tag done">已標記檢討</span>' : '') +
+    '</div>';
+
+    if (it.p) h += '<div class="passage">' + QCORE.rich(dir, it.p) + '</div>';
+    h += '<div class="stem">' + QCORE.rich(dir, it.q) + '</div>';
+
+    h += '<div class="opts">';
+    it.o.forEach(function (t, i) {
+      var cls = "";
+      var mk = "";
+      if (i === it.a) { cls = " correct"; mk = "正確答案"; }
+      else if (i === it.picked) { cls = " wrong"; mk = "你選的"; }
+      h += '<div class="opt' + cls + '">' +
+        '<span class="k">' + letters.charAt(i) + '</span>' +
+        '<span>' + QCORE.rich(dir, t) + (mk ? '<span class="mk">' + mk + '</span>' : '') + '</span>' +
+      '</div>';
+    });
+    h += '</div>';
+
+    if (it.picked === -1) {
+      h += '<div class="exp bad"><div class="t">這一題沒有作答</div></div>';
+    }
+
+    if (!ok && it.w && it.w[it.picked]) {
+      h += '<div class="exp bad"><div class="t">你選的 ' + letters.charAt(it.picked) + ' 為什麼不對</div>' +
+        QCORE.rich(dir, it.w[it.picked]) + '</div>';
+    }
+
+    h += '<div class="exp good"><div class="t">正確答案 ' + letters.charAt(it.a) + ' 為什麼對</div>' +
+      QCORE.rich(dir, it.e || "（這題沒有附詳解）") + '</div>';
+
+    h += '<div class="qfoot">';
+    if (isDone) {
+      h += '<button class="btn ghost small" type="button" data-unmark2="' + QCORE.esc(it.id) + '">取消標記</button>';
+    } else {
+      h += '<button class="btn green small" type="button" data-mark="' + QCORE.esc(it.id) + '">標記已檢討</button>';
+    }
+    h += '</div>';
+
+    h += '</section>';
+    return h;
+  }
+
+  /* ---------------- 標記動作 ---------------- */
+  function markOne(id) {
+    var it = (A.detail.items || []).filter(function (x) { return x.id === id; })[0];
+    if (!it) return;
+    QCORE.addDone([{ id: it.id, label: QCORE.plain(it.q), unit: it.u }], A.detail.subject)
+      .then(function () {
+        A.doneSet[id] = 1;
+        toast("已標記，下次不會再抽到這題");
+        paintDetail();
+        loadRows();
+      })
+      .catch(function (e) { toast("標記失敗：" + e.message); });
+  }
+
+  function unmarkOne(id) {
+    QCORE.removeDone(id).then(function () {
+      delete A.doneSet[id];
+      toast("已取消標記");
+      paintDetail();
+      loadRows();
+    }).catch(function (e) { toast("取消失敗：" + e.message); });
+  }
+
+  function markAllWrong() {
+    var items = A.detail.items || [];
+    var wrong = items.filter(function (it) { return it.picked !== it.a && !A.doneSet[it.id]; });
+    if (!wrong.length) { toast("沒有待標記的題目"); return; }
+
+    QCORE.addDone(wrong.map(function (it) {
+      return { id: it.id, label: QCORE.plain(it.q), unit: it.u };
+    }), A.detail.subject).then(function () {
+      wrong.forEach(function (it) { A.doneSet[it.id] = 1; });
+      return QCORE.markSubmissionReviewed(A.detail.id, true);
+    }).then(function () {
+      A.detail.reviewed = true;
+      toast("已標記 " + wrong.length + " 題，這份完成");
+      paintDetail();
+      loadRows();
+    }).catch(function (e) { toast("標記失敗：" + e.message); });
+  }
+
+  function finishReview() {
+    QCORE.markSubmissionReviewed(A.detail.id, true).then(function () {
+      A.detail.reviewed = true;
+      toast("這份已標記為檢討完成");
+      paintDetail();
+      loadRows();
+    }).catch(function (e) { toast("更新失敗：" + e.message); });
+  }
+
+  /* ---------------- 資料載入與輪詢 ---------------- */
+  function loadRows() {
+    return QCORE.listSubmissions({ limit: 60 }).then(function (rows) {
+      var fresh = (rows || []).filter(function (r) { return !A.known[r.id]; });
+      A.rows = rows || [];
+      A.rows.forEach(function (r) { A.known[r.id] = 1; });
+
+      if (!A.firstLoad && fresh.length) {
+        notifyNew(fresh[0], subjOf(fresh[0].subject));
+      }
+      A.firstLoad = false;
+
+      /* 只有內容真的變了才重畫，避免每 20 秒把畫面與捲動位置洗掉 */
+      var sig = A.rows.map(function (r) { return r.id + (r.reviewed ? "1" : "0"); }).join(",");
+      if (sig !== A.sig) {
+        A.sig = sig;
+        var h = (location.hash || "").replace(/^#/, "");
+        if (h.indexOf("s=") !== 0) render();
+      }
+      return rows;
+    }).catch(function (e) {
+      var d = document.getElementById("sdot");
+      var t = document.getElementById("stxt");
+      if (d) { d.className = "sdot off"; }
+      if (t) { t.textContent = "連線失敗"; }
+      return [];
+    });
+  }
+
+  function findRow(id) {
+    for (var i = 0; i < A.rows.length; i++) if (A.rows[i].id === id) return A.rows[i];
+    return null;
+  }
+
+  function notifyNew(row, s) {
+    var msg = s.short + " " + row.total + " 題，答對 " + row.correct + " 題";
+    toast("📩 新考卷：" + msg, 6000);
+    beep();
+    try {
+      if ("Notification" in window && Notification.permission === "granted") {
+        var n = new Notification((QCORE.cfg().STUDENT_NAME || "兒子") + "交卷了", {
+          body: msg + "，用時 " + QCORE.fmtClock(row.elapsed_sec),
+          tag: row.id
+        });
+        n.onclick = function () { window.focus(); location.hash = "s=" + row.id; };
+      }
+    } catch (e) { }
+  }
+
+  function startPolling() {
+    if (A.poll) clearInterval(A.poll);
+    loadRows();
+    A.poll = setInterval(function () {
+      if (document.hidden) return;
+      loadRows();
+    }, 20000);
+  }
+
+  /* ---------------- 啟動 ---------------- */
+  try { A.unlocked = sessionStorage.getItem("qc_admin_ok") === "1"; } catch (e) { }
+
+  window.addEventListener("hashchange", render);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden && A.unlocked) loadRows();
+  });
+
+  if (A.unlocked) startPolling();
+  render();
+})();
+</script>
+</body>
+</html>
