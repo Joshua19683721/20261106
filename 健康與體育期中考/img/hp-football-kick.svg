@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hp-football-kick-title hp-football-kick-desc" id="hp-football-kick-root">
+  <title id="hp-football-kick-title">踢球時的支撐腳</title>
+  <desc id="hp-football-kick-desc">球、支撐腳與踢球腳的位置，以及球的行進方向。</desc>
+  <defs>
+      <style>#hp-football-kick-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #hp-football-kick-root { font-family: var(--sans); color: var(--ink); }
+      #hp-football-kick-root .diagram-container { width:100%;overflow-x:auto }
+      #hp-football-kick-root text { font-family:var(--sans) }
+      #hp-football-kick-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #hp-football-kick-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #hp-football-kick-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #hp-football-kick-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #hp-football-kick-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #hp-football-kick-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #hp-football-kick-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #hp-football-kick-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #hp-football-kick-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #hp-football-kick-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #hp-football-kick-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #hp-football-kick-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #hp-football-kick-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #hp-football-kick-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #hp-football-kick-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #hp-football-kick-root .dash { stroke-dasharray:5 4 }</style><marker id="hp-football-kick-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="hp-football-kick-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">健康與體育・足球玩家</text>
+<text x="32" y="58" class="h">踢球時的支撐腳</text>
+  <line x1="60" y1="300" x2="580" y2="300" class="ln"/>
+<circle cx="300" cy="250" r="24" fill="#ffffff" class="ln"/>
+<path d="M 300 226 L 300 274 M 276 250 L 324 250" class="lm"/>
+<path d="M 180 300 L 420 300" class="la" stroke-width="2" marker-end="url(#hp-football-kick-arrow-accent)"/>
+<text x="300" y="336" class="a" text-anchor="middle">球的行進方向</text>
+<path d="M 196 300 L 196 232" class="ln"/>
+<path d="M 196 300 L 232 300" class="ln"/>
+<text x="180" y="220" class="s" text-anchor="middle">支撐腳</text>
+<path d="M 380 300 L 380 226" class="ln"/>
+<path d="M 380 226 L 344 262" class="ln"/>
+<text x="400" y="220" class="s" text-anchor="middle">踢球腳</text>
+<path d="M 300 250 L 300 200" class="la" stroke-width="2" marker-end="url(#hp-football-kick-arrow-accent)"/>
+<text x="312" y="196" class="s" text-anchor="start">踢球的力量往這裡</text>
+<text x="60" y="100" class="sb" text-anchor="start">踢球時，支撐腳要站在球的旁邊，還要考慮球要走的方向。</text>
+</svg>

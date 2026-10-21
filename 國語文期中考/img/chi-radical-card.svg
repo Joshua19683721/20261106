@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chi-radical-card-title chi-radical-card-desc" id="chi-radical-card-root">
+  <title id="chi-radical-card-title">用部首查字典</title>
+  <desc id="chi-radical-card-desc">「湯」字拆開來，左邊的部件以深色標出。</desc>
+  <defs>
+      <style>#chi-radical-card-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #chi-radical-card-root { font-family: var(--sans); color: var(--ink); }
+      #chi-radical-card-root .diagram-container { width:100%;overflow-x:auto }
+      #chi-radical-card-root text { font-family:var(--sans) }
+      #chi-radical-card-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #chi-radical-card-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #chi-radical-card-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #chi-radical-card-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #chi-radical-card-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #chi-radical-card-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #chi-radical-card-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #chi-radical-card-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #chi-radical-card-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #chi-radical-card-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #chi-radical-card-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #chi-radical-card-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #chi-radical-card-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #chi-radical-card-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #chi-radical-card-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #chi-radical-card-root .dash { stroke-dasharray:5 4 }</style><marker id="chi-radical-card-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="chi-radical-card-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">國語文・查字典</text>
+<text x="32" y="58" class="h">用部首查字典</text>
+  <rect x="180" y="130" width="280" height="180" rx="10" fill="#ffffff" class="n"/>
+<text x="320" y="250" class="big" text-anchor="middle">湯</text>
+<rect x="196" y="150" width="56" height="140" rx="6" class="na"/>
+<text x="224" y="128" class="a" text-anchor="middle">？</text>
+<path d="M 224 150 L 224 290" class="la" stroke-width="2"/>
+<text x="340" y="350" class="s" text-anchor="middle">先寫左邊的部件，再寫右邊。</text>
+<text x="60" y="100" class="sb" text-anchor="start">用部首查字法查字典時，先看字的哪一部分？</text>
+<text x="60" y="380" class="s" text-anchor="start">把字拆開來看：左邊這個部件，就是查字典要用的部首。</text>
+</svg>

@@ -654,6 +654,229 @@ def fig_hp_diabolo_steps():
     return '\n'.join(b)
 
 
+# ======================================================================
+#  第三批附圖
+# ======================================================================
+
+def fig_math_triangle_perimeter():
+    b = []
+    b.append('<path d="M 150 280 L 320 120 L 480 280 Z" class="ln"/>')
+    b.append('<line x1="150" y1="280" x2="320" y2="120" class="la" stroke-width="2"/>')
+    b.append('<line x1="320" y1="120" x2="480" y2="280" class="la" stroke-width="2"/>')
+    b.append('<line x1="150" y1="280" x2="480" y2="280" class="la" stroke-width="2"/>')
+    b.append(txt(228, 186, '5 公分', 'a', 'middle'))
+    b.append(txt(408, 186, '6 公分', 'a', 'middle'))
+    b.append(txt(316, 310, '7 公分', 'a', 'middle'))
+    b.append('<path d="M 150 250 L 150 200" class="lm"/>')
+    b.append(txt(120, 120, '繞一圈', 's', 'middle'))
+    b.append('<path d="M 126 190 A 90 90 0 0 1 320 100" class="la" fill="none" marker-end="url(#arrow-accent)"/>')
+    b.append(txt(60, 356, '周長就是把三條邊的長度加起來。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_math_mixed_fraction():
+    b = []
+    x0, y0, w, h = 90, 140, 200, 60
+    for k in range(3):
+        b.append('<rect x="%d" y="%d" width="%d" height="%d" fill="#ffffff" class="n"/>' % (x0, y0 + k * (h + 8), w, h))
+        b.append(txt(x0 + w / 2, y0 + k * (h + 8) + 38, '1', 'mid', 'middle'))
+    b.append(txt(x0 - 24, y0 + 3 * (h + 8) - 8, '3 個整數', 's', 'end'))
+    fx = x0 + w + 28
+    for k in range(7):
+        filled = k < 2
+        cls = 'na' if filled else 'ns'
+        b.append('<rect x="%d" y="%d" width="28" height="%d" rx="2" class="%s"/>' % (fx + k * 28, y0, h, cls))
+    b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (fx, y0, fx + 7 * 28, y0))
+    b.append(txt(fx + 98, y0 - 12, '把 1 個整數平均分成 7 份', 's', 'middle'))
+    b.append(txt(fx + 28, y0 + 38, '2/7', 'a', 'middle'))
+    b.append(txt(90, 360, '3 又 2/7 ＝ 幾個 1/7？把 3 個整數換成 21 份，再加上 2 份。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_math_stacked_bar():
+    b = []
+    bx, by, unit = 150, 300, 24
+    b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (bx, by, bx, by - 8 * unit))
+    b.append('<line x1="%d" y1="%d" x2="500" y2="%d" class="ln"/>' % (bx, by, by))
+    for k in range(1, 9):
+        y = by - k * unit
+        b.append('<line x1="%d" y1="%d" x2="500" y2="%d" class="lm dash"/>' % (bx, y, y))
+        b.append(txt(bx - 12, y + 5, str(k * 2), 's', 'end'))
+    b.append('<rect x="220" y="%d" width="70" height="%d" fill="#ffffff" class="n"/>' % (by - 6 * unit, 6 * unit))
+    b.append('<rect x="220" y="%d" width="70" height="%d" class="ns"/>' % (by - 6 * unit, 6 * unit))
+    b.append('<rect x="220" y="%d" width="70" height="%d" fill="#ffffff" class="n"/>' % (by - 10 * unit, 4 * unit))
+    b.append('<rect x="220" y="%d" width="70" height="%d" class="na"/>' % (by - 10 * unit, 4 * unit))
+    b.append(txt(255, by - 6 * unit + 34, '男生 6 人', 'sb', 'middle'))
+    b.append(txt(255, by - 10 * unit + 30, '女生 4 人', 'sb', 'middle'))
+    b.append(txt(255, by + 28, '某一項', 'ts', 'middle'))
+    b.append(txt(60, 360, '堆疊長條圖：下層與上層的長條要一起算。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_sci_water_plant():
+    b = []
+    b.append('<rect x="40" y="200" width="560" height="120" fill="#e6eff7"/>')
+    b.append('<line x1="40" y1="200" x2="600" y2="200" class="ln"/>')
+    b.append(txt(600, 196, '水面', 's', 'end'))
+    # 睡蓮（浮葉）
+    b.append('<ellipse cx="150" cy="196" rx="40" ry="10" class="la" fill="none"/>')
+    b.append('<line x1="150" y1="196" x2="150" y2="290" class="lm"/>')
+    b.append('<path d="M 150 290 q -14 -8 0 -16" class="lm" fill="none"/>')
+    b.append(txt(150, 348, '葉子浮在水面', 's', 'middle'))
+    # 布袋蓮（漂浮）
+    b.append('<path d="M 320 120 L 320 190" class="la"/>')
+    b.append('<ellipse cx="320" cy="112" rx="42" ry="14" class="la" fill="none"/>')
+    b.append('<ellipse cx="320" cy="172" rx="13" ry="9" class="ns"/>')
+    b.append('<line x1="320" y1="190" x2="320" y2="290" class="lm"/>')
+    b.append(txt(320, 348, '整株浮在水面', 's', 'middle'))
+    # 水蘊草（沉水）
+    b.append('<path d="M 470 230 q -14 24 4 44 q 18 20 30 -6" class="la" fill="none"/>')
+    b.append('<path d="M 492 250 q 16 16 6 36" class="la" fill="none"/>')
+    b.append(txt(478, 348, '整株沉在水中', 's', 'middle'))
+    b.append(txt(60, 100, '同一個池塘裡，水生植物的樣子卻很不一樣。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_sci_animal_sound():
+    b = []
+    animals = [('狗', '汪！'), ('貓', '喵？'), ('鳥', '啾啾♪'), ('蛙', '呱呱')]
+    for i, (name, snd) in enumerate(animals):
+        cx = 70 + i * 140
+        b.append('<circle cx="%d" cy="150" r="38" fill="#ffffff" class="n"/>' % cx)
+        b.append(txt(cx, 158, name, 'ts', 'middle'))
+        b.append(txt(cx, 232, snd, 'a', 'middle'))
+        for k in range(2):
+            b.append('<path d="M %d 268 A %d %d 0 0 1 %d 292" class="la" fill="none"/>' % (cx + 24 + k * 16, 20 + k * 8, 12 + k * 6, cx + 24 + k * 16))
+    b.append(txt(60, 100, '每種動物都有自己特有的聲音。', 'sb'))
+    b.append(txt(60, 330, '聲音可以傳達很多訊息：叫同伴、找食物、警戒、找配偶。', 's'))
+    b.append(txt(60, 358, '想想看：不同動物為什麼要發出不同的聲音？', 's'))
+    return '\n'.join(b)
+
+
+def fig_soc_map_elements():
+    b = []
+    b.append('<rect x="60" y="110" width="520" height="240" rx="6" fill="#ffffff" class="n"/>')
+    b.append('<path d="M 100 190 C 180 150, 250 230, 330 190" class="la" fill="none"/>')
+    b.append('<path d="M 100 300 C 190 260, 240 320, 330 290" class="la" fill="none"/>')
+    b.append('<rect x="380" y="140" width="90" height="60" class="ns"/>')
+    b.append(txt(425, 178, '聚落', 's', 'middle'))
+    b.append('<circle cx="220" cy="250" r="8" class="na" fill="#1f51c9"/>')
+    b.append(txt(240, 256, '學校', 's'))
+    # 比例尺
+    b.append('<rect x="90" y="372" width="120" height="12" fill="#ffffff" class="n"/>')
+    b.append('<rect x="90" y="372" width="60" height="12" class="ns"/>')
+    b.append(txt(90, 362, '0', 's', 'middle'))
+    b.append(txt(150, 362, '1', 's', 'middle'))
+    b.append(txt(210, 362, '2 公里', 's', 'middle'))
+    b.append(txt(224, 384, '1 : 5000', 's'))
+    # 指北針
+    b.append('<circle cx="520" cy="150" r="22" class="n"/>')
+    b.append('<path d="M 520 134 L 528 160 L 520 152 L 512 160 Z" class="la" fill="#1f51c9"/>')
+    b.append(txt(520, 190, 'N', 's', 'middle'))
+    # 圖例
+    b.append('<rect x="380" y="300" width="170" height="44" rx="4" fill="#ffffff" class="n"/>')
+    b.append('<rect x="392" y="312" width="18" height="18" class="ns"/>')
+    b.append(txt(418, 326, '學校', 's'))
+    return '\n'.join(b)
+
+
+def fig_soc_festival():
+    b = []
+    items = [('過年', '貼春聯・發紅包'), ('端午節', '包粽子・划龍舟'),
+             ('中秋節', '賞月・吃月餅'), ('清明節', '掃墓・祭祖')]
+    for i, (name, habit) in enumerate(items):
+        cx = 40 + (i % 2) * 288
+        cy = 110 + (i // 2) * 132
+        b.append('<rect x="%d" y="%d" width="272" height="116" rx="6" fill="#f6f8fc"/>' % (cx, cy))
+        b.append('<rect x="%d" y="%d" width="272" height="116" rx="6" class="n"/>' % (cx, cy))
+        b.append(txt(cx + 20, cy + 36, name, 'ts'))
+        b.append(txt(cx + 20, cy + 66, habit, 's'))
+        b.append(txt(cx + 20, cy + 94, '→', 'a'))
+    b.append(txt(40, 100, '台灣的節慶與大家一起過，習俗也各不相同。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_chi_radical_card():
+    b = []
+    b.append('<rect x="180" y="130" width="280" height="180" rx="10" fill="#ffffff" class="n"/>')
+    b.append(txt(320, 250, '湯', 'big', 'middle'))
+    b.append('<rect x="196" y="150" width="56" height="140" rx="6" class="na"/>')
+    b.append(txt(224, 128, '？', 'a', 'middle'))
+    b.append('<path d="M 224 150 L 224 290" class="la" stroke-width="2"/>')
+    b.append(txt(340, 350, '先寫左邊的部件，再寫右邊。', 's', 'middle'))
+    b.append(txt(60, 100, '用部首查字法查字典時，先看字的哪一部分？', 'sb'))
+    b.append(txt(60, 380, '把字拆開來看：左邊這個部件，就是查字典要用的部首。', 's'))
+    return '\n'.join(b)
+
+
+def fig_hp_football_kick():
+    b = []
+    b.append('<line x1="60" y1="300" x2="580" y2="300" class="ln"/>')
+    b.append('<circle cx="300" cy="250" r="24" fill="#ffffff" class="ln"/>')
+    b.append('<path d="M 300 226 L 300 274 M 276 250 L 324 250" class="lm"/>')
+    b.append('<path d="M 180 300 L 420 300" class="la" stroke-width="2" marker-end="url(#arrow-accent)"/>')
+    b.append(txt(300, 336, '球的行進方向', 'a', 'middle'))
+    b.append('<path d="M 196 300 L 196 232" class="ln"/>')
+    b.append('<path d="M 196 300 L 232 300" class="ln"/>')
+    b.append(txt(180, 220, '支撐腳', 's', 'middle'))
+    b.append('<path d="M 380 300 L 380 226" class="ln"/>')
+    b.append('<path d="M 380 226 L 344 262" class="ln"/>')
+    b.append(txt(400, 220, '踢球腳', 's', 'middle'))
+    b.append('<path d="M 300 250 L 300 200" class="la" stroke-width="2" marker-end="url(#arrow-accent)"/>')
+    b.append(txt(312, 196, '踢球的力量往這裡', 's'))
+    b.append(txt(60, 100, '踢球時，支撐腳要站在球的旁邊，還要考慮球要走的方向。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_hp_swim_strokes():
+    b = []
+    ways = [('扶牆打水', 'wall'), ('持浮板前進', 'board'), ('蹬牆漂浮前進', 'wallpush'), ('蹬地漂浮前進', 'push')]
+    for i, (name, kind) in enumerate(ways):
+        cx = 40 + (i % 2) * 288
+        cy = 116 + (i // 2) * 132
+        b.append('<rect x="%d" y="%d" width="272" height="116" rx="6" fill="#f6f8fc"/>' % (cx, cy))
+        b.append('<rect x="%d" y="%d" width="272" height="116" rx="6" class="n"/>' % (cx, cy))
+        gx, gy = cx + 60, cy + 58
+        b.append('<rect x="%d" y="%d" width="150" height="46" fill="#e6eff7"/>' % (gx - 10, gy - 30))
+        b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="lm"/>' % (gx - 10, gy - 30, gx - 10, gy + 16))
+        if kind == 'wall':
+            b.append('<circle cx="%d" cy="%d" r="12" class="na"/>' % (gx + 26, gy - 4))
+        elif kind == 'board':
+            b.append('<rect x="%d" y="%d" width="52" height="12" rx="4" class="na"/>' % (gx + 16, gy - 12))
+            b.append('<circle cx="%d" cy="%d" r="10" class="na"/>' % (gx + 30, gy - 4))
+        elif kind == 'wallpush':
+            b.append('<circle cx="%d" cy="%d" r="11" class="na"/>' % (gx + 30, gy - 4))
+            b.append('<path d="M %d %d L %d %d" class="la" marker-end="url(#arrow-accent)"/>' % (gx - 4, gy + 4, gx + 26, gy - 6))
+        else:
+            b.append('<circle cx="%d" cy="%d" r="11" class="na"/>' % (gx + 30, gy - 4))
+            b.append('<path d="M %d %d L %d %d" class="la" marker-end="url(#arrow-accent)"/>' % (gx + 26, gy - 2, gx + 70, gy - 2))
+        b.append(txt(cx + 150, cy + 46, name, 'ts', 'middle'))
+    b.append(txt(40, 100, '打水前進有四種練習方式，哪一種最適合剛開始學的人？', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_hp_fire_escape():
+    b = []
+    b.append('<rect x="60" y="110" width="300" height="200" rx="6" fill="#ffffff" class="n"/>')
+    b.append('<line x1="60" y1="180" x2="360" y2="180" class="lm"/>')
+    b.append('<line x1="220" y1="180" x2="220" y2="310" class="lm"/>')
+    b.append('<rect x="300" y="130" width="60" height="60" class="ns"/>')
+    b.append(txt(330, 165, '房間', 's', 'middle'))
+    b.append('<rect x="90" y="200" width="80" height="60" class="ns"/>')
+    b.append(txt(130, 235, '教室', 's', 'middle'))
+    b.append('<path d="M 220 290 L 220 250 L 340 250" class="la" stroke-width="2" marker-end="url(#arrow-accent)"/>')
+    b.append(txt(250, 236, '往安全出口', 'a'))
+    b.append('<rect x="330" y="210" width="30" height="120" class="ns"/>')
+    b.append(txt(345, 352, '樓梯（安全出口）', 's', 'middle'))
+    b.append(txt(420, 150, '逃生三不要：', 'ts'))
+    b.append(txt(420, 182, '不要搭電梯', 'sb'))
+    b.append(txt(420, 212, '不要直著跑（要低姿）', 'sb'))
+    b.append(txt(420, 242, '不要回頭拿東西', 'sb'))
+    b.append(txt(420, 282, '用濕毛巾捂住口鼻', 'sb'))
+    b.append(txt(420, 312, '到集合點點名', 'sb'))
+    return '\n'.join(b)
+
+
 FIGURES = [
     ('math-triangle-right', '數學期中考', '以角分類三角形', '有一個角是 90 度的三角形，圖中標出 90 度的直角位置。', fig_math_triangle_right, '數學・6-3 三角形'),
     ('math-frac-bar', '數學期中考', '把 1 平分成 100 份', '一個大正方形平均分成 100 個小方塊，其中 1 個用深色標出。', fig_math_frac_bar, '數學・7-1 認識二位小數'),
@@ -677,6 +900,17 @@ FIGURES = [
     ('hp-baseball-field', '健康與體育期中考', '壘球場地與守備位置', '壘球場的四個壘包與六個守備位置示意。', fig_hp_baseball_field, '健康與體育・壘上攻防'),
     ('hp-fitness-tests', '健康與體育期中考', '體適能檢測的常見項目', '立定跳遠、坐姿體前彎、800 公尺跑、仰臥起坐、引向上與跳繩六項。', fig_hp_fitness_tests, '健康與體育・健康體適能'),
     ('hp-diabolo-steps', '健康與體育期中考', '扯鈴的五個步驟', '握棍、起鈴、運鈴、使鈴平衡、開線亮相五個步驟的示意圖。', fig_hp_diabolo_steps, '健康與體育・轉動扯鈴'),
+('math-triangle-perimeter', '數學期中考', '三角形的周長', '三角形三條邊分別標示 5 公分、6 公分、7 公分。', fig_math_triangle_perimeter, '數學・6-1 三角形'),
+    ('math-mixed-fraction', '數學期中考', '帶分數換成假分數', '3 個整數加上 2/7 個整數，7 份中的其中 2 份以深色標出。', fig_math_mixed_fraction, '數學・9-2 假分數與帶分數'),
+    ('math-stacked-bar', '數學期中考', '堆疊長條圖怎麼看', '堆疊長條圖的一根長條：下層男生 6 人、上層女生 4 人。', fig_math_stacked_bar, '數學・10-4 報讀複雜的統計圖'),
+    ('sci-water-plant', '自然期中考', '水生植物的樣子', '同一池塘裡的睡蓮、布袋蓮與水蘊草，分別浮在水面或沉在水中。', fig_sci_water_plant, '自然・2-1 漂浮性水生植物'),
+    ('sci-animal-sound', '自然期中考', '動物用聲音溝通', '狗、貓、鳥、蛙各發出不同的聲音。', fig_sci_animal_sound, '自然・3-3 動物用聲音溝通'),
+    ('soc-map-elements', '社會期中考', '地圖上的要素', '示意地圖上有比例尺、指北針、圖例與聚落。', fig_soc_map_elements, '社會・家鄉在哪裡'),
+    ('soc-festival', '社會期中考', '節慶與習俗', '過年、端午節、中秋節與清明節各自搭配的習俗。', fig_soc_festival, '社會・傳統的節慶'),
+    ('chi-radical-card', '國語文期中考', '用部首查字典', '「湯」字拆開來，左邊的部件以深色標出。', fig_chi_radical_card, '國語文・查字典'),
+    ('hp-football-kick', '健康與體育期中考', '踢球時的支撐腳', '球、支撐腳與踢球腳的位置，以及球的行進方向。', fig_hp_football_kick, '健康與體育・足球玩家'),
+    ('hp-swim-strokes', '健康與體育期中考', '打水前進的四種方式', '扶牆打水、持浮板前進、蹬牆漂浮前進與蹬地漂浮前進。', fig_hp_swim_strokes, '健康與體育・打水遊戲'),
+    ('hp-fire-escape', '健康與體育期中考', '火場怎麼逃', '教室平面圖與逃生方向，以及逃生三不要。', fig_hp_fire_escape, '健康與體育・火場應變'),
 ]
 
 

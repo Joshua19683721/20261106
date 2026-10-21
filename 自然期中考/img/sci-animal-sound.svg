@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sci-animal-sound-title sci-animal-sound-desc" id="sci-animal-sound-root">
+  <title id="sci-animal-sound-title">動物用聲音溝通</title>
+  <desc id="sci-animal-sound-desc">狗、貓、鳥、蛙各發出不同的聲音。</desc>
+  <defs>
+      <style>#sci-animal-sound-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #sci-animal-sound-root { font-family: var(--sans); color: var(--ink); }
+      #sci-animal-sound-root .diagram-container { width:100%;overflow-x:auto }
+      #sci-animal-sound-root text { font-family:var(--sans) }
+      #sci-animal-sound-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #sci-animal-sound-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #sci-animal-sound-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #sci-animal-sound-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #sci-animal-sound-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #sci-animal-sound-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #sci-animal-sound-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #sci-animal-sound-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #sci-animal-sound-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #sci-animal-sound-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #sci-animal-sound-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #sci-animal-sound-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #sci-animal-sound-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #sci-animal-sound-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #sci-animal-sound-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #sci-animal-sound-root .dash { stroke-dasharray:5 4 }</style><marker id="sci-animal-sound-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="sci-animal-sound-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">自然・3-3 動物用聲音溝通</text>
+<text x="32" y="58" class="h">動物用聲音溝通</text>
+  <circle cx="70" cy="150" r="38" fill="#ffffff" class="n"/>
+<text x="70" y="158" class="ts" text-anchor="middle">狗</text>
+<text x="70" y="232" class="a" text-anchor="middle">汪！</text>
+<path d="M 94 268 A 20 12 0 0 1 94 292" class="la" fill="none"/>
+<path d="M 110 268 A 28 18 0 0 1 110 292" class="la" fill="none"/>
+<circle cx="210" cy="150" r="38" fill="#ffffff" class="n"/>
+<text x="210" y="158" class="ts" text-anchor="middle">貓</text>
+<text x="210" y="232" class="a" text-anchor="middle">喵？</text>
+<path d="M 234 268 A 20 12 0 0 1 234 292" class="la" fill="none"/>
+<path d="M 250 268 A 28 18 0 0 1 250 292" class="la" fill="none"/>
+<circle cx="350" cy="150" r="38" fill="#ffffff" class="n"/>
+<text x="350" y="158" class="ts" text-anchor="middle">鳥</text>
+<text x="350" y="232" class="a" text-anchor="middle">啾啾♪</text>
+<path d="M 374 268 A 20 12 0 0 1 374 292" class="la" fill="none"/>
+<path d="M 390 268 A 28 18 0 0 1 390 292" class="la" fill="none"/>
+<circle cx="490" cy="150" r="38" fill="#ffffff" class="n"/>
+<text x="490" y="158" class="ts" text-anchor="middle">蛙</text>
+<text x="490" y="232" class="a" text-anchor="middle">呱呱</text>
+<path d="M 514 268 A 20 12 0 0 1 514 292" class="la" fill="none"/>
+<path d="M 530 268 A 28 18 0 0 1 530 292" class="la" fill="none"/>
+<text x="60" y="100" class="sb" text-anchor="start">每種動物都有自己特有的聲音。</text>
+<text x="60" y="330" class="s" text-anchor="start">聲音可以傳達很多訊息：叫同伴、找食物、警戒、找配偶。</text>
+<text x="60" y="358" class="s" text-anchor="start">想想看：不同動物為什麼要發出不同的聲音？</text>
+</svg>

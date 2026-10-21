@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hp-swim-strokes-title hp-swim-strokes-desc" id="hp-swim-strokes-root">
+  <title id="hp-swim-strokes-title">打水前進的四種方式</title>
+  <desc id="hp-swim-strokes-desc">扶牆打水、持浮板前進、蹬牆漂浮前進與蹬地漂浮前進。</desc>
+  <defs>
+      <style>#hp-swim-strokes-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #hp-swim-strokes-root { font-family: var(--sans); color: var(--ink); }
+      #hp-swim-strokes-root .diagram-container { width:100%;overflow-x:auto }
+      #hp-swim-strokes-root text { font-family:var(--sans) }
+      #hp-swim-strokes-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #hp-swim-strokes-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #hp-swim-strokes-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #hp-swim-strokes-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #hp-swim-strokes-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #hp-swim-strokes-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #hp-swim-strokes-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #hp-swim-strokes-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #hp-swim-strokes-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #hp-swim-strokes-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #hp-swim-strokes-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #hp-swim-strokes-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #hp-swim-strokes-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #hp-swim-strokes-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #hp-swim-strokes-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #hp-swim-strokes-root .dash { stroke-dasharray:5 4 }</style><marker id="hp-swim-strokes-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="hp-swim-strokes-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">健康與體育・打水遊戲</text>
+<text x="32" y="58" class="h">打水前進的四種方式</text>
+  <rect x="40" y="116" width="272" height="116" rx="6" fill="#f6f8fc"/>
+<rect x="40" y="116" width="272" height="116" rx="6" class="n"/>
+<rect x="90" y="144" width="150" height="46" fill="#e6eff7"/>
+<line x1="90" y1="144" x2="90" y2="190" class="lm"/>
+<circle cx="126" cy="170" r="12" class="na"/>
+<text x="190" y="162" class="ts" text-anchor="middle">扶牆打水</text>
+<rect x="328" y="116" width="272" height="116" rx="6" fill="#f6f8fc"/>
+<rect x="328" y="116" width="272" height="116" rx="6" class="n"/>
+<rect x="378" y="144" width="150" height="46" fill="#e6eff7"/>
+<line x1="378" y1="144" x2="378" y2="190" class="lm"/>
+<rect x="404" y="162" width="52" height="12" rx="4" class="na"/>
+<circle cx="418" cy="170" r="10" class="na"/>
+<text x="478" y="162" class="ts" text-anchor="middle">持浮板前進</text>
+<rect x="40" y="248" width="272" height="116" rx="6" fill="#f6f8fc"/>
+<rect x="40" y="248" width="272" height="116" rx="6" class="n"/>
+<rect x="90" y="276" width="150" height="46" fill="#e6eff7"/>
+<line x1="90" y1="276" x2="90" y2="322" class="lm"/>
+<circle cx="130" cy="302" r="11" class="na"/>
+<path d="M 96 310 L 126 300" class="la" marker-end="url(#hp-swim-strokes-arrow-accent)"/>
+<text x="190" y="294" class="ts" text-anchor="middle">蹬牆漂浮前進</text>
+<rect x="328" y="248" width="272" height="116" rx="6" fill="#f6f8fc"/>
+<rect x="328" y="248" width="272" height="116" rx="6" class="n"/>
+<rect x="378" y="276" width="150" height="46" fill="#e6eff7"/>
+<line x1="378" y1="276" x2="378" y2="322" class="lm"/>
+<circle cx="418" cy="302" r="11" class="na"/>
+<path d="M 414 304 L 458 304" class="la" marker-end="url(#hp-swim-strokes-arrow-accent)"/>
+<text x="478" y="294" class="ts" text-anchor="middle">蹬地漂浮前進</text>
+<text x="40" y="100" class="sb" text-anchor="start">打水前進有四種練習方式，哪一種最適合剛開始學的人？</text>
+</svg>

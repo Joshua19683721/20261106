@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>火場怎麼逃</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif;
+  }
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);padding:24px}
+  .frame{max-width:720px;margin:0 auto}
+  .eyebrow{font:500 12px var(--sans);color:var(--muted);margin-bottom:6px}
+  h1{font:400 22px var(--serif);color:var(--ink);margin-bottom:12px}
+  .diagram-container{width:100%;overflow-x:auto}
+  svg{width:100%;min-width:640px;display:block}
+  svg text{font-family:var(--sans)}
+  .h{font:400 22px var(--serif);fill:var(--ink)}
+  .e{font:500 12px var(--sans);fill:var(--muted)}
+  .t{font:600 16px var(--sans);fill:var(--ink)}
+  .ts{font:600 15px var(--sans);fill:var(--ink)}
+  .s{font:500 13px var(--sans);fill:var(--soft)}
+  .sb{font:500 13px var(--sans);fill:var(--ink)}
+  .a{font:600 15px var(--sans);fill:var(--accent)}
+  .big{font:400 44px var(--serif);fill:var(--ink)}
+  .mid{font:400 34px var(--serif);fill:var(--ink)}
+  .n{fill:#ffffff;stroke:var(--ink);stroke-width:1}
+  .na{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2}
+  .ns{fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1}
+  .ln{stroke:var(--ink);stroke-width:1.2;fill:none}
+  .lm{stroke:var(--muted);stroke-width:1;fill:none}
+  .la{stroke:var(--accent);stroke-width:1.4;fill:none}
+  .dash{stroke-dasharray:5 4}
+</style>
+</head>
+<body>
+<div class="frame">
+<p class="eyebrow">健康與體育・火場應變</p>
+<h1>火場怎麼逃</h1>
+<div class="diagram-container">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hp-fire-escape-title hp-fire-escape-desc">
+  <title id="hp-fire-escape-title">火場怎麼逃</title>
+  <desc id="hp-fire-escape-desc">教室平面圖與逃生方向，以及逃生三不要。</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">健康與體育・火場應變</text>
+<text x="32" y="58" class="h">火場怎麼逃</text>
+  <rect x="60" y="110" width="300" height="200" rx="6" fill="#ffffff" class="n"/>
+<line x1="60" y1="180" x2="360" y2="180" class="lm"/>
+<line x1="220" y1="180" x2="220" y2="310" class="lm"/>
+<rect x="300" y="130" width="60" height="60" class="ns"/>
+<text x="330" y="165" class="s" text-anchor="middle">房間</text>
+<rect x="90" y="200" width="80" height="60" class="ns"/>
+<text x="130" y="235" class="s" text-anchor="middle">教室</text>
+<path d="M 220 290 L 220 250 L 340 250" class="la" stroke-width="2" marker-end="url(#arrow-accent)"/>
+<text x="250" y="236" class="a" text-anchor="start">往安全出口</text>
+<rect x="330" y="210" width="30" height="120" class="ns"/>
+<text x="345" y="352" class="s" text-anchor="middle">樓梯（安全出口）</text>
+<text x="420" y="150" class="ts" text-anchor="start">逃生三不要：</text>
+<text x="420" y="182" class="sb" text-anchor="start">不要搭電梯</text>
+<text x="420" y="212" class="sb" text-anchor="start">不要直著跑（要低姿）</text>
+<text x="420" y="242" class="sb" text-anchor="start">不要回頭拿東西</text>
+<text x="420" y="282" class="sb" text-anchor="start">用濕毛巾捂住口鼻</text>
+<text x="420" y="312" class="sb" text-anchor="start">到集合點點名</text>
+</svg>
+</div>
+</div>
+</body>
+</html>

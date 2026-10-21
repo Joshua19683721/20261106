@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sci-water-plant-title sci-water-plant-desc" id="sci-water-plant-root">
+  <title id="sci-water-plant-title">水生植物的樣子</title>
+  <desc id="sci-water-plant-desc">同一池塘裡的睡蓮、布袋蓮與水蘊草，分別浮在水面或沉在水中。</desc>
+  <defs>
+      <style>#sci-water-plant-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #sci-water-plant-root { font-family: var(--sans); color: var(--ink); }
+      #sci-water-plant-root .diagram-container { width:100%;overflow-x:auto }
+      #sci-water-plant-root text { font-family:var(--sans) }
+      #sci-water-plant-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #sci-water-plant-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #sci-water-plant-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #sci-water-plant-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #sci-water-plant-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #sci-water-plant-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #sci-water-plant-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #sci-water-plant-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #sci-water-plant-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #sci-water-plant-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #sci-water-plant-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #sci-water-plant-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #sci-water-plant-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #sci-water-plant-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #sci-water-plant-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #sci-water-plant-root .dash { stroke-dasharray:5 4 }</style><marker id="sci-water-plant-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="sci-water-plant-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">自然・2-1 漂浮性水生植物</text>
+<text x="32" y="58" class="h">水生植物的樣子</text>
+  <rect x="40" y="200" width="560" height="120" fill="#e6eff7"/>
+<line x1="40" y1="200" x2="600" y2="200" class="ln"/>
+<text x="600" y="196" class="s" text-anchor="end">水面</text>
+<ellipse cx="150" cy="196" rx="40" ry="10" class="la" fill="none"/>
+<line x1="150" y1="196" x2="150" y2="290" class="lm"/>
+<path d="M 150 290 q -14 -8 0 -16" class="lm" fill="none"/>
+<text x="150" y="348" class="s" text-anchor="middle">葉子浮在水面</text>
+<path d="M 320 120 L 320 190" class="la"/>
+<ellipse cx="320" cy="112" rx="42" ry="14" class="la" fill="none"/>
+<ellipse cx="320" cy="172" rx="13" ry="9" class="ns"/>
+<line x1="320" y1="190" x2="320" y2="290" class="lm"/>
+<text x="320" y="348" class="s" text-anchor="middle">整株浮在水面</text>
+<path d="M 470 230 q -14 24 4 44 q 18 20 30 -6" class="la" fill="none"/>
+<path d="M 492 250 q 16 16 6 36" class="la" fill="none"/>
+<text x="478" y="348" class="s" text-anchor="middle">整株沉在水中</text>
+<text x="60" y="100" class="sb" text-anchor="start">同一個池塘裡，水生植物的樣子卻很不一樣。</text>
+</svg>

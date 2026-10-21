@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-triangle-perimeter-title math-triangle-perimeter-desc" id="math-triangle-perimeter-root">
+  <title id="math-triangle-perimeter-title">三角形的周長</title>
+  <desc id="math-triangle-perimeter-desc">三角形三條邊分別標示 5 公分、6 公分、7 公分。</desc>
+  <defs>
+      <style>#math-triangle-perimeter-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-triangle-perimeter-root { font-family: var(--sans); color: var(--ink); }
+      #math-triangle-perimeter-root .diagram-container { width:100%;overflow-x:auto }
+      #math-triangle-perimeter-root text { font-family:var(--sans) }
+      #math-triangle-perimeter-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-triangle-perimeter-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-triangle-perimeter-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-triangle-perimeter-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-triangle-perimeter-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-triangle-perimeter-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-triangle-perimeter-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-triangle-perimeter-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-triangle-perimeter-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-triangle-perimeter-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-triangle-perimeter-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-triangle-perimeter-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-triangle-perimeter-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-triangle-perimeter-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-triangle-perimeter-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-triangle-perimeter-root .dash { stroke-dasharray:5 4 }</style><marker id="math-triangle-perimeter-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-triangle-perimeter-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・6-1 三角形</text>
+<text x="32" y="58" class="h">三角形的周長</text>
+  <path d="M 150 280 L 320 120 L 480 280 Z" class="ln"/>
+<line x1="150" y1="280" x2="320" y2="120" class="la" stroke-width="2"/>
+<line x1="320" y1="120" x2="480" y2="280" class="la" stroke-width="2"/>
+<line x1="150" y1="280" x2="480" y2="280" class="la" stroke-width="2"/>
+<text x="228" y="186" class="a" text-anchor="middle">5 公分</text>
+<text x="408" y="186" class="a" text-anchor="middle">6 公分</text>
+<text x="316" y="310" class="a" text-anchor="middle">7 公分</text>
+<path d="M 150 250 L 150 200" class="lm"/>
+<text x="120" y="120" class="s" text-anchor="middle">繞一圈</text>
+<path d="M 126 190 A 90 90 0 0 1 320 100" class="la" fill="none" marker-end="url(#math-triangle-perimeter-arrow-accent)"/>
+<text x="60" y="356" class="sb" text-anchor="start">周長就是把三條邊的長度加起來。</text>
+</svg>

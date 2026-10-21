@@ -30,7 +30,7 @@ python visuals/build_figures.py
 </figure>
 ```
 
-## 目前 22 張附圖
+## 目前 33 張附圖
 
 | 科目 | 檔名 | 用在哪一題 | 說明 |
 | --- | --- | --- | --- |
@@ -39,16 +39,24 @@ python visuals/build_figures.py
 | 數學 | `math-km-ruler` | 5-2 公里、公尺換算 | 公尺尺規：1 大段＝1 公里＝1000 公尺 |
 | 數學 | `math-bar-chart` | 10-1 報讀生活中的統計圖 | 縱軸每格 5 人的長條圖 |
 | 數學 | `math-line-chart` | 10-3 報讀折線圖 | 相鄰兩點連起來的線段 |
+| 數學 | `math-triangle-perimeter` | 6-1 三角形 | 三邊標 5／6／7 公分，繞一圈求周長 |
+| 數學 | `math-mixed-fraction` | 9-2 假分數與帶分數 | 3 個整數 ＋ 2/7 個整數 |
+| 數學 | `math-stacked-bar` | 10-4 報讀複雜的統計圖 | 堆疊長條：下層男生 6 人、上層女生 4 人 |
 | 自然 | `sci-dune` | 素養・風與地表（短文） | 沙丘剖面：風搬運、堆積砂粒 |
 | 自然 | `sci-mirror-light` | 素養・光的反射 | 入射角與反射角示意 |
 | 自然 | `sci-circuit` | 4-11 燈泡的串聯與並聯 | 串聯／並聯電路接法 |
 | 自然 | `sci-sound-vacuum` | 3-4 聲音傳播需要介質 | 真空罩與空氣中的鬧鐘 |
+| 自然 | `sci-water-plant` | 2-1 漂浮性水生植物 | 睡蓮／布袋蓮／水蘊草在水中��位置 |
+| 自然 | `sci-animal-sound` | 3-3 動物用聲音溝通 | 狗、貓、鳥、蛙各發出不同聲音 |
 | 國語文 | `chi-char-structure` | 字形結構 | 六種字形結構速查（例字不與考題重複） |
 | 國語文 | `chi-stroke-rules` | 筆順 | 筆順三原則＋「三」「他」示範 |
+| 國語文 | `chi-radical-card` | 查字典（部首） | 「湯」字左邊部件標示 |
 | 社會 | `soc-terrain` | 家鄉的地形 | 山地／丘陵／台地／平原／盆地剖面 |
 | 社會 | `soc-hill-tea` | 素養・丘陵的茶園（短文） | 階梯茶園剖面 |
 | 社會 | `soc-map-types` | 家鄉在哪裡 | 行政區／交通／地形／衛星四種地圖對照 |
 | 社會 | `soc-stilt-house` | 傳統住屋與生活 | 架高屋剖面：石板、竹木、茅草 |
+| 社會 | `soc-map-elements` | 家鄉在哪裡 | 地圖的比例尺、指北針、圖例 |
+| 社會 | `soc-festival` | 傳統的節慶 | 過年／端午／中秋／清明的習俗 |
 | 英語文 | `eng-phonics-ae` | Get Ready Phonics a_e | 母音組合 → 母音（不含例字，不會洩漏答案） |
 | 英語文 | `eng-clock` | Unit 2 時間句型 | 4:50 的圓形時鐘 |
 | 健康與體育 | `hp-plate` | 營養要均衡 | 健康餐盤六類食物與份量 |
@@ -56,6 +64,9 @@ python visuals/build_figures.py
 | 健康與體育 | `hp-baseball-field` | 壘上攻防 | 壘球場四個壘包與守備位置 |
 | 健康與體育 | `hp-fitness-tests` | 健康體適能 | 六項體適能檢測項目（不標能力） |
 | 健康與體育 | `hp-diabolo-steps` | 轉動扯鈴（新增題） | 扯鈴五步驟，附圖即為題目材料 |
+| 健康與體育 | `hp-football-kick` | 足球玩家 | 球、支撐腳與踢球腳的位置 |
+| 健康與體育 | `hp-swim-strokes` | 打水遊戲 | 扶牆／浮板／蹬牆／蹬地四種前進方式 |
+| 健康與體育 | `hp-fire-escape` | 素養・火場應變（短文） | 教室平面圖與逃生三不要 |
 
 ## 選圖原則
 
