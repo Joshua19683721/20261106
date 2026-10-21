@@ -173,8 +173,12 @@
         var n = doneCount[s.id] || 0;
         el.innerHTML = QCORE.esc(s.name) + ' ・ 已檢討 <b style="color:#1f8a54">' + n + '</b> 題';
       });
-    }).catch(function () {
-      /* 後端暫時連不上時，入口頁仍然可用 */
+    }).catch(function (e) {
+      /* 後端連不上時入口頁仍然可用，但要讓爸爸知道交卷不會通知 */
+      if (!document.getElementById("err").classList.contains("on")) {
+        showErr("後端還沒準備好：" + (e && e.message ? e.message : "連線失敗") +
+          "（小考可以開始，但交卷不會通知爸爸）");
+      }
     });
   }
 })();

@@ -7,20 +7,17 @@
    NTFY_TOPIC 是一組「頻道名稱」，知道的人可以對它發訊息，
    所以請用隨機、猜不到的英數字，不要用姓名或電話。
 
-   填入方式（兩種選一）：
-   A. 把三個值貼給 AI，由 AI 幫你寫進這個檔案並部署。
-   B. 自己在 GitHub 網頁上編輯這個檔案：
-      repo → 小考/config.js → 右上鉛筆 → 貼上 → Commit changes
+   要換 Supabase 專案或推播頻道時，改這個檔案就好。
    ============================================================ */
 window.QCFG = {
-  /* Supabase 專案網址，例如 https://abcdefghijkl.supabase.co */
-  SUPABASE_URL: "",
+  /* Supabase 專案網址 */
+  SUPABASE_URL: "https://ndklidsvemmxbcsbyjlh.supabase.co",
 
-  /* Supabase 的 anon public key（Settings → API Keys → anon public） */
-  SUPABASE_ANON_KEY: "",
+  /* Supabase 的 anon public key（公開金鑰，安全性靠 RLS） */
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ka2xpZHN2ZW1teGJjc2J5amxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0ODMzMTcsImV4cCI6MjA4MDA1OTMxN30.Y_8BSVrR-3qOoCtEqrA7JlvG2DdzvsmEittJA33KLM0",
 
-  /* ntfy 頻道名稱，例如 joshua-home-quiz-7f3k9x2m */
-  NTFY_TOPIC: "",
+  /* ntfy 頻道名稱（手機 ntfy App 訂閱同一組字串） */
+  NTFY_TOPIC: "home-quiz-0c355463c973",
 
   /* 管理頁通關密碼（只是擋一下，不是真正的資安防線） */
   ADMIN_PASSCODE: "2026",

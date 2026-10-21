@@ -282,7 +282,14 @@
     }).then(function (r) {
       if (!r.ok) {
         return r.text().then(function (t) {
-          throw new Error("資料庫回應 " + r.status + "：" + String(t).slice(0, 200));
+          var raw = String(t);
+          if (r.status === 404 || /PGRST205/.test(raw) || /Could not find the table/i.test(raw)) {
+            throw new Error("資料表還沒建立：請到 Supabase → SQL Editor 執行「小考/supabase.sql」整份內容。");
+          }
+          if (r.status === 401 || r.status === 403) {
+            throw new Error("沒有權限（" + r.status + "）：請確認 supabase.sql 的 grant 與 RLS 政策都執行成功。");
+          }
+          throw new Error("資料庫回應 " + r.status + "：" + raw.slice(0, 200));
         });
       }
       /* Supabase 在 return=minimal 或 204 時會回空 body，
