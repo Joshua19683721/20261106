@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hp-fitness-tests-title hp-fitness-tests-desc" id="hp-fitness-tests-root">
+  <title id="hp-fitness-tests-title">體適能檢測的常見項目</title>
+  <desc id="hp-fitness-tests-desc">立定跳遠、坐姿體前彎、800 公尺跑、仰臥起坐、引向上與跳繩六項。</desc>
+  <defs>
+      <style>#hp-fitness-tests-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #hp-fitness-tests-root { font-family: var(--sans); color: var(--ink); }
+      #hp-fitness-tests-root .diagram-container { width:100%;overflow-x:auto }
+      #hp-fitness-tests-root text { font-family:var(--sans) }
+      #hp-fitness-tests-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #hp-fitness-tests-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #hp-fitness-tests-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #hp-fitness-tests-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #hp-fitness-tests-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #hp-fitness-tests-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #hp-fitness-tests-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #hp-fitness-tests-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #hp-fitness-tests-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #hp-fitness-tests-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #hp-fitness-tests-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #hp-fitness-tests-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #hp-fitness-tests-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #hp-fitness-tests-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #hp-fitness-tests-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #hp-fitness-tests-root .dash { stroke-dasharray:5 4 }</style><marker id="hp-fitness-tests-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="hp-fitness-tests-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">健康與體育・健康體適能</text>
+<text x="32" y="58" class="h">體適能檢測的常見項目</text>
+  <rect x="40" y="116" width="176" height="112" rx="6" fill="#f6f8fc"/>
+<rect x="40" y="116" width="176" height="112" rx="6" class="n"/>
+<path d="M 68 162 Q 98 120 128 162" class="la" fill="none"/>
+<line x1="64" y1="162" x2="132" y2="162" class="lm"/>
+<text x="128" y="208" class="ts" text-anchor="middle">立定跳遠</text>
+<rect x="230" y="116" width="176" height="112" rx="6" fill="#f6f8fc"/>
+<rect x="230" y="116" width="176" height="112" rx="6" class="n"/>
+<circle cx="266" cy="128" r="9" class="ln"/>
+<path d="M 266 138 L 282 160 L 318 160" class="ln"/>
+<line x1="248" y1="168" x2="328" y2="168" class="lm dash"/>
+<text x="318" y="208" class="ts" text-anchor="middle">坐姿體前彎</text>
+<rect x="420" y="116" width="176" height="112" rx="6" fill="#f6f8fc"/>
+<rect x="420" y="116" width="176" height="112" rx="6" class="n"/>
+<circle cx="460" cy="124" r="9" class="ln"/>
+<path d="M 460 134 L 484 146 L 504 132" class="la" fill="none"/>
+<line x1="438" y1="168" x2="518" y2="168" class="lm"/>
+<text x="508" y="208" class="ts" text-anchor="middle">800 公尺跑</text>
+<rect x="40" y="244" width="176" height="112" rx="6" fill="#f6f8fc"/>
+<rect x="40" y="244" width="176" height="112" rx="6" class="n"/>
+<circle cx="72" cy="278" r="9" class="ln"/>
+<path d="M 82 278 L 114 276" class="ln"/>
+<path d="M 114 276 L 128 288" class="ln"/>
+<text x="128" y="336" class="ts" text-anchor="middle">30 秒仰臥起坐</text>
+<rect x="230" y="244" width="176" height="112" rx="6" fill="#f6f8fc"/>
+<rect x="230" y="244" width="176" height="112" rx="6" class="n"/>
+<line x1="254" y1="250" x2="322" y2="250" class="ln"/>
+<circle cx="278" cy="272" r="8" class="ln"/>
+<line x1="278" y1="260" x2="278" y2="250" class="ln"/>
+<line x1="298" y1="260" x2="298" y2="250" class="ln"/>
+<text x="318" y="336" class="ts" text-anchor="middle">引向上</text>
+<rect x="420" y="244" width="176" height="112" rx="6" fill="#f6f8fc"/>
+<rect x="420" y="244" width="176" height="112" rx="6" class="n"/>
+<path d="M 468 270 A 30 30 0 1 1 488 270" class="la" fill="none"/>
+<circle cx="478" cy="284" r="6" class="ln"/>
+<text x="508" y="336" class="ts" text-anchor="middle">一分鐘跳繩</text>
+<text x="40" y="100" class="sb" text-anchor="start">體適能檢測常用的項目：每一項都有它要測的能力。</text>
+</svg>

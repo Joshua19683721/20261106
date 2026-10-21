@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hp-baseball-field-title hp-baseball-field-desc" id="hp-baseball-field-root">
+  <title id="hp-baseball-field-title">壘球場地與守備位置</title>
+  <desc id="hp-baseball-field-desc">壘球場的四個壘包與六個守備位置示意。</desc>
+  <defs>
+      <style>#hp-baseball-field-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #hp-baseball-field-root { font-family: var(--sans); color: var(--ink); }
+      #hp-baseball-field-root .diagram-container { width:100%;overflow-x:auto }
+      #hp-baseball-field-root text { font-family:var(--sans) }
+      #hp-baseball-field-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #hp-baseball-field-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #hp-baseball-field-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #hp-baseball-field-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #hp-baseball-field-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #hp-baseball-field-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #hp-baseball-field-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #hp-baseball-field-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #hp-baseball-field-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #hp-baseball-field-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #hp-baseball-field-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #hp-baseball-field-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #hp-baseball-field-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #hp-baseball-field-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #hp-baseball-field-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #hp-baseball-field-root .dash { stroke-dasharray:5 4 }</style><marker id="hp-baseball-field-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="hp-baseball-field-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">健康與體育・壘上攻防</text>
+<text x="32" y="58" class="h">壘球場地與守備位置</text>
+  <path d="M 320 300 L 470 232 L 320 164 L 170 232 Z" class="lm" fill="none"/>
+<rect x="461" y="223" width="18" height="18" rx="2" class="na"/>
+<text x="470" y="214" class="s" text-anchor="middle">一壘</text>
+<rect x="311" y="155" width="18" height="18" rx="2" class="na"/>
+<text x="320" y="146" class="s" text-anchor="middle">二壘</text>
+<rect x="161" y="223" width="18" height="18" rx="2" class="na"/>
+<text x="170" y="214" class="s" text-anchor="middle">三壘</text>
+<path d="M 320 300 L 320 318" class="ln"/>
+<text x="320" y="342" class="s" text-anchor="middle">本壘</text>
+<circle cx="392" cy="268" r="9" fill="#ffffff" class="lm"/>
+<text x="392" y="294" class="s" text-anchor="middle">投手</text>
+<circle cx="320" cy="338" r="9" fill="#ffffff" class="lm"/>
+<text x="320" y="364" class="s" text-anchor="middle">捕手</text>
+<circle cx="482" cy="250" r="9" fill="#ffffff" class="lm"/>
+<text x="482" y="276" class="s" text-anchor="middle">一壘手</text>
+<circle cx="320" cy="186" r="9" fill="#ffffff" class="lm"/>
+<text x="320" y="212" class="s" text-anchor="middle">二壘手</text>
+<circle cx="158" cy="250" r="9" fill="#ffffff" class="lm"/>
+<text x="158" y="276" class="s" text-anchor="middle">三壘手</text>
+<circle cx="372" cy="208" r="9" fill="#ffffff" class="lm"/>
+<text x="372" y="234" class="s" text-anchor="middle">游擊手</text>
+<text x="60" y="120" class="sb" text-anchor="start">壘球場地：四個壘包與守備員的位置</text>
+<text x="60" y="366" class="sb" text-anchor="start">守備方把球傳到壘上，隊友就能用球碰到跑者。</text>
+</svg>

@@ -345,6 +345,315 @@ def fig_hp_burn():
     return '\n'.join(b)
 
 
+# ======================================================================
+#  第二批附圖
+# ======================================================================
+
+def fig_math_km_ruler():
+    b = []
+    x0, x1, seg = 60, 580, 130
+    b.append('<rect x="%d" y="176" width="%d" height="30" fill="#ffffff" class="n"/>' % (x0, x1 - x0))
+    for i in range(3):
+        x = x0 + i * seg
+        b.append('<line x1="%d" y1="176" x2="%d" y2="206" class="ln"/>' % (x, x))
+        b.append('<line x1="%d" y1="194" x2="%d" y2="194" class="lm"/>' % (x + seg // 2, x + seg // 2))
+        b.append(txt(x, 160, '0' if i == 0 else '%d 公里' % i, 'ts', 'middle'))
+        b.append(txt(x + seg // 2, 230, '500 公尺', 's', 'middle'))
+    b.append(txt(x1, 160, '2 公里', 'ts', 'middle'))
+    b.append(txt(x0 + seg, 262, '1 公里 ＝ 1000 公尺', 'a', 'middle'))
+    b.append(txt(60, 300, '照著尺規算：10 公里 ＝ 幾個 1000 公尺？', 'sb'))
+    b.append(txt(60, 328, '1 段是 1 公里（1000 公尺），10 段就是 10 個 1000 公尺。', 's'))
+    return '\n'.join(b)
+
+
+def fig_math_bar_chart():
+    b = []
+    bx, by, gh = 140, 300, 44
+    b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (bx, by, bx, by - 4 * gh))
+    b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (bx, by, 560, by))
+    for k in range(1, 5):
+        y = by - k * gh
+        b.append('<line x1="%d" y1="%d" x2="560" y2="%d" class="lm dash"/>' % (bx, y, y))
+        b.append(txt(bx - 12, y + 5, str(k * 5), 's', 'end'))
+    b.append(txt(bx - 12, by + 5, '0', 's', 'end'))
+    b.append(txt(bx - 46, by - 4 * gh - 8, '人', 's', 'end'))
+    bars = [('甲', 4), ('乙', 2), ('丙', 3)]
+    for i, (name, n) in enumerate(bars):
+        x = 190 + i * 120
+        h = n * gh
+        b.append('<rect x="%d" y="%d" width="64" height="%d" fill="#ffffff" class="n"/>' % (x, by - h, h))
+        b.append('<rect x="%d" y="%d" width="64" height="%d" class="na"/>' % (x, by - h, h))
+        b.append(txt(x + 32, by + 26, name, 'ts', 'middle'))
+    b.append(txt(60, 356, '縱軸每一格代表 5 人。甲的長條高 4 格，所以是 4 個 5 人。', 's'))
+    return '\n'.join(b)
+
+
+def fig_math_line_chart():
+    b = []
+    ox, oy = 140, 300
+    b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (ox, oy, ox, oy - 170))
+    b.append('<line x1="%d" y1="%d" x2="560" y2="%d" class="ln"/>' % (ox, oy, oy))
+    b.append(txt(ox - 40, oy - 178, '數量', 's', 'end'))
+    pts = [(180, 250), (300, 150), (420, 210), (540, 110)]
+    for i in range(len(pts) - 1):
+        b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="la" stroke-width="2.4"/>' %
+                 (pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1]))
+    for i, (x, y) in enumerate(pts):
+        b.append('<circle cx="%d" cy="%d" r="7" fill="#ffffff" class="la"/>' % (x, y))
+        b.append(txt(x, oy + 26, '%d 月' % (i + 1), 's', 'middle'))
+    b.append(txt(60, 356, '把相鄰兩點連起來的線段，就是這一張折線圖要看的部分。', 's'))
+    return '\n'.join(b)
+
+
+def fig_sci_circuit():
+    b = []
+
+    def bulb(x, y):
+        return ('<circle cx="%d" cy="%d" r="11" fill="#ffffff" class="ln"/>'
+                '<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>'
+                '<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>') % (
+            x, y, x - 7, y - 7, x + 7, y + 7, x - 7, y + 7, x + 7, y - 7)
+
+    def battery(x, y):
+        return ('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>'
+                '<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>') % (
+            x, y, x, y - 22, x + 14, y - 14, x + 14, y + 22)
+
+    # 串聯
+    b.append(txt(170, 128, '串聯', 'ts', 'middle'))
+    b.append(battery(70, 230))
+    b.append('<path d="M 70 208 L 150 208 L 150 150" class="lm"/>')
+    b.append(bulb(150, 150))
+    b.append('<path d="M 150 139 L 150 118 L 230 118" class="lm"/>')
+    b.append(bulb(230, 118))
+    b.append('<path d="M 230 107 L 230 230 L 84 230" class="lm"/>')
+    b.append('<path d="M 84 230 L 84 208" class="lm"/>')
+    b.append(txt(170, 272, '電路只有一條路', 's', 'middle'))
+
+    # 並聯
+    b.append(txt(470, 128, '並聯', 'ts', 'middle'))
+    b.append(battery(370, 230))
+    b.append('<path d="M 370 208 L 430 208 L 430 150" class="lm"/>')
+    b.append(bulb(430, 150))
+    b.append('<path d="M 430 139 L 430 118 L 510 118" class="lm"/>')
+    b.append(bulb(510, 118))
+    b.append('<path d="M 510 107 L 510 230 L 384 230" class="lm"/>')
+    b.append('<path d="M 430 139 L 430 230" class="lm"/>')
+    b.append('<path d="M 384 230 L 384 208" class="lm"/>')
+    b.append(txt(470, 272, '電路分成幾條路', 's', 'middle'))
+
+    b.append(txt(60, 330, '接法不同，電流通過的路徑就不同。', 'sb'))
+    b.append(txt(60, 358, '照著線路數一數：燈泡一個接一個經過，還是分成好幾條路？', 's'))
+    return '\n'.join(b)
+
+
+def fig_sci_sound_vacuum():
+    b = []
+    # 左：真空罩
+    b.append('<rect x="90" y="140" width="180" height="160" rx="10" fill="#ffffff" class="n"/>')
+    b.append('<path d="M 150 236 L 150 208 M 150 208 L 142 196 L 158 196 L 150 208" class="ln"/>')
+    b.append('<circle cx="150" cy="234" r="5" class="ln"/>')
+    b.append('<line x1="270" y1="220" x2="330" y2="220" class="lm"/>')
+    b.append('<rect x="330" y="200" width="40" height="40" rx="6" class="ns"/>')
+    b.append(txt(350, 226, '抽氣', 's', 'middle'))
+    b.append(txt(180, 330, '抽掉空氣（真空）', 'ts', 'middle'))
+    b.append(txt(180, 352, '裡面幾乎沒有空氣', 's', 'middle'))
+    # 右：空氣中
+    b.append('<path d="M 470 236 L 470 208 M 470 208 L 462 196 L 478 196 L 470 208" class="ln"/>')
+    b.append('<circle cx="470" cy="234" r="5" class="ln"/>')
+    for r in (26, 40, 54):
+        b.append('<path d="M %d 200 A %d %d 0 0 1 %d 236" class="la" fill="none"/>' % (486 + r, r, r, 486 + r))
+    b.append(txt(520, 330, '在空氣中', 'ts', 'middle'))
+    b.append(txt(520, 352, '空氣把振動傳到耳朵', 's', 'middle'))
+    b.append(txt(60, 100, '同一個鬧鐘，換了環境，聲音還聽得到嗎？', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_soc_map_types():
+    b = []
+    cards = [
+        ('行政區圖', '看各鄉、鎮、市、區的界線', 'admin'),
+        ('交通路線圖', '看道路、鐵路與車站', 'traffic'),
+        ('地形圖', '看地勢高低（等高線）與河川', 'terrain'),
+        ('衛星圖', '看真實的房屋、道路與山林', 'satellite'),
+    ]
+    for i, (name, desc, kind) in enumerate(cards):
+        cx = 40 + (i % 2) * 288
+        cy = 116 + (i // 2) * 140
+        b.append('<rect x="%d" y="%d" width="272" height="124" rx="6" fill="#f6f8fc"/>' % (cx, cy))
+        b.append('<rect x="%d" y="%d" width="272" height="124" rx="6" class="n"/>' % (cx, cy))
+        b.append(txt(cx + 16, cy + 30, name, 'ts'))
+        b.append(txt(cx + 16, cy + 52, desc, 's'))
+        gx, gy = cx + 16, cy + 66
+        if kind == 'admin':
+            b.append('<rect x="%d" y="%d" width="96" height="44" fill="#ffffff" class="lm"/>' % (gx, gy))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="lm dash"/>' % (gx + 32, gy, gx + 32, gy + 44))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="lm dash"/>' % (gx, gy + 22, gx + 96, gy + 22))
+        elif kind == 'traffic':
+            b.append('<path d="M %d %d L %d %d L %d %d" class="la" fill="none"/>' % (gx, gy + 34, gx + 44, gy + 4, gx + 96, gy + 40))
+            for px, py in [(gx + 44, gy + 4), (gx + 96, gy + 40)]:
+                b.append('<circle cx="%d" cy="%d" r="5" class="la" fill="#1f51c9"/>' % (px, py))
+        elif kind == 'terrain':
+            b.append('<path d="M %d %d C %d %d %d %d %d %d" class="la" fill="none"/>' % (gx, gy + 36, gx + 20, gy + 6, gx + 60, gy + 6, gx + 96, gy + 36))
+            b.append('<path d="M %d %d C %d %d %d %d %d %d" class="la" fill="none"/>' % (gx, gy + 44, gx + 26, gy + 20, gx + 62, gy + 20, gx + 96, gy + 44))
+            b.append('<path d="M %d %d C %d %d %d %d %d %d" class="ln" fill="none"/>' % (gx + 40, gy, gx + 52, gy + 18, gx + 60, gy + 24, gx + 70, gy + 44))
+        else:
+            b.append('<rect x="%d" y="%d" width="96" height="44" fill="#e7efe6" class="lm"/>' % (gx, gy))
+            b.append('<rect x="%d" y="%d" width="28" height="18" fill="#ffffff" class="lm"/>' % (gx + 10, gy + 8))
+            b.append('<rect x="%d" y="%d" width="22" height="14" fill="#ffffff" class="lm"/>' % (gx + 56, gy + 22))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (gx, gy + 34, gx + 96, gy + 16))
+    b.append(txt(40, 100, '同一個家鄉，用不同的地圖可以看見不同的資訊。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_soc_stilt_house():
+    b = []
+    b.append('<line x1="60" y1="300" x2="580" y2="300" class="ln"/>')
+    for i in range(7):
+        b.append('<rect x="%d" y="300" width="44" height="12" rx="3" class="ns"/>' % (80 + i * 64))
+    b.append(txt(120, 330, '石板地面', 's'))
+    for x in (170, 250, 330, 410):
+        b.append('<line x1="%d" y1="300" x2="%d" y2="222" class="ln"/>' % (x, x))
+    b.append('<rect x="150" y="206" width="280" height="16" rx="3" fill="#ffffff" class="ln"/>')
+    b.append(txt(290, 194, '架高的地板（防潮、防蟲）', 's', 'middle'))
+    b.append('<rect x="182" y="146" width="216" height="60" fill="#ffffff" class="ln"/>')
+    b.append('<path d="M 156 146 L 290 96 L 424 146" class="ln"/>')
+    b.append('<path d="M 172 146 L 290 104 L 408 146" class="lm"/>')
+    b.append(txt(290, 132, '茅草屋頂', 's', 'middle'))
+    b.append(txt(290, 180, '竹木牆面', 's', 'middle'))
+    b.append(txt(470, 180, '就地取材：', 's'))
+    b.append(txt(470, 202, '石板・竹・木', 's'))
+    b.append(txt(470, 224, '・茅草', 's'))
+    b.append(txt(60, 366, '用當地就有的材料蓋房子，就是傳統住屋最大的特色。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_chi_stroke_rules():
+    b = []
+    rules = [('①', '從上到下', '先寫上面的部分'),
+             ('②', '從左到右', '先寫左邊的部分'),
+             ('③', '先橫後豎', '先寫橫的，再寫豎的')]
+    for i, (num, name, desc) in enumerate(rules):
+        y = 116 + i * 76
+        b.append('<rect x="56" y="%d" width="300" height="60" rx="6" fill="#f6f8fc"/>' % y)
+        b.append('<rect x="56" y="%d" width="300" height="60" rx="6" class="n"/>' % y)
+        b.append(txt(76, y + 38, num, 'a'))
+        b.append(txt(112, y + 30, name, 'ts'))
+        b.append(txt(112, y + 50, desc, 's'))
+    b.append(txt(390, 118, '例如「三」：', 'ts'))
+    for k in range(3):
+        y = 140 + k * 34
+        b.append('<line x1="400" y1="%d" x2="470" y2="%d" class="ln"/>' % (y, y))
+        b.append(txt(486, y + 5, str(k + 1), 'a'))
+    b.append(txt(390, 268, '例如「他」：', 'ts'))
+    b.append('<line x1="404" y1="280" x2="404" y2="320" class="ln"/>')
+    b.append('<line x1="404" y1="292" x2="396" y2="306" class="ln"/>')
+    b.append('<line x1="404" y1="306" x2="412" y2="316" class="ln"/>')
+    b.append(txt(424, 306, '1', 'a'))
+    b.append('<path d="M 440 280 L 440 318 M 452 288 L 452 312 M 464 282 L 464 316" class="ln"/>')
+    b.append(txt(482, 306, '2', 'a'))
+    b.append(txt(56, 372, '遇到不確定的字，可以先想想這三條原則，再看課本上的筆順圖。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_hp_baseball_field():
+    b = []
+    home = (320, 300)
+    bases = {'一壘': (470, 232), '二壘': (320, 164), '三壘': (170, 232)}
+    b.append('<path d="M %d %d L %d %d L %d %d L %d %d Z" class="lm" fill="none"/>' % (
+        home[0], home[1], bases['一壘'][0], bases['一壘'][1], bases['二壘'][0], bases['二壘'][1],
+        bases['三壘'][0], bases['三壘'][1]))
+    for name, (x, y) in bases.items():
+        b.append('<rect x="%d" y="%d" width="18" height="18" rx="2" class="na"/>' % (x - 9, y - 9))
+        b.append(txt(x, y - 18, name, 's', 'middle'))
+    b.append('<path d="M %d %d L %d %d" class="ln"/>' % (home[0], home[1], home[0], home[1] + 18))
+    b.append(txt(home[0], home[1] + 42, '本壘', 's', 'middle'))
+    spots = [('投手', 392, 268), ('捕手', 320, 338), ('一壘手', 482, 250),
+             ('二壘手', 320, 186), ('三壘手', 158, 250), ('游擊手', 372, 208)]
+    for name, x, y in spots:
+        b.append('<circle cx="%d" cy="%d" r="9" fill="#ffffff" class="lm"/>' % (x, y))
+        b.append(txt(x, y + 26, name, 's', 'middle'))
+    b.append(txt(60, 120, '壘球場地：四個壘包與守備員的位置', 'sb'))
+    b.append(txt(60, 366, '守備方把球傳到壘上，隊友就能用球碰到跑者。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_hp_fitness_tests():
+    b = []
+    items = [('立定跳遠', 'jump'), ('坐姿體前彎', 'bend'), ('800 公尺跑', 'run'),
+             ('30 秒仰臥起坐', 'situp'), ('引向上', 'pull'), ('一分鐘跳繩', 'rope')]
+    for i, (name, kind) in enumerate(items):
+        cx = 40 + (i % 3) * 190
+        cy = 116 + (i // 3) * 128
+        b.append('<rect x="%d" y="%d" width="176" height="112" rx="6" fill="#f6f8fc"/>' % (cx, cy))
+        b.append('<rect x="%d" y="%d" width="176" height="112" rx="6" class="n"/>' % (cx, cy))
+        gx, gy = cx + 58, cy + 26
+        if kind == 'jump':
+            b.append('<path d="M %d %d Q %d %d %d %d" class="la" fill="none"/>' % (gx - 30, gy + 20, gx, gy - 22, gx + 30, gy + 20))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="lm"/>' % (gx - 34, gy + 20, gx + 34, gy + 20))
+        elif kind == 'bend':
+            b.append('<circle cx="%d" cy="%d" r="9" class="ln"/>' % (gx - 22, gy - 14))
+            b.append('<path d="M %d %d L %d %d L %d %d" class="ln"/>' % (gx - 22, gy - 4, gx - 6, gy + 18, gx + 30, gy + 18))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="lm dash"/>' % (gx - 40, gy + 26, gx + 40, gy + 26))
+        elif kind == 'run':
+            b.append('<circle cx="%d" cy="%d" r="9" class="ln"/>' % (gx - 18, gy - 18))
+            b.append('<path d="M %d %d L %d %d L %d %d" class="la" fill="none"/>' % (gx - 18, gy - 8, gx + 6, gy + 4, gx + 26, gy - 10))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="lm"/>' % (gx - 40, gy + 26, gx + 40, gy + 26))
+        elif kind == 'situp':
+            b.append('<circle cx="%d" cy="%d" r="9" class="ln"/>' % (gx - 26, gy + 8))
+            b.append('<path d="M %d %d L %d %d" class="ln"/>' % (gx - 16, gy + 8, gx + 16, gy + 6))
+            b.append('<path d="M %d %d L %d %d" class="ln"/>' % (gx + 16, gy + 6, gx + 30, gy + 18))
+        elif kind == 'pull':
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (gx - 34, gy - 20, gx + 34, gy - 20))
+            b.append('<circle cx="%d" cy="%d" r="8" class="ln"/>' % (gx - 10, gy + 2))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (gx - 10, gy - 10, gx - 10, gy - 20))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (gx + 10, gy - 10, gx + 10, gy - 20))
+        else:
+            b.append('<path d="M %d %d A 30 30 0 1 1 %d %d" class="la" fill="none"/>' % (gx - 10, gy, gx + 10, gy))
+            b.append('<circle cx="%d" cy="%d" r="6" class="ln"/>' % (gx, gy + 14))
+        b.append(txt(cx + 88, cy + 92, name, 'ts', 'middle'))
+    b.append(txt(40, 100, '體適能檢測常用的項目：每一項都有它要測的能力。', 'sb'))
+    return '\n'.join(b)
+
+
+def fig_hp_diabolo_steps():
+    b = []
+    steps = [('①', '握棍', 'stick'), ('②', '起鈴', 'up'), ('③', '運鈴', 'side'),
+             ('④', '使鈴平衡', 'spin'), ('⑤', '開線亮相', 'show')]
+    for i, (num, name, kind) in enumerate(steps):
+        cx = 24 + i * 120
+        cy = 112
+        b.append('<rect x="%d" y="%d" width="108" height="150" rx="6" fill="#f6f8fc"/>' % (cx, cy))
+        b.append('<rect x="%d" y="%d" width="108" height="150" rx="6" class="n"/>' % (cx, cy))
+        b.append(txt(cx + 16, cy + 30, num, 'a'))
+        gx, gy = cx + 54, cy + 78
+        if kind == 'stick':
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (gx - 26, gy, gx + 26, gy))
+            b.append('<circle cx="%d" cy="%d" r="9" class="na"/>' % (gx - 30, gy))
+            b.append('<circle cx="%d" cy="%d" r="9" class="na"/>' % (gx + 30, gy))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="ln"/>' % (gx - 30, gy + 14, gx + 30, gy + 14))
+        elif kind == 'up':
+            b.append('<circle cx="%d" cy="%d" r="13" class="na"/>' % (gx, gy - 8))
+            b.append('<line x1="%d" y1="%d" x2="%d" y2="%d" class="la" marker-end="url(#arrow-accent)"/>' % (gx, gy + 34, gx, gy - 30))
+            b.append('<path d="M %d %d A 26 26 0 1 1 %d %d" class="lm" fill="none"/>' % (gx + 16, gy - 18, gx + 16, gy + 18))
+        elif kind == 'side':
+            b.append('<circle cx="%d" cy="%d" r="13" class="na"/>' % (gx, gy - 6))
+            b.append('<path d="M %d %d Q %d %d %d %d" class="la" fill="none" marker-end="url(#arrow-accent)"/>' % (gx - 34, gy + 12, gx, gy + 40, gx + 34, gy + 12))
+            b.append('<path d="M %d %d Q %d %d %d %d" class="lm" fill="none" marker-end="url(#arrow)"/>' % (gx + 34, gy - 6, gx, gy - 34, gx - 34, gy - 6))
+        elif kind == 'spin':
+            b.append('<ellipse cx="%d" cy="%d" rx="34" ry="12" class="la" fill="none"/>' % (gx, gy))
+            b.append('<circle cx="%d" cy="%d" r="12" class="na"/>' % (gx, gy))
+            b.append('<path d="M %d %d A 30 14 0 1 1 %d %d" class="lm" fill="none" marker-end="url(#arrow)"/>' % (gx - 30, gy - 6, gx + 30, gy - 6))
+        else:
+            b.append('<circle cx="%d" cy="%d" r="12" class="na"/>' % (gx, gy - 6))
+            b.append('<path d="M %d %d q 20 18 40 0 q 20 -18 40 0" class="lm" fill="none"/>' % (gx - 40, gy + 10))
+            b.append('<path d="M %d %d l 10 10 l -20 4 z" class="la" fill="none"/>' % (gx + 26, gy + 26))
+        b.append(txt(cx + 54, cy + 132, name, 'ts', 'middle'))
+    b.append(txt(24, 100, '扯鈴表演的五個步驟（照著圖看順序）：', 'sb'))
+    b.append(txt(24, 300, '先握好棍子，再把鈴拋起來，之後左右手交替，最後讓鈴水平旋轉並收線亮相。', 's'))
+    return '\n'.join(b)
+
+
 FIGURES = [
     ('math-triangle-right', '數學期中考', '以角分類三角形', '有一個角是 90 度的三角形，圖中標出 90 度的直角位置。', fig_math_triangle_right, '數學・6-3 三角形'),
     ('math-frac-bar', '數學期中考', '把 1 平分成 100 份', '一個大正方形平均分成 100 個小方塊，其中 1 個用深色標出。', fig_math_frac_bar, '數學・7-1 認識二位小數'),
@@ -357,6 +666,17 @@ FIGURES = [
     ('eng-clock', '英語文期中考', "It's four fifty.", '指著 4:50 的圓形時鐘，說明短針與長針各指在哪裡。', fig_eng_clock, '英語文・Unit 2 Time'),
     ('hp-plate', '健康與體育期中考', '健康餐盤：每餐吃多少？', '健康餐盤分成六類食物，標出每一餐建議吃的份量。', fig_hp_plate, '健康與體育・食在有營養'),
     ('hp-burn', '健康與體育期中考', '灼燙傷急救：沖、脫、蓋、送', '灼燙傷急救四個步驟依序排列，並提醒不可塗牙膏或戳破水泡。', fig_hp_burn, '健康與體育・小心灼燙傷'),
+('math-km-ruler', '數學期中考', '公尺和公里怎麼換算', '公尺尺規：每一大段是 1 公里，等於 1000 公尺。', fig_math_km_ruler, '數學・5-2 公里換算'),
+    ('math-bar-chart', '數學期中考', '怎麼報讀長條圖', '縱軸每一格代表 5 人的長條圖，三根長條分別高 4、2、3 格。', fig_math_bar_chart, '數學・10-1 報讀統計圖'),
+    ('math-line-chart', '數學期中考', '折線圖的線段在看什麼', '折線圖上有四個點與相鄰兩點連起來的線段。', fig_math_line_chart, '數學・10-3 報讀折線圖'),
+    ('sci-circuit', '自然期中考', '燈泡的串聯與並聯', '左邊是串聯、右邊是並聯的電路接法與燈泡位置。', fig_sci_circuit, '自然・4-11 串聯與並聯'),
+    ('sci-sound-vacuum', '自然期中考', '鬧鐘放進真空罩會怎樣', '左邊是抽掉空氣的真空罩，右邊是在空氣中的鬧鐘與聲波。', fig_sci_sound_vacuum, '自然・3-4 聲音需要介質'),
+    ('soc-map-types', '社會期中考', '四種地圖看不同的資訊', '行政區圖、交通路線圖、地形圖與衛星圖的外觀對照。', fig_soc_map_types, '社會・家鄉在哪裡'),
+    ('soc-stilt-house', '社會期中考', '原住民族的傳統住屋', '架高屋的剖面示意：石板地面、竹木柱子與茅草屋頂。', fig_soc_stilt_house, '社會・傳統住屋與生活'),
+    ('chi-stroke-rules', '國語文期中考', '筆順的三個原則', '筆順三原則：從上到下、從左到右、先橫後豎，並以「三」「他」示範。', fig_chi_stroke_rules, '國語文・筆順'),
+    ('hp-baseball-field', '健康與體育期中考', '壘球場地與守備位置', '壘球場的四個壘包與六個守備位置示意。', fig_hp_baseball_field, '健康與體育・壘上攻防'),
+    ('hp-fitness-tests', '健康與體育期中考', '體適能檢測的常見項目', '立定跳遠、坐姿體前彎、800 公尺跑、仰臥起坐、引向上與跳繩六項。', fig_hp_fitness_tests, '健康與體育・健康體適能'),
+    ('hp-diabolo-steps', '健康與體育期中考', '扯鈴的五個步驟', '握棍、起鈴、運鈴、使鈴平衡、開線亮相五個步驟的示意圖。', fig_hp_diabolo_steps, '健康與體育・轉動扯鈴'),
 ]
 
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sci-circuit-title sci-circuit-desc" id="sci-circuit-root">
+  <title id="sci-circuit-title">燈泡的串聯與並聯</title>
+  <desc id="sci-circuit-desc">左邊是串聯、右邊是並聯的電路接法與燈泡位置。</desc>
+  <defs>
+      <style>#sci-circuit-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #sci-circuit-root { font-family: var(--sans); color: var(--ink); }
+      #sci-circuit-root .diagram-container { width:100%;overflow-x:auto }
+      #sci-circuit-root text { font-family:var(--sans) }
+      #sci-circuit-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #sci-circuit-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #sci-circuit-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #sci-circuit-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #sci-circuit-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #sci-circuit-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #sci-circuit-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #sci-circuit-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #sci-circuit-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #sci-circuit-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #sci-circuit-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #sci-circuit-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #sci-circuit-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #sci-circuit-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #sci-circuit-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #sci-circuit-root .dash { stroke-dasharray:5 4 }</style><marker id="sci-circuit-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="sci-circuit-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">自然・4-11 串聯與並聯</text>
+<text x="32" y="58" class="h">燈泡的串聯與並聯</text>
+  <text x="170" y="128" class="ts" text-anchor="middle">串聯</text>
+<line x1="70" y1="230" x2="70" y2="208" class="ln"/><line x1="84" y1="216" x2="84" y2="252" class="ln"/>
+<path d="M 70 208 L 150 208 L 150 150" class="lm"/>
+<circle cx="150" cy="150" r="11" fill="#ffffff" class="ln"/><line x1="143" y1="143" x2="157" y2="157" class="ln"/><line x1="143" y1="157" x2="157" y2="143" class="ln"/>
+<path d="M 150 139 L 150 118 L 230 118" class="lm"/>
+<circle cx="230" cy="118" r="11" fill="#ffffff" class="ln"/><line x1="223" y1="111" x2="237" y2="125" class="ln"/><line x1="223" y1="125" x2="237" y2="111" class="ln"/>
+<path d="M 230 107 L 230 230 L 84 230" class="lm"/>
+<path d="M 84 230 L 84 208" class="lm"/>
+<text x="170" y="272" class="s" text-anchor="middle">電路只有一條路</text>
+<text x="470" y="128" class="ts" text-anchor="middle">並聯</text>
+<line x1="370" y1="230" x2="370" y2="208" class="ln"/><line x1="384" y1="216" x2="384" y2="252" class="ln"/>
+<path d="M 370 208 L 430 208 L 430 150" class="lm"/>
+<circle cx="430" cy="150" r="11" fill="#ffffff" class="ln"/><line x1="423" y1="143" x2="437" y2="157" class="ln"/><line x1="423" y1="157" x2="437" y2="143" class="ln"/>
+<path d="M 430 139 L 430 118 L 510 118" class="lm"/>
+<circle cx="510" cy="118" r="11" fill="#ffffff" class="ln"/><line x1="503" y1="111" x2="517" y2="125" class="ln"/><line x1="503" y1="125" x2="517" y2="111" class="ln"/>
+<path d="M 510 107 L 510 230 L 384 230" class="lm"/>
+<path d="M 430 139 L 430 230" class="lm"/>
+<path d="M 384 230 L 384 208" class="lm"/>
+<text x="470" y="272" class="s" text-anchor="middle">電路分成幾條路</text>
+<text x="60" y="330" class="sb" text-anchor="start">接法不同，電流通過的路徑就不同。</text>
+<text x="60" y="358" class="s" text-anchor="start">照著線路數一數：燈泡一個接一個經過，還是分成好幾條路？</text>
+</svg>

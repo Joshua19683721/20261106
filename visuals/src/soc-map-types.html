@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>四種地圖看不同的資訊</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif;
+  }
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);padding:24px}
+  .frame{max-width:720px;margin:0 auto}
+  .eyebrow{font:500 12px var(--sans);color:var(--muted);margin-bottom:6px}
+  h1{font:400 22px var(--serif);color:var(--ink);margin-bottom:12px}
+  .diagram-container{width:100%;overflow-x:auto}
+  svg{width:100%;min-width:640px;display:block}
+  svg text{font-family:var(--sans)}
+  .h{font:400 22px var(--serif);fill:var(--ink)}
+  .e{font:500 12px var(--sans);fill:var(--muted)}
+  .t{font:600 16px var(--sans);fill:var(--ink)}
+  .ts{font:600 15px var(--sans);fill:var(--ink)}
+  .s{font:500 13px var(--sans);fill:var(--soft)}
+  .sb{font:500 13px var(--sans);fill:var(--ink)}
+  .a{font:600 15px var(--sans);fill:var(--accent)}
+  .big{font:400 44px var(--serif);fill:var(--ink)}
+  .mid{font:400 34px var(--serif);fill:var(--ink)}
+  .n{fill:#ffffff;stroke:var(--ink);stroke-width:1}
+  .na{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2}
+  .ns{fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1}
+  .ln{stroke:var(--ink);stroke-width:1.2;fill:none}
+  .lm{stroke:var(--muted);stroke-width:1;fill:none}
+  .la{stroke:var(--accent);stroke-width:1.4;fill:none}
+  .dash{stroke-dasharray:5 4}
+</style>
+</head>
+<body>
+<div class="frame">
+<p class="eyebrow">社會・家鄉在哪裡</p>
+<h1>四種地圖看不同的資訊</h1>
+<div class="diagram-container">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="soc-map-types-title soc-map-types-desc">
+  <title id="soc-map-types-title">四種地圖看不同的資訊</title>
+  <desc id="soc-map-types-desc">行政區圖、交通路線圖、地形圖與衛星圖的外觀對照。</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">社會・家鄉在哪裡</text>
+<text x="32" y="58" class="h">四種地圖看不同的資訊</text>
+  <rect x="40" y="116" width="272" height="124" rx="6" fill="#f6f8fc"/>
+<rect x="40" y="116" width="272" height="124" rx="6" class="n"/>
+<text x="56" y="146" class="ts" text-anchor="start">行政區圖</text>
+<text x="56" y="168" class="s" text-anchor="start">看各鄉、鎮、市、區的界線</text>
+<rect x="56" y="182" width="96" height="44" fill="#ffffff" class="lm"/>
+<line x1="88" y1="182" x2="88" y2="226" class="lm dash"/>
+<line x1="56" y1="204" x2="152" y2="204" class="lm dash"/>
+<rect x="328" y="116" width="272" height="124" rx="6" fill="#f6f8fc"/>
+<rect x="328" y="116" width="272" height="124" rx="6" class="n"/>
+<text x="344" y="146" class="ts" text-anchor="start">交通路線圖</text>
+<text x="344" y="168" class="s" text-anchor="start">看道路、鐵路與車站</text>
+<path d="M 344 216 L 388 186 L 440 222" class="la" fill="none"/>
+<circle cx="388" cy="186" r="5" class="la" fill="#1f51c9"/>
+<circle cx="440" cy="222" r="5" class="la" fill="#1f51c9"/>
+<rect x="40" y="256" width="272" height="124" rx="6" fill="#f6f8fc"/>
+<rect x="40" y="256" width="272" height="124" rx="6" class="n"/>
+<text x="56" y="286" class="ts" text-anchor="start">地形圖</text>
+<text x="56" y="308" class="s" text-anchor="start">看地勢高低（等高線）與河川</text>
+<path d="M 56 358 C 76 328 116 328 152 358" class="la" fill="none"/>
+<path d="M 56 366 C 82 342 118 342 152 366" class="la" fill="none"/>
+<path d="M 96 322 C 108 340 116 346 126 366" class="ln" fill="none"/>
+<rect x="328" y="256" width="272" height="124" rx="6" fill="#f6f8fc"/>
+<rect x="328" y="256" width="272" height="124" rx="6" class="n"/>
+<text x="344" y="286" class="ts" text-anchor="start">衛星圖</text>
+<text x="344" y="308" class="s" text-anchor="start">看真實的房屋、道路與山林</text>
+<rect x="344" y="322" width="96" height="44" fill="#e7efe6" class="lm"/>
+<rect x="354" y="330" width="28" height="18" fill="#ffffff" class="lm"/>
+<rect x="400" y="344" width="22" height="14" fill="#ffffff" class="lm"/>
+<line x1="344" y1="356" x2="440" y2="338" class="ln"/>
+<text x="40" y="100" class="sb" text-anchor="start">同一個家鄉，用不同的地圖可以看見不同的資訊。</text>
+</svg>
+</div>
+</div>
+</body>
+</html>

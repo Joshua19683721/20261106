@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hp-diabolo-steps-title hp-diabolo-steps-desc" id="hp-diabolo-steps-root">
+  <title id="hp-diabolo-steps-title">扯鈴的五個步驟</title>
+  <desc id="hp-diabolo-steps-desc">握棍、起鈴、運鈴、使鈴平衡、開線亮相五個步驟的示意圖。</desc>
+  <defs>
+      <style>#hp-diabolo-steps-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #hp-diabolo-steps-root { font-family: var(--sans); color: var(--ink); }
+      #hp-diabolo-steps-root .diagram-container { width:100%;overflow-x:auto }
+      #hp-diabolo-steps-root text { font-family:var(--sans) }
+      #hp-diabolo-steps-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #hp-diabolo-steps-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #hp-diabolo-steps-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #hp-diabolo-steps-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #hp-diabolo-steps-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #hp-diabolo-steps-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #hp-diabolo-steps-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #hp-diabolo-steps-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #hp-diabolo-steps-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #hp-diabolo-steps-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #hp-diabolo-steps-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #hp-diabolo-steps-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #hp-diabolo-steps-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #hp-diabolo-steps-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #hp-diabolo-steps-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #hp-diabolo-steps-root .dash { stroke-dasharray:5 4 }</style><marker id="hp-diabolo-steps-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="hp-diabolo-steps-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">健康與體育・轉動扯鈴</text>
+<text x="32" y="58" class="h">扯鈴的五個步驟</text>
+  <rect x="24" y="112" width="108" height="150" rx="6" fill="#f6f8fc"/>
+<rect x="24" y="112" width="108" height="150" rx="6" class="n"/>
+<text x="40" y="142" class="a" text-anchor="start">①</text>
+<line x1="52" y1="190" x2="104" y2="190" class="ln"/>
+<circle cx="48" cy="190" r="9" class="na"/>
+<circle cx="108" cy="190" r="9" class="na"/>
+<line x1="48" y1="204" x2="108" y2="204" class="ln"/>
+<text x="78" y="244" class="ts" text-anchor="middle">握棍</text>
+<rect x="144" y="112" width="108" height="150" rx="6" fill="#f6f8fc"/>
+<rect x="144" y="112" width="108" height="150" rx="6" class="n"/>
+<text x="160" y="142" class="a" text-anchor="start">②</text>
+<circle cx="198" cy="182" r="13" class="na"/>
+<line x1="198" y1="224" x2="198" y2="160" class="la" marker-end="url(#hp-diabolo-steps-arrow-accent)"/>
+<path d="M 214 172 A 26 26 0 1 1 214 208" class="lm" fill="none"/>
+<text x="198" y="244" class="ts" text-anchor="middle">起鈴</text>
+<rect x="264" y="112" width="108" height="150" rx="6" fill="#f6f8fc"/>
+<rect x="264" y="112" width="108" height="150" rx="6" class="n"/>
+<text x="280" y="142" class="a" text-anchor="start">③</text>
+<circle cx="318" cy="184" r="13" class="na"/>
+<path d="M 284 202 Q 318 230 352 202" class="la" fill="none" marker-end="url(#hp-diabolo-steps-arrow-accent)"/>
+<path d="M 352 184 Q 318 156 284 184" class="lm" fill="none" marker-end="url(#hp-diabolo-steps-arrow)"/>
+<text x="318" y="244" class="ts" text-anchor="middle">運鈴</text>
+<rect x="384" y="112" width="108" height="150" rx="6" fill="#f6f8fc"/>
+<rect x="384" y="112" width="108" height="150" rx="6" class="n"/>
+<text x="400" y="142" class="a" text-anchor="start">④</text>
+<ellipse cx="438" cy="190" rx="34" ry="12" class="la" fill="none"/>
+<circle cx="438" cy="190" r="12" class="na"/>
+<path d="M 408 184 A 30 14 0 1 1 468 184" class="lm" fill="none" marker-end="url(#hp-diabolo-steps-arrow)"/>
+<text x="438" y="244" class="ts" text-anchor="middle">使鈴平衡</text>
+<rect x="504" y="112" width="108" height="150" rx="6" fill="#f6f8fc"/>
+<rect x="504" y="112" width="108" height="150" rx="6" class="n"/>
+<text x="520" y="142" class="a" text-anchor="start">⑤</text>
+<circle cx="558" cy="184" r="12" class="na"/>
+<path d="M 518 200 q 20 18 40 0 q 20 -18 40 0" class="lm" fill="none"/>
+<path d="M 584 216 l 10 10 l -20 4 z" class="la" fill="none"/>
+<text x="558" y="244" class="ts" text-anchor="middle">開線亮相</text>
+<text x="24" y="100" class="sb" text-anchor="start">扯鈴表演的五個步驟（照著圖看順序）：</text>
+<text x="24" y="300" class="s" text-anchor="start">先握好棍子，再把鈴拋起來，之後左右手交替，最後讓鈴水平旋轉並收線亮相。</text>
+</svg>

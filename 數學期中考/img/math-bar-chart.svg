@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="math-bar-chart-title math-bar-chart-desc" id="math-bar-chart-root">
+  <title id="math-bar-chart-title">怎麼報讀長條圖</title>
+  <desc id="math-bar-chart-desc">縱軸每一格代表 5 人的長條圖，三根長條分別高 4、2、3 格。</desc>
+  <defs>
+      <style>#math-bar-chart-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #math-bar-chart-root { font-family: var(--sans); color: var(--ink); }
+      #math-bar-chart-root .diagram-container { width:100%;overflow-x:auto }
+      #math-bar-chart-root text { font-family:var(--sans) }
+      #math-bar-chart-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #math-bar-chart-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #math-bar-chart-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #math-bar-chart-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #math-bar-chart-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #math-bar-chart-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #math-bar-chart-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #math-bar-chart-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #math-bar-chart-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #math-bar-chart-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #math-bar-chart-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #math-bar-chart-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #math-bar-chart-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #math-bar-chart-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #math-bar-chart-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #math-bar-chart-root .dash { stroke-dasharray:5 4 }</style><marker id="math-bar-chart-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="math-bar-chart-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">數學・10-1 報讀統計圖</text>
+<text x="32" y="58" class="h">怎麼報讀長條圖</text>
+  <line x1="140" y1="300" x2="140" y2="124" class="ln"/>
+<line x1="140" y1="300" x2="560" y2="300" class="ln"/>
+<line x1="140" y1="256" x2="560" y2="256" class="lm dash"/>
+<text x="128" y="261" class="s" text-anchor="end">5</text>
+<line x1="140" y1="212" x2="560" y2="212" class="lm dash"/>
+<text x="128" y="217" class="s" text-anchor="end">10</text>
+<line x1="140" y1="168" x2="560" y2="168" class="lm dash"/>
+<text x="128" y="173" class="s" text-anchor="end">15</text>
+<line x1="140" y1="124" x2="560" y2="124" class="lm dash"/>
+<text x="128" y="129" class="s" text-anchor="end">20</text>
+<text x="128" y="305" class="s" text-anchor="end">0</text>
+<text x="94" y="116" class="s" text-anchor="end">人</text>
+<rect x="190" y="124" width="64" height="176" fill="#ffffff" class="n"/>
+<rect x="190" y="124" width="64" height="176" class="na"/>
+<text x="222" y="326" class="ts" text-anchor="middle">甲</text>
+<rect x="310" y="212" width="64" height="88" fill="#ffffff" class="n"/>
+<rect x="310" y="212" width="64" height="88" class="na"/>
+<text x="342" y="326" class="ts" text-anchor="middle">乙</text>
+<rect x="430" y="168" width="64" height="132" fill="#ffffff" class="n"/>
+<rect x="430" y="168" width="64" height="132" class="na"/>
+<text x="462" y="326" class="ts" text-anchor="middle">丙</text>
+<text x="60" y="356" class="s" text-anchor="start">縱軸每一格代表 5 人。甲的長條高 4 格，所以是 4 個 5 人。</text>
+</svg>

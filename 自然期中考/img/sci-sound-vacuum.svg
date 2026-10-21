@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sci-sound-vacuum-title sci-sound-vacuum-desc" id="sci-sound-vacuum-root">
+  <title id="sci-sound-vacuum-title">鬧鐘放進真空罩會怎樣</title>
+  <desc id="sci-sound-vacuum-desc">左邊是抽掉空氣的真空罩，右邊是在空氣中的鬧鐘與聲波。</desc>
+  <defs>
+      <style>#sci-sound-vacuum-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #sci-sound-vacuum-root { font-family: var(--sans); color: var(--ink); }
+      #sci-sound-vacuum-root .diagram-container { width:100%;overflow-x:auto }
+      #sci-sound-vacuum-root text { font-family:var(--sans) }
+      #sci-sound-vacuum-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #sci-sound-vacuum-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #sci-sound-vacuum-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #sci-sound-vacuum-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #sci-sound-vacuum-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #sci-sound-vacuum-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #sci-sound-vacuum-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #sci-sound-vacuum-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #sci-sound-vacuum-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #sci-sound-vacuum-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #sci-sound-vacuum-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #sci-sound-vacuum-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #sci-sound-vacuum-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #sci-sound-vacuum-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #sci-sound-vacuum-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #sci-sound-vacuum-root .dash { stroke-dasharray:5 4 }</style><marker id="sci-sound-vacuum-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="sci-sound-vacuum-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">自然・3-4 聲音需要介質</text>
+<text x="32" y="58" class="h">鬧鐘放進真空罩會怎樣</text>
+  <rect x="90" y="140" width="180" height="160" rx="10" fill="#ffffff" class="n"/>
+<path d="M 150 236 L 150 208 M 150 208 L 142 196 L 158 196 L 150 208" class="ln"/>
+<circle cx="150" cy="234" r="5" class="ln"/>
+<line x1="270" y1="220" x2="330" y2="220" class="lm"/>
+<rect x="330" y="200" width="40" height="40" rx="6" class="ns"/>
+<text x="350" y="226" class="s" text-anchor="middle">抽氣</text>
+<text x="180" y="330" class="ts" text-anchor="middle">抽掉空氣（真空）</text>
+<text x="180" y="352" class="s" text-anchor="middle">裡面幾乎沒有空氣</text>
+<path d="M 470 236 L 470 208 M 470 208 L 462 196 L 478 196 L 470 208" class="ln"/>
+<circle cx="470" cy="234" r="5" class="ln"/>
+<path d="M 512 200 A 26 26 0 0 1 512 236" class="la" fill="none"/>
+<path d="M 526 200 A 40 40 0 0 1 526 236" class="la" fill="none"/>
+<path d="M 540 200 A 54 54 0 0 1 540 236" class="la" fill="none"/>
+<text x="520" y="330" class="ts" text-anchor="middle">在空氣中</text>
+<text x="520" y="352" class="s" text-anchor="middle">空氣把振動傳到耳朵</text>
+<text x="60" y="100" class="sb" text-anchor="start">同一個鬧鐘，換了環境，聲音還聽得到嗎？</text>
+</svg>

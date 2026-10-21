@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chi-stroke-rules-title chi-stroke-rules-desc" id="chi-stroke-rules-root">
+  <title id="chi-stroke-rules-title">筆順的三個原則</title>
+  <desc id="chi-stroke-rules-desc">筆順三原則：從上到下、從左到右、先橫後豎，並以「三」「他」示範。</desc>
+  <defs>
+      <style>#chi-stroke-rules-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #chi-stroke-rules-root { font-family: var(--sans); color: var(--ink); }
+      #chi-stroke-rules-root .diagram-container { width:100%;overflow-x:auto }
+      #chi-stroke-rules-root text { font-family:var(--sans) }
+      #chi-stroke-rules-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #chi-stroke-rules-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #chi-stroke-rules-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #chi-stroke-rules-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #chi-stroke-rules-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #chi-stroke-rules-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #chi-stroke-rules-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #chi-stroke-rules-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #chi-stroke-rules-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #chi-stroke-rules-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #chi-stroke-rules-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #chi-stroke-rules-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #chi-stroke-rules-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #chi-stroke-rules-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #chi-stroke-rules-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #chi-stroke-rules-root .dash { stroke-dasharray:5 4 }</style><marker id="chi-stroke-rules-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="chi-stroke-rules-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">國語文・筆順</text>
+<text x="32" y="58" class="h">筆順的三個原則</text>
+  <rect x="56" y="116" width="300" height="60" rx="6" fill="#f6f8fc"/>
+<rect x="56" y="116" width="300" height="60" rx="6" class="n"/>
+<text x="76" y="154" class="a" text-anchor="start">①</text>
+<text x="112" y="146" class="ts" text-anchor="start">從上到下</text>
+<text x="112" y="166" class="s" text-anchor="start">先寫上面的部分</text>
+<rect x="56" y="192" width="300" height="60" rx="6" fill="#f6f8fc"/>
+<rect x="56" y="192" width="300" height="60" rx="6" class="n"/>
+<text x="76" y="230" class="a" text-anchor="start">②</text>
+<text x="112" y="222" class="ts" text-anchor="start">從左到右</text>
+<text x="112" y="242" class="s" text-anchor="start">先寫左邊的部分</text>
+<rect x="56" y="268" width="300" height="60" rx="6" fill="#f6f8fc"/>
+<rect x="56" y="268" width="300" height="60" rx="6" class="n"/>
+<text x="76" y="306" class="a" text-anchor="start">③</text>
+<text x="112" y="298" class="ts" text-anchor="start">先橫後豎</text>
+<text x="112" y="318" class="s" text-anchor="start">先寫橫的，再寫豎的</text>
+<text x="390" y="118" class="ts" text-anchor="start">例如「三」：</text>
+<line x1="400" y1="140" x2="470" y2="140" class="ln"/>
+<text x="486" y="145" class="a" text-anchor="start">1</text>
+<line x1="400" y1="174" x2="470" y2="174" class="ln"/>
+<text x="486" y="179" class="a" text-anchor="start">2</text>
+<line x1="400" y1="208" x2="470" y2="208" class="ln"/>
+<text x="486" y="213" class="a" text-anchor="start">3</text>
+<text x="390" y="268" class="ts" text-anchor="start">例如「他」：</text>
+<line x1="404" y1="280" x2="404" y2="320" class="ln"/>
+<line x1="404" y1="292" x2="396" y2="306" class="ln"/>
+<line x1="404" y1="306" x2="412" y2="316" class="ln"/>
+<text x="424" y="306" class="a" text-anchor="start">1</text>
+<path d="M 440 280 L 440 318 M 452 288 L 452 312 M 464 282 L 464 316" class="ln"/>
+<text x="482" y="306" class="a" text-anchor="start">2</text>
+<text x="56" y="372" class="sb" text-anchor="start">遇到不確定的字，可以先想想這三條原則，再看課本上的筆順圖。</text>
+</svg>
