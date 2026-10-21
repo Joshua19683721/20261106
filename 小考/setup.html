@@ -257,30 +257,77 @@
     var el = $("testRes");
     if (!url || !key) { res(el, "bad", "請先填入 Project URL 與 anon key。"); return; }
 
-    res(el, "wait", "正在連線 Supabase…");
-    fetch(url + "/rest/v1/submissions?select=id&limit=1", {
-      headers: { "apikey": key, "Authorization": "Bearer " + key }
-    }).then(function (r) {
-      if (r.ok) {
-        okSb = true;
-        return r.json().then(function (rows) {
-          res(el, "ok", "✅ 資料庫連線成功。<br>目前有 " + (rows ? rows.length : 0) + " 筆（上限 1 筆顯示）。");
-          checkReady();
-        });
-      }
-      return r.text().then(function (t) {
-        if (r.status === 404 || /relation .* does not exist/i.test(t)) {
-          res(el, "bad", "連上了，但找不到 <code>submissions</code> 資料表。<br>請先做完第 2 步的 SQL。");
-        } else if (r.status === 401) {
-          res(el, "bad", "anon key 不正確（401）。請重新複製 <b>anon public</b> 那把。");
-        } else {
-          res(el, "bad", "失敗（" + r.status + "）：<br>" + escapeHtml(t.slice(0, 300)));
+    var auth = { "apikey": key, "Authorization": "Bearer " + key };
+    var probe = {
+      student: "__setup_test__",
+      subject: "__setup_test__",
+      subject_dir: "",
+      subject_name: "設定測試",
+      requested: 0, total: 0, correct: 0, elapsed_sec: 0,
+      ids: [], items: [], reviewed: true
+    };
+
+    /* 自己丟出的錯誤已經是中文說明；沒有 handled 標記的就是連線層失敗 */
+    function mkErr(html) { var e = new Error(html); e.handled = true; return e; }
+
+    res(el, "wait", "正在連線 Supabase（讀取 ＋ 寫入測試）…");
+
+    fetch(url + "/rest/v1/submissions?select=id&limit=1", { headers: auth })
+      .then(function (r) {
+        if (r.status === 404) {
+          throw mkErr("找不到 <code>submissions</code> 資料表。<br>請先做完第 2 步的 SQL。");
         }
+        if (r.status === 401 || r.status === 403) {
+          throw mkErr("anon key 不正確或沒有權限（" + r.status + "）。<br>請重新複製 <b>anon public</b> 那把。");
+        }
+        if (!r.ok) {
+          return r.text().then(function (t) {
+            throw mkErr("讀取失敗（" + r.status + "）：<br>" + escapeHtml(String(t).slice(0, 200)));
+          });
+        }
+
+        /* 讀得到不代表寫得進去，所以實際插入一列再刪掉 */
+        return fetch(url + "/rest/v1/submissions", {
+          method: "POST",
+          headers: Object.assign({
+            "Content-Type": "application/json",
+            "Prefer": "return=representation"
+          }, auth),
+          body: JSON.stringify(probe)
+        }).then(function (r2) {
+          if (!r2.ok) {
+            return r2.text().then(function (t) {
+              throw mkErr(
+                "可以讀取，但<b>無法寫入</b>（" + r2.status + "）。<br>" +
+                "通常是第 2 步的 RLS 政策沒有全部執行成功。<br>" +
+                "<code>" + escapeHtml(String(t).slice(0, 160)) + "</code>"
+              );
+            });
+          }
+          return r2.json().then(function (rows) {
+            var id = rows && rows[0] && rows[0].id;
+            if (id) {
+              fetch(url + "/rest/v1/submissions?id=eq." + encodeURIComponent(id), {
+                method: "DELETE",
+                headers: auth
+              }).catch(function () { });
+            }
+            okSb = true;
+            res(el, "ok", "✅ 讀取與寫入都正常，測試資料已清除。<br>接著按「② 測試推播」。");
+            checkReady();
+          });
+        });
+      })
+      .catch(function (e) {
+        if (e && e.handled) {
+          res(el, "bad", e.message);
+          return;
+        }
+        res(el, "bad",
+          "連不上 Supabase。<br>請確認網址長得像 <code>https://xxxx.supabase.co</code>（結尾不要斜線），而且網路正常。<br>" +
+          "<code>" + escapeHtml(e && e.message ? e.message : String(e)) + "</code>"
+        );
       });
-    }).catch(function (e) {
-      res(el, "bad", "連不上：<code>" + escapeHtml(baseUrl()) + "</code><br>" + escapeHtml(e.message) +
-        "<br><br>請確認網址是 <code>https://xxx.supabase.co</code>（不要多結尾斜線）。");
-    });
   };
 
   $("testNtfy").onclick = function () {

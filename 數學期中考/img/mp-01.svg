@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mp-01-title mp-01-desc" id="mp-01-root">
+  <title id="mp-01-title">素養題組・一億以內的數</title>
+  <desc id="mp-01-desc">把臺灣幾個縣市的人口數用「萬」來記錄：\n新北市約 4000000 人，臺中市約</desc>
+  <defs>
+      <style>#mp-01-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mp-01-root { font-family: var(--sans); color: var(--ink); }
+      #mp-01-root .diagram-container { width:100%;overflow-x:auto }
+      #mp-01-root text { font-family:var(--sans) }
+      #mp-01-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mp-01-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mp-01-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mp-01-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mp-01-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mp-01-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mp-01-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mp-01-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mp-01-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mp-01-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mp-01-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mp-01-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mp-01-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mp-01-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mp-01-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mp-01-root .dash { stroke-dasharray:5 4 }</style><marker id="mp-01-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mp-01-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">素養題組・一億以內的數</text>
+<text x="32" y="58" class="h">素養題組・一億以內的數</text>
+  <line x1="140" y1="300" x2="140" y2="50" class="ln"/>
+<line x1="140" y1="300" x2="560" y2="300" class="ln"/>
+<line x1="140" y1="300" x2="560" y2="300" class="lm dash"/>
+<text x="128" y="305" class="s" text-anchor="end">0</text>
+<line x1="140" y1="275" x2="560" y2="275" class="lm dash"/>
+<text x="128" y="280" class="s" text-anchor="end">50</text>
+<line x1="140" y1="250" x2="560" y2="250" class="lm dash"/>
+<text x="128" y="255" class="s" text-anchor="end">100</text>
+<line x1="140" y1="225" x2="560" y2="225" class="lm dash"/>
+<text x="128" y="230" class="s" text-anchor="end">150</text>
+<line x1="140" y1="200" x2="560" y2="200" class="lm dash"/>
+<text x="128" y="205" class="s" text-anchor="end">200</text>
+<line x1="140" y1="175" x2="560" y2="175" class="lm dash"/>
+<text x="128" y="180" class="s" text-anchor="end">250</text>
+<line x1="140" y1="150" x2="560" y2="150" class="lm dash"/>
+<text x="128" y="155" class="s" text-anchor="end">300</text>
+<line x1="140" y1="125" x2="560" y2="125" class="lm dash"/>
+<text x="128" y="130" class="s" text-anchor="end">350</text>
+<line x1="140" y1="100" x2="560" y2="100" class="lm dash"/>
+<text x="128" y="105" class="s" text-anchor="end">400</text>
+<line x1="140" y1="75" x2="560" y2="75" class="lm dash"/>
+<text x="128" y="80" class="s" text-anchor="end">450</text>
+<line x1="140" y1="50" x2="560" y2="50" class="lm dash"/>
+<text x="128" y="55" class="s" text-anchor="end">500</text>
+<rect x="180" y="100" width="22" height="200" rx="6" class="n"/>
+<rect x="180" y="100" width="22" height="200" rx="6" class="na"/>
+<text x="191" y="326" class="ts" text-anchor="middle">新北市約</text>
+<rect x="270" y="160" width="22" height="140" rx="6" class="n"/>
+<rect x="270" y="160" width="22" height="140" rx="6" class="na"/>
+<text x="281" y="326" class="ts" text-anchor="middle">臺中市約</text>
+<rect x="360" y="165" width="22" height="135" rx="6" class="n"/>
+<rect x="360" y="165" width="22" height="135" rx="6" class="na"/>
+<text x="371" y="326" class="ts" text-anchor="middle">高雄市約</text>
+<rect x="450" y="236" width="22" height="63" rx="6" class="n"/>
+<rect x="450" y="236" width="22" height="63" rx="6" class="na"/>
+<text x="461" y="326" class="ts" text-anchor="middle">彰化縣約</text>
+<text x="100" y="42" class="s" text-anchor="end">萬人</text>
+<text x="60" y="350" class="sb" text-anchor="start">數字都來自短文，數一數每根長條有幾格。</text>
+</svg>

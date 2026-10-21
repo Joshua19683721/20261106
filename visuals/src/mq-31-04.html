@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>量角器的認識與報讀</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif;
+  }
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);padding:24px}
+  .frame{max-width:720px;margin:0 auto}
+  .eyebrow{font:500 12px var(--sans);color:var(--muted);margin-bottom:6px}
+  h1{font:400 22px var(--serif);color:var(--ink);margin-bottom:12px}
+  .diagram-container{width:100%;overflow-x:auto}
+  svg{width:100%;min-width:640px;display:block}
+  svg text{font-family:var(--sans)}
+  .h{font:400 22px var(--serif);fill:var(--ink)}
+  .e{font:500 12px var(--sans);fill:var(--muted)}
+  .t{font:600 16px var(--sans);fill:var(--ink)}
+  .ts{font:600 15px var(--sans);fill:var(--ink)}
+  .s{font:500 13px var(--sans);fill:var(--soft)}
+  .sb{font:500 13px var(--sans);fill:var(--ink)}
+  .a{font:600 15px var(--sans);fill:var(--accent)}
+  .big{font:400 44px var(--serif);fill:var(--ink)}
+  .mid{font:400 34px var(--serif);fill:var(--ink)}
+  .n{fill:#ffffff;stroke:var(--ink);stroke-width:1}
+  .na{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2}
+  .ns{fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1}
+  .ln{stroke:var(--ink);stroke-width:1.2;fill:none}
+  .lm{stroke:var(--muted);stroke-width:1;fill:none}
+  .la{stroke:var(--accent);stroke-width:1.4;fill:none}
+  .dash{stroke-dasharray:5 4}
+</style>
+</head>
+<body>
+<div class="frame">
+<p class="eyebrow">3-1 量角器的認識與報讀</p>
+<h1>量角器的認識與報讀</h1>
+<div class="diagram-container">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-31-04-title mq-31-04-desc">
+  <title id="mq-31-04-title">量角器的認識與報讀</title>
+  <desc id="mq-31-04-desc">用量角器量角時，0 度線要對齊角的哪個部分？</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">3-1 量角器的認識與報讀</text>
+<text x="32" y="58" class="h">量角器的認識與報讀</text>
+  <path d="M 120 250 A 130 130 0 0 1 380 250" class="lm"/>
+<line x1="134" y1="250" x2="120" y2="249" class="ln"/>
+<line x1="135" y1="229" x2="121" y2="227" class="lm"/>
+<line x1="140" y1="210" x2="127" y2="205" class="lm"/>
+<line x1="149" y1="192" x2="137" y2="185" class="ln"/>
+<line x1="161" y1="175" x2="150" y2="166" class="lm"/>
+<line x1="175" y1="161" x2="166" y2="150" class="lm"/>
+<line x1="192" y1="149" x2="185" y2="137" class="ln"/>
+<line x1="210" y1="140" x2="205" y2="127" class="lm"/>
+<line x1="229" y1="135" x2="227" y2="121" class="lm"/>
+<line x1="250" y1="134" x2="250" y2="120" class="ln"/>
+<line x1="270" y1="135" x2="272" y2="121" class="lm"/>
+<line x1="289" y1="140" x2="294" y2="127" class="lm"/>
+<line x1="308" y1="149" x2="315" y2="137" class="ln"/>
+<line x1="324" y1="161" x2="333" y2="150" class="lm"/>
+<line x1="338" y1="175" x2="349" y2="166" class="lm"/>
+<line x1="350" y1="192" x2="362" y2="185" class="ln"/>
+<line x1="359" y1="210" x2="372" y2="205" class="lm"/>
+<line x1="364" y1="229" x2="378" y2="227" class="lm"/>
+<line x1="366" y1="250" x2="380" y2="250" class="ln"/>
+<line x1="120" y1="250" x2="380" y2="250" class="lm"/>
+<line x1="250" y1="250" x2="250" y2="120" class="la" marker-end="url(#arrow-accent)"/>
+<line x1="250" y1="250" x2="120" y2="249" class="la" stroke-width="2"/>
+<text x="264" y="146" class="s" text-anchor="start">0 度線</text>
+<text x="310" y="190" class="s" text-anchor="start">中心</text>
+<text x="70" y="120" class="s" text-anchor="start">每一小格代表 1 度</text>
+<text x="60" y="330" class="sb" text-anchor="start">先對好中心與 0 度線，再讀另一邊的刻度。</text>
+</svg>
+</div>
+</div>
+</body>
+</html>

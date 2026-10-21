@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-23-05-title mq-23-05-desc" id="mq-23-05-root">
+  <title id="mq-23-05-title">三、四位數×二位數</title>
+  <desc id="mq-23-05-desc">208 × 47 ＝？</desc>
+  <defs>
+      <style>#mq-23-05-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-23-05-root { font-family: var(--sans); color: var(--ink); }
+      #mq-23-05-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-23-05-root text { font-family:var(--sans) }
+      #mq-23-05-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-23-05-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-23-05-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-23-05-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-23-05-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-23-05-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-23-05-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-23-05-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-23-05-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-23-05-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-23-05-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-23-05-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-23-05-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-23-05-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-23-05-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-23-05-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-23-05-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-23-05-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">2-3 三、四位數×二位數</text>
+<text x="32" y="58" class="h">三、四位數×二位數</text>
+  <text x="70" y="120" class="sb" text-anchor="start">把 208 拆成 2、0、8，和 47 組配對</text>
+<rect x="170" y="160" width="27" height="27" rx="2" class="ns"/>
+<rect x="200" y="160" width="27" height="27" rx="2" class="ns"/>
+<rect x="230" y="160" width="27" height="27" rx="2" class="ns"/>
+<rect x="170" y="190" width="27" height="27" rx="2" class="ns"/>
+<rect x="200" y="190" width="27" height="27" rx="2" class="ns"/>
+<rect x="230" y="190" width="27" height="27" rx="2" class="ns"/>
+<rect x="170" y="220" width="27" height="27" rx="2" class="ns"/>
+<rect x="200" y="220" width="27" height="27" rx="2" class="ns"/>
+<rect x="230" y="220" width="27" height="27" rx="2" class="ns"/>
+<rect x="170" y="250" width="27" height="27" rx="2" class="ns"/>
+<rect x="200" y="250" width="27" height="27" rx="2" class="ns"/>
+<rect x="230" y="250" width="27" height="27" rx="2" class="ns"/>
+<rect x="164" y="154" width="90" height="120" rx="4" class="n" fill="none" opacity="0"/>
+<text x="215" y="308" class="s" text-anchor="middle">每一位</text>
+<text x="156" y="220" class="s" text-anchor="end">47</text>
+<text x="80" y="300" class="s" text-anchor="start">每一格代表一個 10，</text>
+<text x="80" y="324" class="s" text-anchor="start">再乘上組數。</text>
+</svg>

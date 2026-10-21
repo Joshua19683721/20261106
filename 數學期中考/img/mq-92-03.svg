@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-92-03-title mq-92-03-desc" id="mq-92-03-root">
+  <title id="mq-92-03-title">假分數和帶分數的互換與比大小</title>
+  <desc id="mq-92-03-desc">11/5 換成帶分數是多少？</desc>
+  <defs>
+      <style>#mq-92-03-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-92-03-root { font-family: var(--sans); color: var(--ink); }
+      #mq-92-03-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-92-03-root text { font-family:var(--sans) }
+      #mq-92-03-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-92-03-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-92-03-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-92-03-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-92-03-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-92-03-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-92-03-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-92-03-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-92-03-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-92-03-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-92-03-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-92-03-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-92-03-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-92-03-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-92-03-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-92-03-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-92-03-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-92-03-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">9-2 假分數和帶分數的互換與比大小</text>
+<text x="32" y="58" class="h">假分數和帶分數的互換與比大小</text>
+  <rect x="90" y="160" width="110" height="60" rx="4" class="n"/>
+<text x="145" y="198" class="mid" text-anchor="middle">1</text>
+<rect x="210" y="160" width="110" height="60" rx="4" class="n"/>
+<text x="265" y="198" class="mid" text-anchor="middle">1</text>
+<rect x="330" y="160" width="110" height="54" rx="4" class="n"/>
+<line x1="352" y1="160" x2="352" y2="214" class="lm"/>
+<line x1="374" y1="160" x2="374" y2="214" class="lm"/>
+<line x1="396" y1="160" x2="396" y2="214" class="lm"/>
+<line x1="418" y1="160" x2="418" y2="214" class="lm"/>
+<rect x="331" y="161" width="19" height="51" rx="3" class="na"/>
+<text x="90" y="250" class="a" text-anchor="start">11/5 ＝ 整數＋分數</text>
+</svg>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>報讀與繪製長條圖</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif;
+  }
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);padding:24px}
+  .frame{max-width:720px;margin:0 auto}
+  .eyebrow{font:500 12px var(--sans);color:var(--muted);margin-bottom:6px}
+  h1{font:400 22px var(--serif);color:var(--ink);margin-bottom:12px}
+  .diagram-container{width:100%;overflow-x:auto}
+  svg{width:100%;min-width:640px;display:block}
+  svg text{font-family:var(--sans)}
+  .h{font:400 22px var(--serif);fill:var(--ink)}
+  .e{font:500 12px var(--sans);fill:var(--muted)}
+  .t{font:600 16px var(--sans);fill:var(--ink)}
+  .ts{font:600 15px var(--sans);fill:var(--ink)}
+  .s{font:500 13px var(--sans);fill:var(--soft)}
+  .sb{font:500 13px var(--sans);fill:var(--ink)}
+  .a{font:600 15px var(--sans);fill:var(--accent)}
+  .big{font:400 44px var(--serif);fill:var(--ink)}
+  .mid{font:400 34px var(--serif);fill:var(--ink)}
+  .n{fill:#ffffff;stroke:var(--ink);stroke-width:1}
+  .na{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2}
+  .ns{fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1}
+  .ln{stroke:var(--ink);stroke-width:1.2;fill:none}
+  .lm{stroke:var(--muted);stroke-width:1;fill:none}
+  .la{stroke:var(--accent);stroke-width:1.4;fill:none}
+  .dash{stroke-dasharray:5 4}
+</style>
+</head>
+<body>
+<div class="frame">
+<p class="eyebrow">10-2 報讀與繪製長條圖</p>
+<h1>報讀與繪製長條圖</h1>
+<div class="diagram-container">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-102-05-title mq-102-05-desc">
+  <title id="mq-102-05-title">報讀與繪製長條圖</title>
+  <desc id="mq-102-05-desc">圖書角各類書本數：故事書 24 本、科學書 18 本、漫畫書 12 本，故事書比</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">10-2 報讀與繪製長條圖</text>
+<text x="32" y="58" class="h">報讀與繪製長條圖</text>
+  <line x1="140" y1="300" x2="140" y2="50" class="ln"/>
+<line x1="140" y1="300" x2="560" y2="300" class="ln"/>
+<line x1="140" y1="300" x2="560" y2="300" class="lm dash"/>
+<text x="128" y="305" class="s" text-anchor="end">0</text>
+<line x1="140" y1="282" x2="560" y2="282" class="lm dash"/>
+<text x="128" y="287" class="s" text-anchor="end">2</text>
+<line x1="140" y1="264" x2="560" y2="264" class="lm dash"/>
+<text x="128" y="269" class="s" text-anchor="end">4</text>
+<line x1="140" y1="246" x2="560" y2="246" class="lm dash"/>
+<text x="128" y="251" class="s" text-anchor="end">6</text>
+<line x1="140" y1="228" x2="560" y2="228" class="lm dash"/>
+<text x="128" y="233" class="s" text-anchor="end">8</text>
+<line x1="140" y1="210" x2="560" y2="210" class="lm dash"/>
+<text x="128" y="215" class="s" text-anchor="end">10</text>
+<line x1="140" y1="192" x2="560" y2="192" class="lm dash"/>
+<text x="128" y="197" class="s" text-anchor="end">12</text>
+<line x1="140" y1="175" x2="560" y2="175" class="lm dash"/>
+<text x="128" y="180" class="s" text-anchor="end">14</text>
+<line x1="140" y1="157" x2="560" y2="157" class="lm dash"/>
+<text x="128" y="162" class="s" text-anchor="end">16</text>
+<line x1="140" y1="139" x2="560" y2="139" class="lm dash"/>
+<text x="128" y="144" class="s" text-anchor="end">18</text>
+<line x1="140" y1="121" x2="560" y2="121" class="lm dash"/>
+<text x="128" y="126" class="s" text-anchor="end">20</text>
+<line x1="140" y1="103" x2="560" y2="103" class="lm dash"/>
+<text x="128" y="108" class="s" text-anchor="end">22</text>
+<line x1="140" y1="85" x2="560" y2="85" class="lm dash"/>
+<text x="128" y="90" class="s" text-anchor="end">24</text>
+<line x1="140" y1="67" x2="560" y2="67" class="lm dash"/>
+<text x="128" y="72" class="s" text-anchor="end">26</text>
+<line x1="140" y1="50" x2="560" y2="50" class="lm dash"/>
+<text x="128" y="55" class="s" text-anchor="end">28</text>
+<rect x="180" y="85" width="22" height="214" rx="6" class="n"/>
+<rect x="180" y="85" width="22" height="214" rx="6" class="na"/>
+<text x="191" y="326" class="ts" text-anchor="middle">故事書</text>
+<rect x="270" y="139" width="22" height="160" rx="6" class="n"/>
+<rect x="270" y="139" width="22" height="160" rx="6" class="na"/>
+<text x="281" y="326" class="ts" text-anchor="middle">科學書</text>
+<rect x="360" y="192" width="22" height="107" rx="6" class="n"/>
+<rect x="360" y="192" width="22" height="107" rx="6" class="na"/>
+<text x="371" y="326" class="ts" text-anchor="middle">漫畫書</text>
+<text x="100" y="42" class="s" text-anchor="end">本</text>
+<text x="60" y="350" class="sb" text-anchor="start">每一格代表 2 本。</text>
+</svg>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-92-04-title mq-92-04-desc" id="mq-92-04-root">
+  <title id="mq-92-04-title">假分數和帶分數的互換與比大小</title>
+  <desc id="mq-92-04-desc">3又2/7 換成假分數是多少？</desc>
+  <defs>
+      <style>#mq-92-04-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-92-04-root { font-family: var(--sans); color: var(--ink); }
+      #mq-92-04-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-92-04-root text { font-family:var(--sans) }
+      #mq-92-04-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-92-04-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-92-04-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-92-04-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-92-04-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-92-04-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-92-04-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-92-04-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-92-04-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-92-04-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-92-04-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-92-04-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-92-04-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-92-04-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-92-04-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-92-04-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-92-04-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-92-04-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">9-2 假分數和帶分數的互換與比大小</text>
+<text x="32" y="58" class="h">假分數和帶分數的互換與比大小</text>
+  <rect x="90" y="150" width="110" height="60" rx="4" class="n"/>
+<text x="145" y="188" class="mid" text-anchor="middle">1</text>
+<rect x="210" y="150" width="110" height="60" rx="4" class="n"/>
+<text x="265" y="188" class="mid" text-anchor="middle">1</text>
+<rect x="330" y="150" width="110" height="60" rx="4" class="n"/>
+<text x="385" y="188" class="mid" text-anchor="middle">1</text>
+<rect x="450" y="150" width="110" height="54" rx="4" class="n"/>
+<line x1="465" y1="150" x2="465" y2="204" class="lm"/>
+<line x1="481" y1="150" x2="481" y2="204" class="lm"/>
+<line x1="497" y1="150" x2="497" y2="204" class="lm"/>
+<line x1="512" y1="150" x2="512" y2="204" class="lm"/>
+<line x1="528" y1="150" x2="528" y2="204" class="lm"/>
+<line x1="544" y1="150" x2="544" y2="204" class="lm"/>
+<rect x="451" y="151" width="12" height="51" rx="3" class="na"/>
+<rect x="467" y="151" width="12" height="51" rx="3" class="na"/>
+<text x="90" y="250" class="a" text-anchor="start">3 又 2/7</text>
+<text x="60" y="320" class="sb" text-anchor="start">帶分數和假分數，換成同一個分母來比較。</text>
+</svg>

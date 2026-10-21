@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-71-01-title mq-71-01-desc" id="mq-71-01-root">
+  <title id="mq-71-01-title">認識二位小數</title>
+  <desc id="mq-71-01-desc">把 1 平分成 100 份，其中的 1 份用分數表示是多少？</desc>
+  <defs>
+      <style>#mq-71-01-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-71-01-root { font-family: var(--sans); color: var(--ink); }
+      #mq-71-01-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-71-01-root text { font-family:var(--sans) }
+      #mq-71-01-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-71-01-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-71-01-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-71-01-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-71-01-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-71-01-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-71-01-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-71-01-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-71-01-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-71-01-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-71-01-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-71-01-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-71-01-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-71-01-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-71-01-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-71-01-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-71-01-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-71-01-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">7-1 認識二位小數</text>
+<text x="32" y="58" class="h">認識二位小數</text>
+  <rect x="192" y="92" width="246" height="246" rx="0" class="n"/>
+<rect x="196" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="96" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="120" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="144" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="168" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="192" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="216" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="240" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="264" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="220" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="288" width="22" height="22" rx="6" class="ns"/>
+<rect x="196" y="312" width="22" height="22" rx="6" class="na"/>
+<rect x="220" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="244" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="268" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="292" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="316" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="340" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="364" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="388" y="312" width="22" height="22" rx="6" class="ns"/>
+<rect x="412" y="312" width="22" height="22" rx="6" class="ns"/>
+<text x="96" y="120" class="mid" text-anchor="middle">1</text>
+<text x="96" y="150" class="s" text-anchor="middle">平均分成</text>
+<text x="96" y="172" class="a" text-anchor="middle">100 份</text>
+<text x="60" y="330" class="sb" text-anchor="start">每一小格就是 1 份。</text>
+</svg>

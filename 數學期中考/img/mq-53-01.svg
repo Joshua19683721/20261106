@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-53-01-title mq-53-01-desc" id="mq-53-01-root">
+  <title id="mq-53-01-title">公里和公尺的加減計算</title>
+  <desc id="mq-53-01-desc">2 公里 300 公尺 ＋ 1 公里 800 公尺 ＝？</desc>
+  <defs>
+      <style>#mq-53-01-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-53-01-root { font-family: var(--sans); color: var(--ink); }
+      #mq-53-01-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-53-01-root text { font-family:var(--sans) }
+      #mq-53-01-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-53-01-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-53-01-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-53-01-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-53-01-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-53-01-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-53-01-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-53-01-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-53-01-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-53-01-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-53-01-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-53-01-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-53-01-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-53-01-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-53-01-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-53-01-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-53-01-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-53-01-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">5-3 公里和公尺的加減計算</text>
+<text x="32" y="58" class="h">公里和公尺的加減計算</text>
+  <line x1="70" y1="230" x2="570" y2="230" class="ln"/>
+<line x1="70" y1="222" x2="70" y2="238" class="lm"/>
+<text x="70" y="260" class="s" text-anchor="middle">0 公里</text>
+<line x1="111" y1="222" x2="111" y2="238" class="lm"/>
+<text x="111" y="260" class="s" text-anchor="middle">1 公里</text>
+<line x1="153" y1="222" x2="153" y2="238" class="lm"/>
+<text x="153" y="260" class="s" text-anchor="middle">2 公里</text>
+<line x1="195" y1="222" x2="195" y2="238" class="lm"/>
+<text x="195" y="260" class="s" text-anchor="middle">3 公里</text>
+<line x1="236" y1="222" x2="236" y2="238" class="lm"/>
+<text x="236" y="260" class="s" text-anchor="middle">4 公里</text>
+<line x1="278" y1="222" x2="278" y2="238" class="lm"/>
+<text x="278" y="260" class="s" text-anchor="middle">5 公里</text>
+<line x1="320" y1="222" x2="320" y2="238" class="lm"/>
+<text x="320" y="260" class="s" text-anchor="middle">6 公里</text>
+<line x1="361" y1="222" x2="361" y2="238" class="lm"/>
+<text x="361" y="260" class="s" text-anchor="middle">7 公里</text>
+<line x1="403" y1="222" x2="403" y2="238" class="lm"/>
+<text x="403" y="260" class="s" text-anchor="middle">8 公里</text>
+<line x1="445" y1="222" x2="445" y2="238" class="lm"/>
+<text x="445" y="260" class="s" text-anchor="middle">9 公里</text>
+<line x1="486" y1="222" x2="486" y2="238" class="lm"/>
+<text x="486" y="260" class="s" text-anchor="middle">10 公里</text>
+<line x1="528" y1="222" x2="528" y2="238" class="lm"/>
+<text x="528" y="260" class="s" text-anchor="middle">11 公里</text>
+<line x1="570" y1="222" x2="570" y2="238" class="lm"/>
+<text x="570" y="260" class="s" text-anchor="middle">12 公里</text>
+<circle cx="165" cy="230" r="8" class="na" fill="#1f51c9"/>
+<text x="165" y="210" class="a" text-anchor="middle">第一段</text>
+<circle cx="145" cy="230" r="8" class="na" fill="#1f51c9"/>
+<text x="145" y="210" class="a" text-anchor="middle">第二段</text>
+<text x="60" y="330" class="sb" text-anchor="start">把兩段加起來，就是答案。</text>
+</svg>

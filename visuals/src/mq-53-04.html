@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>公里和公尺的加減計算</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif;
+  }
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);padding:24px}
+  .frame{max-width:720px;margin:0 auto}
+  .eyebrow{font:500 12px var(--sans);color:var(--muted);margin-bottom:6px}
+  h1{font:400 22px var(--serif);color:var(--ink);margin-bottom:12px}
+  .diagram-container{width:100%;overflow-x:auto}
+  svg{width:100%;min-width:640px;display:block}
+  svg text{font-family:var(--sans)}
+  .h{font:400 22px var(--serif);fill:var(--ink)}
+  .e{font:500 12px var(--sans);fill:var(--muted)}
+  .t{font:600 16px var(--sans);fill:var(--ink)}
+  .ts{font:600 15px var(--sans);fill:var(--ink)}
+  .s{font:500 13px var(--sans);fill:var(--soft)}
+  .sb{font:500 13px var(--sans);fill:var(--ink)}
+  .a{font:600 15px var(--sans);fill:var(--accent)}
+  .big{font:400 44px var(--serif);fill:var(--ink)}
+  .mid{font:400 34px var(--serif);fill:var(--ink)}
+  .n{fill:#ffffff;stroke:var(--ink);stroke-width:1}
+  .na{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2}
+  .ns{fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1}
+  .ln{stroke:var(--ink);stroke-width:1.2;fill:none}
+  .lm{stroke:var(--muted);stroke-width:1;fill:none}
+  .la{stroke:var(--accent);stroke-width:1.4;fill:none}
+  .dash{stroke-dasharray:5 4}
+</style>
+</head>
+<body>
+<div class="frame">
+<p class="eyebrow">5-3 公里和公尺的加減計算</p>
+<h1>公里和公尺的加減計算</h1>
+<div class="diagram-container">
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-53-04-title mq-53-04-desc">
+  <title id="mq-53-04-title">公里和公尺的加減計算</title>
+  <desc id="mq-53-04-desc">8 公里 － 3 公里 700 公尺 ＝？</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">5-3 公里和公尺的加減計算</text>
+<text x="32" y="58" class="h">公里和公尺的加減計算</text>
+  <line x1="70" y1="230" x2="570" y2="230" class="ln"/>
+<line x1="70" y1="222" x2="70" y2="238" class="lm"/>
+<text x="70" y="260" class="s" text-anchor="middle">0 公里</text>
+<line x1="111" y1="222" x2="111" y2="238" class="lm"/>
+<text x="111" y="260" class="s" text-anchor="middle">1 公里</text>
+<line x1="153" y1="222" x2="153" y2="238" class="lm"/>
+<text x="153" y="260" class="s" text-anchor="middle">2 公里</text>
+<line x1="195" y1="222" x2="195" y2="238" class="lm"/>
+<text x="195" y="260" class="s" text-anchor="middle">3 公里</text>
+<line x1="236" y1="222" x2="236" y2="238" class="lm"/>
+<text x="236" y="260" class="s" text-anchor="middle">4 公里</text>
+<line x1="278" y1="222" x2="278" y2="238" class="lm"/>
+<text x="278" y="260" class="s" text-anchor="middle">5 公里</text>
+<line x1="320" y1="222" x2="320" y2="238" class="lm"/>
+<text x="320" y="260" class="s" text-anchor="middle">6 公里</text>
+<line x1="361" y1="222" x2="361" y2="238" class="lm"/>
+<text x="361" y="260" class="s" text-anchor="middle">7 公里</text>
+<line x1="403" y1="222" x2="403" y2="238" class="lm"/>
+<text x="403" y="260" class="s" text-anchor="middle">8 公里</text>
+<line x1="445" y1="222" x2="445" y2="238" class="lm"/>
+<text x="445" y="260" class="s" text-anchor="middle">9 公里</text>
+<line x1="486" y1="222" x2="486" y2="238" class="lm"/>
+<text x="486" y="260" class="s" text-anchor="middle">10 公里</text>
+<line x1="528" y1="222" x2="528" y2="238" class="lm"/>
+<text x="528" y="260" class="s" text-anchor="middle">11 公里</text>
+<line x1="570" y1="222" x2="570" y2="238" class="lm"/>
+<text x="570" y="260" class="s" text-anchor="middle">12 公里</text>
+<circle cx="224" cy="230" r="8" class="na" fill="#1f51c9"/>
+<text x="224" y="210" class="a" text-anchor="middle">起點</text>
+<circle cx="224" cy="230" r="8" class="na" fill="#1f51c9"/>
+<text x="224" y="210" class="a" text-anchor="middle">終點</text>
+<text x="60" y="330" class="sb" text-anchor="start">從起點走到終點，是多少公里？</text>
+</svg>
+</div>
+</div>
+</body>
+</html>

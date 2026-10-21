@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-11-03-title mq-11-03-desc" id="mq-11-03-root">
+  <title id="mq-11-03-title">十萬以內的數</title>
+  <desc id="mq-11-03-desc">「八萬零三百」寫成數字是多少？</desc>
+  <defs>
+      <style>#mq-11-03-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-11-03-root { font-family: var(--sans); color: var(--ink); }
+      #mq-11-03-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-11-03-root text { font-family:var(--sans) }
+      #mq-11-03-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-11-03-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-11-03-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-11-03-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-11-03-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-11-03-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-11-03-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-11-03-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-11-03-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-11-03-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-11-03-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-11-03-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-11-03-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-11-03-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-11-03-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-11-03-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-11-03-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-11-03-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">1-1 十萬以內的數</text>
+<text x="32" y="58" class="h">十萬以內的數</text>
+  <rect x="70" y="140" width="480" height="52" rx="0" class="n"/>
+<rect x="70" y="192" width="480" height="52" rx="0" class="n"/>
+<line x1="70" y1="140" x2="70" y2="244" class="lm"/>
+<text x="100" y="172" class="s" text-anchor="middle">千萬</text>
+<text x="100" y="228" class="sb" text-anchor="middle">0</text>
+<line x1="130" y1="140" x2="130" y2="244" class="lm"/>
+<text x="160" y="172" class="s" text-anchor="middle">百萬</text>
+<text x="160" y="228" class="sb" text-anchor="middle">0</text>
+<line x1="190" y1="140" x2="190" y2="244" class="lm"/>
+<text x="220" y="172" class="s" text-anchor="middle">十萬</text>
+<text x="220" y="228" class="sb" text-anchor="middle">0</text>
+<line x1="250" y1="140" x2="250" y2="244" class="lm"/>
+<text x="280" y="172" class="s" text-anchor="middle">萬</text>
+<text x="280" y="228" class="sb" text-anchor="middle">8</text>
+<line x1="310" y1="140" x2="310" y2="244" class="lm"/>
+<text x="340" y="172" class="s" text-anchor="middle">千</text>
+<text x="340" y="228" class="sb" text-anchor="middle">0</text>
+<line x1="370" y1="140" x2="370" y2="244" class="lm"/>
+<text x="400" y="172" class="s" text-anchor="middle">百</text>
+<text x="400" y="228" class="sb" text-anchor="middle">3</text>
+<line x1="430" y1="140" x2="430" y2="244" class="lm"/>
+<text x="460" y="172" class="s" text-anchor="middle">十</text>
+<text x="460" y="228" class="sb" text-anchor="middle">0</text>
+<line x1="490" y1="140" x2="490" y2="244" class="lm"/>
+<text x="520" y="172" class="s" text-anchor="middle">一</text>
+<text x="520" y="228" class="sb" text-anchor="middle">0</text>
+<line x1="70" y1="192" x2="550" y2="192" class="lm"/>
+<text x="60" y="330" class="sb" text-anchor="start">先看「萬」前面的部分，再看後面。</text>
+</svg>

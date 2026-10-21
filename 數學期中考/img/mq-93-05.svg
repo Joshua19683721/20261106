@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-93-05-title mq-93-05-desc" id="mq-93-05-root">
+  <title id="mq-93-05-title">同分母分數的加減</title>
+  <desc id="mq-93-05-desc">5/7 － 2/7 ＝？</desc>
+  <defs>
+      <style>#mq-93-05-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-93-05-root { font-family: var(--sans); color: var(--ink); }
+      #mq-93-05-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-93-05-root text { font-family:var(--sans) }
+      #mq-93-05-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-93-05-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-93-05-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-93-05-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-93-05-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-93-05-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-93-05-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-93-05-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-93-05-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-93-05-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-93-05-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-93-05-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-93-05-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-93-05-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-93-05-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-93-05-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-93-05-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-93-05-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">9-3 同分母分數的加減</text>
+<text x="32" y="58" class="h">同分母分數的加減</text>
+  <rect x="90" y="150" width="220" height="54" rx="4" class="n"/>
+<line x1="121" y1="150" x2="121" y2="204" class="lm"/>
+<line x1="152" y1="150" x2="152" y2="204" class="lm"/>
+<line x1="184" y1="150" x2="184" y2="204" class="lm"/>
+<line x1="215" y1="150" x2="215" y2="204" class="lm"/>
+<line x1="247" y1="150" x2="247" y2="204" class="lm"/>
+<line x1="278" y1="150" x2="278" y2="204" class="lm"/>
+<rect x="91" y="151" width="28" height="51" rx="3" class="na"/>
+<rect x="122" y="151" width="28" height="51" rx="3" class="na"/>
+<rect x="154" y="151" width="28" height="51" rx="3" class="na"/>
+<rect x="185" y="151" width="28" height="51" rx="3" class="na"/>
+<rect x="217" y="151" width="28" height="51" rx="3" class="na"/>
+<text x="200" y="234" class="sb" text-anchor="middle">5/7</text>
+<rect x="350" y="150" width="220" height="54" rx="4" class="n"/>
+<line x1="381" y1="150" x2="381" y2="204" class="lm"/>
+<line x1="412" y1="150" x2="412" y2="204" class="lm"/>
+<line x1="444" y1="150" x2="444" y2="204" class="lm"/>
+<line x1="475" y1="150" x2="475" y2="204" class="lm"/>
+<line x1="507" y1="150" x2="507" y2="204" class="lm"/>
+<line x1="538" y1="150" x2="538" y2="204" class="lm"/>
+<rect x="351" y="151" width="28" height="51" rx="3" class="na"/>
+<rect x="382" y="151" width="28" height="51" rx="3" class="na"/>
+<text x="460" y="234" class="sb" text-anchor="middle">2/7</text>
+<text x="60" y="320" class="sb" text-anchor="start">同分母分數相加，分母不變、分子相加。</text>
+</svg>

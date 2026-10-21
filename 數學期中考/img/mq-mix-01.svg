@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-mix-01-title mq-mix-01-desc" id="mq-mix-01-root">
+  <title id="mq-mix-01-title">統整應用</title>
+  <desc id="mq-mix-01-desc">一臺平板電腦 3,250 元，買 8 臺共多少元？</desc>
+  <defs>
+      <style>#mq-mix-01-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-mix-01-root { font-family: var(--sans); color: var(--ink); }
+      #mq-mix-01-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-mix-01-root text { font-family:var(--sans) }
+      #mq-mix-01-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-mix-01-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-mix-01-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-mix-01-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-mix-01-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-mix-01-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-mix-01-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-mix-01-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-mix-01-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-mix-01-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-mix-01-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-mix-01-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-mix-01-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-mix-01-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-mix-01-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-mix-01-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-mix-01-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-mix-01-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">統整應用 統整應用</text>
+<text x="32" y="58" class="h">統整應用</text>
+  <text x="60" y="120" class="ts" text-anchor="start">買 8 臺平板電腦</text>
+<rect x="60" y="150" width="220" height="90" rx="6" class="n"/>
+<text x="170" y="200" class="a" text-anchor="middle">3,250</text>
+<text x="170" y="226" class="s" text-anchor="middle">（每 8 一個）</text>
+<text x="360" y="200" class="ts" text-anchor="middle">× 8</text>
+<text x="60" y="340" class="sb" text-anchor="start">題目裡的數字，都可以在圖上找到。</text>
+</svg>

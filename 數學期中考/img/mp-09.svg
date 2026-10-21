@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mp-09-title mp-09-desc" id="mp-09-root">
+  <title id="mp-09-title">素養題組・公里</title>
+  <desc id="mp-09-desc">登山步道的里程標示：\n第一段 2 公里 300 公尺，\n第二段 1 公里 8</desc>
+  <defs>
+      <style>#mp-09-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mp-09-root { font-family: var(--sans); color: var(--ink); }
+      #mp-09-root .diagram-container { width:100%;overflow-x:auto }
+      #mp-09-root text { font-family:var(--sans) }
+      #mp-09-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mp-09-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mp-09-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mp-09-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mp-09-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mp-09-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mp-09-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mp-09-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mp-09-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mp-09-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mp-09-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mp-09-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mp-09-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mp-09-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mp-09-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mp-09-root .dash { stroke-dasharray:5 4 }</style><marker id="mp-09-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mp-09-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">素養題組・公里</text>
+<text x="32" y="58" class="h">素養題組・公里</text>
+  <text x="60" y="120" class="ts" text-anchor="start">短文裡的數據</text>
+<rect x="60" y="140" width="168" height="64" rx="6" class="n"/>
+<text x="72" y="166" class="s" text-anchor="start">第段 </text>
+<text x="72" y="192" class="a" text-anchor="start">2 公里</text>
+<rect x="244" y="140" width="168" height="64" rx="6" class="n"/>
+<text x="256" y="166" class="s" text-anchor="start">公里 </text>
+<text x="256" y="192" class="a" text-anchor="start">300 公尺</text>
+<rect x="428" y="140" width="168" height="64" rx="6" class="n"/>
+<text x="440" y="166" class="s" text-anchor="start">第段 </text>
+<text x="440" y="192" class="a" text-anchor="start">1 公里</text>
+<rect x="60" y="216" width="168" height="64" rx="6" class="n"/>
+<text x="72" y="242" class="s" text-anchor="start">公里 </text>
+<text x="72" y="268" class="a" text-anchor="start">800 公尺</text>
+<rect x="244" y="216" width="168" height="64" rx="6" class="n"/>
+<text x="256" y="242" class="s" text-anchor="start">公里 </text>
+<text x="256" y="268" class="a" text-anchor="start">500 公尺</text>
+<text x="60" y="350" class="sb" text-anchor="start">把短文的數字和題目對起來，計算就會更清楚。</text>
+</svg>

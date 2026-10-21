@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-52-02-title mq-52-02-desc" id="mq-52-02-root">
+  <title id="mq-52-02-title">公里、公尺和公分的換算</title>
+  <desc id="mq-52-02-desc">3800 公尺是幾公里幾公尺？</desc>
+  <defs>
+      <style>#mq-52-02-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-52-02-root { font-family: var(--sans); color: var(--ink); }
+      #mq-52-02-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-52-02-root text { font-family:var(--sans) }
+      #mq-52-02-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-52-02-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-52-02-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-52-02-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-52-02-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-52-02-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-52-02-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-52-02-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-52-02-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-52-02-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-52-02-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-52-02-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-52-02-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-52-02-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-52-02-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-52-02-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-52-02-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-52-02-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">5-2 公里、公尺和公分的換算</text>
+<text x="32" y="58" class="h">公里、公尺和公分的換算</text>
+  <line x1="90" y1="250" x2="570" y2="250" class="ln"/>
+<line x1="90" y1="244" x2="90" y2="256" class="lm"/>
+<text x="90" y="278" class="s" text-anchor="middle">0</text>
+<line x1="138" y1="244" x2="138" y2="256" class="lm"/>
+<text x="138" y="278" class="s" text-anchor="middle">1</text>
+<line x1="186" y1="244" x2="186" y2="256" class="lm"/>
+<text x="186" y="278" class="s" text-anchor="middle">2</text>
+<line x1="234" y1="244" x2="234" y2="256" class="lm"/>
+<text x="234" y="278" class="s" text-anchor="middle">3</text>
+<line x1="282" y1="244" x2="282" y2="256" class="lm"/>
+<text x="282" y="278" class="s" text-anchor="middle">4</text>
+<line x1="330" y1="244" x2="330" y2="256" class="lm"/>
+<text x="330" y="278" class="s" text-anchor="middle">5</text>
+<line x1="378" y1="244" x2="378" y2="256" class="lm"/>
+<text x="378" y="278" class="s" text-anchor="middle">6</text>
+<line x1="426" y1="244" x2="426" y2="256" class="lm"/>
+<text x="426" y="278" class="s" text-anchor="middle">7</text>
+<line x1="474" y1="244" x2="474" y2="256" class="lm"/>
+<text x="474" y="278" class="s" text-anchor="middle">8</text>
+<line x1="522" y1="244" x2="522" y2="256" class="lm"/>
+<text x="522" y="278" class="s" text-anchor="middle">9</text>
+<line x1="570" y1="244" x2="570" y2="256" class="lm"/>
+<text x="570" y="278" class="s" text-anchor="middle">10</text>
+<circle cx="234" cy="250" r="10" class="na" fill="#1f51c9"/>
+<text x="234" y="220" class="a" text-anchor="middle">3800 公尺</text>
+<text x="60" y="320" class="sb" text-anchor="start">尺規上每一大格是 1 公里。</text>
+</svg>

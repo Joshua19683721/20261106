@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-85-01-title mq-85-01-desc" id="mq-85-01-root">
+  <title id="mq-85-01-title">四則混合</title>
+  <desc id="mq-85-01-desc">120－（35＋25）＝？</desc>
+  <defs>
+      <style>#mq-85-01-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-85-01-root { font-family: var(--sans); color: var(--ink); }
+      #mq-85-01-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-85-01-root text { font-family:var(--sans) }
+      #mq-85-01-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-85-01-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-85-01-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-85-01-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-85-01-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-85-01-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-85-01-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-85-01-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-85-01-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-85-01-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-85-01-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-85-01-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-85-01-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-85-01-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-85-01-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-85-01-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-85-01-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-85-01-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">8-5 四則混合</text>
+<text x="32" y="58" class="h">四則混合</text>
+  <text x="90" y="130" class="ts" text-anchor="start">這題的算式：</text>
+<rect x="90" y="150" width="300" height="64" rx="6" class="n"/>
+<text x="240" y="192" class="a" text-anchor="middle">35＋25</text>
+<text x="90" y="250" class="s" text-anchor="start">先算哪一步？照著順序想。</text>
+<text x="90" y="280" class="sb" text-anchor="start">括號 → 乘除 → 加減</text>
+<text x="60" y="330" class="sb" text-anchor="start">把每一步寫下來，就不容易算錯。</text>
+</svg>

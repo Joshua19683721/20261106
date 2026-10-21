@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-32-02-title mq-32-02-desc" id="mq-32-02-root">
+  <title id="mq-32-02-title">測量角的大小和畫角</title>
+  <desc id="mq-32-02-desc">要畫一個角，第一步應該先做什麼？</desc>
+  <defs>
+      <style>#mq-32-02-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-32-02-root { font-family: var(--sans); color: var(--ink); }
+      #mq-32-02-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-32-02-root text { font-family:var(--sans) }
+      #mq-32-02-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-32-02-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-32-02-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-32-02-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-32-02-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-32-02-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-32-02-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-32-02-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-32-02-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-32-02-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-32-02-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-32-02-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-32-02-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-32-02-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-32-02-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-32-02-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-32-02-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-32-02-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">3-2 測量角的大小和畫角</text>
+<text x="32" y="58" class="h">測量角的大小和畫角</text>
+  <path d="M 120 250 A 130 130 0 0 1 380 250" class="lm"/>
+<line x1="134" y1="250" x2="120" y2="249" class="ln"/>
+<line x1="135" y1="229" x2="121" y2="227" class="lm"/>
+<line x1="140" y1="210" x2="127" y2="205" class="lm"/>
+<line x1="149" y1="192" x2="137" y2="185" class="ln"/>
+<line x1="161" y1="175" x2="150" y2="166" class="lm"/>
+<line x1="175" y1="161" x2="166" y2="150" class="lm"/>
+<line x1="192" y1="149" x2="185" y2="137" class="ln"/>
+<line x1="210" y1="140" x2="205" y2="127" class="lm"/>
+<line x1="229" y1="135" x2="227" y2="121" class="lm"/>
+<line x1="250" y1="134" x2="250" y2="120" class="ln"/>
+<line x1="270" y1="135" x2="272" y2="121" class="lm"/>
+<line x1="289" y1="140" x2="294" y2="127" class="lm"/>
+<line x1="308" y1="149" x2="315" y2="137" class="ln"/>
+<line x1="324" y1="161" x2="333" y2="150" class="lm"/>
+<line x1="338" y1="175" x2="349" y2="166" class="lm"/>
+<line x1="350" y1="192" x2="362" y2="185" class="ln"/>
+<line x1="359" y1="210" x2="372" y2="205" class="lm"/>
+<line x1="364" y1="229" x2="378" y2="227" class="lm"/>
+<line x1="366" y1="250" x2="380" y2="250" class="ln"/>
+<line x1="120" y1="250" x2="380" y2="250" class="lm"/>
+<line x1="250" y1="250" x2="250" y2="120" class="la" marker-end="url(#mq-32-02-arrow-accent)"/>
+<line x1="250" y1="250" x2="120" y2="249" class="la" stroke-width="2"/>
+<text x="264" y="146" class="s" text-anchor="start">0 度線</text>
+<text x="310" y="190" class="s" text-anchor="start">中心</text>
+<text x="70" y="120" class="s" text-anchor="start">內圈、外圈刻度</text>
+<text x="60" y="330" class="sb" text-anchor="start">看角的兩邊打開時，量角器上會不會超過半圈。</text>
+</svg>

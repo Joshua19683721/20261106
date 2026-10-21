@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-73-04-title mq-73-04-desc" id="mq-73-04-root">
+  <title id="mq-73-04-title">小數的加減</title>
+  <desc id="mq-73-04-desc">5.7 － 2.3 ＝？</desc>
+  <defs>
+      <style>#mq-73-04-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-73-04-root { font-family: var(--sans); color: var(--ink); }
+      #mq-73-04-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-73-04-root text { font-family:var(--sans) }
+      #mq-73-04-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-73-04-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-73-04-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-73-04-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-73-04-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-73-04-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-73-04-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-73-04-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-73-04-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-73-04-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-73-04-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-73-04-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-73-04-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-73-04-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-73-04-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-73-04-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-73-04-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-73-04-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">7-3 小數的加減</text>
+<text x="32" y="58" class="h">小數的加減</text>
+  <text x="90" y="140" class="ts" text-anchor="start">小數點</text>
+<line x1="90" y1="150" x2="560" y2="150" class="lm dash"/>
+<text x="150" y="176" class="ts" text-anchor="start">5.7</text>
+<line x1="150" y1="190" x2="150" y2="240" class="lm"/>
+<text x="176" y="224" class="sb" text-anchor="middle">5</text>
+<line x1="202" y1="190" x2="202" y2="240" class="lm"/>
+<text x="228" y="224" class="sb" text-anchor="middle">7</text>
+<text x="470" y="176" class="ts" text-anchor="start">2.3</text>
+<line x1="470" y1="190" x2="470" y2="240" class="lm"/>
+<text x="496" y="224" class="sb" text-anchor="middle">2</text>
+<line x1="522" y1="190" x2="522" y2="240" class="lm"/>
+<text x="548" y="224" class="sb" text-anchor="middle">3</text>
+<text x="60" y="320" class="sb" text-anchor="start">小數點要對齊，再一位一位算。</text>
+</svg>

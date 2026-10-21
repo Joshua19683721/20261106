@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-102-03-title mq-102-03-desc" id="mq-102-03-root">
+  <title id="mq-102-03-title">報讀與繪製長條圖</title>
+  <desc id="mq-102-03-desc">承上題（籃球 12 人、躲避球 8 人、羽球 6 人、桌球 4 人），這個班共有</desc>
+  <defs>
+      <style>#mq-102-03-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-102-03-root { font-family: var(--sans); color: var(--ink); }
+      #mq-102-03-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-102-03-root text { font-family:var(--sans) }
+      #mq-102-03-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-102-03-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-102-03-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-102-03-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-102-03-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-102-03-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-102-03-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-102-03-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-102-03-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-102-03-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-102-03-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-102-03-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-102-03-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-102-03-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-102-03-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-102-03-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-102-03-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-102-03-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">10-2 報讀與繪製長條圖</text>
+<text x="32" y="58" class="h">報讀與繪製長條圖</text>
+  <line x1="140" y1="300" x2="140" y2="50" class="ln"/>
+<line x1="140" y1="300" x2="560" y2="300" class="ln"/>
+<line x1="140" y1="300" x2="560" y2="300" class="lm dash"/>
+<text x="128" y="305" class="s" text-anchor="end">0</text>
+<line x1="140" y1="264" x2="560" y2="264" class="lm dash"/>
+<text x="128" y="269" class="s" text-anchor="end">2</text>
+<line x1="140" y1="228" x2="560" y2="228" class="lm dash"/>
+<text x="128" y="233" class="s" text-anchor="end">4</text>
+<line x1="140" y1="192" x2="560" y2="192" class="lm dash"/>
+<text x="128" y="197" class="s" text-anchor="end">6</text>
+<line x1="140" y1="157" x2="560" y2="157" class="lm dash"/>
+<text x="128" y="162" class="s" text-anchor="end">8</text>
+<line x1="140" y1="121" x2="560" y2="121" class="lm dash"/>
+<text x="128" y="126" class="s" text-anchor="end">10</text>
+<line x1="140" y1="85" x2="560" y2="85" class="lm dash"/>
+<text x="128" y="90" class="s" text-anchor="end">12</text>
+<line x1="140" y1="50" x2="560" y2="50" class="lm dash"/>
+<text x="128" y="55" class="s" text-anchor="end">14</text>
+<rect x="180" y="85" width="22" height="214" rx="6" class="n"/>
+<rect x="180" y="85" width="22" height="214" rx="6" class="na"/>
+<text x="191" y="326" class="ts" text-anchor="middle">籃球</text>
+<rect x="270" y="157" width="22" height="142" rx="6" class="n"/>
+<rect x="270" y="157" width="22" height="142" rx="6" class="na"/>
+<text x="281" y="326" class="ts" text-anchor="middle">躲避球</text>
+<rect x="360" y="192" width="22" height="107" rx="6" class="n"/>
+<rect x="360" y="192" width="22" height="107" rx="6" class="na"/>
+<text x="371" y="326" class="ts" text-anchor="middle">羽球</text>
+<rect x="450" y="228" width="22" height="71" rx="6" class="n"/>
+<rect x="450" y="228" width="22" height="71" rx="6" class="na"/>
+<text x="461" y="326" class="ts" text-anchor="middle">桌球</text>
+<text x="100" y="42" class="s" text-anchor="end">人</text>
+<text x="60" y="350" class="sb" text-anchor="start">每一格代表 2 人，數一數每根長條有幾格。</text>
+</svg>

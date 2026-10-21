@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mq-65-06-title mq-65-06-desc" id="mq-65-06-root">
+  <title id="mq-65-06-title">全等圖形與全等三角形</title>
+  <desc id="mq-65-06-desc">兩個全等三角形中，一個角是 60 度，它的對應角是幾度？</desc>
+  <defs>
+      <style>#mq-65-06-root { --paper:#f6f8fc;--paper2:#eef2f8;--ink:#1f2933;--muted:#52606d;--soft:#7b8794;
+    --rule:#c3ccd8;--accent:#1f51c9;--accent-tint:rgba(31,81,201,0.08);
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --serif:'Noto Serif TC','Songti TC',serif; }
+      #mq-65-06-root { font-family: var(--sans); color: var(--ink); }
+      #mq-65-06-root .diagram-container { width:100%;overflow-x:auto }
+      #mq-65-06-root text { font-family:var(--sans) }
+      #mq-65-06-root .h { font:400 22px var(--serif);fill:var(--ink) }
+      #mq-65-06-root .e { font:500 12px var(--sans);fill:var(--muted) }
+      #mq-65-06-root .t { font:600 16px var(--sans);fill:var(--ink) }
+      #mq-65-06-root .ts { font:600 15px var(--sans);fill:var(--ink) }
+      #mq-65-06-root .s { font:500 13px var(--sans);fill:var(--soft) }
+      #mq-65-06-root .sb { font:500 13px var(--sans);fill:var(--ink) }
+      #mq-65-06-root .a { font:600 15px var(--sans);fill:var(--accent) }
+      #mq-65-06-root .big { font:400 44px var(--serif);fill:var(--ink) }
+      #mq-65-06-root .mid { font:400 34px var(--serif);fill:var(--ink) }
+      #mq-65-06-root .n { fill:#ffffff;stroke:var(--ink);stroke-width:1 }
+      #mq-65-06-root .na { fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.2 }
+      #mq-65-06-root .ns { fill:rgba(31,41,51,0.05);stroke:var(--muted);stroke-width:1 }
+      #mq-65-06-root .ln { stroke:var(--ink);stroke-width:1.2;fill:none }
+      #mq-65-06-root .lm { stroke:var(--muted);stroke-width:1;fill:none }
+      #mq-65-06-root .la { stroke:var(--accent);stroke-width:1.4;fill:none }
+      #mq-65-06-root .dash { stroke-dasharray:5 4 }</style><marker id="mq-65-06-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#52606d"/></marker><marker id="mq-65-06-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f51c9"/></marker></defs>
+  <rect width="100%" height="100%" fill="#f6f8fc"/>
+  <text x="32" y="30" class="e">6-5 全等圖形與全等三角形</text>
+<text x="32" y="58" class="h">全等圖形與全等三角形</text>
+  <path d="M 120 250 L 190 140 L 260 250 Z" class="ln"/>
+<path d="M 380 250 L 450 140 L 520 250 Z" class="la" stroke-dasharray="5,4"/>
+<line x1="190" y1="140" x2="450" y2="140" class="lm dash"/>
+<line x1="260" y1="250" x2="520" y2="250" class="lm dash"/>
+<text x="190" y="278" class="sb" text-anchor="middle">邊 A</text>
+<text x="440" y="278" class="sb" text-anchor="middle">邊 A</text>
+<text x="60" y="330" class="sb" text-anchor="start">兩個圖形疊合後完全重合，重合的邊和角都一樣長。</text>
+</svg>

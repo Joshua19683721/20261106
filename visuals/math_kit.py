@@ -252,16 +252,24 @@ def line_chart(data, labels, unit='', x0=140, base=300, w=420, h=240, vmax=None)
     return b
 
 
-def num_cards(a, b, x0=150, y0=150, cw=150, ch=90):
-    """大數比較：兩張數字卡 + 中間的符號框。"""
-    b = []
-    for i, n in enumerate([a, b]):
-        x = x0 + i * 260
-        b.append(R(x, y0, cw, ch, 'n'))
-        b.append(T(x + cw / 2, y0 + 58, n, 'ts', 'middle'))
-    b.append(R(x0 + cw + 30, y0 + 20, 60, 50, 'n'))
-    b.append(T(x0 + cw + 60, y0 + 54, '?', 'a', 'middle'))
-    return b
+def num_cards(a, b, x0=150, y0=150, cw=150, ch=90, extra=None):
+    """數字比較卡：2～3 張數字卡 + 中間的符號框（不超出 640 寬）。"""
+    items = [a, b]
+    if extra:
+        items.append(extra)
+    n = len(items)
+    gap = 24
+    total = n * cw + (n - 1) * gap
+    start = max(20, (640 - total) / 2)
+    out = []
+    for i, v in enumerate(items):
+        x = start + i * (cw + gap)
+        out.append(R(x, y0, cw, ch, 'n'))
+        out.append(T(x + cw / 2, y0 + 58, v, 'ts', 'middle'))
+        if i < n - 1:
+            out.append(R(x + cw + 4, y0 + 20, 16, 50, 'n'))
+            out.append(T(x + cw + 12, y0 + 54, '?', 'a', 'middle'))
+    return out
 
 
 def story(title, lines, icon=None, x=90, y=130):
@@ -273,3 +281,13 @@ def story(title, lines, icon=None, x=90, y=130):
     for i, ln in enumerate(lines):
         b.append(T(x + 150, y + 40 + i * 26, ln, 's'))
     return b
+
+
+def scale_allow(step, vmax):
+    """圖表刻度（由題目數字推導）：回傳刻度上的所有數值。"""
+    out = set()
+    k = 1
+    while k * step <= vmax + 0.001:
+        out.add(int(k * step))
+        k += 1
+    return out
