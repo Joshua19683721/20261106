@@ -44,15 +44,30 @@ create index if not exists submissions_subject_idx on public.submissions (subjec
 create index if not exists done_questions_subject_idx on public.done_questions (subject);
 
 -- ------------------------------------------------------------
+-- 再考題目（爸爸討論過後，把錯題放回下次小考優先抽）
+-- 和 done_questions 相反：這裡的題目會被「優先」出卷
+-- ------------------------------------------------------------
+create table if not exists public.retry_questions (
+  id          text primary key,
+  subject     text not null,
+  label       text not null default '',
+  unit        text not null default '',
+  created_at  timestamptz not null default now()
+);
+create index if not exists retry_questions_subject_idx on public.retry_questions (subject);
+
+-- ------------------------------------------------------------
 -- 權限：這是家用網站，兒子那一端不需要登入，
 -- 所以開放 anon 角色讀寫。網址本身是唯一門檻。
 -- 若之後要更嚴格，可改用 Supabase Auth 登入後再寫入。
 -- ------------------------------------------------------------
-grant select, insert, update, delete on public.submissions to anon;
-grant select, insert, delete on public.done_questions to anon;
+grant select, insert, update, delete on public.submissions      to anon;
+grant select, insert, delete on public.done_questions           to anon;
+grant select, insert, delete on public.retry_questions          to anon;
 
-alter table public.submissions     enable row level security;
-alter table public.done_questions  enable row level security;
+alter table public.submissions      enable row level security;
+alter table public.done_questions   enable row level security;
+alter table public.retry_questions  enable row level security;
 
 drop policy if exists "qc submissions read"   on public.submissions;
 drop policy if exists "qc submissions insert" on public.submissions;
@@ -61,6 +76,9 @@ drop policy if exists "qc submissions delete" on public.submissions;
 drop policy if exists "qc done read"          on public.done_questions;
 drop policy if exists "qc done insert"        on public.done_questions;
 drop policy if exists "qc done delete"        on public.done_questions;
+drop policy if exists "qc retry read"         on public.retry_questions;
+drop policy if exists "qc retry insert"       on public.retry_questions;
+drop policy if exists "qc retry delete"       on public.retry_questions;
 
 create policy "qc submissions read"   on public.submissions for select to anon using (true);
 create policy "qc submissions insert" on public.submissions for insert to anon with check (true);
@@ -72,9 +90,14 @@ create policy "qc done read"   on public.done_questions for select to anon using
 create policy "qc done insert" on public.done_questions for insert to anon with check (true);
 create policy "qc done delete" on public.done_questions for delete to anon using (true);
 
+create policy "qc retry read"   on public.retry_questions for select to anon using (true);
+create policy "qc retry insert" on public.retry_questions for insert to anon with check (true);
+create policy "qc retry delete" on public.retry_questions for delete to anon using (true);
+
 -- ------------------------------------------------------------
 -- 完成後回傳目前筆數，確認有建立成功
 -- ------------------------------------------------------------
 select
-  (select count(*) from public.submissions)    as submissions,
-  (select count(*) from public.done_questions) as done_questions;
+  (select count(*) from public.submissions)     as submissions,
+  (select count(*) from public.done_questions)  as done_questions,
+  (select count(*) from public.retry_questions) as retry_questions;

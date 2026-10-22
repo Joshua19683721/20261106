@@ -38,9 +38,9 @@
   .sdot.on{background:#22a06b;box-shadow:0 0 0 3px rgba(34,160,107,.15)}
   .sdot.off{background:#d64545;box-shadow:0 0 0 3px rgba(214,69,69,.14)}
 
-  .tabs{max-width:1040px;margin:0 auto;padding:0 18px;display:flex;gap:4px}
+  .tabs{max-width:1040px;margin:0 auto;padding:0 18px;display:flex;gap:4px;flex-wrap:wrap}
   .tab{
-    appearance:none;border:0;background:transparent;cursor:pointer;
+    appearance:none;border:0;background:transparent;cursor:pointer;flex:0 0 auto;
     font:700 13.5px/1 "Noto Sans TC",sans-serif;color:var(--ink3);
     padding:11px 13px;border-bottom:2.5px solid transparent;margin-bottom:-1px;
   }
@@ -132,6 +132,54 @@
   .tag.unit{background:#eef3ff;color:#2a5bb8}
   .tag.paper{background:#f3eefb;color:#6b4a9e}
   .tag.done{background:#e8f6ee;color:#1c6b43}
+  .tag.retry{background:#fff4e2;color:#9a6200}
+
+  /* ---------- 題庫總表 ---------- */
+  .st-summary{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-bottom:18px}
+  @media(max-width:760px){.st-summary{grid-template-columns:repeat(3,1fr)}}
+  .st-sum{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 13px}
+  .st-sum .k{font-size:11px;color:var(--ink3);font-weight:800;letter-spacing:.02em}
+  .st-sum .v{font-size:21px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.35}
+  .st-sum .v.ok{color:var(--ok)} .st-sum .v.warn{color:var(--warn)} .st-sum .v.bad{color:var(--bad)}
+
+  .st-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:16px}
+  .st-head,.st-subj>summary,.st-unit .st-row{display:grid;grid-template-columns:1.7fr repeat(5,1fr);gap:6px;align-items:center}
+  .st-head{padding:10px 14px;background:#f7f9fc;font:800 11px/1.35 "Noto Sans TC",sans-serif;color:var(--ink3)}
+  .st-head span:not(:first-child),.st-num{text-align:right;font-variant-numeric:tabular-nums}
+  .st-subj{border-top:1px solid #eef2f8}
+  .st-subj>summary{list-style:none;cursor:pointer;padding:11px 14px;font-size:13.5px}
+  .st-subj>summary::-webkit-details-marker{display:none}
+  .st-subj>summary:hover{background:#f9fbfe}
+  .st-subj .nm{font-weight:800;display:flex;align-items:center;gap:7px;min-width:0}
+  .st-subj .nm .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .st-num{font-weight:700;font-size:13px}
+  .st-num.ok{color:var(--ok)} .st-num.warn{color:var(--warn)} .st-num.bad{color:var(--bad)}
+  .st-unit{background:#fbfcfe;border-top:1px solid #f1f4f9}
+  .st-unit .st-row{padding:7px 14px 7px 32px;font-size:12px;border-top:1px solid #f4f6fa}
+  .st-unit .st-row:first-child{border-top:0}
+  .st-unit .nm{color:var(--ink2);font-weight:700;min-width:0}
+  .st-note{font-size:12px;color:var(--ink3);font-weight:600;margin-top:8px;line-height:1.6}
+  .st-anom{padding:10px 14px;border-top:1px solid #eef2f8;font-size:12.5px;line-height:1.6;font-weight:700}
+  .st-anom b{display:block;margin-bottom:2px}
+  .st-anom .id{font:700 11px/1.4 ui-monospace,Menlo,monospace;color:var(--ink3)}
+
+  .st-tools{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}
+  .st-tools select,.st-tools input{
+    border:1.5px solid #dbe3ef;border-radius:10px;padding:9px 10px;background:#fff;
+    font:700 13px/1 "Noto Sans TC",sans-serif;color:var(--ink2);min-width:0;
+  }
+  .st-tools input{flex:1;min-width:160px}
+  .st-qlist{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .st-q{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-top:1px solid #eef2f8;font-size:13px}
+  .st-q:first-child{border-top:0}
+  .st-q .qm{flex:1;min-width:0}
+  .st-q .qt{font-weight:700;line-height:1.5;word-break:break-word}
+  .st-q .qu{font-size:11.5px;color:var(--ink3);font-weight:700;margin-top:2px}
+  .st-q .st{flex:0 0 auto;font-size:11px;font-weight:800;border-radius:999px;padding:4px 8px;background:#eef2f8;color:var(--ink2);white-space:nowrap}
+  .st-q .st.new{background:#eef2f8;color:#52606d}
+  .st-q .st.seen{background:#eef3ff;color:#2a5bb8}
+  .st-q .st.done{background:#e8f6ee;color:#1c6b43}
+  .st-q .st.retry{background:#fff4e2;color:#9a6200}
 
   .passage{
     background:#f7f9fc;border:1px solid #e6ecf5;border-left:4px solid #b9cdf0;border-radius:10px;
@@ -231,8 +279,16 @@
     poll: null,
     detail: null,
     doneSet: {},
+    retrySet: {},
+    retryErr: null,
     showAll: false,
-    tab: "todo"
+    tab: "todo",
+    manifest: null,
+    statMeta: null,
+    statSeen: {},
+    statDone: {},
+    statRetry: {},
+    statRetryErr: null
   };
 
   /* ---------------- 共用小工具 ---------------- */
@@ -344,12 +400,18 @@
         tabBtn("all", "全部", A.rows.length) +
         tabBtn("done", "已檢討", doneAll.length) +
         tabBtn("bank", "已標記題目", "") +
+        tabBtn("retry", "再考清單", "") +
+        tabBtn("stats", "題庫總表", "") +
       '</div></header>';
 
     html += '<main>';
 
     if (A.tab === "bank") {
       html += '<div id="bankBox"><div class="empty">載入中…</div></div>';
+    } else if (A.tab === "retry") {
+      html += '<div id="retryBox"><div class="empty">載入中…</div></div>';
+    } else if (A.tab === "stats") {
+      html += '<div id="statsBox"><div class="empty">正在核對題庫與資料庫…</div></div>';
     } else if (!list.length) {
       html += '<div class="empty"><div class="big">🎉</div>' +
         (A.tab === "todo" ? "目前沒有待檢討的考卷。" : "這裡還沒有紀錄。") + '</div>';
@@ -386,6 +448,8 @@
     });
 
     if (A.tab === "bank") renderBank();
+    if (A.tab === "retry") renderRetry();
+    if (A.tab === "stats") renderStats();
   }
 
   function tabBtn(id, label, n) {
@@ -436,6 +500,292 @@
     });
   }
 
+  /* ---------------- 再考清單 ---------------- */
+  function renderRetry() {
+    var box = document.getElementById("retryBox");
+    if (!box) return;
+
+    QCORE.listRetry().then(function (rows) {
+      if (!rows || !rows.length) {
+        box.innerHTML = '<div class="empty"><div class="big">🔁</div>再考清單是空的。<br>在考卷裡把討論過的錯題按「討論過了，放回題庫」，下次小考就會優先出這些題目。</div>';
+        return;
+      }
+
+      var html = '<div class="sec-title">再考清單 ' + rows.length + ' 題（下次小考優先出）</div><div class="list">';
+      rows.forEach(function (r) {
+        var s = subjOf(r.subject);
+        html += '<div class="row">' +
+          '<span class="dot" style="background:' + s.color + '"></span>' +
+          '<div class="main">' +
+            '<div class="l1"><span class="subj">' + QCORE.esc(s.short) + '</span>' +
+              (r.unit ? '<span class="tag unit">' + QCORE.esc(r.unit) + '</span>' : '') +
+              '<span class="when">' + QCORE.esc(QCORE.fmtDateTime(r.created_at)) + '</span>' +
+            '</div>' +
+            '<div class="l2">' + QCORE.esc(QCORE.plain(r.label || r.id)) + '</div>' +
+          '</div>' +
+          '<button class="go" type="button" data-unretry3="' + QCORE.esc(r.id) + '">取消</button>' +
+        '</div>';
+      });
+      html += '</div>';
+      box.innerHTML = html;
+
+      box.querySelectorAll("[data-unretry3]").forEach(function (b) {
+        b.onclick = function () {
+          QCORE.removeRetry(b.getAttribute("data-unretry3")).then(function () {
+            toast("已從再考清單移除");
+            renderRetry();
+          }).catch(function (e) { toast("取消失敗：" + e.message); });
+        };
+      });
+    }).catch(function (e) {
+      box.innerHTML = '<div class="err-box">' + QCORE.esc(e.message) + '</div>' +
+        '<div class="notice">請到 Supabase → SQL Editor 執行最新版的「小考/supabase.sql」，建立 <code>retry_questions</code> 資料表。</div>';
+    });
+  }
+
+  /* ---------------- 題庫總表／資料檢查 ---------------- */
+  function sumCard(k, v, cls) {
+    return '<div class="st-sum"><div class="k">' + k + '</div><div class="v' + (cls ? " " + cls : "") + '">' + v + '</div></div>';
+  }
+
+  function numCell(n, cls) {
+    return '<span class="st-num' + (cls ? " " + cls : "") + '">' + n + '</span>';
+  }
+
+  function statOf(x) {
+    return x.done ? "done" : x.retry ? "retry" : x.seen ? "seen" : "new";
+  }
+
+  function statLabel(k) {
+    return k === "done" ? "已檢討" : k === "retry" ? "再考" : k === "seen" ? "測驗過" : "未測驗";
+  }
+
+  function anomBlock(title, list) {
+    var h = '<div class="st-anom"><b>' + QCORE.esc(title) + '（' + list.length + '）</b>';
+    list.slice(0, 40).forEach(function (x) {
+      var line = x.label ? QCORE.plain(x.label) : "";
+      if (x.unit) line += (line ? " ・ " : "") + x.unit;
+      if (!line) line = x.id || "";
+      h += '<div>' + QCORE.esc(line) + ' <span class="id">' + QCORE.esc(x.id || "") + '</span></div>';
+    });
+    if (list.length > 40) h += '<div class="st-note">只列出前 40 筆。</div>';
+    return h + '</div>';
+  }
+
+  function paintStatQ() {
+    var box = document.getElementById("stQList");
+    if (!box || !A.statMeta) return;
+
+    var selS = document.getElementById("stSubj");
+    var selT = document.getElementById("stStat");
+    var inp = document.getElementById("stQ");
+    var fs = selS ? selS.value : "";
+    var ft = selT ? selT.value : "";
+    var q = inp ? (inp.value || "").trim().toLowerCase() : "";
+
+    var rows = A.statMeta.filter(function (x) {
+      if (fs && x.s !== fs) return false;
+      if (ft && statOf(x) !== ft) return false;
+      if (q && (x.t || "").toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+
+    var LIMIT = 200;
+    var html = '<div class="st-qlist">';
+
+    if (!rows.length) {
+      html += '<div class="empty" style="border:0;border-radius:0">沒有符合條件的題目。</div>';
+    } else {
+      rows.slice(0, LIMIT).forEach(function (x) {
+        var s = subjOf(x.s);
+        var k = statOf(x);
+        html += '<div class="st-q"><div class="qm">' +
+          '<div class="qt">' + QCORE.esc(x.t || x.id) + '</div>' +
+          '<div class="qu">' + QCORE.esc(s.short) + (x.u ? ' ・ ' + QCORE.esc(x.u) : '') + '</div>' +
+          '</div><span class="st ' + k + '">' + statLabel(k) + '</span></div>';
+      });
+    }
+    html += '</div>';
+    if (rows.length > LIMIT) {
+      html += '<div class="st-note">共 ' + rows.length + ' 題，只顯示前 ' + LIMIT + ' 題。請用上方篩選縮小範圍。</div>';
+    }
+    box.innerHTML = html;
+  }
+
+  function renderStats() {
+    var box = document.getElementById("statsBox");
+    if (!box) return;
+    box.innerHTML = '<div class="empty">正在核對題庫與資料庫…</div>';
+
+    Promise.all([
+      fetch("manifest.json", { cache: "no-store" }).then(function (r) {
+        if (!r.ok) throw new Error("讀不到題庫總表 manifest.json（" + r.status + "）");
+        return r.json();
+      }),
+      QCORE.listDone(),
+      QCORE.listRetry().then(function (rows) {
+        return { rows: rows || [], err: null };
+      }).catch(function (e) {
+        return { rows: [], err: e };
+      }),
+      QCORE.listSeenIds(1000)
+    ]).then(function (r) {
+      var m = r[0] || {};
+      var doneRows = r[1] || [];
+      var retryRes = r[2] || { rows: [], err: null };
+      var seen = r[3] || {};
+
+      var doneSet = {}, retrySet = {};
+      doneRows.forEach(function (x) { doneSet[x.id] = 1; });
+      (retryRes.rows || []).forEach(function (x) { retrySet[x.id] = 1; });
+
+      A.manifest = m;
+      A.statSeen = seen;
+      A.statDone = doneSet;
+      A.statRetry = retrySet;
+      A.statRetryErr = retryRes.err;
+
+      var qmap = m.questions || {};
+      var subs = m.subjects || [];
+      var bySub = {};
+      var meta = [];
+
+      subs.forEach(function (s) {
+        var uMap = {};
+        (s.units || []).forEach(function (u) {
+          uMap[u.u] = { u: u.u, n: 0, t: 0, done: 0, retry: 0 };
+        });
+        bySub[s.id] = { sub: s, uMap: uMap, n: 0, t: 0, done: 0, retry: 0 };
+      });
+
+      Object.keys(qmap).forEach(function (id) {
+        var e = qmap[id];
+        var s = bySub[e.s];
+        if (!s) return;
+        if (!s.uMap[e.u]) s.uMap[e.u] = { u: e.u || "其他", n: 0, t: 0, done: 0, retry: 0 };
+
+        var u = s.uMap[e.u];
+        var isSeen = !!seen[id];
+        var isDone = !!doneSet[id];
+        var isRetry = !!retrySet[id];
+
+        s.n++; u.n++;
+        if (isSeen) { s.t++; u.t++; }
+        if (isDone) { s.done++; u.done++; }
+        if (isRetry) { s.retry++; u.retry++; }
+
+        meta.push({ id: id, s: e.s, u: e.u || "", t: e.t || "", seen: isSeen, done: isDone, retry: isRetry });
+      });
+
+      A.statMeta = meta;
+
+      var totalSeen = meta.filter(function (x) { return x.seen; }).length;
+      var totalDone = meta.filter(function (x) { return x.done; }).length;
+      var totalRetry = meta.filter(function (x) { return x.retry; }).length;
+
+      var orphanDone = [], orphanRetry = [], both = [], doneNotSeen = [];
+      doneRows.forEach(function (x) {
+        if (!qmap[x.id]) orphanDone.push(x);
+        else if (!seen[x.id]) doneNotSeen.push(x);
+        if (retrySet[x.id]) both.push({ id: x.id, label: x.label, unit: x.unit });
+      });
+      (retryRes.rows || []).forEach(function (x) {
+        if (!qmap[x.id]) orphanRetry.push(x);
+      });
+
+      var anomalies = orphanDone.length + orphanRetry.length + both.length;
+
+      var html = '<div class="st-summary">' +
+        sumCard("題庫總題數", meta.length) +
+        sumCard("已測驗", totalSeen, "ok") +
+        sumCard("未測驗", meta.length - totalSeen) +
+        sumCard("已檢討", totalDone, "ok") +
+        sumCard("再考", totalRetry, "warn") +
+        sumCard("資料異常", anomalies, anomalies ? "bad" : "ok") +
+      '</div>';
+
+      html += '<div class="sec-title">各科／單元統計（點科目展開單元）</div>' +
+        '<div class="st-wrap">' +
+          '<div class="st-head"><span>科目／單元</span><span>總題數</span><span>已測驗</span><span>未測驗</span><span>已檢討</span><span>再考</span></div>';
+
+      subs.forEach(function (s) {
+        var st = bySub[s.id];
+        if (!st) return;
+
+        var units = Object.keys(st.uMap).map(function (k) { return st.uMap[k]; })
+          .sort(function (a, b) { return b.n - a.n || String(a.u).localeCompare(String(b.u), "zh-Hant"); });
+
+        html += '<details class="st-subj"><summary>' +
+          '<span class="nm"><span class="dot" style="background:' + s.color + '"></span>' + QCORE.esc(s.short) + '</span>' +
+          numCell(st.n) + numCell(st.t, "ok") + numCell(st.n - st.t) + numCell(st.done, "ok") + numCell(st.retry, "warn") +
+        '</summary><div class="st-unit">';
+
+        units.forEach(function (u) {
+          html += '<div class="st-row"><span class="nm">' + QCORE.esc(u.u) + '</span>' +
+            numCell(u.n) + numCell(u.t, "ok") + numCell(u.n - u.t) + numCell(u.done, "ok") + numCell(u.retry, "warn") +
+          '</div>';
+        });
+
+        html += '</div></details>';
+      });
+      html += '</div>';
+
+      html += '<div class="sec-title">資料檢查</div>';
+
+      if (retryRes.err) {
+        html += '<div class="notice"><b>「再考清單」資料表還沒建立。</b><br>' +
+          '請到 Supabase → SQL Editor 執行最新版的「小考/supabase.sql」，再考功能才會生效。<br>' +
+          '<span class="id">' + QCORE.esc(retryRes.err.message) + '</span></div>';
+      }
+
+      if (!anomalies) {
+        html += '<div class="ok-box">✅ 題庫與資料庫一致：' + meta.length +
+          ' 題都在題庫裡，沒有找不到題目的紀錄。</div>';
+      } else {
+        html += '<div class="st-wrap">';
+        if (orphanDone.length) html += anomBlock("已檢討，但題庫找不到這題", orphanDone);
+        if (orphanRetry.length) html += anomBlock("再考清單，但題庫找不到這題", orphanRetry);
+        if (both.length) html += anomBlock("同時已檢討又在再考清單", both);
+        html += '</div>';
+      }
+
+      if (doneNotSeen.length) {
+        html += '<div class="notice"><b>提醒：</b>' + doneNotSeen.length +
+          ' 題標記已檢討，但在最近 1000 份考卷裡找不到（可能刪過紀錄）。這不影響出卷。</div>';
+      }
+
+      html += '<div class="sec-title">每一題的狀態</div>' +
+        '<div class="st-tools">' +
+          '<select id="stSubj"><option value="">全部科目</option>' +
+            subs.map(function (s) { return '<option value="' + QCORE.esc(s.id) + '">' + QCORE.esc(s.short) + '</option>'; }).join("") +
+          '</select>' +
+          '<select id="stStat">' +
+            '<option value="">全部狀態</option>' +
+            '<option value="new">未測驗</option>' +
+            '<option value="seen">測驗過</option>' +
+            '<option value="done">已檢討</option>' +
+            '<option value="retry">再考</option>' +
+          '</select>' +
+          '<input id="stQ" type="search" placeholder="搜尋題目文字…">' +
+        '</div>' +
+        '<div id="stQList"></div>';
+
+      box.innerHTML = html;
+
+      var s1 = document.getElementById("stSubj");
+      var s2 = document.getElementById("stStat");
+      var s3 = document.getElementById("stQ");
+      if (s1) s1.onchange = paintStatQ;
+      if (s2) s2.onchange = paintStatQ;
+      if (s3) s3.oninput = paintStatQ;
+      paintStatQ();
+    }).catch(function (e) {
+      var b = document.getElementById("statsBox");
+      if (b) b.innerHTML = '<div class="err-box">讀取失敗：' + QCORE.esc(e.message) + '</div>' +
+        '<div class="notice">請確認 <code>小考/manifest.json</code> 存在，而且 Supabase 連線正常。</div>';
+    });
+  }
+
   /* ---------------- 詳情 ---------------- */
   function renderDetail(id) {
     app.innerHTML =
@@ -447,7 +797,12 @@
 
     Promise.all([
       QCORE.getSubmission(id),
-      QCORE.listDone()
+      QCORE.listDone(),
+      QCORE.listRetry().then(function (rows) {
+        return { rows: rows || [], err: null };
+      }).catch(function (e) {
+        return { rows: [], err: e };
+      })
     ]).then(function (r) {
       var sub = r[0];
       var doneRows = r[1] || [];
@@ -456,6 +811,11 @@
       A.detail = sub;
       A.doneSet = {};
       doneRows.forEach(function (d) { A.doneSet[d.id] = 1; });
+
+      A.retrySet = {};
+      A.retryErr = r[2] ? r[2].err : null;
+      ((r[2] && r[2].rows) || []).forEach(function (x) { A.retrySet[x.id] = 1; });
+
       A.showAll = false;
       paintDetail();
     }).catch(function (e) {
@@ -497,6 +857,7 @@
             '<div class="stat"><div class="k">待標記</div><div class="v ' + (pending.length ? "warn" : "ok") + '">' + pending.length + ' 題</div></div>' +
           '</div>' +
         '</div>' +
+        (A.retryErr ? '<div class="notice"><b>「再考清單」資料表還沒建立。</b><br>請到 Supabase → SQL Editor 執行最新版的「小考/supabase.sql」，就可以把討論過的錯題放回下次小考。</div>' : '') +
         '<div class="toolbar">' +
           '<button class="btn ghost" id="toggleAll" type="button">' + (A.showAll ? "只看錯題" : "看全部題目") + '</button>' +
           '<button class="btn green" id="markAll" type="button"' + (pending.length ? "" : " disabled") + '>把這 ' + pending.length + ' 題標記已檢討</button>' +
@@ -525,6 +886,12 @@
     app.querySelectorAll("[data-unmark2]").forEach(function (b) {
       b.onclick = function () { unmarkOne(b.getAttribute("data-unmark2")); };
     });
+    app.querySelectorAll("[data-retry]").forEach(function (b) {
+      b.onclick = function () { markRetry(b.getAttribute("data-retry")); };
+    });
+    app.querySelectorAll("[data-unretry]").forEach(function (b) {
+      b.onclick = function () { unmarkRetry(b.getAttribute("data-unretry")); };
+    });
     window.scrollTo(0, 0);
   }
 
@@ -532,6 +899,7 @@
     var letters = "ABCDEFG";
     var ok = it.picked === it.a;
     var isDone = !!A.doneSet[it.id];
+    var isRetry = !!A.retrySet[it.id];
     var subj = QCORE.getSubject(A.detail.subject);
     var dir = (subj && subj.dir) || "";
 
@@ -543,6 +911,7 @@
       (it.d ? '<span class="tag">難度 ' + QCORE.esc(it.d) + '</span>' : '') +
       (it.paper ? '<span class="tag paper">題庫卷 ' + QCORE.esc(it.paper) + '</span>' : '') +
       (isDone ? '<span class="tag done">已標記檢討</span>' : '') +
+      (isRetry ? '<span class="tag retry">已排入再考</span>' : '') +
     '</div>';
 
     if (it.p) h += '<div class="passage">' + QCORE.rich(dir, it.p) + '</div>';
@@ -574,6 +943,13 @@
       QCORE.rich(dir, it.e || "（這題沒有附詳解）") + '</div>';
 
     h += '<div class="qfoot">';
+    if (isRetry) {
+      h += '<button class="btn ghost small" type="button" data-unretry="' + QCORE.esc(it.id) + '">取消再考</button>';
+    } else if (!ok) {
+      h += '<button class="btn primary small" type="button" data-retry="' + QCORE.esc(it.id) + '"' +
+        (A.retryErr ? ' disabled title="需要先建立 retry_questions 資料表"' : '') +
+        '>討論過了，放回題庫</button>';
+    }
     if (isDone) {
       h += '<button class="btn ghost small" type="button" data-unmark2="' + QCORE.esc(it.id) + '">取消標記</button>';
     } else {
@@ -590,8 +966,10 @@
     var it = (A.detail.items || []).filter(function (x) { return x.id === id; })[0];
     if (!it) return;
     QCORE.addDone([{ id: it.id, label: QCORE.plain(it.q), unit: it.u }], A.detail.subject)
+      .then(function () { return QCORE.removeRetry(id).catch(function () { }); })
       .then(function () {
         A.doneSet[id] = 1;
+        delete A.retrySet[id];
         toast("已標記，下次不會再抽到這題");
         paintDetail();
         loadRows();
@@ -608,6 +986,33 @@
     }).catch(function (e) { toast("取消失敗：" + e.message); });
   }
 
+  /* 討論過、學生會了 → 放回下次小考，並優先出題 */
+  function markRetry(id) {
+    var it = (A.detail.items || []).filter(function (x) { return x.id === id; })[0];
+    if (!it) return;
+    QCORE.addRetry([{ id: it.id, label: QCORE.plain(it.q), unit: it.u }], A.detail.subject)
+      .then(function () {
+        /* 如果原本已標記檢討，改放到再考清單；兩張表不要同時有 */
+        return QCORE.removeDone(id);
+      })
+      .then(function () {
+        delete A.doneSet[id];
+        A.retrySet[id] = 1;
+        toast("已放回題庫，下次小考會優先出這題");
+        paintDetail();
+        loadRows();
+      })
+      .catch(function (e) { toast("操作失敗：" + e.message); });
+  }
+
+  function unmarkRetry(id) {
+    QCORE.removeRetry(id).then(function () {
+      delete A.retrySet[id];
+      toast("已從再考清單移除");
+      paintDetail();
+    }).catch(function (e) { toast("取消失敗：" + e.message); });
+  }
+
   function markAllWrong() {
     var items = A.detail.items || [];
     var wrong = items.filter(function (it) { return it.picked !== it.a && !A.doneSet[it.id]; });
@@ -617,6 +1022,9 @@
       return { id: it.id, label: QCORE.plain(it.q), unit: it.u };
     }), A.detail.subject).then(function () {
       wrong.forEach(function (it) { A.doneSet[it.id] = 1; });
+      return QCORE.removeRetryMany(wrong.map(function (it) { return it.id; })).catch(function () { });
+    }).then(function () {
+      wrong.forEach(function (it) { delete A.retrySet[it.id]; });
       return QCORE.markSubmissionReviewed(A.detail.id, true);
     }).then(function () {
       A.detail.reviewed = true;
@@ -654,7 +1062,9 @@
       if (sig !== A.sig) {
         A.sig = sig;
         var h = (location.hash || "").replace(/^#/, "");
-        if (h.indexOf("s=") !== 0) render();
+        if (h.indexOf("s=") !== 0 && (A.tab === "todo" || A.tab === "all" || A.tab === "done")) render();
+        if (fresh.length && A.tab === "retry") renderRetry();
+        if (fresh.length && A.tab === "stats") renderStats();
       }
       return rows;
     }).catch(function (e) {

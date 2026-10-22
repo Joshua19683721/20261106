@@ -73,6 +73,21 @@
   .ph{font-family:"Times New Roman",Times,serif;font-weight:700;letter-spacing:.02em}
   .en{font-weight:800}
 
+  /* ---------- 英文發音喇叭 ---------- */
+  .spk{
+    appearance:none;border:1.5px solid #c9d9ff;background:#eef3ff;color:#1e56c8;
+    width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    font-size:15px;line-height:1;cursor:pointer;flex:0 0 auto;padding:0;
+    transition:background .12s,transform .1s;
+  }
+  .spk:hover{background:#dfe9ff}
+  .spk:active{transform:scale(.94)}
+  .stem.has-spk{position:relative;padding-right:44px}
+  .stem .spk{position:absolute;right:0;top:0}
+  .passage.has-spk{position:relative;padding-right:46px}
+  .passage .spk{position:absolute;right:10px;top:10px}
+  .opt .spk{margin-left:auto;align-self:center;width:30px;height:30px;font-size:14px}
+
   .opts{display:grid;gap:9px;margin-bottom:14px}
   .opt{
     display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
@@ -282,16 +297,22 @@
       if (!pool.length) throw new Error("這個科目的題庫是空的。");
 
       if (ST.demo || !QCORE.configured()) {
-        return { done: {}, seen: {} };
+        return { done: {}, seen: {}, retry: {} };
       }
       return Promise.all([
         QCORE.listDone(sub.id).then(function (rows) {
           var s = {}; (rows || []).forEach(function (r) { s[r.id] = 1; }); return s;
         }),
-        QCORE.listSeenIds(40)
-      ]).then(function (r) { return { done: r[0], seen: r[1] }; });
+        QCORE.listSeenIds(40),
+        /* 再考清單還沒建立時（舊資料庫）不影響考試 */
+        QCORE.listRetry(sub.id).catch(function () { return []; })
+      ]).then(function (r) {
+        var retry = {};
+        (r[2] || []).forEach(function (x) { retry[x.id] = 1; });
+        return { done: r[0], seen: r[1], retry: retry };
+      });
     }).then(function (sets) {
-      var items = QCORE.pickQuiz(pool, n, sets.done, sets.seen);
+      var items = QCORE.pickQuiz(pool, n, sets.done, sets.seen, sets.retry);
       if (!items.length) throw new Error("目前沒有可抽的題目（可能全部都被標記已檢討了）。");
       if (items.length < n) {
         /* 題目不够就照實出，不硬湊 */
@@ -387,10 +408,18 @@
     sfxTick();
   }
 
+  function spkBtn(text) {
+    return '<span class="spk" role="button" tabindex="0" data-say="' + QCORE.esc(text) +
+      '" aria-label="聽發音" title="聽發音">🔊</span>';
+  }
+
   function renderQuestion() {
     var it = ST.items[ST.idx];
     var picked = ST.ans[ST.idx];
     var letters = "ABCDEFG";
+    var isEng = ST.sub.id === "eng" || ST.sub.id === "eng4";
+
+    QCORE.stopSpeak();
 
     var html = '<div class="qhead">' +
       '<span class="qno">第 ' + (ST.idx + 1) + ' 題</span>' +
@@ -398,14 +427,26 @@
       (it.d ? '<span class="tag ' + (it.d === "易" ? "d-易" : it.d === "難" ? "d-難" : "d-中") + '">' + QCORE.esc(it.d) + '</span>' : '') +
     '</div>';
 
-    if (it.p) html += '<div class="passage">' + QCORE.rich(ST.sub.dir, it.p) + '</div>';
-    html += '<div class="stem">' + QCORE.rich(ST.sub.dir, it.q) + '</div>';
+    if (it.p) {
+      var pSay = isEng ? QCORE.englishText(it.p) : "";
+      html += '<div class="passage' + (pSay ? " has-spk" : "") + '">' + QCORE.rich(ST.sub.dir, it.p) +
+        (pSay ? spkBtn(pSay) : "") +
+        '</div>';
+    }
+
+    var qSay = isEng && !/_{2,}/.test(it.q) ? QCORE.englishText(it.q) : "";
+    if (/^Unit\s*\d*$/i.test(qSay)) qSay = "";
+    html += '<div class="stem' + (qSay ? " has-spk" : "") + '">' + QCORE.rich(ST.sub.dir, it.q) +
+      (qSay ? spkBtn(qSay) : "") +
+      '</div>';
 
     html += '<div class="opts">';
     it.o.forEach(function (t, i) {
+      var say = isEng ? QCORE.englishText(t) : "";
       html += '<button class="opt' + (i === picked ? " sel" : "") + '" type="button" data-i="' + i + '">' +
         '<span class="k">' + letters.charAt(i) + '</span>' +
         '<span class="t">' + QCORE.rich(ST.sub.dir, t) + '</span>' +
+        (say ? spkBtn(say) : "") +
       '</button>';
     });
     html += '</div>';
@@ -415,6 +456,23 @@
     var btns = document.querySelectorAll(".opt");
     for (var i = 0; i < btns.length; i++) {
       btns[i].onclick = function () { choose(parseInt(this.getAttribute("data-i"), 10)); };
+    }
+
+    /* 喇叭：不能觸發選項，也不能被鍵盤 A～D 選項吃掉 */
+    var spks = document.querySelectorAll("#qcard [data-say]");
+    for (var j = 0; j < spks.length; j++) {
+      spks[j].onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        QCORE.speak(this.getAttribute("data-say"));
+      };
+      spks[j].onkeydown = function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          e.stopPropagation();
+          QCORE.speak(this.getAttribute("data-say"));
+        }
+      };
     }
 
     document.getElementById("prev").disabled = ST.idx === 0;
@@ -593,6 +651,14 @@
       var line = QCORE.cfg().STUDENT_NAME || "兒子";
       var msg = ST.sub.short + " " + row.total + " 題，答對 " + row.correct + " 題，用時 " +
         QCORE.fmtClock(row.elapsed_sec);
+
+      /* 有作答的「再考」題目，既然已經重新考過，就從再考清單移除 */
+      if (!ST.demo) {
+        var answered = ST.items.filter(function (it, i) { return ST.ans[i] >= 0; })
+          .map(function (it) { return it.id; });
+        QCORE.removeRetryMany(answered).catch(function () { });
+      }
+
       if (ST.demo) return Promise.resolve(false);
       return QCORE.notify(line + "交卷了", msg, adminUrl);
     }).then(function (pushed) {

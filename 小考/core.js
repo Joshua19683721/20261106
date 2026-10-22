@@ -245,34 +245,36 @@
     return out;
   }
 
-  function pickQuiz(pool, n, doneSet, seenSet) {
-    var avail = pool.filter(function (x) { return !doneSet[x.id]; });
-    var fresh = avail.filter(function (x) { return !seenSet[x.id]; });
+  function pickQuiz(pool, n, doneSet, seenSet, retrySet) {
+    retrySet = retrySet || {};
+    var avail = pool.filter(function (x) { return !doneSet[x.id] || retrySet[x.id]; });
 
-    var chosen = stratifyByUnit(fresh, n);
+    var chosen = [], have = {}, usedGrp = {};
 
-    /* 同一個題組（例如同一個單字的不同題型）同一份考卷只出現一次 */
-    var usedGrp = {};
-    chosen = chosen.filter(function (x) {
-      if (!x.grp) return true;
-      if (usedGrp[x.grp]) return false;
-      usedGrp[x.grp] = 1;
-      return true;
-    });
-
-    if (chosen.length < n) {
-      var have = {};
-      chosen.forEach(function (x) { have[x.id] = 1; });
-      /* 先補「沒做過」的，真的不夠才回頭補做過的 */
-      var restFresh = shuffle(avail.filter(function (x) { return !have[x.id] && !seenSet[x.id]; }));
-      var restSeen = shuffle(avail.filter(function (x) { return !have[x.id] && seenSet[x.id]; }));
-      var rest = restFresh.concat(restSeen);
-      for (var i = 0; i < rest.length && chosen.length < n; i++) {
-        var x = rest[i];
+    function take(list) {
+      for (var i = 0; i < list.length && chosen.length < n; i++) {
+        var x = list[i];
+        if (have[x.id]) continue;
         if (x.grp && usedGrp[x.grp]) continue;
         if (x.grp) usedGrp[x.grp] = 1;
+        have[x.id] = 1;
         chosen.push(x);
       }
+    }
+
+    /* 1. 爸爸按過「再考一次」的題目優先出 */
+    take(shuffle(avail.filter(function (x) { return retrySet[x.id]; })));
+
+    /* 2. 沒做過的題目，依單元輪流抽 */
+    take(stratifyByUnit(avail.filter(function (x) {
+      return !have[x.id] && !seenSet[x.id];
+    }), n - chosen.length));
+
+    /* 3. 真的不夠，才回頭抽做過的（但絕不抽已檢討的） */
+    if (chosen.length < n) {
+      var restFresh = shuffle(avail.filter(function (x) { return !have[x.id] && !seenSet[x.id]; }));
+      var restSeen = shuffle(avail.filter(function (x) { return !have[x.id] && seenSet[x.id]; }));
+      take(restFresh.concat(restSeen));
     }
 
     return shuffle(chosen).slice(0, n);
@@ -383,6 +385,44 @@
     return sb("done_questions?id=eq." + encodeURIComponent(id), { method: "DELETE" });
   }
 
+  /* ---------------- 再考清單 ----------------
+     爸爸討論過、想再考一次的題目。出卷時會優先抽這些題目，
+     兒子作答後就自動從清單移除（沒作答的會留著）。 */
+  function listRetry(subjectId) {
+    var q = "retry_questions?select=id,subject,label,unit,created_at&order=created_at.desc";
+    if (subjectId) q += "&subject=eq." + encodeURIComponent(subjectId);
+    return sb(q);
+  }
+
+  function addRetry(items, subjectId) {
+    if (!items || !items.length) return Promise.resolve(true);
+    var rows = items.map(function (x) {
+      if (typeof x === "string") return { id: x, subject: subjectId, label: "", unit: "" };
+      return {
+        id: x.id,
+        subject: subjectId,
+        label: String(x.label || "").slice(0, 120),
+        unit: String(x.unit || "").slice(0, 80)
+      };
+    });
+    return sb("retry_questions", {
+      method: "POST",
+      headers: { "Prefer": "resolution=ignore-duplicates,return=minimal" },
+      body: JSON.stringify(rows)
+    });
+  }
+
+  function removeRetry(id) {
+    return sb("retry_questions?id=eq." + encodeURIComponent(id), { method: "DELETE" });
+  }
+
+  function removeRetryMany(ids) {
+    if (!ids || !ids.length) return Promise.resolve(true);
+    var list = ids.filter(function (id) { return /^[A-Za-z0-9_]+$/.test(String(id)); });
+    if (!list.length) return Promise.resolve(true);
+    return sb("retry_questions?id=in.(" + list.join(",") + ")", { method: "DELETE" });
+  }
+
   /* 兒子做過的題目（只抓最近幾份，避免整張表拉下來） */
   function listSeenIds(limit) {
     return sb("submissions?select=ids&order=created_at.desc&limit=" + (limit || 40)).then(function (rows) {
@@ -415,6 +455,71 @@
     }).then(function (r) { return r.ok; }).catch(function () { return false; });
   }
 
+  /* ---------------- 英文發音 ----------------
+     一律用 en-US；如果系統有 Microsoft Mark 就優先用它
+     （Windows 內建、咬字清楚），沒有才退回其他 en-US / en 語音。 */
+  var _voiceCache = null;
+
+  function allVoices() {
+    try {
+      var sy = window.speechSynthesis;
+      if (!sy) return [];
+      var v = sy.getVoices() || [];
+      if (v.length) _voiceCache = v;
+      return _voiceCache || v;
+    } catch (e) { return []; }
+  }
+
+  function pickVoice() {
+    var vs = allVoices();
+    var markUS = null, markAny = null, us = null, anyEn = null;
+    for (var i = 0; i < vs.length; i++) {
+      var v = vs[i];
+      var nm = String(v.name || "");
+      var lg = String(v.lang || "").replace("_", "-").toLowerCase();
+      if (/mark/i.test(nm) && /^en-us/.test(lg) && !markUS) markUS = v;
+      if (/mark/i.test(nm) && /^en/.test(lg) && !markAny) markAny = v;
+      if (/^en-us/.test(lg) && !us) us = v;
+      if (/^en/.test(lg) && !anyEn) anyEn = v;
+    }
+    return markUS || markAny || us || anyEn || null;
+  }
+
+  function speak(text, rate) {
+    var sy = window.speechSynthesis;
+    var s = String(text || "").trim();
+    if (!sy || !s) return false;
+    try {
+      sy.cancel();
+      var u = new SpeechSynthesisUtterance(s);
+      var v = pickVoice();
+      u.lang = "en-US";
+      if (v) u.voice = v;
+      u.rate = rate || 0.9;
+      u.pitch = 1;
+      u.volume = 1;
+      sy.speak(u);
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function stopSpeak() {
+    try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) { }
+  }
+
+  /* 從題目文字（含 *粗體*、`音標` 標記）抽出可以唸的英文；
+     沒有英文就回空字串。 */
+  function englishText(s) {
+    var t = String(s == null ? "" : s);
+    t = t.replace(/\[\[fig:[^\]]*\]\]/gi, " ");
+    t = t.replace(/`[^`]*`/g, " ");
+    t = t.replace(/\*([^*\n]+)\*/g, " $1 ");
+    t = t.replace(/_{2,}/g, " ");
+    t = t.replace(/[^A-Za-z'’\-.,!?;:()\/\s]/g, " ");
+    t = t.replace(/\s+/g, " ").replace(/\s+([.,!?;:])/g, "$1").trim();
+    return /[A-Za-z]/.test(t) ? t : "";
+  }
+
   /* ---------------- 對外 ---------------- */
   window.QCORE = {
     SUBJECTS: SUBJECTS,
@@ -438,7 +543,14 @@
     listDone: listDone,
     addDone: addDone,
     removeDone: removeDone,
+    listRetry: listRetry,
+    addRetry: addRetry,
+    removeRetry: removeRetry,
+    removeRetryMany: removeRetryMany,
     listSeenIds: listSeenIds,
+    speak: speak,
+    stopSpeak: stopSpeak,
+    englishText: englishText,
     notify: notify
   };
 })();
