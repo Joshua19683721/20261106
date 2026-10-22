@@ -508,8 +508,32 @@
     doSubmit(false);
   }
 
+  /* 時間到但一題都沒答：不寫資料庫、也不推播，避免留下一份空的考卷 */
+  function showEmptyTimeout() {
+    document.title = "時間到｜小考練習";
+    view.innerHTML =
+      '<div class="stage">' +
+        '<div class="big">⌛</div>' +
+        '<h1>時間到</h1>' +
+        '<p>這份考卷一題都沒有作答，所以沒有送出，也沒有通知爸爸。</p>' +
+        '<div class="card">' +
+          '<div class="kv"><span>科目</span><b>' + QCORE.esc(ST.sub.short) + '</b></div>' +
+          '<div class="kv"><span>題數</span><b>' + ST.n + ' 題</b></div>' +
+        '</div>' +
+        '<a class="btn primary" href="index.html" style="display:block;text-align:center;text-decoration:none;margin-top:14px">再考一份</a>' +
+      '</div>';
+  }
+
   function doSubmit(auto) {
     if (ST.submitting || ST.finished) return;
+
+    if (auto && answeredCount() === 0) {
+      ST.finished = true;
+      clearInterval(ST.timer);
+      showEmptyTimeout();
+      return;
+    }
+
     ST.submitting = true;
     ST.finished = true;
     clearInterval(ST.timer);
