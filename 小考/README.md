@@ -24,7 +24,7 @@
 
 2. **建立資料表**
    - SQL Editor → New query → 貼上 [`supabase.sql`](supabase.sql) 全部內容 → Run
-   - 已經設定過的人：再執行一次會補上 `retry_questions`（再考清單），不會動到舊資料。
+   - 已經設定過的人：再執行一次會補上 `retry_questions`（再考清單）與 `questions`（題庫備份），不會動到舊資料。
 
 3. **取得兩個值**
    - Project Settings → API
@@ -40,6 +40,22 @@
    - 開 [`setup.html`](setup.html)，貼上三個值 → 測試 → 複製產生的 `config.js`
    - 到 GitHub 覆蓋 `小考/config.js` → Commit
    - 等 1 分鐘 Pages 重新部署
+
+---
+
+## 題數
+
+| 範圍 | 數量 |
+|---|---|
+| 10/19–11/6 六科每日卷 | 6 科 × 19 卷 × 50 題 = **5,700 題**（含跨卷重複） |
+| 六科去重後 | **1,868 題** |
+| 英語文四年級單字測驗 | 20 個生活場景、**375 題** |
+| 小考全部去重後 | **2,243 題** |
+
+- 首頁寫的 5,700 題只算六科每日卷，不含單字測驗。
+- 小考頁是 7 科；但單字測驗不是 19 卷 × 50 題，而是 375 題。
+- 如果把第 7 科當成 950 題、再加一次 375 題，會得到 7,025 題，這是重複計算。
+- 管理頁「題庫總表」顯示的 2,243 題，是全部題目去重後、實際會被抽到的題數。
 
 ---
 
@@ -83,7 +99,9 @@
   - 每一科、每一個單元的「總題數／已測驗／未測驗／已檢討／再考」統計。
   - 資料檢查：找出題庫裡找不到的已檢討／再考 ID、同時出現在兩張表的題目。
   - 可依科目、狀態、題目文字搜尋每一題的狀態。
-  - 統計表由 `manifest.json` 產生；題庫更新後執行 `node 小考/tools/build-manifest.js` 重建。
+  - 勾選題目（可「全選目前篩選」或「勾選全部測驗過的」）→「加入再考清單」，下次小考優先出這些題目；已檢討的題目會自動從已檢討清單移除。
+  - 「匯入／更新資料庫題庫」會把 `questions.json` 的 2,243 題寫進 Supabase 的 `questions` 表，已存在的同 ID 題目會更新，不影響交卷紀錄。
+  - 統計表由 `manifest.json` 產生；題庫更新後執行 `node 小考/tools/build-manifest.js` 重建（同時產生 `questions.json`）。
 
 ---
 
@@ -99,7 +117,12 @@
 - 爸爸按「討論過了，放回題庫」的題目，出卷時優先抽。
 - 兒子上交卷後，有作答的再考題目會自動刪除；沒作答的留著。
 
-> 舊資料庫如果只有 `submissions` 和 `done_questions`，重新執行一次 [`supabase.sql`](supabase.sql) 就會補上 `retry_questions`，不會影響原有資料。
+`questions`
+- 完整題庫備份（`id`、科目、單元、摘要、`data` 內含題幹／選項／答案／詳解）。
+- 由管理頁「匯入／更新資料庫題庫」寫入；小考出題仍讀題庫檔，這張表是備份與管理用。
+- 題庫檔更新後，重新按一次匯入就會更新同 ID 的題目。
+
+> 舊資料庫如果只有 `submissions` 和 `done_questions`，重新執行一次 [`supabase.sql`](supabase.sql) 就會補上 `retry_questions` 與 `questions`，不會影響原有資料。
 
 ---
 
@@ -148,9 +171,10 @@
   core.js         共用核心（題庫、抽題、API、發音）
   config.js       設定值
   manifest.json   題庫總表（由 tools/build-manifest.js 產生）
+  questions.json  完整題目（匯入資料庫用，由 tools/build-manifest.js 產生）
   supabase.sql    資料表與 RLS
   tools/
-    build-manifest.js  重建 manifest.json
+    build-manifest.js  重建 manifest.json 與 questions.json
   README.md       本文件
 ```
 

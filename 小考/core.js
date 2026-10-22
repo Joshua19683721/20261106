@@ -385,6 +385,20 @@
     return sb("done_questions?id=eq." + encodeURIComponent(id), { method: "DELETE" });
   }
 
+  /* 一次移除多筆「已檢討」。id 太長時網址會爆掉，所以每 100 筆切成一次。 */
+  function removeDoneMany(ids) {
+    if (!ids || !ids.length) return Promise.resolve(true);
+    var list = ids.filter(function (id) { return /^[A-Za-z0-9_]+$/.test(String(id)); });
+    if (!list.length) return Promise.resolve(true);
+    var chunks = [];
+    for (var i = 0; i < list.length; i += 100) chunks.push(list.slice(i, i + 100));
+    return chunks.reduce(function (p, chunk) {
+      return p.then(function () {
+        return sb("done_questions?id=in.(" + chunk.join(",") + ")", { method: "DELETE" });
+      });
+    }, Promise.resolve(true));
+  }
+
   /* ---------------- 再考清單 ----------------
      爸爸討論過、想再考一次的題目。出卷時會優先抽這些題目，
      兒子作答後就自動從清單移除（沒作答的會留著）。 */
@@ -394,22 +408,31 @@
     return sb(q);
   }
 
+  /* 可以一次加入不同科目的題目（題庫總表勾選時用），
+     每筆若有自己的 subject 就用它，否則才用第二個參數。 */
   function addRetry(items, subjectId) {
     if (!items || !items.length) return Promise.resolve(true);
     var rows = items.map(function (x) {
       if (typeof x === "string") return { id: x, subject: subjectId, label: "", unit: "" };
       return {
         id: x.id,
-        subject: subjectId,
+        subject: x.subject || subjectId,
         label: String(x.label || "").slice(0, 120),
         unit: String(x.unit || "").slice(0, 80)
       };
     });
-    return sb("retry_questions", {
-      method: "POST",
-      headers: { "Prefer": "resolution=ignore-duplicates,return=minimal" },
-      body: JSON.stringify(rows)
-    });
+    /* 題庫總表可能一次勾選上千題，切成小批比較穩 */
+    var chunks = [];
+    for (var i = 0; i < rows.length; i += 200) chunks.push(rows.slice(i, i + 200));
+    return chunks.reduce(function (p, chunk) {
+      return p.then(function () {
+        return sb("retry_questions", {
+          method: "POST",
+          headers: { "Prefer": "resolution=ignore-duplicates,return=minimal" },
+          body: JSON.stringify(chunk)
+        });
+      });
+    }, Promise.resolve(true));
   }
 
   function removeRetry(id) {
@@ -432,6 +455,60 @@
       });
       return set;
     });
+  }
+
+  /* ---------------- 題庫（完整題目）----------------
+     題庫檔還是出題的來源（載入快、可離線），資料庫這張表是完整備份
+     與管理用。管理頁按「匯入／更新資料庫題庫」時，把 questions.json
+     分批寫進來；已存在的同 id 題目會更新，不會重複。 */
+  function importQuestions(rows, onProgress) {
+    if (!rows || !rows.length) return Promise.resolve(0);
+    var clean = rows.map(function (x) {
+      return {
+        id: x.id,
+        subject: x.subject,
+        unit: x.unit || "",
+        label: String(x.label || "").slice(0, 160),
+        data: x.data || {},
+        updated_at: new Date().toISOString()
+      };
+    });
+    var batches = [];
+    for (var i = 0; i < clean.length; i += 150) batches.push(clean.slice(i, i + 150));
+
+    var done = 0;
+    return batches.reduce(function (p, batch) {
+      return p.then(function () {
+        return sb("questions?on_conflict=id", {
+          method: "POST",
+          headers: { "Prefer": "resolution=merge-duplicates,return=minimal" },
+          body: JSON.stringify(batch)
+        }).then(function () {
+          done += batch.length;
+          if (onProgress) onProgress(done, clean.length);
+        });
+      });
+    }, Promise.resolve()).then(function () { return clean.length; });
+  }
+
+  /* 用 HEAD + count=exact 取得資料庫題庫筆數，不用把題目全部拉下來。
+     回傳 null 代表表不存在或無法讀取。 */
+  function countQuestions() {
+    var key = cfg().SUPABASE_ANON_KEY;
+    return fetch(sbBase() + "/rest/v1/questions?select=id", {
+      method: "HEAD",
+      headers: {
+        "apikey": key,
+        "Authorization": "Bearer " + key,
+        "Prefer": "count=exact",
+        "Range": "0-0"
+      }
+    }).then(function (r) {
+      if (!r.ok) return null;
+      var cr = r.headers.get("content-range") || "";
+      var m = /\/(\d+)$/.exec(cr);
+      return m ? parseInt(m[1], 10) : null;
+    }).catch(function () { return null; });
   }
 
   /* ---------------- ntfy 推播 ---------------- */
@@ -543,11 +620,14 @@
     listDone: listDone,
     addDone: addDone,
     removeDone: removeDone,
+    removeDoneMany: removeDoneMany,
     listRetry: listRetry,
     addRetry: addRetry,
     removeRetry: removeRetry,
     removeRetryMany: removeRetryMany,
     listSeenIds: listSeenIds,
+    importQuestions: importQuestions,
+    countQuestions: countQuestions,
     speak: speak,
     stopSpeak: stopSpeak,
     englishText: englishText,

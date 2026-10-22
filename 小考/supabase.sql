@@ -57,6 +57,23 @@ create table if not exists public.retry_questions (
 create index if not exists retry_questions_subject_idx on public.retry_questions (subject);
 
 -- ------------------------------------------------------------
+-- 題庫（完整題目）
+-- 由「小考/tools/build-manifest.js」產生 questions.json，
+-- 再到管理頁按「匯入／更新資料庫題庫」寫入。
+-- 小考出題仍然讀題庫檔（速度快）；這張表是完整備份與管理用。
+-- ------------------------------------------------------------
+create table if not exists public.questions (
+  id          text primary key,
+  subject     text not null,
+  unit        text not null default '',
+  label       text not null default '',
+  data        jsonb not null default '{}'::jsonb,
+  updated_at  timestamptz not null default now()
+);
+create index if not exists questions_subject_idx on public.questions (subject);
+create index if not exists questions_unit_idx on public.questions (subject, unit);
+
+-- ------------------------------------------------------------
 -- 權限：這是家用網站，兒子那一端不需要登入，
 -- 所以開放 anon 角色讀寫。網址本身是唯一門檻。
 -- 若之後要更嚴格，可改用 Supabase Auth 登入後再寫入。
@@ -64,10 +81,12 @@ create index if not exists retry_questions_subject_idx on public.retry_questions
 grant select, insert, update, delete on public.submissions      to anon;
 grant select, insert, delete on public.done_questions           to anon;
 grant select, insert, delete on public.retry_questions          to anon;
+grant select, insert, update, delete on public.questions        to anon;
 
 alter table public.submissions      enable row level security;
 alter table public.done_questions   enable row level security;
 alter table public.retry_questions  enable row level security;
+alter table public.questions        enable row level security;
 
 drop policy if exists "qc submissions read"   on public.submissions;
 drop policy if exists "qc submissions insert" on public.submissions;
@@ -79,6 +98,10 @@ drop policy if exists "qc done delete"        on public.done_questions;
 drop policy if exists "qc retry read"         on public.retry_questions;
 drop policy if exists "qc retry insert"       on public.retry_questions;
 drop policy if exists "qc retry delete"       on public.retry_questions;
+drop policy if exists "qc questions read"     on public.questions;
+drop policy if exists "qc questions insert"   on public.questions;
+drop policy if exists "qc questions update"   on public.questions;
+drop policy if exists "qc questions delete"   on public.questions;
 
 create policy "qc submissions read"   on public.submissions for select to anon using (true);
 create policy "qc submissions insert" on public.submissions for insert to anon with check (true);
@@ -94,10 +117,16 @@ create policy "qc retry read"   on public.retry_questions for select to anon usi
 create policy "qc retry insert" on public.retry_questions for insert to anon with check (true);
 create policy "qc retry delete" on public.retry_questions for delete to anon using (true);
 
+create policy "qc questions read"   on public.questions for select to anon using (true);
+create policy "qc questions insert" on public.questions for insert to anon with check (true);
+create policy "qc questions update" on public.questions for update to anon using (true) with check (true);
+create policy "qc questions delete" on public.questions for delete to anon using (true);
+
 -- ------------------------------------------------------------
 -- 完成後回傳目前筆數，確認有建立成功
 -- ------------------------------------------------------------
 select
   (select count(*) from public.submissions)     as submissions,
   (select count(*) from public.done_questions)  as done_questions,
-  (select count(*) from public.retry_questions) as retry_questions;
+  (select count(*) from public.retry_questions) as retry_questions,
+  (select count(*) from public.questions)       as questions;

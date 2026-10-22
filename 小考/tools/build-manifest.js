@@ -18,6 +18,7 @@ const vm = require("vm");
 const ROOT = path.resolve(__dirname, "..", "..");
 const CORE = path.join(ROOT, "小考", "core.js");
 const OUT = path.join(ROOT, "小考", "manifest.json");
+const OUT_Q = path.join(ROOT, "小考", "questions.json");
 
 function read(p) { return fs.readFileSync(p, "utf8"); }
 
@@ -35,6 +36,7 @@ const manifest = {
   subjects: [],
   questions: {}
 };
+const full = [];
 
 for (const sub of QCORE.SUBJECTS) {
   const dir = path.join(ROOT, sub.dir, "papers");
@@ -72,6 +74,26 @@ for (const sub of QCORE.SUBJECTS) {
         u: unit,
         t: QCORE.plain(q.q).slice(0, 48)
       };
+
+      full.push({
+        id: id,
+        subject: sub.id,
+        unit: unit,
+        label: QCORE.plain(q.q).slice(0, 160),
+        data: {
+          q: q.q,
+          o: q.o.slice(),
+          a: q.a,
+          e: q.e || "",
+          w: q.w || [],
+          p: q.p || "",
+          d: q.d || "",
+          g: q.g || 4,
+          grp: q.grp || "",
+          paper: p.key || "",
+          paperName: p.short || p.name || ""
+        }
+      });
     }
   }
 
@@ -96,6 +118,18 @@ manifest.questions = Object.fromEntries(
 );
 
 fs.writeFileSync(OUT, JSON.stringify(manifest), "utf8");
+
+/* 完整題目（含選項、答案、詳解）給「匯入資料庫題庫」用。
+   排序固定，題庫沒改就不會產生無意義 diff。 */
+full.sort(function (a, b) { return a.id.localeCompare(b.id); });
+const qfile = {
+  generated_at: manifest.generated_at,
+  total: full.length,
+  rows: full
+};
+fs.writeFileSync(OUT_Q, JSON.stringify(qfile), "utf8");
+
 console.log("");
 console.log("寫入", path.relative(ROOT, OUT));
+console.log("寫入", path.relative(ROOT, OUT_Q));
 console.log("總計", manifest.total, "題");

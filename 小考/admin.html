@@ -180,6 +180,24 @@
   .st-q .st.seen{background:#eef3ff;color:#2a5bb8}
   .st-q .st.done{background:#e8f6ee;color:#1c6b43}
   .st-q .st.retry{background:#fff4e2;color:#9a6200}
+  .st-q.is-sel{background:#f4f8ff}
+  .st-q .pick{flex:0 0 auto;display:flex;align-items:center;padding-top:1px}
+  .st-q .pick input{width:18px;height:18px;accent-color:var(--brand);margin:0;cursor:pointer}
+  .st-selbar{
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px;
+  }
+  .st-check{display:flex;align-items:center;gap:7px;font:700 12.5px/1.4 "Noto Sans TC",sans-serif;color:var(--ink2);cursor:pointer}
+  .st-check input{width:18px;height:18px;accent-color:var(--brand);margin:0}
+  .st-selcount{font:800 13px/1.4 "Noto Sans TC",sans-serif;color:var(--brand2);white-space:nowrap}
+  .st-selbar .st-note{flex:1 1 220px;margin:0;min-width:160px}
+  .st-db{font:800 12px/1.5 "Noto Sans TC",sans-serif;border-radius:999px;padding:5px 10px;white-space:nowrap}
+  .st-db.ok{background:#e8f6ee;color:#1c6b43}
+  .st-db.warn{background:#fff4e2;color:#9a6200}
+  .st-db.bad{background:#fdecec;color:#a5342a}
+  @media(max-width:640px){
+    .st-selbar .st-note{flex-basis:100%}
+  }
 
   .passage{
     background:#f7f9fc;border:1px solid #e6ecf5;border-left:4px solid #b9cdf0;border-radius:10px;
@@ -288,7 +306,11 @@
     statSeen: {},
     statDone: {},
     statRetry: {},
-    statRetryErr: null
+    statRetryErr: null,
+    statFilter: { s: "", t: "", q: "" },
+    statSel: {},
+    statDbCount: null,
+    statImporting: false
   };
 
   /* ---------------- 共用小工具 ---------------- */
@@ -581,7 +603,9 @@
     var inp = document.getElementById("stQ");
     var fs = selS ? selS.value : "";
     var ft = selT ? selT.value : "";
-    var q = inp ? (inp.value || "").trim().toLowerCase() : "";
+    var rawQ = inp ? (inp.value || "") : "";
+    var q = rawQ.trim().toLowerCase();
+    A.statFilter = { s: fs, t: ft, q: rawQ };
 
     var rows = A.statMeta.filter(function (x) {
       if (fs && x.s !== fs) return false;
@@ -599,17 +623,193 @@
       rows.slice(0, LIMIT).forEach(function (x) {
         var s = subjOf(x.s);
         var k = statOf(x);
-        html += '<div class="st-q"><div class="qm">' +
-          '<div class="qt">' + QCORE.esc(x.t || x.id) + '</div>' +
-          '<div class="qu">' + QCORE.esc(s.short) + (x.u ? ' ・ ' + QCORE.esc(x.u) : '') + '</div>' +
-          '</div><span class="st ' + k + '">' + statLabel(k) + '</span></div>';
+        var picked = !!A.statSel[x.id];
+        html += '<label class="st-q' + (picked ? " is-sel" : "") + '">' +
+          '<span class="pick"><input type="checkbox" class="st-chk" data-id="' + QCORE.esc(x.id) + '"' + (picked ? " checked" : "") + '></span>' +
+          '<span class="qm">' +
+            '<span class="qt" style="display:block">' + QCORE.esc(x.t || x.id) + '</span>' +
+            '<span class="qu" style="display:block">' + QCORE.esc(s.short) + (x.u ? ' ・ ' + QCORE.esc(x.u) : '') + '</span>' +
+          '</span><span class="st ' + k + '">' + statLabel(k) + '</span></label>';
       });
     }
     html += '</div>';
     if (rows.length > LIMIT) {
-      html += '<div class="st-note">共 ' + rows.length + ' 題，只顯示前 ' + LIMIT + ' 題。請用上方篩選縮小範圍。</div>';
+      html += '<div class="st-note">共 ' + rows.length + ' 題，清單只顯示前 ' + LIMIT +
+        ' 題；「全選目前篩選」仍會選到全部 ' + rows.length + ' 題。</div>';
     }
     box.innerHTML = html;
+
+    box.querySelectorAll(".st-chk").forEach(function (c) {
+      c.onchange = function () {
+        var id = c.getAttribute("data-id");
+        if (c.checked) A.statSel[id] = 1;
+        else delete A.statSel[id];
+        var lab = c.closest(".st-q");
+        if (lab) lab.classList.toggle("is-sel", c.checked);
+        updateSelBar(rows);
+      };
+    });
+
+    var all = document.getElementById("stAll");
+    if (all) {
+      all.onchange = function () {
+        rows.forEach(function (x) {
+          if (all.checked) A.statSel[x.id] = 1;
+          else delete A.statSel[x.id];
+        });
+        paintStatQ();
+      };
+    }
+
+    var pickSeen = document.getElementById("stPickSeen");
+    if (pickSeen) {
+      pickSeen.onclick = function () {
+        A.statSel = {};
+        A.statMeta.forEach(function (x) { if (x.seen) A.statSel[x.id] = 1; });
+        var t = document.getElementById("stStat");
+        if (t) t.value = "seen";
+        paintStatQ();
+        toast("已勾選 " + Object.keys(A.statSel).length + " 題測驗過的題目");
+      };
+    }
+
+    var addBtn = document.getElementById("stAddRetry");
+    if (addBtn) addBtn.onclick = addSelectedToRetry;
+
+    var clearBtn = document.getElementById("stClearSel");
+    if (clearBtn) {
+      clearBtn.onclick = function () {
+        A.statSel = {};
+        paintStatQ();
+      };
+    }
+
+    updateSelBar(rows);
+  }
+
+  function selectedIds() {
+    var map = {};
+    (A.statMeta || []).forEach(function (x) { map[x.id] = 1; });
+    Object.keys(A.statSel).forEach(function (id) {
+      if (!map[id]) delete A.statSel[id];
+    });
+    return Object.keys(A.statSel);
+  }
+
+  function updateSelBar(rows) {
+    rows = rows || [];
+    var ids = selectedIds();
+    var n = ids.length;
+    var inFilter = rows.filter(function (x) { return A.statSel[x.id]; }).length;
+
+    var count = document.getElementById("stSelCount");
+    if (count) {
+      count.textContent = n
+        ? "已選 " + n + " 題" + (inFilter !== n ? "（目前篩選 " + inFilter + " 題）" : "")
+        : "已選 0 題";
+    }
+
+    var all = document.getElementById("stAll");
+    if (all) {
+      all.disabled = !rows.length;
+      all.checked = rows.length > 0 && inFilter === rows.length;
+      all.indeterminate = inFilter > 0 && inFilter < rows.length;
+    }
+    var allN = document.getElementById("stAllN");
+    if (allN) allN.textContent = "(" + rows.length + ")";
+
+    var add = document.getElementById("stAddRetry");
+    if (add) {
+      add.disabled = !n || !!A.statRetryErr;
+      add.textContent = n ? "加入再考清單（" + n + " 題）" : "加入再考清單";
+      add.title = A.statRetryErr ? "需要先建立 retry_questions 資料表" : "";
+    }
+    var clear = document.getElementById("stClearSel");
+    if (clear) clear.disabled = !n;
+  }
+
+  function addSelectedToRetry() {
+    var ids = selectedIds();
+    if (!ids.length) { toast("請先勾選題目"); return; }
+    if (A.statRetryErr) { toast("請先建立再考清單資料表"); return; }
+
+    var map = {};
+    (A.statMeta || []).forEach(function (x) { map[x.id] = x; });
+    var rows = ids.map(function (id) { return map[id]; }).filter(Boolean).map(function (x) {
+      return { id: x.id, subject: x.s, label: x.t || "", unit: x.u || "" };
+    });
+    if (!rows.length) return;
+
+    if (!confirm("把這 " + rows.length + " 題加入再考清單？\n下次小考會優先出這些題目。")) return;
+
+    var btn = document.getElementById("stAddRetry");
+    if (btn) { btn.disabled = true; btn.textContent = "加入中…"; }
+
+    QCORE.addRetry(rows)
+      .then(function () {
+        /* 已檢討的題目要放回題庫，先從已檢討清單移除，兩張表不要同時有 */
+        return QCORE.removeDoneMany(rows.map(function (x) { return x.id; }));
+      })
+      .then(function () {
+        A.statSel = {};
+        toast("已加入 " + rows.length + " 題，下次小考會優先出題");
+        renderStats();
+      })
+      .catch(function (e) {
+        toast("加入失敗：" + e.message);
+        if (btn) { btn.disabled = false; btn.textContent = "加入再考清單（" + rows.length + " 題）"; }
+      });
+  }
+
+  function dbBadge(n, total) {
+    if (n === null || typeof n === "undefined") {
+      return '<span class="st-db bad" id="stDbBadge">資料庫題庫：尚未建立</span>';
+    }
+    if (n === total) {
+      return '<span class="st-db ok" id="stDbBadge">資料庫題庫：' + n + ' 題 ✓</span>';
+    }
+    return '<span class="st-db warn" id="stDbBadge">資料庫題庫：' + n + ' / ' + total + ' 題</span>';
+  }
+
+  function importQuestionsToDb() {
+    if (A.statImporting || !A.statMeta) return;
+    var total = A.statMeta.length;
+    if (A.statDbCount === null) {
+      toast("請先在 Supabase 執行最新版 supabase.sql");
+      return;
+    }
+    if (!confirm("把題庫檔的 " + total + " 題匯入資料庫？\n已存在的題目會更新，不會影響交卷紀錄。")) return;
+
+    A.statImporting = true;
+    var badge = document.getElementById("stDbBadge");
+    var btn = document.getElementById("stImport");
+    if (btn) { btn.disabled = true; btn.textContent = "匯入中…"; }
+    if (badge) badge.textContent = "資料庫題庫：讀取題庫檔…";
+
+    fetch("questions.json", { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("讀不到 questions.json（" + r.status + "）");
+        return r.json();
+      })
+      .then(function (j) {
+        var rows = (j && j.rows) || [];
+        if (!rows.length) throw new Error("questions.json 沒有題目");
+        return QCORE.importQuestions(rows, function (done, all) {
+          if (badge) badge.textContent = "資料庫題庫：匯入中 " + done + " / " + all;
+        });
+      })
+      .then(function (n) {
+        A.statImporting = false;
+        A.statDbCount = n;
+        toast("已匯入 " + n + " 題到資料庫");
+        renderStats();
+      })
+      .catch(function (e) {
+        A.statImporting = false;
+        if (btn) { btn.disabled = false; btn.textContent = "匯入／更新資料庫題庫"; }
+        if (badge) badge.textContent = "資料庫題庫：匯入失敗";
+        toast("匯入失敗：" + e.message);
+      });
   }
 
   function renderStats() {
@@ -628,12 +828,14 @@
       }).catch(function (e) {
         return { rows: [], err: e };
       }),
-      QCORE.listSeenIds(1000)
+      QCORE.listSeenIds(1000),
+      QCORE.countQuestions()
     ]).then(function (r) {
       var m = r[0] || {};
       var doneRows = r[1] || [];
       var retryRes = r[2] || { rows: [], err: null };
       var seen = r[3] || {};
+      var dbCount = typeof r[4] === "number" ? r[4] : null;
 
       var doneSet = {}, retrySet = {};
       doneRows.forEach(function (x) { doneSet[x.id] = 1; });
@@ -644,6 +846,7 @@
       A.statDone = doneSet;
       A.statRetry = retrySet;
       A.statRetryErr = retryRes.err;
+      A.statDbCount = dbCount;
 
       var qmap = m.questions || {};
       var subs = m.subjects || [];
@@ -697,6 +900,9 @@
 
       var html = '<div class="toolbar" style="margin:0 0 12px">' +
         '<button class="btn ghost small" id="stRefresh" type="button">重新檢查資料庫</button>' +
+        '<button class="btn primary small" id="stImport" type="button"' +
+          (A.statDbCount === null || A.statImporting ? " disabled" : "") + '>匯入／更新資料庫題庫</button>' +
+        dbBadge(A.statDbCount, meta.length) +
         '<span class="st-note" style="margin:0;align-self:center">題庫版本 ' +
           QCORE.esc(m.generated_at ? QCORE.fmtDateTime(m.generated_at) : "未知") +
           ' ・ 已測驗累計自最近 1000 份考卷</span>' +
@@ -744,6 +950,15 @@
           '<span class="id">' + QCORE.esc(retryRes.err.message) + '</span></div>';
       }
 
+      if (A.statDbCount === null) {
+        html += '<div class="notice"><b>「資料庫題庫」還沒建立或讀不到。</b><br>' +
+          '請到 Supabase → SQL Editor 執行最新版的「小考/supabase.sql」（會新增 <code>questions</code> 資料表，不會刪除舊資料），' +
+          '再按上面的「重新檢查資料庫」。</div>';
+      } else if (A.statDbCount !== meta.length) {
+        html += '<div class="notice"><b>資料庫題庫目前 ' + A.statDbCount + ' 題，題庫檔有 ' + meta.length + ' 題。</b><br>' +
+          '按上面的「匯入／更新資料庫題庫」，就會把缺少的題目補進去、舊題目更新。</div>';
+      }
+
       if (!anomalies) {
         html += '<div class="ok-box">✅ 題庫與資料庫一致：' + meta.length +
           ' 題都在題庫裡，沒有找不到題目的紀錄。</div>';
@@ -774,6 +989,14 @@
           '</select>' +
           '<input id="stQ" type="search" placeholder="搜尋題目文字…">' +
         '</div>' +
+        '<div class="st-selbar">' +
+          '<label class="st-check"><input type="checkbox" id="stAll"> 全選目前篩選 <span id="stAllN">(0)</span></label>' +
+          '<button class="btn ghost small" id="stPickSeen" type="button">勾選全部測驗過的</button>' +
+          '<span class="st-selcount" id="stSelCount">已選 0 題</span>' +
+          '<button class="btn primary small" id="stAddRetry" type="button" disabled>加入再考清單</button>' +
+          '<button class="btn ghost small" id="stClearSel" type="button" disabled>取消選取</button>' +
+          '<span class="st-note">勾選想要重新測驗的題目（可先把狀態切成「測驗過」），按「加入再考清單」，下次小考就會優先出這些題目。</span>' +
+        '</div>' +
         '<div id="stQList"></div>';
 
       box.innerHTML = html;
@@ -782,10 +1005,19 @@
       var s2 = document.getElementById("stStat");
       var s3 = document.getElementById("stQ");
       var s4 = document.getElementById("stRefresh");
+      var s5 = document.getElementById("stImport");
+
+      /* 重新檢查或加入再考清單後，保留爸爸原本的篩選條件 */
+      var f = A.statFilter || { s: "", t: "", q: "" };
+      if (s1) s1.value = f.s || "";
+      if (s2) s2.value = f.t || "";
+      if (s3) s3.value = f.q || "";
+
       if (s1) s1.onchange = paintStatQ;
       if (s2) s2.onchange = paintStatQ;
       if (s3) s3.oninput = paintStatQ;
       if (s4) s4.onclick = renderStats;
+      if (s5) s5.onclick = importQuestionsToDb;
       paintStatQ();
     }).catch(function (e) {
       var b = document.getElementById("statsBox");
