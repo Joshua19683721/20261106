@@ -24,7 +24,8 @@
     { id: "eng",  dir: "英語文期中考",     short: "英語文",     name: "英語文期中考／期末考",     badge: "英", color: "#7a5c9e", bank: "single" },
     { id: "sci",  dir: "自然期中考",       short: "自然",       name: "自然期中考／期末考",       badge: "自", color: "#2f8f5b", bank: "single" },
     { id: "soc",  dir: "社會期中考",       short: "社會",       name: "社會期中考／期末考",       badge: "社", color: "#1f7a8c", bank: "days" },
-    { id: "hp",   dir: "健康與體育期中考", short: "健康與體育", name: "健康與體育期中考／期末考", badge: "健", color: "#0f8b6c", bank: "days" }
+    { id: "hp",   dir: "健康與體育期中考", short: "健康與體育", name: "健康與體育期中考／期末考", badge: "健", color: "#0f8b6c", bank: "days" },
+    { id: "eng4", dir: "英語文四年級單字測驗", short: "英語文四年級單字測驗", name: "英語文四年級單字測驗", badge: "單", color: "#b45309", bank: "single" }
   ];
 
   var DAYS = 19;
@@ -199,6 +200,7 @@
             u: q.u || "",
             d: q.d || "",
             g: q.g || 4,
+            grp: q.grp || "",
             q: q.q,
             o: q.o.slice(),
             a: q.a,
@@ -249,11 +251,28 @@
 
     var chosen = stratifyByUnit(fresh, n);
 
+    /* 同一個題組（例如同一個單字的不同題型）同一份考卷只出現一次 */
+    var usedGrp = {};
+    chosen = chosen.filter(function (x) {
+      if (!x.grp) return true;
+      if (usedGrp[x.grp]) return false;
+      usedGrp[x.grp] = 1;
+      return true;
+    });
+
     if (chosen.length < n) {
       var have = {};
       chosen.forEach(function (x) { have[x.id] = 1; });
-      var rest = shuffle(avail.filter(function (x) { return !have[x.id]; }));
-      chosen = chosen.concat(rest.slice(0, n - chosen.length));
+      /* 先補「沒做過」的，真的不夠才回頭補做過的 */
+      var restFresh = shuffle(avail.filter(function (x) { return !have[x.id] && !seenSet[x.id]; }));
+      var restSeen = shuffle(avail.filter(function (x) { return !have[x.id] && seenSet[x.id]; }));
+      var rest = restFresh.concat(restSeen);
+      for (var i = 0; i < rest.length && chosen.length < n; i++) {
+        var x = rest[i];
+        if (x.grp && usedGrp[x.grp]) continue;
+        if (x.grp) usedGrp[x.grp] = 1;
+        chosen.push(x);
+      }
     }
 
     return shuffle(chosen).slice(0, n);

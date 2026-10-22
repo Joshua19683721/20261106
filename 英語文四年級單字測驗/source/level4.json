@@ -1,0 +1,2263 @@
+[
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-005",
+  "target": "around",
+  "gloss": "到處",
+  "ipa": "ɚˈaʊnd",
+  "phrase": {
+   "en": "walk around",
+   "zh": "到處走",
+   "ipa": "ˈwɔːk ɚˈaʊnd"
+  },
+  "sentence": {
+   "en": "Let's walk around.",
+   "zh": "我們四處走走吧"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-007",
+  "target": "be",
+  "gloss": "是;成為",
+  "ipa": "ˈbiː",
+  "phrase": {
+   "en": "should be",
+   "zh": "應該是",
+   "ipa": "ˈʃʊd ˈbiː"
+  },
+  "sentence": {
+   "en": "I want to be an engineer in the future.",
+   "zh": "我未來想要成為一名工程師"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-009",
+  "target": "behind",
+  "gloss": "在…的後面",
+  "ipa": "bɪˈhaɪnd",
+  "phrase": {
+   "en": "behind her",
+   "zh": "在她後面",
+   "ipa": "bɪˈhaɪnd ˈhɝ"
+  },
+  "sentence": {
+   "en": "The girl is hiding behind her mom.",
+   "zh": "那個女孩躲在她媽媽後面"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-010",
+  "target": "beside",
+  "gloss": "在旁邊",
+  "ipa": "bɪˈsaɪd",
+  "phrase": {
+   "en": "sit beside",
+   "zh": "坐在旁邊",
+   "ipa": "ˈsɪt bɪˈsaɪd"
+  },
+  "sentence": {
+   "en": "Kevin is sitting beside me.",
+   "zh": "Kevin坐在我旁邊"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-029",
+  "target": "do",
+  "gloss": "助動詞",
+  "ipa": "ˈduː",
+  "phrase": {
+   "en": "should do",
+   "zh": "應該做",
+   "ipa": "ˈʃʊd ˈduː"
+  },
+  "sentence": {
+   "en": "Do you like this book?",
+   "zh": "你喜歡這本書嗎"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-030",
+  "target": "does",
+  "gloss": "助動詞",
+  "ipa": "ˈdʌz",
+  "phrase": {
+   "en": "doesn't know",
+   "zh": "不知道",
+   "ipa": "ˈdʌzənt ˈnoʊ"
+  },
+  "sentence": {
+   "en": "He doesn't know.",
+   "zh": "他不知道"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-035",
+  "target": "even",
+  "gloss": "甚至",
+  "ipa": "ˈiːvɪn",
+  "phrase": {
+   "en": "even a five-year-old kid",
+   "zh": "就連五歲的小孩",
+   "ipa": "ˈiːvɪn ə ˈfaɪv ˈjɪɹ ˈoʊld ˈkɪd"
+  },
+  "sentence": {
+   "en": "Even a five-year-old kid knows it.",
+   "zh": "就連五歲小孩都知道"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-052",
+  "target": "if",
+  "gloss": "如果",
+  "ipa": "ˈɪf",
+  "phrase": {
+   "en": "what if",
+   "zh": "如果…怎麼辦",
+   "ipa": "ˈwʌt ˈɪf"
+  },
+  "sentence": {
+   "en": "We won't go if it rains tomorrow.",
+   "zh": "如果明天下雨，我們就不去了"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-068",
+  "target": "nobody",
+  "gloss": "沒有人",
+  "ipa": "ˈnoʊbədi",
+  "phrase": {
+   "en": "nobody's home",
+   "zh": "沒有人在家",
+   "ipa": "ˈnoʊbədiz ˈhoʊm"
+  },
+  "sentence": {
+   "en": "Nobody's home tonight.",
+   "zh": "今晚沒人在家"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-069",
+  "target": "nothing",
+  "gloss": "沒有東西",
+  "ipa": "ˈnʌθɪŋ",
+  "phrase": {
+   "en": "got nothing",
+   "zh": "什麼都沒得到",
+   "ipa": "ˈɡɑːt ˈnʌθɪŋ"
+  },
+  "sentence": {
+   "en": "She got nothing at last.",
+   "zh": "她最後什麼都沒得到"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-070",
+  "target": "of",
+  "gloss": "之中的",
+  "ipa": "ˈʌv",
+  "phrase": {
+   "en": "a lot of",
+   "zh": "很多",
+   "ipa": "ə ˈlɑːt ˈʌv"
+  },
+  "sentence": {
+   "en": "John is the tallest of the three.",
+   "zh": "John是三人之中最高的"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-072",
+  "target": "out",
+  "gloss": "在…之外",
+  "ipa": "ˈaʊt",
+  "phrase": {
+   "en": "out of",
+   "zh": "從…外面",
+   "ipa": "ˈaʊt ˈʌv"
+  },
+  "sentence": {
+   "en": "Get out of my way.",
+   "zh": "別擋我的路"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-083",
+  "target": "same",
+  "gloss": "相同的",
+  "ipa": "ˈseɪm",
+  "phrase": {
+   "en": "the same",
+   "zh": "一樣的",
+   "ipa": "ðə ˈseɪm"
+  },
+  "sentence": {
+   "en": "Mina and Mike go to the same school.",
+   "zh": "Mina和Mike唸同一所學校"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-088",
+  "target": "should",
+  "gloss": "應該",
+  "ipa": "ˈʃʊd",
+  "phrase": {
+   "en": "should do",
+   "zh": "應該做",
+   "ipa": "ˈʃʊd ˈduː"
+  },
+  "sentence": {
+   "en": "You should do your homework first.",
+   "zh": "你應該先做你的功課"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-102",
+  "target": "someone",
+  "gloss": "某人;有人",
+  "ipa": "ˈsʌˌmwʌn",
+  "phrase": {
+   "en": "she is",
+   "zh": "她是",
+   "ipa": "ˈʃiː ˈɪz"
+  },
+  "sentence": {
+   "en": "She is waiting for someone.",
+   "zh": "她在等人"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-103",
+  "target": "something",
+  "gloss": "某些東西",
+  "ipa": "ˈsʌmθɪŋ",
+  "phrase": {
+   "en": "something to drink",
+   "zh": "喝的東西",
+   "ipa": "ˈsʌmθɪŋ ˈtuː ˈdɹɪŋk"
+  },
+  "sentence": {
+   "en": "Can I have something to drink?",
+   "zh": "我可以喝點東西嗎"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-104",
+  "target": "somewhere",
+  "gloss": "某個地方",
+  "ipa": "ˈsʌˌmwɛɹ",
+  "phrase": {
+   "en": "somewhere else",
+   "zh": "別的地方",
+   "ipa": "ˈsʌˌmwɛɹ ˈɛls"
+  },
+  "sentence": {
+   "en": "Do you want to go somewhere else?",
+   "zh": "你想去別的地方嗎"
+  }
+ },
+ {
+  "scen": "基礎文法",
+  "scenId": "basic",
+  "id": "4-110",
+  "target": "still",
+  "gloss": "仍然",
+  "ipa": "ˈstɪl",
+  "phrase": {
+   "en": "still works here",
+   "zh": "仍在這裡工作",
+   "ipa": "ˈstɪl ˈwɝks ˈhiːɹ"
+  },
+  "sentence": {
+   "en": "He still works here.",
+   "zh": "他仍在這工作"
+  }
+ },
+ {
+  "scen": "家人親友",
+  "scenId": "family",
+  "id": "4-014",
+  "target": "born",
+  "gloss": "出生的",
+  "ipa": "ˈbɔːɹn",
+  "phrase": {
+   "en": "be born",
+   "zh": "出生",
+   "ipa": "ˈbiː ˈbɔːɹn"
+  },
+  "sentence": {
+   "en": "The baby was born last week.",
+   "zh": "這個寶寶上星期出生"
+  }
+ },
+ {
+  "scen": "家人親友",
+  "scenId": "family",
+  "id": "4-127",
+  "target": "visit",
+  "gloss": "拜訪",
+  "ipa": "ˈvɪzɪt",
+  "phrase": {
+   "en": "my cousin",
+   "zh": "我的表姊",
+   "ipa": "ˈmaɪ ˈkʌzən"
+  },
+  "sentence": {
+   "en": "My cousin visits us during the weekends.",
+   "zh": "我的表姊週末期間來拜訪我們"
+  }
+ },
+ {
+  "scen": "居家生活",
+  "scenId": "home",
+  "id": "4-045",
+  "target": "garbage",
+  "gloss": "垃圾",
+  "ipa": "ˈɡɑːɹbɪdʒ",
+  "phrase": {
+   "en": "take out the garbage",
+   "zh": "倒垃圾",
+   "ipa": "ˈteɪk ˈaʊt ðə ˈɡɑːɹbɪdʒ"
+  },
+  "sentence": {
+   "en": "Don't forget to take out the garbage.",
+   "zh": "別忘了要倒垃圾"
+  }
+ },
+ {
+  "scen": "居家生活",
+  "scenId": "home",
+  "id": "4-121",
+  "target": "towel",
+  "gloss": "毛巾",
+  "ipa": "ˈtaʊəl",
+  "phrase": {
+   "en": "in the bathroom",
+   "zh": "在浴室裡",
+   "ipa": "ɪn ðə ˈbæˌθɹuːm"
+  },
+  "sentence": {
+   "en": "The towels are in the bathroom.",
+   "zh": "毛巾在浴室裡"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-012",
+  "target": "blackboard",
+  "gloss": "黑板",
+  "ipa": "ˈblæˌkbɔːɹd",
+  "phrase": {
+   "en": "a blackboard",
+   "zh": "一塊黑板",
+   "ipa": "ə ˈblæˌkbɔːɹd"
+  },
+  "sentence": {
+   "en": "We have a blackboard in the classroom.",
+   "zh": "我們教室裡有一個黑板"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-025",
+  "target": "copy",
+  "gloss": "複製",
+  "ipa": "ˈkɑːpi",
+  "phrase": {
+   "en": "copy her",
+   "zh": "抄她的",
+   "ipa": "ˈkɑːpi ˈhɝ"
+  },
+  "sentence": {
+   "en": "You can't copy her homework.",
+   "zh": "你不能抄她的作業"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-026",
+  "target": "correct",
+  "gloss": "正確的",
+  "ipa": "kɚˈɛkt",
+  "phrase": {
+   "en": "a correct",
+   "zh": "一個正確的",
+   "ipa": "ə kɚˈɛkt"
+  },
+  "sentence": {
+   "en": "The answer is correct.",
+   "zh": "這答案是正確的"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-036",
+  "target": "fail",
+  "gloss": "不及格",
+  "ipa": "ˈfeɪl",
+  "phrase": {
+   "en": "fail the",
+   "zh": "沒通過那個",
+   "ipa": "ˈfeɪl ðə"
+  },
+  "sentence": {
+   "en": "I'm afraid I'll fail the exam.",
+   "zh": "我怕考試會不及格"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-047",
+  "target": "group",
+  "gloss": "群;組",
+  "ipa": "ˈɡɹuːp",
+  "phrase": {
+   "en": "a group",
+   "zh": "一組",
+   "ipa": "ə ˈɡɹuːp"
+  },
+  "sentence": {
+   "en": "The teacher put us into groups.",
+   "zh": "老師把我們分組"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-060",
+  "target": "mark",
+  "gloss": "標記",
+  "ipa": "ˈmɑːɹk",
+  "phrase": {
+   "en": "mark this part",
+   "zh": "標記這個部分",
+   "ipa": "ˈmɑːɹk ˈðɪs ˈpɑːɹt"
+  },
+  "sentence": {
+   "en": "Please mark this part on your paper.",
+   "zh": "請在你的紙上標記這個部分"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-073",
+  "target": "page",
+  "gloss": "頁",
+  "ipa": "ˈpeɪdʒ",
+  "phrase": {
+   "en": "a page",
+   "zh": "一頁",
+   "ipa": "ə ˈpeɪdʒ"
+  },
+  "sentence": {
+   "en": "Please turn to page eight.",
+   "zh": "請翻到第八頁"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-074",
+  "target": "paper",
+  "gloss": "紙",
+  "ipa": "ˈpeɪpɚ",
+  "phrase": {
+   "en": "on the paper",
+   "zh": "在紙上",
+   "ipa": "ˈɑːn ðə ˈpeɪpɚ"
+  },
+  "sentence": {
+   "en": "Write it down on the paper.",
+   "zh": "把它寫在紙上"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-075",
+  "target": "part",
+  "gloss": "部分",
+  "ipa": "ˈpɑːɹt",
+  "phrase": {
+   "en": "a part",
+   "zh": "一部分",
+   "ipa": "ə ˈpɑːɹt"
+  },
+  "sentence": {
+   "en": "This is just part of it.",
+   "zh": "這只是一部分"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-077",
+  "target": "playground",
+  "gloss": "操場",
+  "ipa": "ˈpleɪˌɡɹaʊnd",
+  "phrase": {
+   "en": "on the playground",
+   "zh": "在操場上",
+   "ipa": "ˈɑːn ðə ˈpleɪˌɡɹaʊnd"
+  },
+  "sentence": {
+   "en": "Many children spent their afternoon on the playground.",
+   "zh": "很多小孩下午待在操場"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-084",
+  "target": "screen",
+  "gloss": "螢幕",
+  "ipa": "ˈskɹiːn",
+  "phrase": {
+   "en": "a screen",
+   "zh": "一個螢幕",
+   "ipa": "ə ˈskɹiːn"
+  },
+  "sentence": {
+   "en": "It is showing on the screen.",
+   "zh": "它顯示在螢幕上"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-095",
+  "target": "smart",
+  "gloss": "聰明",
+  "ipa": "ˈsmɑːɹt",
+  "phrase": {
+   "en": "be smart",
+   "zh": "很聰明",
+   "ipa": "ˈbiː ˈsmɑːɹt"
+  },
+  "sentence": {
+   "en": "This kid is smart.",
+   "zh": "這小孩很聰明"
+  }
+ },
+ {
+  "scen": "校園學習",
+  "scenId": "school",
+  "id": "4-124",
+  "target": "type",
+  "gloss": "類型",
+  "ipa": "ˈtaɪp",
+  "phrase": {
+   "en": "this type",
+   "zh": "這種",
+   "ipa": "ˈðɪs ˈtaɪp"
+  },
+  "sentence": {
+   "en": "Do you like this type of car?",
+   "zh": "你喜歡這類型的車嗎"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-008",
+  "target": "bean",
+  "gloss": "豆子",
+  "ipa": "ˈbiːn",
+  "phrase": {
+   "en": "a bean",
+   "zh": "一顆豆子",
+   "ipa": "ə ˈbiːn"
+  },
+  "sentence": {
+   "en": "Anna doesn't like beans.",
+   "zh": "Anna不喜歡豆子"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-043",
+  "target": "fresh",
+  "gloss": "新鮮的",
+  "ipa": "ˈfɹɛʃ",
+  "phrase": {
+   "en": "fresh air",
+   "zh": "新鮮空氣",
+   "ipa": "ˈfɹɛʃ ˈɛɹ"
+  },
+  "sentence": {
+   "en": "I need some fresh air.",
+   "zh": "我需要一些新鮮空氣"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-049",
+  "target": "honey",
+  "gloss": "蜂蜜",
+  "ipa": "ˈhʌni",
+  "phrase": {
+   "en": "a honey",
+   "zh": "一份蜂蜜",
+   "ipa": "ə ˈhʌni"
+  },
+  "sentence": {
+   "en": "Bees love honey.",
+   "zh": "蜜蜂喜歡蜂蜜"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-080",
+  "target": "restaurant",
+  "gloss": "餐廳",
+  "ipa": "ˈɹɛstɚˌɑːnt",
+  "phrase": {
+   "en": "a good restaurant",
+   "zh": "一家好餐廳",
+   "ipa": "ə ˈɡʊd ˈɹɛstɚˌɑːnt"
+  },
+  "sentence": {
+   "en": "A new restaurant will be opened two blocks away from the park.",
+   "zh": "離公園兩個街區外即將開一間新餐廳"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-098",
+  "target": "snack",
+  "gloss": "點心",
+  "ipa": "ˈsnæk",
+  "phrase": {
+   "en": "a snack",
+   "zh": "一份點心",
+   "ipa": "ə ˈsnæk"
+  },
+  "sentence": {
+   "en": "Don't eat too many snacks before dinner.",
+   "zh": "別在晚餐前吃太多點心"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-109",
+  "target": "steak",
+  "gloss": "牛排",
+  "ipa": "ˈsteɪk",
+  "phrase": {
+   "en": "a steak",
+   "zh": "一份牛排",
+   "ipa": "ə ˈsteɪk"
+  },
+  "sentence": {
+   "en": "How do you like your steak?",
+   "zh": "你的牛排要幾分熟"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-111",
+  "target": "sugar",
+  "gloss": "糖",
+  "ipa": "ˈʃʊɡɚ",
+  "phrase": {
+   "en": "sugar in",
+   "zh": "加糖在",
+   "ipa": "ˈʃʊɡɚ ɪn"
+  },
+  "sentence": {
+   "en": "Do you want sugar in your coffee?",
+   "zh": "你的咖啡要加糖嗎"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-114",
+  "target": "sweet",
+  "gloss": "甜的",
+  "ipa": "ˈswiːt",
+  "phrase": {
+   "en": "a sweet",
+   "zh": "一顆糖",
+   "ipa": "ə ˈswiːt"
+  },
+  "sentence": {
+   "en": "These grapes are sweet.",
+   "zh": "這些葡萄很甜"
+  }
+ },
+ {
+  "scen": "飲食餐桌",
+  "scenId": "food",
+  "id": "4-126",
+  "target": "vegetable",
+  "gloss": "蔬菜",
+  "ipa": "ˈvɛdʒtəbəl",
+  "phrase": {
+   "en": "a vegetable",
+   "zh": "一種蔬菜",
+   "ipa": "ə ˈvɛdʒtəbəl"
+  },
+  "sentence": {
+   "en": "Vegetables are good for your health.",
+   "zh": "蔬菜有益你的健康"
+  }
+ },
+ {
+  "scen": "動物昆蟲",
+  "scenId": "animal",
+  "id": "4-011",
+  "target": "bite",
+  "gloss": "咬",
+  "ipa": "ˈbaɪt",
+  "phrase": {
+   "en": "bites people",
+   "zh": "咬人",
+   "ipa": "ˈbaɪts ˈpiːpəl"
+  },
+  "sentence": {
+   "en": "That dog bites people.",
+   "zh": "那隻狗會咬人"
+  }
+ },
+ {
+  "scen": "動物昆蟲",
+  "scenId": "animal",
+  "id": "4-015",
+  "target": "butterfly",
+  "gloss": "蝴蝶",
+  "ipa": "ˈbʌtɚˌflaɪ",
+  "phrase": {
+   "en": "a butterfly",
+   "zh": "一隻蝴蝶",
+   "ipa": "ə ˈbʌtɚˌflaɪ"
+  },
+  "sentence": {
+   "en": "The butterflies are flying in the garden.",
+   "zh": "蝴蝶在花園裡飛"
+  }
+ },
+ {
+  "scen": "動物昆蟲",
+  "scenId": "animal",
+  "id": "4-037",
+  "target": "feed",
+  "gloss": "餵養",
+  "ipa": "ˈfiːd",
+  "phrase": {
+   "en": "feed the",
+   "zh": "餵養那個",
+   "ipa": "ˈfiːd ðə"
+  },
+  "sentence": {
+   "en": "Remember to feed the fish.",
+   "zh": "記得餵魚"
+  }
+ },
+ {
+  "scen": "動物昆蟲",
+  "scenId": "animal",
+  "id": "4-099",
+  "target": "snake",
+  "gloss": "蛇",
+  "ipa": "ˈsneɪk",
+  "phrase": {
+   "en": "bite people",
+   "zh": "咬人",
+   "ipa": "ˈbaɪt ˈpiːpəl"
+  },
+  "sentence": {
+   "en": "Some snakes bite people.",
+   "zh": "有些蛇會咬人"
+  }
+ },
+ {
+  "scen": "天氣季節",
+  "scenId": "weather",
+  "id": "4-100",
+  "target": "snow",
+  "gloss": "雪",
+  "ipa": "ˈsnoʊ",
+  "phrase": {
+   "en": "seldom snows",
+   "zh": "很少下雪",
+   "ipa": "ˈsɛldəm ˈsnoʊz"
+  },
+  "sentence": {
+   "en": "It seldom snows in Taiwan.",
+   "zh": "在台灣很少下雪"
+  }
+ },
+ {
+  "scen": "天氣季節",
+  "scenId": "weather",
+  "id": "4-129",
+  "target": "wind",
+  "gloss": "風",
+  "ipa": "ˈwaɪnd",
+  "phrase": {
+   "en": "the wind",
+   "zh": "風",
+   "ipa": "ðə ˈwaɪnd"
+  },
+  "sentence": {
+   "en": "The wind is blowing hard.",
+   "zh": "風颳得很大"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-027",
+  "target": "date",
+  "gloss": "日期",
+  "ipa": "ˈdeɪt",
+  "phrase": {
+   "en": "what date",
+   "zh": "幾號",
+   "ipa": "ˈwʌt ˈdeɪt"
+  },
+  "sentence": {
+   "en": "What date is today?",
+   "zh": "今天是幾月幾號"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-033",
+  "target": "eighteen",
+  "gloss": "十八",
+  "ipa": "eɪˈtiːn",
+  "phrase": {
+   "en": "eighteen",
+   "zh": "十八",
+   "ipa": "eɪˈtiːn"
+  },
+  "sentence": {
+   "en": "I can drive when I am eighteen.",
+   "zh": "我十八歲就可以開車了"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-034",
+  "target": "eighty",
+  "gloss": "八十",
+  "ipa": "ˈeɪti",
+  "phrase": {
+   "en": "eighty",
+   "zh": "八十",
+   "ipa": "ˈeɪti"
+  },
+  "sentence": {
+   "en": "This old man is already eighty years old.",
+   "zh": "這個老人已經八十歲了"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-039",
+  "target": "fifteen",
+  "gloss": "十五",
+  "ipa": "fɪˈftiːn",
+  "phrase": {
+   "en": "fifteen",
+   "zh": "十五",
+   "ipa": "fɪˈftiːn"
+  },
+  "sentence": {
+   "en": "We took fifteen pictures yesterday.",
+   "zh": "我們昨天拍了十五張照片"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-040",
+  "target": "fifty",
+  "gloss": "五十",
+  "ipa": "ˈfɪfti",
+  "phrase": {
+   "en": "fifty",
+   "zh": "五十",
+   "ipa": "ˈfɪfti"
+  },
+  "sentence": {
+   "en": "There are fifty seats in this room.",
+   "zh": "這房間裡有五十個座位"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-041",
+  "target": "forty",
+  "gloss": "四十",
+  "ipa": "ˈfɔːɹti",
+  "phrase": {
+   "en": "one",
+   "zh": "一",
+   "ipa": "ˈwʌn"
+  },
+  "sentence": {
+   "en": "One class is forty minutes.",
+   "zh": "一節課四十分鐘"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-042",
+  "target": "fourteen",
+  "gloss": "十四",
+  "ipa": "ˈfɔːˈɹtiːn",
+  "phrase": {
+   "en": "fourteen",
+   "zh": "十四",
+   "ipa": "ˈfɔːˈɹtiːn"
+  },
+  "sentence": {
+   "en": "I was in junior high school when I was fourteen.",
+   "zh": "我十四歲時正在讀國中"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-044",
+  "target": "future",
+  "gloss": "未來",
+  "ipa": "ˈfjuːtʃɚ",
+  "phrase": {
+   "en": "in the future",
+   "zh": "在未來",
+   "ipa": "ɪn ðə ˈfjuːtʃɚ"
+  },
+  "sentence": {
+   "en": "Do you have any plans for the future?",
+   "zh": "你對未來有任何的計劃嗎"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-066",
+  "target": "nineteen",
+  "gloss": "十九",
+  "ipa": "ˈnaɪˈntiːn",
+  "phrase": {
+   "en": "nineteen",
+   "zh": "十九",
+   "ipa": "ˈnaɪˈntiːn"
+  },
+  "sentence": {
+   "en": "You still have nineteen minutes.",
+   "zh": "你還有十九分鐘"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-067",
+  "target": "ninety",
+  "gloss": "九十",
+  "ipa": "ˈnaɪnti",
+  "phrase": {
+   "en": "ninety",
+   "zh": "九十",
+   "ipa": "ˈnaɪnti"
+  },
+  "sentence": {
+   "en": "The game is ninety minutes long.",
+   "zh": "這場比賽打了九十分鐘"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-086",
+  "target": "seventeen",
+  "gloss": "十七",
+  "ipa": "ˈsɛvəˈntiːn",
+  "phrase": {
+   "en": "seventeen",
+   "zh": "十七",
+   "ipa": "ˈsɛvəˈntiːn"
+  },
+  "sentence": {
+   "en": "There are seventeen days left to the end of this month.",
+   "zh": "離這個月月底還有十七天"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-087",
+  "target": "seventy",
+  "gloss": "七十",
+  "ipa": "ˈsɛvənti",
+  "phrase": {
+   "en": "seventy",
+   "zh": "七十",
+   "ipa": "ˈsɛvənti"
+  },
+  "sentence": {
+   "en": "Please turn to page seventy.",
+   "zh": "請翻到第七十頁"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-090",
+  "target": "sixteen",
+  "gloss": "十六",
+  "ipa": "sɪˈkstiːn",
+  "phrase": {
+   "en": "sixteen",
+   "zh": "十六",
+   "ipa": "sɪˈkstiːn"
+  },
+  "sentence": {
+   "en": "I was preparing for the big exam when I was sixteen.",
+   "zh": "我十六歲時在準備一個重要的考試"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-091",
+  "target": "sixty",
+  "gloss": "六十",
+  "ipa": "ˈsɪksti",
+  "phrase": {
+   "en": "an hour",
+   "zh": "一個小時",
+   "ipa": "ˈæn ˈaʊɚ"
+  },
+  "sentence": {
+   "en": "An hour is sixty minutes.",
+   "zh": "一小時有六十分鐘"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-105",
+  "target": "soon",
+  "gloss": "很快",
+  "ipa": "ˈsuːn",
+  "phrase": {
+   "en": "soon",
+   "zh": "很快",
+   "ipa": "ˈsuːn"
+  },
+  "sentence": {
+   "en": "I'll see you soon.",
+   "zh": "我很快就會見到你"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-119",
+  "target": "thirty",
+  "gloss": "三十",
+  "ipa": "ˈθɝˌdiː",
+  "phrase": {
+   "en": "thirty",
+   "zh": "三十",
+   "ipa": "ˈθɝˌdiː"
+  },
+  "sentence": {
+   "en": "William only got thirty on his math test.",
+   "zh": "William的數學只考了三十分"
+  }
+ },
+ {
+  "scen": "時間日期",
+  "scenId": "time",
+  "id": "4-123",
+  "target": "twenty",
+  "gloss": "二十",
+  "ipa": "ˈtwɛnti",
+  "phrase": {
+   "en": "twenty",
+   "zh": "二十",
+   "ipa": "ˈtwɛnti"
+  },
+  "sentence": {
+   "en": "We need twenty more chairs.",
+   "zh": "我們還需要多二十張椅子"
+  }
+ },
+ {
+  "scen": "身體健康",
+  "scenId": "body",
+  "id": "4-038",
+  "target": "fever",
+  "gloss": "發燒",
+  "ipa": "ˈfiːvɚ",
+  "phrase": {
+   "en": "a fever",
+   "zh": "一場發燒",
+   "ipa": "ə ˈfiːvɚ"
+  },
+  "sentence": {
+   "en": "I think I'm having a fever.",
+   "zh": "我想我發燒了"
+  }
+ },
+ {
+  "scen": "身體健康",
+  "scenId": "body",
+  "id": "4-051",
+  "target": "hurt",
+  "gloss": "疼痛",
+  "ipa": "ˈhɝt",
+  "phrase": {
+   "en": "cut my finger",
+   "zh": "割到手指",
+   "ipa": "ˈkʌt ˈmaɪ ˈfɪŋɡɚ"
+  },
+  "sentence": {
+   "en": "I cut my finger and it hurt.",
+   "zh": "我切到手指了，好痛"
+  }
+ },
+ {
+  "scen": "身體健康",
+  "scenId": "body",
+  "id": "4-089",
+  "target": "shoulder",
+  "gloss": "肩膀",
+  "ipa": "ˈʃoʊldɚ",
+  "phrase": {
+   "en": "a shoulder",
+   "zh": "一個肩膀",
+   "ipa": "ə ˈʃoʊldɚ"
+  },
+  "sentence": {
+   "en": "We are standing shoulder to shoulder.",
+   "zh": "我們並肩站著"
+  }
+ },
+ {
+  "scen": "身體健康",
+  "scenId": "body",
+  "id": "4-096",
+  "target": "smell",
+  "gloss": "聞",
+  "ipa": "ˈsmɛl",
+  "phrase": {
+   "en": "a smell",
+   "zh": "一種味道",
+   "ipa": "ə ˈsmɛl"
+  },
+  "sentence": {
+   "en": "I smelled something burning.",
+   "zh": "我聞到有東西在燒"
+  }
+ },
+ {
+  "scen": "身體健康",
+  "scenId": "body",
+  "id": "4-097",
+  "target": "smoke",
+  "gloss": "抽菸",
+  "ipa": "ˈsmoʊk",
+  "phrase": {
+   "en": "a smoke",
+   "zh": "一口菸",
+   "ipa": "ə ˈsmoʊk"
+  },
+  "sentence": {
+   "en": "You can't smoke here.",
+   "zh": "你不能在這抽菸"
+  }
+ },
+ {
+  "scen": "身體健康",
+  "scenId": "body",
+  "id": "4-118",
+  "target": "thirsty",
+  "gloss": "口渴的",
+  "ipa": "ˈθɝsti",
+  "phrase": {
+   "en": "feel thirsty",
+   "zh": "感到口渴",
+   "ipa": "ˈfiːl ˈθɝsti"
+  },
+  "sentence": {
+   "en": "I felt thirsty after doing exercise.",
+   "zh": "運動完我感到口渴"
+  }
+ },
+ {
+  "scen": "身體健康",
+  "scenId": "body",
+  "id": "4-120",
+  "target": "throat",
+  "gloss": "喉嚨",
+  "ipa": "ˈθɹoʊt",
+  "phrase": {
+   "en": "sore throat",
+   "zh": "喉嚨痛",
+   "ipa": "ˈsɔːɹ ˈθɹoʊt"
+  },
+  "sentence": {
+   "en": "There is something in my throat.",
+   "zh": "有東西在我的喉嚨裡"
+  }
+ },
+ {
+  "scen": "衣著作息",
+  "scenId": "clothes",
+  "id": "4-092",
+  "target": "size",
+  "gloss": "尺寸",
+  "ipa": "ˈsaɪz",
+  "phrase": {
+   "en": "the right size",
+   "zh": "剛好的尺寸",
+   "ipa": "ðə ˈɹaɪt ˈsaɪz"
+  },
+  "sentence": {
+   "en": "This skirt is the right size for you.",
+   "zh": "這件裙子的尺寸很適合你。"
+  }
+ },
+ {
+  "scen": "衣著作息",
+  "scenId": "clothes",
+  "id": "4-093",
+  "target": "skirt",
+  "gloss": "裙子",
+  "ipa": "ˈskɝt",
+  "phrase": {
+   "en": "a pink skirt",
+   "zh": "一件粉紅色的裙子",
+   "ipa": "ə ˈpɪŋk ˈskɝt"
+  },
+  "sentence": {
+   "en": "The little girl looks cute in that pink skirt.",
+   "zh": "那個小女孩穿那件粉紅色的裙子很可愛"
+  }
+ },
+ {
+  "scen": "衣著作息",
+  "scenId": "clothes",
+  "id": "4-094",
+  "target": "slim",
+  "gloss": "纖細的",
+  "ipa": "ˈslɪm",
+  "phrase": {
+   "en": "a slim",
+   "zh": "一個纖細的",
+   "ipa": "ə ˈslɪm"
+  },
+  "sentence": {
+   "en": "Our art teacher is tall and slim.",
+   "zh": "我們的美術老師又高又纖細"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-013",
+  "target": "bookstore",
+  "gloss": "書店",
+  "ipa": "ˈbʊˌkstɔːɹ",
+  "phrase": {
+   "en": "a bookstore",
+   "zh": "一家書店",
+   "ipa": "ə ˈbʊˌkstɔːɹ"
+  },
+  "sentence": {
+   "en": "You can find that book in the bookstore.",
+   "zh": "你可以在書店裡找到那本書"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-019",
+  "target": "castle",
+  "gloss": "城堡",
+  "ipa": "ˈkæsəl",
+  "phrase": {
+   "en": "a castle",
+   "zh": "一座城堡",
+   "ipa": "ə ˈkæsəl"
+  },
+  "sentence": {
+   "en": "The princess lives in the castle.",
+   "zh": "公主住在城堡裡"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-020",
+  "target": "center",
+  "gloss": "中心",
+  "ipa": "ˈsɛntɚ",
+  "phrase": {
+   "en": "the city center",
+   "zh": "市中心",
+   "ipa": "ðə ˈsɪti ˈsɛntɚ"
+  },
+  "sentence": {
+   "en": "The station is in the center of the city.",
+   "zh": "車站位在市中心"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-022",
+  "target": "city",
+  "gloss": "城市",
+  "ipa": "ˈsɪti",
+  "phrase": {
+   "en": "in taiwan",
+   "zh": "在台灣",
+   "ipa": "ɪn ˈtaɪˈwɑːn"
+  },
+  "sentence": {
+   "en": "Taipei is the biggest city in Taiwan.",
+   "zh": "台北是台灣最大的城市"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-064",
+  "target": "news",
+  "gloss": "新聞",
+  "ipa": "ˈnuːz",
+  "phrase": {
+   "en": "the news",
+   "zh": "新聞",
+   "ipa": "ðə ˈnuːz"
+  },
+  "sentence": {
+   "en": "Dad watches news on TV every night.",
+   "zh": "爸爸每晚都看電視新聞"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-065",
+  "target": "newspaper",
+  "gloss": "報紙",
+  "ipa": "ˈnuːˌzpeɪpɚ",
+  "phrase": {
+   "en": "a newspaper",
+   "zh": "一份報紙",
+   "ipa": "ə ˈnuːˌzpeɪpɚ"
+  },
+  "sentence": {
+   "en": "My father reads a newspaper every morning.",
+   "zh": "我的爸爸每天早上看報紙"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-071",
+  "target": "office",
+  "gloss": "辦公室",
+  "ipa": "ˈɔːfɪs",
+  "phrase": {
+   "en": "post office",
+   "zh": "郵局",
+   "ipa": "ˈpoʊst ˈɔːfɪs"
+  },
+  "sentence": {
+   "en": "Is she in the office?",
+   "zh": "她在辦公室嗎"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-107",
+  "target": "station",
+  "gloss": "車站",
+  "ipa": "ˈsteɪʃən",
+  "phrase": {
+   "en": "the train station",
+   "zh": "火車站",
+   "ipa": "ðə ˈtɹeɪn ˈsteɪʃən"
+  },
+  "sentence": {
+   "en": "We'll meet at the station.",
+   "zh": "我們車站見"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-112",
+  "target": "supermarket",
+  "gloss": "超級市場",
+  "ipa": "ˈsuːpɚˌmɑːɹkɪt",
+  "phrase": {
+   "en": "a supermarket",
+   "zh": "一家超市",
+   "ipa": "ə ˈsuːpɚˌmɑːɹkɪt"
+  },
+  "sentence": {
+   "en": "You can find it in the supermarket.",
+   "zh": "你可以在超級市場找到它"
+  }
+ },
+ {
+  "scen": "城市場所",
+  "scenId": "city",
+  "id": "4-117",
+  "target": "theater",
+  "gloss": "電影院",
+  "ipa": "ˈθiːətɚ",
+  "phrase": {
+   "en": "a theater",
+   "zh": "一家電影院",
+   "ipa": "ə ˈθiːətɚ"
+  },
+  "sentence": {
+   "en": "There is only one theater in Penghu.",
+   "zh": "澎湖只有一間電影院"
+  }
+ },
+ {
+  "scen": "交通旅遊",
+  "scenId": "travel",
+  "id": "4-017",
+  "target": "bridge",
+  "gloss": "橋",
+  "ipa": "ˈbɹɪdʒ",
+  "phrase": {
+   "en": "a bridge",
+   "zh": "一座橋",
+   "ipa": "ə ˈbɹɪdʒ"
+  },
+  "sentence": {
+   "en": "The Penghu Great Bridge is very famous.",
+   "zh": "澎湖跨海大橋很有名"
+  }
+ },
+ {
+  "scen": "交通旅遊",
+  "scenId": "travel",
+  "id": "4-082",
+  "target": "sail",
+  "gloss": "航行",
+  "ipa": "ˈseɪl",
+  "phrase": {
+   "en": "sail to",
+   "zh": "航行到",
+   "ipa": "ˈseɪl ˈtuː"
+  },
+  "sentence": {
+   "en": "This ship will sail to China this week.",
+   "zh": "這艘船這週要航向中國"
+  }
+ },
+ {
+  "scen": "交通旅遊",
+  "scenId": "travel",
+  "id": "4-108",
+  "target": "stay",
+  "gloss": "停留",
+  "ipa": "ˈsteɪ",
+  "phrase": {
+   "en": "stay here",
+   "zh": "留在這裡",
+   "ipa": "ˈsteɪ ˈhiːɹ"
+  },
+  "sentence": {
+   "en": "You can't stay here.",
+   "zh": "你不能待在這"
+  }
+ },
+ {
+  "scen": "交通旅遊",
+  "scenId": "travel",
+  "id": "4-125",
+  "target": "vacation",
+  "gloss": "假期",
+  "ipa": "veɪˈkeɪʃən",
+  "phrase": {
+   "en": "a vacation",
+   "zh": "一次假期",
+   "ipa": "ə veɪˈkeɪʃən"
+  },
+  "sentence": {
+   "en": "Donna is on vacation.",
+   "zh": "Donna在度假"
+  }
+ },
+ {
+  "scen": "購物花錢",
+  "scenId": "money",
+  "id": "4-031",
+  "target": "dozen",
+  "gloss": "一打",
+  "ipa": "ˈdʌzən",
+  "phrase": {
+   "en": "a dozen",
+   "zh": "一打",
+   "ipa": "ə ˈdʌzən"
+  },
+  "sentence": {
+   "en": "How much is a dozen of eggs?",
+   "zh": "一打雞蛋多少錢"
+  }
+ },
+ {
+  "scen": "購物花錢",
+  "scenId": "money",
+  "id": "4-046",
+  "target": "gram",
+  "gloss": "公克",
+  "ipa": "ˈɡɹæm",
+  "phrase": {
+   "en": "a gram",
+   "zh": "一公克",
+   "ipa": "ə ˈɡɹæm"
+  },
+  "sentence": {
+   "en": "This book is eight hundred grams.",
+   "zh": "這本書重八百克"
+  }
+ },
+ {
+  "scen": "購物花錢",
+  "scenId": "money",
+  "id": "4-053",
+  "target": "inch",
+  "gloss": "英吋",
+  "ipa": "ˈɪntʃ",
+  "phrase": {
+   "en": "an inch",
+   "zh": "一英吋",
+   "ipa": "ˈæn ˈɪntʃ"
+  },
+  "sentence": {
+   "en": "This pen is six inches long.",
+   "zh": "這支筆長六吋"
+  }
+ },
+ {
+  "scen": "購物花錢",
+  "scenId": "money",
+  "id": "4-055",
+  "target": "kilogram (kg)",
+  "gloss": "公斤",
+  "ipa": "ˈkɪləˌɡɹæm",
+  "phrase": {
+   "en": "a kilogram",
+   "zh": "一公斤",
+   "ipa": "ə ˈkɪləˌɡɹæm"
+  },
+  "sentence": {
+   "en": "How many kilograms is this box?",
+   "zh": "這個盒子幾公斤"
+  }
+ },
+ {
+  "scen": "購物花錢",
+  "scenId": "money",
+  "id": "4-058",
+  "target": "lend",
+  "gloss": "借出",
+  "ipa": "ˈlɛnd",
+  "phrase": {
+   "en": "lend my car",
+   "zh": "把我的車借出去",
+   "ipa": "ˈlɛnd ˈmaɪ ˈkɑːɹ"
+  },
+  "sentence": {
+   "en": "I can lend my car to you.",
+   "zh": "我可以把我的車借你"
+  }
+ },
+ {
+  "scen": "購物花錢",
+  "scenId": "money",
+  "id": "4-076",
+  "target": "pay",
+  "gloss": "付",
+  "ipa": "ˈpeɪ",
+  "phrase": {
+   "en": "pay for",
+   "zh": "為…付錢",
+   "ipa": "ˈpeɪ ˈfɔːɹ"
+  },
+  "sentence": {
+   "en": "I'll pay for it.",
+   "zh": "我會付錢"
+  }
+ },
+ {
+  "scen": "職業工作",
+  "scenId": "work",
+  "id": "4-003",
+  "target": "actor",
+  "gloss": "男演員",
+  "ipa": "ˈæktɚ",
+  "phrase": {
+   "en": "an actor",
+   "zh": "一位男演員",
+   "ipa": "ˈæn ˈæktɚ"
+  },
+  "sentence": {
+   "en": "Andy Lau is a good actor.",
+   "zh": "劉德華是一個好的男演員"
+  }
+ },
+ {
+  "scen": "職業工作",
+  "scenId": "work",
+  "id": "4-004",
+  "target": "actress",
+  "gloss": "女演員",
+  "ipa": "ˈæktɹəs",
+  "phrase": {
+   "en": "an actress",
+   "zh": "一位女演員",
+   "ipa": "ˈæn ˈæktɹəs"
+  },
+  "sentence": {
+   "en": "Audrey is my favorite actress.",
+   "zh": "Audrey是我最喜歡的女演員"
+  }
+ },
+ {
+  "scen": "職業工作",
+  "scenId": "work",
+  "id": "4-056",
+  "target": "lead",
+  "gloss": "帶領",
+  "ipa": "ˈlɛd",
+  "phrase": {
+   "en": "lead the",
+   "zh": "帶領那個",
+   "ipa": "ˈlɛd ðə"
+  },
+  "sentence": {
+   "en": "Who's going to lead the team?",
+   "zh": "誰要帶領這個團隊"
+  }
+ },
+ {
+  "scen": "職業工作",
+  "scenId": "work",
+  "id": "4-057",
+  "target": "leader",
+  "gloss": "領袖",
+  "ipa": "ˈliːdɚ",
+  "phrase": {
+   "en": "a leader",
+   "zh": "一位領袖",
+   "ipa": "ə ˈliːdɚ"
+  },
+  "sentence": {
+   "en": "Our leader is a cool person.",
+   "zh": "我們的領袖是個很酷的人"
+  }
+ },
+ {
+  "scen": "職業工作",
+  "scenId": "work",
+  "id": "4-079",
+  "target": "reporter",
+  "gloss": "記者",
+  "ipa": "ɹɪˈpɔːɹtɚ",
+  "phrase": {
+   "en": "a reporter",
+   "zh": "一位記者",
+   "ipa": "ə ɹɪˈpɔːɹtɚ"
+  },
+  "sentence": {
+   "en": "My aunt is a reporter for the China Times.",
+   "zh": "我的阿姨是中國時報的記者"
+  }
+ },
+ {
+  "scen": "職業工作",
+  "scenId": "work",
+  "id": "4-133",
+  "target": "writer",
+  "gloss": "作家",
+  "ipa": "ˈɹaɪtɚ",
+  "phrase": {
+   "en": "a writer",
+   "zh": "一位作家",
+   "ipa": "ə ˈɹaɪtɚ"
+  },
+  "sentence": {
+   "en": "J.K. Rowling is a popular writer.",
+   "zh": "Rowling是一位受歡迎的作家"
+  }
+ },
+ {
+  "scen": "運動遊戲",
+  "scenId": "sport",
+  "id": "4-021",
+  "target": "chess",
+  "gloss": "西洋棋",
+  "ipa": "ˈtʃɛs",
+  "phrase": {
+   "en": "a chess",
+   "zh": "一盤棋",
+   "ipa": "ə ˈtʃɛs"
+  },
+  "sentence": {
+   "en": "Tim is good at playing chess.",
+   "zh": "Tim擅於下棋"
+  }
+ },
+ {
+  "scen": "運動遊戲",
+  "scenId": "sport",
+  "id": "4-059",
+  "target": "lose",
+  "gloss": "輸",
+  "ipa": "ˈluːz",
+  "phrase": {
+   "en": "lose the",
+   "zh": "輸掉那個",
+   "ipa": "ˈluːz ðə"
+  },
+  "sentence": {
+   "en": "Our team doesn't want to lose the game.",
+   "zh": "我們的隊伍不想輸掉比賽"
+  }
+ },
+ {
+  "scen": "運動遊戲",
+  "scenId": "sport",
+  "id": "4-081",
+  "target": "roll",
+  "gloss": "滾動",
+  "ipa": "ˈɹoʊl",
+  "phrase": {
+   "en": "under the blanket",
+   "zh": "在毯子下面",
+   "ipa": "ˈʌndɚ ðə ˈblæŋkət"
+  },
+  "sentence": {
+   "en": "The little kid rolled under the blanket.",
+   "zh": "那個小孩在毯子下打滾"
+  }
+ },
+ {
+  "scen": "運動遊戲",
+  "scenId": "sport",
+  "id": "4-101",
+  "target": "soccer",
+  "gloss": "足球",
+  "ipa": "ˈsɑːkɚ",
+  "phrase": {
+   "en": "a soccer",
+   "zh": "一場足球賽",
+   "ipa": "ə ˈsɑːkɚ"
+  },
+  "sentence": {
+   "en": "Soccer is popular in England.",
+   "zh": "足球在英國很受歡迎"
+  }
+ },
+ {
+  "scen": "運動遊戲",
+  "scenId": "sport",
+  "id": "4-128",
+  "target": "win",
+  "gloss": "贏",
+  "ipa": "ˈwɪn",
+  "phrase": {
+   "en": "win this game",
+   "zh": "贏得這場比賽",
+   "ipa": "ˈwɪn ˈðɪs ˈɡeɪm"
+  },
+  "sentence": {
+   "en": "Our team must win this game.",
+   "zh": "我們的隊伍一定要贏得這場比賽"
+  }
+ },
+ {
+  "scen": "節慶活動",
+  "scenId": "festival",
+  "id": "4-001",
+  "target": "act",
+  "gloss": "扮演",
+  "ipa": "ˈækt",
+  "phrase": {
+   "en": "acts snow white",
+   "zh": "扮演白雪公主",
+   "ipa": "ˈækts ˈsnoʊ ˈwaɪt"
+  },
+  "sentence": {
+   "en": "Lisa acts Snow White in our play.",
+   "zh": "Lisa在我們的戲劇裡扮演白雪公主"
+  }
+ },
+ {
+  "scen": "節慶活動",
+  "scenId": "festival",
+  "id": "4-006",
+  "target": "band",
+  "gloss": "樂團",
+  "ipa": "ˈbænd",
+  "phrase": {
+   "en": "a band",
+   "zh": "一個樂團",
+   "ipa": "ə ˈbænd"
+  },
+  "sentence": {
+   "en": "This band is very popular.",
+   "zh": "這個樂團非常受歡迎"
+  }
+ },
+ {
+  "scen": "節慶活動",
+  "scenId": "festival",
+  "id": "4-024",
+  "target": "comic",
+  "gloss": "漫畫的",
+  "ipa": "ˈkɑːmɪk",
+  "phrase": {
+   "en": "a comic",
+   "zh": "一本漫畫",
+   "ipa": "ə ˈkɑːmɪk"
+  },
+  "sentence": {
+   "en": "My brother reads many comic books.",
+   "zh": "我的弟弟看了很多漫畫"
+  }
+ },
+ {
+  "scen": "節慶活動",
+  "scenId": "festival",
+  "id": "4-063",
+  "target": "movie",
+  "gloss": "電影",
+  "ipa": "ˈmuːvi",
+  "phrase": {
+   "en": "watch a movie",
+   "zh": "看電影",
+   "ipa": "ˈwɑːtʃ ə ˈmuːvi"
+  },
+  "sentence": {
+   "en": "Titanic is an old movie.",
+   "zh": "鐵達尼號是部老電影了"
+  }
+ },
+ {
+  "scen": "節慶活動",
+  "scenId": "festival",
+  "id": "4-115",
+  "target": "tape",
+  "gloss": "錄音帶",
+  "ipa": "ˈteɪp",
+  "phrase": {
+   "en": "play the",
+   "zh": "演奏那個",
+   "ipa": "ˈpleɪ ðə"
+  },
+  "sentence": {
+   "en": "Let's play the tape.",
+   "zh": "我們來放錄音帶吧"
+  }
+ },
+ {
+  "scen": "情緒性格",
+  "scenId": "feeling",
+  "id": "4-032",
+  "target": "dream",
+  "gloss": "夢想",
+  "ipa": "ˈdɹiːm",
+  "phrase": {
+   "en": "a dream",
+   "zh": "一個夢",
+   "ipa": "ə ˈdɹiːm"
+  },
+  "sentence": {
+   "en": "My dream is to make a lot of money.",
+   "zh": "我的夢想是賺很多錢"
+  }
+ },
+ {
+  "scen": "情緒性格",
+  "scenId": "feeling",
+  "id": "4-113",
+  "target": "surprise",
+  "gloss": "驚喜",
+  "ipa": "sɚˈpɹaɪz",
+  "phrase": {
+   "en": "a surprise",
+   "zh": "一個驚喜",
+   "ipa": "ə sɚˈpɹaɪz"
+  },
+  "sentence": {
+   "en": "What a surprise!",
+   "zh": "好大的一個驚喜"
+  }
+ },
+ {
+  "scen": "情緒性格",
+  "scenId": "feeling",
+  "id": "4-122",
+  "target": "trouble",
+  "gloss": "麻煩",
+  "ipa": "ˈtɹʌbəl",
+  "phrase": {
+   "en": "a trouble",
+   "zh": "一個麻煩",
+   "ipa": "ə ˈtɹʌbəl"
+  },
+  "sentence": {
+   "en": "You are in trouble.",
+   "zh": "你有麻煩了"
+  }
+ },
+ {
+  "scen": "情緒性格",
+  "scenId": "feeling",
+  "id": "4-132",
+  "target": "worry",
+  "gloss": "擔心",
+  "ipa": "ˈwɝi",
+  "phrase": {
+   "en": "don't worry",
+   "zh": "別擔心",
+   "ipa": "ˈdoʊnt ˈwɝi"
+  },
+  "sentence": {
+   "en": "Don't worry. We'll be fine.",
+   "zh": "別擔心,我們很好"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-002",
+  "target": "action",
+  "gloss": "行動",
+  "ipa": "ˈækʃən",
+  "phrase": {
+   "en": "take action",
+   "zh": "採取行動",
+   "ipa": "ˈteɪk ˈækʃən"
+  },
+  "sentence": {
+   "en": "We should take action now.",
+   "zh": "我們現在應該採取行動"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-016",
+  "target": "break",
+  "gloss": "休息",
+  "ipa": "ˈbɹeɪk",
+  "phrase": {
+   "en": "take a break",
+   "zh": "休息一下",
+   "ipa": "ˈteɪk ə ˈbɹeɪk"
+  },
+  "sentence": {
+   "en": "It's time to take a break.",
+   "zh": "是時候休息一下了"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-018",
+  "target": "carry",
+  "gloss": "攜帶",
+  "ipa": "ˈkæɹi",
+  "phrase": {
+   "en": "carry too much money",
+   "zh": "帶太多錢在身上",
+   "ipa": "ˈkæɹi ˈtuː ˈmʌtʃ ˈmʌni"
+  },
+  "sentence": {
+   "en": "Don't carry too much money with you.",
+   "zh": "別帶太多錢在身上"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-028",
+  "target": "dig",
+  "gloss": "挖",
+  "ipa": "ˈdɪɡ",
+  "phrase": {
+   "en": "digging on the ground",
+   "zh": "在地上挖土",
+   "ipa": "ˈdɪɡɪŋ ˈɑːn ðə ˈɡɹaʊnd"
+  },
+  "sentence": {
+   "en": "The dog is digging on the ground.",
+   "zh": "這隻狗在地上挖土"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-048",
+  "target": "hold",
+  "gloss": "握著",
+  "ipa": "ˈhoʊld",
+  "phrase": {
+   "en": "go out",
+   "zh": "出門",
+   "ipa": "ˈɡoʊ ˈaʊt"
+  },
+  "sentence": {
+   "en": "The little girl holds her mom's hand when they go out.",
+   "zh": "那個小女孩和媽媽出門時總握著媽媽的手"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-050",
+  "target": "hunt",
+  "gloss": "打獵",
+  "ipa": "ˈhʌnt",
+  "phrase": {
+   "en": "goes hunting",
+   "zh": "去打獵",
+   "ipa": "ˈɡoʊz ˈhʌntɪŋ"
+  },
+  "sentence": {
+   "en": "Richard sometimes goes hunting with his dad.",
+   "zh": "Richard有時和他的爸爸去打獵"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-054",
+  "target": "kill",
+  "gloss": "殺害",
+  "ipa": "ˈkɪl",
+  "phrase": {
+   "en": "killed the man",
+   "zh": "殺了那個男人",
+   "ipa": "ˈkɪld ðə ˈmæn"
+  },
+  "sentence": {
+   "en": "Who killed the man?",
+   "zh": "誰殺了那個男人"
+  }
+ },
+ {
+  "scen": "動作動詞",
+  "scenId": "action",
+  "id": "4-085",
+  "target": "send",
+  "gloss": "送",
+  "ipa": "ˈsɛnd",
+  "phrase": {
+   "en": "make a",
+   "zh": "製作一個",
+   "ipa": "ˈmeɪk ə"
+  },
+  "sentence": {
+   "en": "You can either send an e-mail or make a phone call.",
+   "zh": "你可以寄電子郵件或打電話"
+  }
+ },
+ {
+  "scen": "描述形容",
+  "scenId": "describe",
+  "id": "4-023",
+  "target": "clear",
+  "gloss": "清澈的",
+  "ipa": "ˈklɪɹ",
+  "phrase": {
+   "en": "a clear",
+   "zh": "一個清澈的",
+   "ipa": "ə ˈklɪɹ"
+  },
+  "sentence": {
+   "en": "The water is clear.",
+   "zh": "這水很清澈"
+  }
+ },
+ {
+  "scen": "描述形容",
+  "scenId": "describe",
+  "id": "4-061",
+  "target": "medium",
+  "gloss": "中號的",
+  "ipa": "ˈmiːdiəm",
+  "phrase": {
+   "en": "small or medium",
+   "zh": "小的或中型的",
+   "ipa": "ˈsmɔːl ˈɔːɹ ˈmiːdiəm"
+  },
+  "sentence": {
+   "en": "Small or medium?",
+   "zh": "小的或中的"
+  }
+ },
+ {
+  "scen": "描述形容",
+  "scenId": "describe",
+  "id": "4-078",
+  "target": "popular",
+  "gloss": "受歡迎的",
+  "ipa": "ˈpɑːpjəlɚ",
+  "phrase": {
+   "en": "a popular",
+   "zh": "一個受歡迎的",
+   "ipa": "ə ˈpɑːpjəlɚ"
+  },
+  "sentence": {
+   "en": "This song is very popular in Taiwan.",
+   "zh": "這首歌在台灣很受歡迎"
+  }
+ },
+ {
+  "scen": "描述形容",
+  "scenId": "describe",
+  "id": "4-116",
+  "target": "terrible",
+  "gloss": "糟糕的",
+  "ipa": "ˈtɛɹəbəl",
+  "phrase": {
+   "en": "a terrible",
+   "zh": "一個糟糕的",
+   "ipa": "ə ˈtɛɹəbəl"
+  },
+  "sentence": {
+   "en": "The weather is terrible today.",
+   "zh": "今天天氣很糟"
+  }
+ },
+ {
+  "scen": "描述形容",
+  "scenId": "describe",
+  "id": "4-130",
+  "target": "wise",
+  "gloss": "明智的",
+  "ipa": "ˈwaɪz",
+  "phrase": {
+   "en": "a wise",
+   "zh": "一個明智的",
+   "ipa": "ə ˈwaɪz"
+  },
+  "sentence": {
+   "en": "The man is wise enough to choose the better one.",
+   "zh": "這個男人夠明智能選出較好的"
+  }
+ },
+ {
+  "scen": "描述形容",
+  "scenId": "describe",
+  "id": "4-131",
+  "target": "wonderful",
+  "gloss": "很棒的",
+  "ipa": "ˈwʌndɚfəl",
+  "phrase": {
+   "en": "a wonderful",
+   "zh": "一個很棒的",
+   "ipa": "ə ˈwʌndɚfəl"
+  },
+  "sentence": {
+   "en": "It's a wonderful day.",
+   "zh": "這是很棒的一天"
+  }
+ },
+ {
+  "scen": "日常對話",
+  "scenId": "talk",
+  "id": "4-062",
+  "target": "mind",
+  "gloss": "介意",
+  "ipa": "ˈmaɪnd",
+  "phrase": {
+   "en": "never mind",
+   "zh": "沒關係",
+   "ipa": "ˈnɛvɚ ˈmaɪnd"
+  },
+  "sentence": {
+   "en": "Never mind.",
+   "zh": "沒關係，別介意"
+  }
+ },
+ {
+  "scen": "日常對話",
+  "scenId": "talk",
+  "id": "4-106",
+  "target": "sound",
+  "gloss": "聽起來",
+  "ipa": "ˈsaʊnd",
+  "phrase": {
+   "en": "a sound",
+   "zh": "一個聲音",
+   "ipa": "ə ˈsaʊnd"
+  },
+  "sentence": {
+   "en": "This idea sounds great.",
+   "zh": "這個主意聽起來不錯。"
+  }
+ }
+]
