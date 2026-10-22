@@ -695,7 +695,13 @@
 
       var anomalies = orphanDone.length + orphanRetry.length + both.length;
 
-      var html = '<div class="st-summary">' +
+      var html = '<div class="toolbar" style="margin:0 0 12px">' +
+        '<button class="btn ghost small" id="stRefresh" type="button">重新檢查資料庫</button>' +
+        '<span class="st-note" style="margin:0;align-self:center">題庫版本 ' +
+          QCORE.esc(m.generated_at ? QCORE.fmtDateTime(m.generated_at) : "未知") +
+          ' ・ 已測驗累計自最近 1000 份考卷</span>' +
+      '</div>' +
+      '<div class="st-summary">' +
         sumCard("題庫總題數", meta.length) +
         sumCard("已測驗", totalSeen, "ok") +
         sumCard("未測驗", meta.length - totalSeen) +
@@ -775,9 +781,11 @@
       var s1 = document.getElementById("stSubj");
       var s2 = document.getElementById("stStat");
       var s3 = document.getElementById("stQ");
+      var s4 = document.getElementById("stRefresh");
       if (s1) s1.onchange = paintStatQ;
       if (s2) s2.onchange = paintStatQ;
       if (s3) s3.oninput = paintStatQ;
+      if (s4) s4.onclick = renderStats;
       paintStatQ();
     }).catch(function (e) {
       var b = document.getElementById("statsBox");
