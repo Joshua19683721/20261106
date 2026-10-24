@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>四上期中考複習卷</title>
+<style>
+@font-face{font-family:'書法居中（注音一）';src:url('assets/fonts/PHT021.woff') format('woff');font-display:swap}
+@font-face{font-family:'書法中楷（注音一）';src:url('assets/fonts/PHTK51.woff') format('woff');font-display:swap}
+@font-face{font-family:'書法中楷（破音二）';src:url('assets/fonts/PHTK52S.woff') format('woff');font-display:swap}
+
+:root{
+  --mint:#e7f6f0;
+  --mint-2:#d5efe6;
+  --teal:#00a89d;
+  --teal-dark:#00877e;
+  --teal-soft:#bfe6e0;
+  --maroon:#8b2b45;
+  --ink:#33373b;
+  --ink-2:#6b7178;
+  --line:#e3e7ea;
+  --ok:#12915f;
+  --bad:#c0392b;
+  --card:#ffffff;
+  --shadow:0 2px 10px rgba(21,60,54,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--mint);
+  color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei","微軟正黑體",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+.wrap{max-width:1020px;margin:0 auto;padding:20px 16px 64px}
+
+/* ---------- home ---------- */
+.hero{
+  background:linear-gradient(135deg,#00a89d,#4cc9b8);
+  color:#fff;border-radius:18px;padding:26px 28px;box-shadow:var(--shadow);
+  display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;
+}
+.hero h1{margin:0;font-size:26px;letter-spacing:.5px}
+.hero p{margin:6px 0 0;opacity:.9;font-size:14px}
+.hero .stat{display:flex;gap:18px}
+.hero .stat b{display:block;font-size:24px;line-height:1.1}
+.hero .stat span{font-size:12px;opacity:.85}
+
+.pack{
+  background:var(--card);border-radius:16px;box-shadow:var(--shadow);
+  margin-top:18px;overflow:hidden;
+}
+.pack-head{
+  display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);
+}
+.pack-ico{
+  width:38px;height:38px;border-radius:12px;background:var(--mint-2);color:var(--teal-dark);
+  display:grid;place-items:center;font-weight:700;font-size:15px;flex:0 0 auto;
+}
+.pack-head h2{margin:0;font-size:17px;font-weight:700}
+.pack-head .sub{color:var(--ink-2);font-size:12.5px;margin-top:2px}
+.pack-head .count{margin-left:auto;color:var(--ink-2);font-size:13px;white-space:nowrap}
+
+.paper{
+  display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid #f1f4f5;
+}
+.paper:last-child{border-bottom:0}
+.paper:hover{background:#fafdfc}
+.paper .info{min-width:0;flex:1}
+.paper .name{font-size:15.5px;font-weight:600}
+.paper .tags{margin-top:5px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{
+  font-size:11.5px;color:var(--ink-2);background:#f2f5f6;border-radius:999px;padding:1px 9px;
+}
+.tag.teal{background:var(--mint-2);color:var(--teal-dark)}
+.paper .btns{display:flex;gap:8px;flex:0 0 auto}
+
+.btn{
+  border-radius:999px;padding:7px 16px;border:1px solid var(--line);background:#fff;color:var(--ink);
+  font-size:13.5px;transition:.15s;white-space:nowrap;
+}
+.btn:hover{border-color:var(--teal-soft);background:#f7fcfb}
+.btn.primary{border-color:var(--teal);color:var(--teal-dark);font-weight:600}
+.btn.primary:hover{background:var(--teal);color:#fff}
+.btn.submit{border-color:var(--maroon);color:var(--maroon);font-weight:600}
+.btn.submit:hover{background:var(--maroon);color:#fff}
+.btn.ghost{border-color:#dfe5e7;color:var(--ink-2)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.small{padding:5px 12px;font-size:12.5px}
+
+/* ---------- quiz ---------- */
+.qtop{
+  position:sticky;top:0;z-index:20;background:rgba(231,246,240,.92);backdrop-filter:blur(8px);
+  padding:12px 0 10px;margin-bottom:4px;
+}
+.qtop-inner{
+  background:var(--card);border-radius:16px;box-shadow:var(--shadow);
+  padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.qtop .meta{font-size:13.5px;color:var(--ink-2)}
+.qtop .meta b{color:var(--ink)}
+.qtop .right{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.timer{
+  font-variant-numeric:tabular-nums;font-weight:700;font-size:15px;color:var(--ink);
+  background:#f5f8f8;border-radius:999px;padding:5px 14px;letter-spacing:.5px;
+}
+.palette{
+  display:flex;gap:8px;overflow-x:auto;padding:12px 4px 14px;scrollbar-width:thin;
+}
+.pnum{
+  flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--teal-soft);
+  background:#fff;color:var(--ink);font-size:14.5px;position:relative;transition:.12s;
+}
+.pnum:hover{border-color:var(--teal)}
+.pnum.ans{background:#e4f6f2;border-color:var(--teal-soft);color:var(--teal-dark)}
+.pnum.cur{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:700;box-shadow:0 3px 10px rgba(0,168,157,.35)}
+.pnum.flag::after{
+  content:"";position:absolute;top:-1px;right:-1px;width:10px;height:10px;border-radius:50%;
+  background:#e8a33d;border:2px solid #fff;
+}
+.pnum.ok{border-color:#bfe3d2;background:#eaf8f0;color:var(--ok)}
+.pnum.no{border-color:#f0c9c4;background:#fdeeec;color:var(--bad)}
+
+.card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.typebar{
+  display:flex;align-items:center;gap:12px;background:#f4f6f7;border-bottom:1px solid var(--line);
+  padding:9px 18px;font-size:13.5px;color:var(--ink-2);
+}
+.typebar .unit{margin-left:auto;font-size:12.5px;color:#98a1a6}
+.typebar .flagbtn{
+  margin-left:auto;background:#fff;border:1px solid #dfe5e7;border-radius:999px;padding:3px 14px;
+  font-size:12.5px;color:var(--ink-2);
+}
+.typebar .flagbtn.on{background:#fdf3e3;border-color:#eccf9d;color:#a9701a}
+.typebar .unit + .flagbtn{margin-left:10px}
+
+.qbody{padding:22px 26px 26px}
+.passage{
+  background:#fafcfb;border:1px solid #eef2f1;border-left:4px solid var(--teal-soft);
+  border-radius:10px;padding:14px 18px;margin-bottom:18px;max-height:340px;overflow:auto;
+}
+.passage .plabel{font-size:12px;color:var(--teal-dark);font-weight:700;margin-bottom:6px;letter-spacing:.5px}
+.instr{color:var(--ink-2);font-size:13.5px;margin-bottom:8px}
+.stem{font-size:17px;margin-bottom:6px;display:flex;gap:8px;align-items:flex-start}
+.stem .qnum{font-weight:700;color:var(--teal-dark);flex:0 0 auto}
+.stem .qtext{flex:1;min-width:0}
+.audio{margin:10px 0 4px}
+.audio audio{width:100%;max-width:420px}
+
+.options{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.opt{
+  display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
+  background:#fff;border:1px solid #e8ecee;border-radius:12px;padding:11px 16px;
+  transition:.13s;color:var(--ink);
+}
+.opt:hover{border-color:var(--teal-soft);background:#fbfefd}
+.opt .radio{
+  flex:0 0 auto;width:20px;height:20px;border-radius:50%;border:2px solid #b9c2c6;margin-top:3px;
+  position:relative;
+}
+.opt.sel{border-color:var(--teal);background:#f2fbf9}
+.opt.sel .radio{border-color:var(--teal)}
+.opt.sel .radio::after{
+  content:"";position:absolute;inset:3px;border-radius:50%;background:var(--teal);
+}
+.opt .olabel{flex:0 0 auto;font-weight:600;color:#555;min-width:1.2em}
+.opt .otext{flex:1;min-width:0}
+.opt.correct{border-color:#8fd3b6;background:#f0fbf5}
+.opt.correct .radio{border-color:var(--ok)}
+.opt.correct .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--ok)}
+.opt.wrong{border-color:#e9a89f;background:#fdf2f0}
+.opt.wrong .radio{border-color:var(--bad)}
+.opt.wrong .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--bad)}
+.opt .mark{margin-left:auto;font-size:12.5px;font-weight:700;white-space:nowrap;padding-left:8px}
+.opt.correct .mark{color:var(--ok)}
+.opt.wrong .mark{color:var(--bad)}
+
+.nav{display:flex;align-items:center;gap:12px;margin-top:16px}
+.nav .spacer{flex:1}
+.nav .pos{color:var(--ink-2);font-size:13.5px;font-variant-numeric:tabular-nums}
+.nav button{
+  border-radius:12px;border:1px solid #dfe5e7;background:#fff;padding:10px 26px;font-size:14.5px;color:var(--ink);
+}
+.nav button:hover{border-color:var(--teal-soft);background:#f7fcfb}
+.nav button.primary{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
+.nav button.primary:hover{background:var(--teal-dark);border-color:var(--teal-dark)}
+.nav button:disabled{opacity:.4;cursor:not-allowed}
+
+.hint{margin-top:10px;color:#9aa3a8;font-size:12px;text-align:center}
+
+/* ---------- result ---------- */
+.scorecard{
+  background:linear-gradient(135deg,#00a89d,#4cc9b8);color:#fff;border-radius:18px;
+  padding:26px 28px;box-shadow:var(--shadow);display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+}
+.scorecard .big{font-size:56px;font-weight:800;line-height:1}
+.scorecard .big small{font-size:18px;font-weight:600;margin-left:4px}
+.scorecard .rows{display:flex;gap:26px;flex-wrap:wrap}
+.scorecard .rows div span{display:block;font-size:12px;opacity:.85}
+.scorecard .rows div b{font-size:20px}
+.scorecard .right{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+.scorecard .btn{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6);color:#fff}
+.scorecard .btn:hover{background:#fff;color:var(--teal-dark)}
+
+.review-head{display:flex;align-items:center;gap:12px;margin:22px 4px 10px}
+.review-head h3{margin:0;font-size:16px}
+.review-head .btn{margin-left:auto}
+.rq{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:18px 22px;margin-bottom:14px}
+.rq.good{border-left:5px solid #8fd3b6}
+.rq.bad{border-left:5px solid #e9a89f}
+.rq .rhead{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--ink-2);margin-bottom:8px;flex-wrap:wrap}
+.rq .rhead .no{font-weight:700;color:var(--ink);font-size:14px}
+.rq .rhead .badge{border-radius:999px;padding:1px 9px;background:#f2f5f6}
+.rq .rhead .badge.ok{background:#eaf8f0;color:var(--ok)}
+.rq .rhead .badge.no{background:#fdeeec;color:var(--bad)}
+.rq .rhead .badge.tg{background:var(--mint-2);color:var(--teal-dark)}
+.rq .ansline{margin-top:10px;font-size:13.5px;color:var(--ink-2)}
+.rq .ansline b{color:var(--ok)}
+.rq .ansline s{color:var(--bad);text-decoration-thickness:1.5px}
+.rq .explain{
+  margin-top:10px;background:#fbfcf5;border:1px solid #f0eedd;border-radius:10px;padding:10px 14px;font-size:14px;
+}
+.rq .explain .t{font-size:12px;color:#a08b3c;font-weight:700;margin-bottom:4px}
+.rq .opts{margin-top:12px;display:flex;flex-direction:column;gap:7px}
+.rq .o{display:flex;gap:9px;font-size:14.5px;padding:5px 10px;border-radius:9px;border:1px solid transparent}
+.rq .o.correct{background:#f0fbf5;border-color:#ccebdc}
+.rq .o.wrong{background:#fdf2f0;border-color:#f2cdc7}
+.rq .o .lb{font-weight:700;color:#666;min-width:1.3em}
+.rq .o .mk{margin-left:auto;font-size:12px;font-weight:700}
+.rq .o.correct .mk{color:var(--ok)}
+.rq .o.wrong .mk{color:var(--bad)}
+.rq .passage{margin-bottom:12px;max-height:220px}
+
+/* ---------- question html normalisation ---------- */
+.q-html span{font-size:inherit !important;color:inherit !important;position:static !important;top:auto !important}
+.q-html span[style*="注音"],.q-html span[style*="破音"]{font-size:1.45em !important;line-height:1}
+.q-html img{max-width:100%;height:auto !important;vertical-align:middle}
+.q-html p{margin:0 0 .35em}
+.q-html table{border-collapse:collapse;max-width:100%}
+.q-html td,.q-html th{padding:2px 6px}
+.q-html .wdUnderlineWavy{position:relative;white-space:nowrap}
+.q-html .wdUnderlineWavy::before{
+  content:'';position:absolute;top:105%;left:0;width:100%;height:.25em;
+  background:linear-gradient(135deg,transparent,transparent 45%,#000,transparent 55%,transparent 100%),
+             linear-gradient(45deg,transparent,transparent 45%,#000,transparent 55%,transparent 100%);
+  background-size:.5em .5em;background-repeat:repeat-x;
+}
+.q-html u{text-decoration-thickness:1.5px}
+
+.empty{text-align:center;color:var(--ink-2);padding:60px 20px}
+
+@media (max-width:720px){
+  .wrap{padding:12px 10px 48px}
+  .hero{padding:20px}
+  .hero h1{font-size:21px}
+  .paper{flex-wrap:wrap}
+  .paper .btns{width:100%;justify-content:flex-end}
+  .qbody{padding:16px}
+  .stem{font-size:16px}
+  .pnum{width:36px;height:36px;font-size:13.5px}
+  .scorecard .big{font-size:42px}
+  .scorecard .right{margin-left:0;width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script src="data.js"></script>
+<script>
+(function(){
+  "use strict";
+  var DATA = window.QUIZ_DATA;
+  var app = document.getElementById("app");
+
+  var state = {
+    paperId: null,
+    idx: 0,
+    mode: "exam",        // exam | study
+    submitted: false,
+    showAnswer: false,
+    answers: {},
+    flags: {},
+    startedAt: 0,
+    elapsed: 0,
+    onlyWrong: false
+  };
+  var timerId = null;
+
+  var LS_ANS = "ks_quiz_answers_v1_";
+  var LS_FLAG = "ks_quiz_flags_v1_";
+
+  function load(k, d){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } }
+  function save(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function paper(){ return DATA.papers[state.paperId]; }
+  function fmtTime(ms){
+    var s = Math.floor(ms/1000);
+    var h = String(Math.floor(s/3600)).padStart(2,"0");
+    var m = String(Math.floor(s%3600/60)).padStart(2,"0");
+    var ss = String(s%60).padStart(2,"0");
+    return h+":"+m+":"+ss;
+  }
+  function groupCount(p){
+    var g = {};
+    p.questions.forEach(function(q){ if(q.groupId) g[q.groupId]=1; });
+    return Object.keys(g).length;
+  }
+  function isCorrect(q, picked){
+    if(!picked || !picked.length) return false;
+    var a = q.answers.slice().sort().join(",");
+    var b = picked.slice().sort().join(",");
+    return a === b;
+  }
+  function correctLabels(q){
+    return q.options.filter(function(o){ return q.answers.indexOf(String(o.value)) >= 0; })
+      .map(function(o){ return o.label || o.value; }).join("、");
+  }
+  function optText(o){
+    if (o.html && o.html.replace(/<[^>]*>/g,"").trim() === (o.label||"").trim()) return "";
+    return o.html;
+  }
+  function shortType(q){
+    var t = q.type || "選擇題";
+    var plain = t.replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim();
+    return plain.length > 24 ? (q.groupId ? "題組" : "選擇題") : plain;
+  }
+  function passageLabel(q){
+    var t = String(q.passage||"").replace(/<[^>]*>/g,"").replace(/\s+/g," ").trim();
+    return t.length < 40 ? "共同說明" : "題組文章";
+  }
+  function optLabel(o, val){
+    var l = String(o.label || val);
+    return /^[A-Za-z]$/.test(l) ? "(" + l + ")" : l;
+  }
+
+  /* ---------------- HOME ---------------- */
+  function renderHome(){
+    stopTimer();
+    var totalQ = DATA.papers.reduce(function(s,p){ return s+p.count; },0);
+    var html = '';
+    html += '<div class="hero">'
+         +  '<div><h1>四上期中考複習卷</h1>'
+         +  '<p>康軒雲學校「系統指派」段考複習 · 國語／英語／數學／自然／社會</p></div>'
+         +  '<div class="stat">'
+         +    '<div><b>'+DATA.packs.length+'</b><span>科目任務</span></div>'
+         +    '<div><b>'+DATA.papers.length+'</b><span>份試卷</span></div>'
+         +    '<div><b>'+totalQ+'</b><span>道題目</span></div>'
+         +  '</div>'
+         + '</div>';
+
+    DATA.packs.forEach(function(pack){
+      html += '<section class="pack">';
+      html += '<div class="pack-head"><div class="pack-ico">'+esc(pack.subject.slice(0,1))+'</div>'
+           +  '<div><h2>'+esc(pack.name)+'</h2>'
+           +  '<div class="sub">'+pack.items.length+' 個子任務 · 共 '+pack.count+' 題</div></div>'
+           +  '<div class="count">系統指派</div></div>';
+      pack.items.forEach(function(id){
+        var p = DATA.papers[id];
+        var g = groupCount(p);
+        var done = load(LS_ANS+id, {});
+        var answered = Object.keys(done).length;
+        html += '<div class="paper"><div class="info">'
+             +  '<div class="name">'+esc(p.name)+'</div>'
+             +  '<div class="tags">'
+             +    '<span class="tag teal">'+esc(p.subject)+'</span>'
+             +    '<span class="tag">'+esc((p.name.match(/^(適.)/)||[,p.publisher])[1])+'版</span>'
+             +    '<span class="tag">'+p.count+' 題'+(g?('（含 '+g+' 題組）'):'')+'</span>'
+             +    (answered? '<span class="tag">已作答 '+answered+' 題</span>':'')
+             +  '</div></div>'
+             +  '<div class="btns">'
+             +    '<button class="btn ghost" data-act="study" data-id="'+id+'">看解答</button>'
+             +    '<button class="btn primary" data-act="start" data-id="'+id+'">開始測驗</button>'
+             +  '</div></div>';
+      });
+      html += '</section>';
+    });
+
+    html += '<p class="hint">題目、選項、答案與解析皆取自康軒雲學校任務內容；可離線作答。</p>';
+    app.innerHTML = html;
+  }
+
+  /* ---------------- QUIZ ---------------- */
+  function startPaper(id, mode){
+    state.paperId = id;
+    state.idx = 0;
+    state.mode = mode;
+    state.submitted = (mode === "study");
+    state.showAnswer = (mode === "study");
+    state.onlyWrong = false;
+    state.answers = mode === "study" ? {} : load(LS_ANS+id, {});
+    state.flags = load(LS_FLAG+id, {});
+    state.startedAt = Date.now();
+    state.elapsed = 0;
+    renderQuiz();
+    startTimer();
+  }
+
+  function startTimer(){
+    stopTimer();
+    timerId = setInterval(function(){
+      state.elapsed = Date.now() - state.startedAt;
+      var el = document.querySelector(".timer");
+      if (el) el.textContent = fmtTime(state.elapsed);
+    }, 1000);
+  }
+  function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
+
+  function renderQuiz(){
+    var p = paper();
+    var q = p.questions[state.idx];
+    var picked = state.answers[state.idx] || [];
+    var flagged = !!state.flags[state.idx];
+    var showAns = state.showAnswer || state.submitted;
+    var g = groupCount(p);
+
+    var html = '';
+    html += '<div class="qtop"><div class="qtop-inner">'
+         +   '<div class="meta">共 <b>'+p.count+'</b> 題，內含題組 <b>'+g+'</b> 題，共 <b>'+p.count+'</b> 答。</div>'
+         +   '<div class="right">'
+         +     '<span class="timer">'+fmtTime(state.elapsed)+'</span>'
+         +     '<button class="btn ghost small" id="btnHome">回任務一覽</button>'
+         +     (state.mode==="study" ? '' : '<button class="btn small" id="btnToggleAns">'+(state.showAnswer?'隱藏答案':'顯示答案')+'</button>')
+         +     (state.mode==="study" ? '' : '<button class="btn submit small" id="btnSubmit">繳交考卷</button>')
+         +   '</div>'
+         + '</div></div>';
+
+    html += '<div class="palette">';
+    p.questions.forEach(function(qq, i){
+      var cls = "pnum";
+      if (i === state.idx) cls += " cur";
+      else if ((state.answers[i]||[]).length) cls += " ans";
+      if (state.flags[i]) cls += " flag";
+      if (state.submitted && state.mode === "exam") cls += isCorrect(qq, state.answers[i]) ? " ok" : " no";
+      html += '<button class="'+cls+'" data-jump="'+i+'">'+(i+1)+'</button>';
+    });
+    html += '</div>';
+
+    html += '<div class="card">';
+    html += '<div class="typebar"><span>'+esc(shortType(q))+'</span>'
+         +  (q.unit? '<span class="unit">'+esc(q.unit)+'</span>' : '<span class="unit"></span>')
+         +  '<button class="flagbtn'+(flagged?' on':'')+'" id="btnFlag">'+(flagged?'已標記':'未標記')+'</button>'
+         +  '</div>';
+    html += '<div class="qbody">';
+    if (q.passage) html += '<div class="passage"><div class="plabel">'+passageLabel(q)+'</div><div class="q-html">'+q.passage+'</div></div>';
+    if (q.instruction) html += '<div class="instr q-html">'+q.instruction+'</div>';
+    if (q.stem) html += '<div class="stem"><span class="qnum">'+(state.idx+1)+'.</span><span class="qtext q-html">'+q.stem+'</span></div>';
+    else html += '<div class="stem"><span class="qnum">'+(state.idx+1)+'.</span><span class="qtext q-html"></span></div>';
+    if (q.audio) html += '<div class="audio"><audio controls preload="none" src="'+q.audio+'"></audio></div>';
+    html += '<div class="options">';
+    q.options.forEach(function(o){
+      var val = String(o.value);
+      var sel = picked.indexOf(val) >= 0;
+      var cls = "opt";
+      var mark = "";
+      if (showAns){
+        var ok = q.answers.indexOf(val) >= 0;
+        if (ok){ cls += " correct"; mark = '<span class="mark">正確答案</span>'; }
+        else if (sel){ cls += " wrong"; mark = '<span class="mark">你的選擇</span>'; }
+      } else if (sel){ cls += " sel"; }
+      var ot = optText(o);
+      html += '<button class="'+cls+'" data-pick="'+val+'"'+(state.submitted?' disabled':'')+'>'
+           +   '<span class="radio"></span>'
+           +   '<span class="olabel">'+esc(optLabel(o,val))+'</span>'
+           +   (ot? '<span class="otext q-html">'+ot+'</span>':'')
+           +   mark
+           + '</button>';
+    });
+    html += '</div></div></div>';
+
+    html += '<div class="nav">'
+         +   '<button id="btnPrev"'+(state.idx===0?' disabled':'')+'>上一題</button>'
+         +   '<span class="spacer"></span>'
+         +   '<span class="pos">'+(state.idx+1)+' / '+p.count+'</span>'
+         +   '<span class="spacer"></span>'
+         +   '<button class="primary" id="btnNext">'+(state.idx===p.count-1?'看結果':'下一題')+'</button>'
+         + '</div>';
+    html += '<p class="hint">鍵盤：← → 換題，1～4 選答，F 標記</p>';
+
+    app.innerHTML = html;
+    bindQuiz();
+  }
+
+  function bindQuiz(){
+    app.querySelectorAll("[data-jump]").forEach(function(b){
+      b.onclick = function(){ state.idx = +b.getAttribute("data-jump"); renderQuiz(); };
+    });
+    app.querySelectorAll("[data-pick]").forEach(function(b){
+      b.onclick = function(){
+        if (state.submitted) return;
+        var v = b.getAttribute("data-pick");
+        var cur = state.answers[state.idx] || [];
+        var i = cur.indexOf(v);
+        if (i >= 0) cur.splice(i,1); else cur = [v];
+        state.answers[state.idx] = cur;
+        save(LS_ANS+state.paperId, state.answers);
+        renderQuiz();
+      };
+    });
+    var f = document.getElementById("btnFlag");
+    if (f) f.onclick = function(){
+      state.flags[state.idx] = !state.flags[state.idx];
+      save(LS_FLAG+state.paperId, state.flags);
+      renderQuiz();
+    };
+    var prev = document.getElementById("btnPrev");
+    if (prev) prev.onclick = function(){ if(state.idx>0){ state.idx--; renderQuiz(); } };
+    var next = document.getElementById("btnNext");
+    if (next) next.onclick = function(){
+      if (state.idx < paper().count-1){ state.idx++; renderQuiz(); }
+      else submit();
+    };
+    document.getElementById("btnHome").onclick = function(){ renderHome(); };
+    var tgl = document.getElementById("btnToggleAns");
+    if (tgl) tgl.onclick = function(){
+      state.showAnswer = !state.showAnswer; renderQuiz();
+    };
+    var sb = document.getElementById("btnSubmit");
+    if (sb) sb.onclick = submit;
+  }
+
+  function submit(){
+    var p = paper();
+    if (state.mode === "study"){ renderHome(); return; }
+    var blank = p.questions.filter(function(q,i){ return !(state.answers[i]||[]).length; }).length;
+    var msg = blank ? ("還有 "+blank+" 題未作答，確定要繳交考卷嗎？") : "確定要繳交考卷嗎？";
+    if (!window.confirm(msg)) return;
+    state.submitted = true;
+    state.elapsed = Date.now() - state.startedAt;
+    stopTimer();
+    renderResult();
+  }
+
+  /* ---------------- RESULT ---------------- */
+  function renderResult(){
+    var p = paper();
+    var correct = 0;
+    p.questions.forEach(function(q,i){ if (isCorrect(q, state.answers[i])) correct++; });
+    var score = Math.round(correct / p.count * 100);
+    var g = groupCount(p);
+
+    var html = '';
+    html += '<div class="scorecard">'
+         +   '<div class="big">'+score+'<small>分</small></div>'
+         +   '<div class="rows">'
+         +     '<div><span>答對</span><b>'+correct+' / '+p.count+'</b></div>'
+         +     '<div><span>答錯／未答</span><b>'+(p.count-correct)+'</b></div>'
+         +     '<div><span>作答時間</span><b>'+fmtTime(state.elapsed)+'</b></div>'
+         +     '<div><span>題組</span><b>'+g+'</b></div>'
+         +   '</div>'
+         +   '<div class="right">'
+         +     '<button class="btn" id="btnAgain">再考一次</button>'
+         +     '<button class="btn" id="btnHome2">回任務一覽</button>'
+         +   '</div>'
+         + '</div>';
+
+    html += '<div class="review-head"><h3>'+esc(p.name)+' · 解答</h3>'
+         +  '<button class="btn small" id="btnOnlyWrong">'+(state.onlyWrong?'顯示全部':'只看答錯')+'</button></div>';
+
+    var lastGroup = null;
+    p.questions.forEach(function(q, i){
+      var ok = isCorrect(q, state.answers[i]);
+      if (state.onlyWrong && ok) return;
+      var picked = state.answers[i] || [];
+      html += '<div class="rq '+(ok?'good':'bad')+'">';
+      html += '<div class="rhead"><span class="no">'+(i+1)+'.</span>'
+           +  (q.groupId? '<span class="badge tg">題組</span>':'')
+           +  '<span class="badge">'+esc(shortType(q))+'</span>'
+           +  (q.unit? '<span class="badge">'+esc(q.unit)+'</span>':'')
+           +  '<span class="badge '+(ok?'ok':'no')+'">'+(ok?'答對':(picked.length?'答錯':'未作答'))+'</span>'
+           +  '</div>';
+      if (q.groupId && q.groupId !== lastGroup && q.passage){
+        html += '<div class="passage"><div class="plabel">'+passageLabel(q)+'</div><div class="q-html">'+q.passage+'</div></div>';
+      }
+      lastGroup = q.groupId;
+      if (q.instruction) html += '<div class="instr q-html">'+q.instruction+'</div>';
+      html += '<div class="stem"><span class="qnum"></span><span class="qtext q-html">'+(q.stem||"")+'</span></div>';
+      if (q.audio) html += '<div class="audio"><audio controls preload="none" src="'+q.audio+'"></audio></div>';
+      html += '<div class="opts">';
+      q.options.forEach(function(o){
+        var val = String(o.value);
+        var isAns = q.answers.indexOf(val) >= 0;
+        var isPick = picked.indexOf(val) >= 0;
+        var cls = "o";
+        if (isAns) cls += " correct"; else if (isPick) cls += " wrong";
+        var mk = isAns ? "✔ 正確答案" : (isPick ? "✘ 你的選擇" : "");
+        html += '<div class="'+cls+'"><span class="lb">'+esc(optLabel(o,val))+'</span>'
+             +  '<span class="q-html">'+optText(o)+'</span>'
+             +  '<span class="mk">'+mk+'</span></div>';
+      });
+      html += '</div>';
+      html += '<div class="ansline">你的答案：'+(picked.length? picked.map(function(v){ return labelOf(q,v); }).join("、") : "（未作答）")
+           +  '　正確答案：<b>'+correctLabels(q)+'</b></div>';
+      if (q.explanation) html += '<div class="explain"><div class="t">解析</div><div class="q-html">'+q.explanation+'</div></div>';
+      html += '</div>';
+    });
+
+    app.innerHTML = html;
+    document.getElementById("btnAgain").onclick = function(){
+      state.answers = {}; save(LS_ANS+state.paperId, {});
+      startPaper(state.paperId, "exam");
+    };
+    document.getElementById("btnHome2").onclick = renderHome;
+    document.getElementById("btnOnlyWrong").onclick = function(){
+      state.onlyWrong = !state.onlyWrong; renderResult();
+    };
+    window.scrollTo(0,0);
+  }
+
+  function labelOf(q, val){
+    var o = q.options.filter(function(x){ return String(x.value) === String(val); })[0];
+    return o ? (o.label || val) : val;
+  }
+
+  /* ---------------- events ---------------- */
+  app.addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-act]");
+    if (!b) return;
+    var id = +b.getAttribute("data-id");
+    startPaper(id, b.getAttribute("data-act") === "study" ? "study" : "exam");
+    window.scrollTo(0,0);
+  });
+
+  document.addEventListener("keydown", function(ev){
+    if (state.paperId == null || state.submitted) return;
+    if (ev.key === "ArrowRight"){ if (state.idx < paper().count-1){ state.idx++; renderQuiz(); } }
+    else if (ev.key === "ArrowLeft"){ if (state.idx > 0){ state.idx--; renderQuiz(); } }
+    else if (/^[1-9]$/.test(ev.key)){
+      var q = paper().questions[state.idx];
+      var o = q.options[+ev.key-1];
+      if (o){ state.answers[state.idx] = String(o.value); save(LS_ANS+state.paperId, state.answers); renderQuiz(); }
+    }
+    else if (ev.key === "f" || ev.key === "F"){
+      state.flags[state.idx] = !state.flags[state.idx];
+      save(LS_FLAG+state.paperId, state.flags); renderQuiz();
+    }
+  });
+
+  renderHome();
+})();
+</script>
+</body>
+</html>
